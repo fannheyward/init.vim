@@ -1,0 +1,5 @@
+Vim config of @fannheyward.
+
+1. git clone http://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+2. cp .vimrc ~/
+3. vim +BundleInstall +qa
