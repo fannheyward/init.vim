@@ -76,6 +76,9 @@ set backspace=indent,eol,start
 let do_syntax_sel_menu=1
 set ut=200
 
+" Automatically cd into the directory that the file is in
+autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+
 " Plugin config.
 " TagList
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
