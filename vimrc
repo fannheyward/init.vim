@@ -76,6 +76,9 @@ set backspace=indent,eol,start
 let do_syntax_sel_menu=1
 set ut=200
 
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! %!sudo tee > /dev/null %
+
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
