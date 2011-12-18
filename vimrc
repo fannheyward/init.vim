@@ -11,6 +11,7 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
+Bundle 'Shougo/neocomplcache'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -20,8 +21,6 @@ Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/statusline.vim'
 " vim-scripts repos
-Bundle 'L9'
-Bundle 'AutoComplPop'
 Bundle 'a.vim'
 
 filetype plugin indent on     " required! 
@@ -96,8 +95,22 @@ let g:Tlist_Show_One_File=1
 " Tasklist
 let g:tlTokenList = ['TODO' , 'WTF']
 
-" acp.vim
-let g:acp_behaviorPythonOmniLength = -1
+" neocomplcache.vim
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+let g:NeoComplCache_DisableAutoComplete = 0
+let g:neocomplcache_enable_auto_select = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Use camel case completion.
+let g:neocomplcache_enable_camel_case_completion = 1
+" Use underbar completion.
+let g:neocomplcache_enable_underbar_completion = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
 " BufExplorer
 let g:bufExplorerDefaultHelp=0       " Do not show default help.
