@@ -15,11 +15,9 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'wincent/Command-T'
-"Bundle 'fholgado/minibufexpl.vim'
-Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/statusline.vim'
+Bundle 'kien/ctrlp.vim'
 " vim-scripts repos
 Bundle 'a.vim'
 
