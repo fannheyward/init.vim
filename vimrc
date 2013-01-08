@@ -34,7 +34,7 @@ filetype plugin indent on     " required!
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set mapleader
-let mapleader = ","
+"let mapleader = ","
 map <silent> <leader>ss :source ~/.vimrc<cr>
 map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>n :noh<cr>
