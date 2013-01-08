@@ -41,7 +41,8 @@ map <silent> <leader>n :noh<cr>
 
 set guifont=Monaco:h15
 set guifontwide=Monaco:h15
-colorscheme slate
+colorscheme solarized
+set background=dark
 
 " Chinese encodingcoding
 set encoding=utf-8
