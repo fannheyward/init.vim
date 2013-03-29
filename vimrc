@@ -21,8 +21,10 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'vim-scripts/statusline.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 " vim-scripts repos
-Bundle 'a.vim'
+"Bundle 'a.vim'
 
 filetype plugin indent on     " required! 
 "
@@ -85,6 +87,11 @@ cmap w!! %!sudo tee > /dev/null %
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Plugin config.
+" CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " TagList
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let g:Tlist_Inc_Winwidth=0
