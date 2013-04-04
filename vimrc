@@ -11,18 +11,19 @@ Bundle 'gmarik/vundle'
 " My Bundles here:
 "
 " original repos on github
+Bundle 'honza/vim-snippets'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'tomtom/tlib_vim'
+"Bundle 'garbas/vim-snipmate'
 Bundle 'Shougo/neocomplcache'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
-Bundle 'garbas/vim-snipmate'
+Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/taglist.vim'
-Bundle 'vim-scripts/statusline.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
+Bundle 'vim-scripts/TaskList.vim'
 " vim-scripts repos
 "Bundle 'a.vim'
 
@@ -48,6 +49,8 @@ set guifont=Monaco:h15
 set guifontwide=Monaco:h15
 colorscheme solarized
 set background=dark
+set laststatus=2
+set ruler
 
 " Chinese encodingcoding
 set encoding=utf-8
@@ -90,6 +93,7 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 " CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/data/*
 
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " TagList
@@ -102,11 +106,9 @@ let g:Tlist_Show_One_File=1
 "let g:Tlist_Enable_Fold_Column=0
 
 " Tasklist
-let g:tlTokenList = ['TODO' , 'WTF']
+let g:tlTokenList = ['TODO' , 'WTF', 'FIX']
 
 " neocomplcache.vim
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
 " Use neocomplcache.
 let g:neocomplcache_enable_at_startup = 1
 let g:NeoComplCache_DisableAutoComplete = 0
@@ -121,13 +123,7 @@ let g:neocomplcache_enable_underbar_completion = 1
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
-" BufExplorer
-let g:bufExplorerDefaultHelp=0       " Do not show default help.
-let g:bufExplorerShowRelativePath=1  " Show relative paths.
-let g:bufExplorerSortBy='mru'        " Sort by most recently used.
-let g:bufExplorerSplitRight=0        " Split left.
-let g:bufExplorerSplitVertical=1     " Split vertically.
-let g:bufExplorerSplitVertSize = 30  " Split width
-let g:bufExplorerUseCurrentWindow=1  " Open in new window.
-autocmd BufWinEnter \[Buf\ List\] setl nonumber
+" neosnippet
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 
