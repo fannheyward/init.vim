@@ -22,8 +22,8 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
 Bundle 'vim-scripts/TaskList.vim'
+Bundle 'altercation/vim-colors-solarized'
 " vim-scripts repos
 "Bundle 'a.vim'
 
