@@ -91,6 +91,7 @@ autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Plugin config.
 " CtrlP
+set wildignore+=*.pyc,*.sqlite,*.sqlite3
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/data/*
