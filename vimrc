@@ -88,7 +88,7 @@ set ut=200
 cmap w!! %!sudo tee > /dev/null %
 
 " Automatically cd into the directory that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
+"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
 " Plugin config.
 " CtrlP
