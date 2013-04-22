@@ -12,8 +12,8 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'honza/vim-snippets'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
+"Bundle 'MarcWeber/vim-addon-mw-utils'
+"Bundle 'tomtom/tlib_vim'
 "Bundle 'garbas/vim-snipmate'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
@@ -22,6 +22,7 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'vim-scripts/TaskList.vim'
 Bundle 'altercation/vim-colors-solarized'
 " vim-scripts repos
