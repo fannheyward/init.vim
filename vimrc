@@ -92,6 +92,11 @@ cmap w!! %!sudo tee > /dev/null %
 " Automatically cd into the directory that the file is in
 "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
+au FileType json setlocal equalprg=python -mjson.tool
+
+:command W w
+:command Q q
+
 " Plugin config.
 " CtrlP
 set wildignore+=*.pyc,*.sqlite,*.sqlite3
@@ -130,4 +135,6 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 " neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
 
