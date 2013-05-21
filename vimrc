@@ -46,6 +46,8 @@ map <silent> <leader>ss :source ~/.vimrc<cr>
 map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>n :noh<cr>
 
+nmap ? /\<\><Left><Left>
+
 set guifont=Monaco:h15
 set guifontwide=Monaco:h15
 colorscheme solarized
