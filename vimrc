@@ -85,6 +85,9 @@ set completeopt=longest,menu
 set backspace=indent,eol,start
 let do_syntax_sel_menu=1
 set ut=200
+set scrolloff=2
+
+autocmd FileType html,javascript setlocal shiftwidth=2 tabstop=2
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
@@ -136,5 +139,5 @@ let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets/'
 
