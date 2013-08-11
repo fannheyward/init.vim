@@ -23,6 +23,8 @@ Bundle 'rking/ag.vim'
 Bundle 'vim-scripts/TaskList.vim'
 Bundle 'vim-scripts/a.vim'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'fannheyward/rainbow_parentheses.vim'
 
 filetype plugin indent on     " required!
 "
@@ -136,4 +138,10 @@ imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 let g:neosnippet#enable_snipmate_compatibility = 1
 let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets/'
+
+" rainbow_parentheses
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadSquare " []
+au Syntax * RainbowParenthesesLoadBraces " {}
+"au Syntax * RainbowParenthesesLoadChevrons " <>
 
