@@ -5,30 +5,26 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
 "
 " original repos on github
 Bundle 'honza/vim-snippets'
-"Bundle 'MarcWeber/vim-addon-mw-utils'
-"Bundle 'tomtom/tlib_vim'
-"Bundle 'garbas/vim-snipmate'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
+"Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'vim-scripts/TaskList.vim'
+Bundle 'vim-scripts/a.vim'
 Bundle 'altercation/vim-colors-solarized'
-" vim-scripts repos
-"Bundle 'a.vim'
 
-filetype plugin indent on     " required! 
+filetype plugin indent on     " required!
 "
 " Brief help
 " :BundleList          - list configured bundles
@@ -80,7 +76,7 @@ set mat=2
 set matchpairs+=<:>
 syntax on
 set hlsearch
-set ignorecase smartcase incsearch 
+set ignorecase smartcase incsearch
 set completeopt=longest,menu
 set backspace=indent,eol,start
 let do_syntax_sel_menu=1
