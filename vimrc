@@ -25,6 +25,7 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'fannheyward/rainbow_parentheses.vim'
+Bundle 'majutsushi/tagbar'
 
 filetype plugin indent on     " required!
 "
