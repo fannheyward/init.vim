@@ -12,7 +12,8 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'honza/vim-snippets'
-Bundle 'Shougo/neocomplcache'
+"Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplete.vim'
 Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
@@ -133,6 +134,16 @@ let g:neocomplcache_enable_underbar_completion = 1
 " Set minimum syntax keyword length.
 let g:neocomplcache_min_syntax_length = 3
 let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+
+" neocomplete.vim
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_fuzzy_completion = 1
+let g:neocomplete#auto_completion_start_length = 2
+let g:neocomplete#min_keyword_length = 3
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " neosnippet
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
