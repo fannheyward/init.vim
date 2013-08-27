@@ -12,7 +12,6 @@ Bundle 'gmarik/vundle'
 "
 " original repos on github
 Bundle 'honza/vim-snippets'
-"Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdtree'
@@ -40,6 +39,13 @@ filetype plugin indent on     " required!
 " NOTE: comments after Bundle command are not allowed..
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:snips_author = 'fannheyward'
+let g:author = 'fannheyward'
+let g:snips_email = 'fannheyward@gmail.com'
+let g:email = 'fannheyward@gmail.com'
+let g:snips_github = 'https://github.com/fannheyward'
+let g:github = 'https://github.com/fannheyward'
+
 " Set mapleader
 "let mapleader = ","
 map <silent> <leader>ss :source ~/.vimrc<cr>
@@ -99,6 +105,9 @@ au FileType json setlocal equalprg=python -mjson.tool
 
 :command W w
 :command Q q
+:command Qa qa
+:command Wqa wqa
+:command WQa wqa
 
 " Plugin config.
 " CtrlP
