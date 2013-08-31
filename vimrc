@@ -93,15 +93,15 @@ let do_syntax_sel_menu=1
 set ut=200
 set scrolloff=2
 
-autocmd FileType html,javascript setlocal shiftwidth=2 tabstop=2
-
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
 " Automatically cd into the directory that the file is in
 "autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
 
+" some autocmd
 au FileType json setlocal equalprg=python -mjson.tool
+au FileType html,javascript setlocal shiftwidth=2 tabstop=2
 
 :command W w
 :command Q q
