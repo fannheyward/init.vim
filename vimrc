@@ -1,43 +1,38 @@
 set nocompatible               " be iMproved
-filetype off                   " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
+call neobundle#rc(expand('~/.vim/bundle/'))
 
-" My Bundles here:
-"
-" original repos on github
-Bundle 'honza/vim-snippets'
-Bundle 'Shougo/neocomplete.vim'
-Bundle 'Shougo/neosnippet'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-scripts/taglist.vim'
-Bundle 'kien/ctrlp.vim'
-"Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'vim-scripts/TaskList.vim'
-Bundle 'vim-scripts/a.vim'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bronson/vim-trailing-whitespace'
-Bundle 'fannheyward/rainbow_parentheses.vim'
-Bundle 'majutsushi/tagbar'
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+NeoBundle 'honza/vim-snippets'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'rking/ag.vim'
+NeoBundle 'vim-scripts/TaskList.vim'
+NeoBundle 'nacitar/a.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'fannheyward/rainbow_parentheses.vim'
+NeoBundle 'majutsushi/tagbar'
 
 filetype plugin indent on     " required!
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-"
-" see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
+" :NeoBundleList          - list configured bundles
+" :NeoBundleInstall(!)    - install(update) bundles
+" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
 
+" Installation check.
+NeoBundleCheck
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:snips_author = 'fannheyward'
 let g:author = 'fannheyward'
