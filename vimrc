@@ -107,12 +107,14 @@ au FileType html,javascript setlocal shiftwidth=2 tabstop=2
 
 " Plugin config.
 " CtrlP
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+
 set wildignore+=*.pyc,*.sqlite,*.sqlite3
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/data/*
+set wildignore+=*/bower_components/*,*/node_modules/*
+set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
 
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " TagList
 let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 let g:Tlist_Inc_Winwidth=0
