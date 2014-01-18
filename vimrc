@@ -25,6 +25,8 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'fannheyward/rainbow_parentheses.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-scripts/loremipsum'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-repeat'
 
 filetype plugin indent on     " required!
 "
