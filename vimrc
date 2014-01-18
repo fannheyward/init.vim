@@ -27,6 +27,7 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-scripts/loremipsum'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
+NeoBundle 'dyng/ctrlsf.vim'
 
 filetype plugin indent on     " required!
 "
@@ -100,7 +101,7 @@ cmap w!! %!sudo tee > /dev/null %
 
 " some autocmd
 au FileType json setlocal equalprg=python -mjson.tool
-au FileType html,javascript setlocal shiftwidth=2 tabstop=2
+au FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
 
 :command W w
 :command Q q
@@ -126,6 +127,11 @@ let g:Tlist_Use_Right_Window=1
 let g:Tlist_Show_One_File=1
 "let g:Tlist_Compact_Format=1
 "let g:Tlist_Enable_Fold_Column=0
+
+" CtrlSF
+:com! -n=* F CtrlSF <args>
+:com! -n=0 FOpen CtrlSFOpen
+let g:ctrlsf_auto_close = 0
 
 " Tasklist
 let g:tlTokenList = ['TODO' , 'WTF', 'FIX']
