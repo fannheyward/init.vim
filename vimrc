@@ -46,6 +46,8 @@ let g:email = 'fannheyward@gmail.com'
 let g:snips_github = 'https://github.com/fannheyward'
 let g:github = 'https://github.com/fannheyward'
 
+:set timeout timeoutlen=1000 ttimeoutlen=10
+
 " Set mapleader
 "let mapleader = ","
 map <silent> <leader>ss :source ~/.vimrc<cr>
@@ -106,6 +108,7 @@ au FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
 :command W w
 :command Q q
 :command Qa qa
+:command Wa wa
 :command Wqa wqa
 :command WQa wqa
 
@@ -131,7 +134,7 @@ let g:Tlist_Show_One_File=1
 " CtrlSF
 :com! -n=* F CtrlSF <args>
 :com! -n=0 FOpen CtrlSFOpen
-let g:ctrlsf_auto_close = 0
+"let g:ctrlsf_auto_close = 0
 
 " Tasklist
 let g:tlTokenList = ['TODO' , 'WTF', 'FIX']
