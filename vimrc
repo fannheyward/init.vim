@@ -23,11 +23,11 @@ NeoBundle 'nacitar/a.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'fannheyward/rainbow_parentheses.vim'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'vim-scripts/loremipsum'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'dyng/ctrlsf.vim'
+NeoBundle 'mhinz/vim-startify'
 
 filetype plugin indent on     " required!
 "
@@ -176,3 +176,23 @@ au Syntax * RainbowParenthesesLoadSquare " []
 au Syntax * RainbowParenthesesLoadBraces " {}
 "au Syntax * RainbowParenthesesLoadChevrons " <>
 
+" Startify
+let g:startify_custom_header = [
+    \'  YYYYYY       YYYYYYYY EEEEEEEEEEEEEEEEEEEEE    SSSSSSSSSSSSSSS',
+    \'  Y:::::Y       Y:::::Y E::::::::::::::::::::E  SS:::::::::::::::S',
+    \'  Y:::::Y       Y:::::Y E::::::::::::::::::::E S:::::SSSSSS::::::S',
+    \'  Y::::::Y     Y::::::Y EE::::::EEEEEEEEE::::E S:::::S     SSSSSSS',
+    \'  YYY:::::Y   Y:::::YYY   E:::::E       EEEEEE S:::::S',
+    \'     Y:::::Y Y:::::Y      E:::::E              S:::::S',
+    \'      Y:::::Y:::::Y       E::::::EEEEEEEEEE     S::::SSSS',
+    \'       Y:::::::::Y        E:::::::::::::::E      SS::::::SSSSS',
+    \'        Y:::::::Y         E:::::::::::::::E        SSS::::::::SS',
+    \'         Y:::::Y          E::::::EEEEEEEEEE           SSSSSS::::S',
+    \'         Y:::::Y          E:::::E                          S:::::S',
+    \'         Y:::::Y          E:::::E       EEEEEE             S:::::S',
+    \'         Y:::::Y        EE::::::EEEEEEEE:::::E SSSSSSS     S:::::S',
+    \'      YYYY:::::YYYY     E::::::::::::::::::::E S::::::SSSSSS:::::S',
+    \'      Y:::::::::::Y     E::::::::::::::::::::E S:::::::::::::::SS',
+    \'      YYYYYYYYYYYYY     EEEEEEEEEEEEEEEEEEEEEE  SSSSSSSSSSSSSSS',
+    \'',
+    \]
