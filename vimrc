@@ -114,7 +114,7 @@ au FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
 
 " Plugin config.
 " CtrlP
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
 
 set wildignore+=*.pyc,*.sqlite,*.sqlite3
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
