@@ -28,6 +28,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'dyng/ctrlsf.vim'
 NeoBundle 'mhinz/vim-startify'
+NeoBundle 'fatih/vim-go'
 
 filetype plugin indent on     " required!
 "
@@ -166,6 +167,9 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadSquare " []
 au Syntax * RainbowParenthesesLoadBraces " {}
 "au Syntax * RainbowParenthesesLoadChevrons " <>
+
+" vim-go
+let g:go_snippet_engine = "neosnippet"
 
 " Startify
 let g:startify_custom_header = [
