@@ -29,6 +29,7 @@ NeoBundle 'tpope/vim-repeat'
 NeoBundle 'dyng/ctrlsf.vim'
 NeoBundle 'mhinz/vim-startify'
 NeoBundle 'fatih/vim-go'
+NeoBundle 'bling/vim-airline'
 
 filetype plugin indent on     " required!
 "
