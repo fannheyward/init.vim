@@ -194,6 +194,7 @@ let g:startify_custom_header = [
     \]
 
 " Tagbar
+let g:tagbar_autofocus = 1
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
