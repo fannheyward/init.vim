@@ -8,6 +8,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 "Plugin 'Shougo/neocomplete.vim'
@@ -30,7 +31,6 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -39,9 +39,6 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :set timeout timeoutlen=1000 ttimeoutlen=10
 
-" Set mapleader
-"let mapleader = ","
-map <silent> <leader>ss :source ~/.vimrc<cr>
 map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>n :noh<cr>
 
@@ -49,7 +46,7 @@ nmap ? /\<\><Left><Left>
 
 set guifont=Monaco:h15
 set guifontwide=Monaco:h15
-colorscheme solarized
+colorscheme slate
 set background=dark
 set laststatus=2
 set ruler
@@ -73,9 +70,10 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set wildmenu
-"set foldmethod=indent
+set nofoldenable
+set foldmethod=indent
 set showmatch
-set mat=2
+set matchtime=2
 set matchpairs+=<:>
 syntax on
 set hlsearch
@@ -83,18 +81,20 @@ set ignorecase smartcase incsearch
 set completeopt=longest,menu
 set backspace=indent,eol,start
 let do_syntax_sel_menu=1
-set ut=200
+set updatetime=200
 set scrolloff=2
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
 
-" Automatically cd into the directory that the file is in
-"autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-
 " some autocmd
-au FileType json setlocal equalprg=python -mjson.tool
-au FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
+autocmd FileType json setlocal equalprg=python -mjson.tool
+autocmd FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 :command W w
 :command Q q
@@ -105,7 +105,7 @@ au FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
 
 " Plugin config.
 " CtrlP
-let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
 
 set wildignore+=*.pyc,*.sqlite,*.sqlite3
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
