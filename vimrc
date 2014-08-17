@@ -1,53 +1,42 @@
-set nocompatible               " be iMproved
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-if has('vim_starting')
-set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-call neobundle#rc(expand('~/.vim/bundle/'))
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-" Let NeoBundle manage NeoBundle
-NeoBundleFetch 'Shougo/neobundle.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+"Plugin 'Shougo/neocomplete.vim'
+"Plugin 'Shougo/neosnippet'
+"Plugin 'Shougo/neosnippet-snippets'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'majutsushi/tagbar'
+Plugin 'kien/ctrlp.vim'
+Plugin 'rking/ag.vim'
+Plugin 'vim-scripts/TaskList.vim'
+Plugin 'nacitar/a.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bronson/vim-trailing-whitespace'
+Plugin 'fannheyward/rainbow_parentheses.vim'
+Plugin 'vim-scripts/loremipsum'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'fatih/vim-go'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
 
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'rking/ag.vim'
-NeoBundle 'vim-scripts/TaskList.vim'
-NeoBundle 'nacitar/a.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'bronson/vim-trailing-whitespace'
-NeoBundle 'fannheyward/rainbow_parentheses.vim'
-NeoBundle 'vim-scripts/loremipsum'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'dyng/ctrlsf.vim'
-NeoBundle 'mhinz/vim-startify'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'bling/vim-airline'
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
-filetype plugin indent on     " required!
-"
-" Brief help
-" :NeoBundleList          - list configured bundles
-" :NeoBundleInstall(!)    - install(update) bundles
-" :NeoBundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
-" Installation check.
-NeoBundleCheck
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:snips_author = 'fannheyward'
-let g:author = 'fannheyward'
-let g:snips_email = 'fannheyward@gmail.com'
-let g:email = 'fannheyward@gmail.com'
-let g:snips_github = 'https://github.com/fannheyward'
-let g:github = 'https://github.com/fannheyward'
-
 :set timeout timeoutlen=1000 ttimeoutlen=10
 
 " Set mapleader
