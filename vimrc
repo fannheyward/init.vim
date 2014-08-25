@@ -8,6 +8,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
+Plugin 'tpope/vim-sensible'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -34,10 +35,8 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-:set timeout timeoutlen=1000 ttimeoutlen=10
-
 map <silent> <leader>ee :e ~/.vimrc<cr>
-map <silent> <leader>n :noh<cr>
+map <silent> <leader>n :nohlsearch<cr>
 
 nmap ? /\<\><Left><Left>
 
@@ -45,8 +44,6 @@ set guifont=Monaco:h15
 set guifontwide=Monaco:h15
 colorscheme slate
 set background=dark
-set laststatus=2
-set ruler
 
 " Chinese encodingcoding
 set encoding=utf-8
@@ -59,27 +56,20 @@ set fileencoding=utf-8
 
 set number
 setlocal noswapfile
-" tab
-set autoindent        "always set autoindenting on
 set smartindent       "set smart indent
-set smarttab          "use tabs at the start of a line, spaces elsewhere
 set expandtab
 set tabstop=4
 set shiftwidth=4
-set wildmenu
 set nofoldenable
 set foldmethod=indent
 set showmatch
 set matchtime=2
 set matchpairs+=<:>
-syntax on
 set hlsearch
-set ignorecase smartcase incsearch
+set ignorecase smartcase
 set completeopt=longest,menu
-set backspace=indent,eol,start
 let do_syntax_sel_menu=1
 set updatetime=200
-set scrolloff=2
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
