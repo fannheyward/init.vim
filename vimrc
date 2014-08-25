@@ -103,6 +103,12 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 :command Wqa wqa
 :command WQa wqa
 
+"" Recommended key-mappings. For no inserting <CR> key.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+endfunction
+
 " Plugin config.
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
