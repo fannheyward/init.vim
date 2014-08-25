@@ -11,9 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-"Plugin 'Shougo/neocomplete.vim'
-"Plugin 'Shougo/neosnippet'
-"Plugin 'Shougo/neosnippet-snippets'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
@@ -127,45 +124,11 @@ set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
 " Tasklist
 let g:tlTokenList = ['TODO' , 'WTF', 'FIX']
 
-" neocomplcache.vim
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-let g:NeoComplCache_DisableAutoComplete = 0
-let g:neocomplcache_enable_auto_select = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 1
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 1
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" neocomplete.vim
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_auto_select = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_fuzzy_completion = 1
-let g:neocomplete#auto_completion_start_length = 2
-let g:neocomplete#min_keyword_length = 3
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" neosnippet
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets/'
-
 " rainbow_parentheses
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadSquare " []
 au Syntax * RainbowParenthesesLoadBraces " {}
 "au Syntax * RainbowParenthesesLoadChevrons " <>
-
-" vim-go
-let g:go_snippet_engine = "neosnippet"
 
 " Startify
 let g:startify_custom_header = [
@@ -190,4 +153,14 @@ let g:startify_custom_header = [
 
 " Tagbar
 let g:tagbar_autofocus = 1
+
+" YCM
+nnoremap <leader>gd :YcmCompleter GoTo<CR>
+let g:ycm_complete_in_comments = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<c-k>"
+let g:UltiSnipsJumpForwardTrigger="<c-k>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
