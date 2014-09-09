@@ -29,6 +29,9 @@ Plugin 'dyng/ctrlsf.vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
+Plugin 'kana/vim-textobj-user'
+Plugin 'glts/vim-textobj-comment'
+Plugin 'Julian/vim-textobj-brace'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -75,7 +78,6 @@ set updatetime=200
 cmap w!! %!sudo tee > /dev/null %
 
 " some autocmd
-autocmd FileType json setlocal equalprg=python -mjson.tool
 autocmd FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -143,11 +145,13 @@ let g:startify_custom_header = [
 
 " Tagbar
 let g:tagbar_autofocus = 1
+let g:tagbar_autoclose = 1
 
 " YCM
 nnoremap <leader>gd :YcmCompleter GoTo<CR>
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_server_log_level = 'error'
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-k>"
