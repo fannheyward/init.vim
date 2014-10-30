@@ -32,7 +32,6 @@ Plugin 'bling/vim-airline'
 Plugin 'kana/vim-textobj-user'
 Plugin 'glts/vim-textobj-comment'
 Plugin 'Julian/vim-textobj-brace'
-Plugin 'kana/vim-smartword'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -158,10 +157,4 @@ let g:ycm_server_log_level = 'error'
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
-" smartword
-map w  <Plug>(smartword-w)
-map b  <Plug>(smartword-b)
-map e  <Plug>(smartword-e)
-map ge  <Plug>(smartword-ge)
 
