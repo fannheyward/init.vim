@@ -148,7 +148,7 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 
 " YCM
-nnoremap <leader>gd :YcmCompleter GoTo<CR>
+nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_server_log_level = 'error'
@@ -157,4 +157,7 @@ let g:ycm_server_log_level = 'error'
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+" Vim-go
+let g:go_fmt_command = "goimports"
 
