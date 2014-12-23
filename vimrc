@@ -47,6 +47,7 @@ set guifont=Monaco:h15
 set guifontwide=Monaco:h15
 colorscheme slate
 set background=dark
+set ttyfast
 
 " Chinese encodingcoding
 set encoding=utf-8
@@ -79,11 +80,6 @@ cmap w!! %!sudo tee > /dev/null %
 
 " some autocmd
 autocmd FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
-
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 
 :command W w
 :command Q q
