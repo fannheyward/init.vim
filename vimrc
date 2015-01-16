@@ -143,6 +143,9 @@ let g:startify_custom_header = [
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 
+" NERDTree
+let NERDTreeIgnore=['\.pyc', 'bak$', 'node_modules', 'dist']
+
 " YCM
 nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
 let g:ycm_complete_in_comments = 1
