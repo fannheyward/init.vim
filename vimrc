@@ -36,6 +36,9 @@ filetype plugin indent on    " required
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>n :nohlsearch<cr>
+inoremap <C-g> <Esc>
+inoremap jj <Esc>
+inoremap kk <Esc>
 
 nmap ? /\<\><Left><Left>
 
@@ -49,10 +52,6 @@ set ttyfast
 set encoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 set fileencoding=utf-8
-
-"set undofile
-"set undodir=~/.undodir
-"set undolevels=1000
 
 set number
 setlocal noswapfile
@@ -75,7 +74,7 @@ set updatetime=200
 cmap w!! %!sudo tee > /dev/null %
 
 " some autocmd
-autocmd FileType html,javascript,css setlocal shiftwidth=2 tabstop=2
+autocmd FileType html,javascript,css,json setlocal shiftwidth=2 tabstop=2
 
 :command W w
 :command Q q
@@ -89,6 +88,8 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
 endfunction
+
+cs add cscope.out
 
 " Plugin config.
 " CtrlP
@@ -140,7 +141,7 @@ let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 
 " NERDTree
-let NERDTreeIgnore=['\.pyc', 'bak$', 'node_modules', 'dist']
+let NERDTreeIgnore=['\.pyc', '\.out$', 'bak$', 'node_modules', 'dist']
 
 " YCM
 nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
