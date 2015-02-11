@@ -10,6 +10,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-sensible'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/ListToggle'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdtree'
@@ -28,6 +29,8 @@ Plugin 'mhinz/vim-startify'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
 Plugin 'Keithbsmiley/swift.vim'
+Plugin 'wakatime/vim-wakatime'
+Plugin 'junegunn/vim-easy-align'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -95,7 +98,7 @@ cs add cscope.out
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
 
-set wildignore+=*.pyc,*.sqlite,*.sqlite3
+set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/bower_components/*,*/node_modules/*
@@ -147,6 +150,8 @@ let NERDTreeIgnore=['\.pyc', '\.out$', 'bak$', 'node_modules', 'dist']
 nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_min_num_of_chars_for_completion=1
 let g:ycm_server_log_level = 'error'
 
 " UltiSnips
@@ -159,4 +164,7 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+
+" EasyAlign
+vmap <Enter> <Plug>(EasyAlign)
 
