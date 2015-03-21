@@ -41,7 +41,6 @@ map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>n :nohlsearch<cr>
 inoremap <C-g> <Esc>
 inoremap jj <Esc>
-inoremap kk <Esc>
 
 nmap ? /\<\><Left><Left>
 
@@ -164,6 +163,7 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
+let g:go_auto_type_info = 1
 
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
