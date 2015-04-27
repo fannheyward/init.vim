@@ -29,8 +29,8 @@ Plugin 'mhinz/vim-startify'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
 Plugin 'Keithbsmiley/swift.vim'
-Plugin 'wakatime/vim-wakatime'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'ConradIrwin/vim-bracketed-paste'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -92,6 +92,8 @@ function! s:my_cr_function()
 endfunction
 
 cs add cscope.out
+
+source $VIMRUNTIME/macros/matchit.vim
 
 " Plugin config.
 " CtrlP
