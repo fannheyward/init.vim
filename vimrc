@@ -56,6 +56,7 @@ set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,eu
 set fileencoding=utf-8
 
 set number
+set relativenumber
 setlocal noswapfile
 set smartindent       "set smart indent
 set expandtab
@@ -98,6 +99,14 @@ source $VIMRUNTIME/macros/matchit.vim
 " Plugin config.
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
+
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -165,7 +174,7 @@ let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
-let g:go_auto_type_info = 1
+let g:go_auto_type_info = 0
 
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
