@@ -25,12 +25,18 @@ Plugin 'fannheyward/rainbow_parentheses.vim'
 Plugin 'vim-scripts/loremipsum'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rails'
 Plugin 'mhinz/vim-startify'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
 Plugin 'Keithbsmiley/swift.vim'
+"Plugin 'kballard/vim-swift'
 Plugin 'junegunn/vim-easy-align'
+Plugin 'dyng/ctrlsf.vim'
+Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'ConradIrwin/vim-bracketed-paste'
+Plugin 'terryma/vim-expand-region'
+Plugin 'scrooloose/syntastic'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -76,7 +82,7 @@ set updatetime=200
 cmap w!! %!sudo tee > /dev/null %
 
 " some autocmd
-autocmd FileType html,javascript,css,json setlocal shiftwidth=2 tabstop=2
+autocmd FileType ruby,html,javascript,css,json setlocal shiftwidth=2 tabstop=2
 
 :command W w
 :command Q q
@@ -175,8 +181,19 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_auto_type_info = 0
+let g:go_auto_type_info = 1
+au FileType go nmap <leader>b <Plug>(go-build)
 
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
+
+" vim-expand-region
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+" syntastic
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
