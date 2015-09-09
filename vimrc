@@ -16,7 +16,8 @@ Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'majutsushi/tagbar'
-Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'vim-scripts/TaskList.vim'
 Plugin 'nacitar/a.vim'
 Plugin 'altercation/vim-colors-solarized'
@@ -119,6 +120,13 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
 
+" ctrlp_extensions
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_syntax_highlight = 1
+:com! -n=0 D CtrlPFunky
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
 " CtrlSF
 :com! -n=* F CtrlSF <args>
 :com! -n=0 FOpen CtrlSFOpen
@@ -196,4 +204,5 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+let g:syntastic_html_checkers = ["jshint"]
 
