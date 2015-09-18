@@ -37,6 +37,12 @@ Plugin 'chrisbra/vim-diff-enhanced'
 Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'terryma/vim-expand-region'
 Plugin 'scrooloose/syntastic'
+Plugin 'elzr/vim-json'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'ktonga/vim-follow-my-lead'
+"Plugin 'leafgarland/typescript-vim'
+"Plugin 'Quramy/tsuquyomi'
+"Plugin 'Shougo/vimproc.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
