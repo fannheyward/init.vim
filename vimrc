@@ -26,7 +26,6 @@ Plugin 'fannheyward/rainbow_parentheses.vim'
 Plugin 'vim-scripts/loremipsum'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rails'
 Plugin 'mhinz/vim-startify'
 Plugin 'fatih/vim-go'
 Plugin 'bling/vim-airline'
@@ -53,9 +52,10 @@ nmap ? /\<\><Left><Left>
 
 set guifont=Monaco:h15
 set guifontwide=Monaco:h15
-colorscheme slate
 set background=dark
-set ttyfast
+let g:solarized_termtrans = 1
+let g:solarized_termcolors=256
+colorscheme solarized
 
 " Chinese encodingcoding
 set encoding=utf-8
@@ -189,7 +189,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-let g:go_auto_type_info = 1
 au FileType go nmap <leader>b <Plug>(go-build)
 
 " EasyAlign
