@@ -39,7 +39,6 @@ Plugin 'terryma/vim-expand-region'
 Plugin 'scrooloose/syntastic'
 Plugin 'elzr/vim-json'
 Plugin 'marijnh/tern_for_vim'
-Plugin 'ktonga/vim-follow-my-lead'
 "Plugin 'leafgarland/typescript-vim'
 "Plugin 'Quramy/tsuquyomi'
 "Plugin 'Shougo/vimproc.vim'
@@ -53,6 +52,7 @@ map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>n :nohlsearch<cr>
 inoremap <C-g> <Esc>
 inoremap jj <Esc>
+inoremap jk <ESC>
 
 nmap ? /\<\><Left><Left>
 
@@ -210,4 +210,5 @@ let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_checkers = ["jshint"]
+let g:syntastic_shell = "/bin/sh"
 
