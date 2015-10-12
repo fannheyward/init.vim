@@ -1,0 +1,61 @@
+" @fannheyward
+set nocompatible
+filetype plugin indent on
+
+set autoindent
+set backspace=indent,eol,start
+set complete-=i
+set smarttab
+set nrformats-=octal
+set ttimeout
+set ttimeoutlen=100
+set updatetime=200
+set history=1000
+
+set incsearch
+set laststatus=2
+set ruler
+set number
+set showcmd
+set wildmenu
+set expandtab
+set tabstop=4
+set shiftwidth=4
+set nofoldenable
+set foldmethod=indent
+set showmatch
+set matchtime=2
+set matchpairs+=<:>
+set hlsearch
+set ignorecase smartcase
+set completeopt=longest,menu
+let do_syntax_sel_menu=1
+
+set encoding=utf-8
+set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
+set fileencoding=utf-8
+map <silent> <leader>n :nohlsearch<cr>
+nmap ? /\<\><Left><Left>
+
+inoremap <C-g> <Esc>
+inoremap jj <Esc>
+inoremap jk <ESC>
+
+:command W w
+:command Q q
+:command Qa qa
+:command Wa wa
+:command Wqa wqa
+:command WQa wqa
+
+set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+set wildignore+=*/bower_components/*,*/node_modules/*
+set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
+
+"" Recommended key-mappings. For no inserting <CR> key.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+endfunction
