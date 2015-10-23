@@ -1,49 +1,39 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-Plugin 'tpope/vim-sensible'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Valloric/ListToggle'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'majutsushi/tagbar'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'vim-scripts/TaskList.vim'
-Plugin 'nacitar/a.vim'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bronson/vim-trailing-whitespace'
-Plugin 'fannheyward/rainbow_parentheses.vim'
-Plugin 'vim-scripts/loremipsum'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'mhinz/vim-startify'
-Plugin 'fatih/vim-go'
-Plugin 'bling/vim-airline'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'dyng/ctrlsf.vim'
-Plugin 'chrisbra/vim-diff-enhanced'
-Plugin 'ConradIrwin/vim-bracketed-paste'
-Plugin 'terryma/vim-expand-region'
-Plugin 'scrooloose/syntastic'
-Plugin 'elzr/vim-json'
-Plugin 'marijnh/tern_for_vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'Quramy/tsuquyomi'
-Plugin 'Shougo/vimproc.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call plug#begin()
+Plug 'tpope/vim-sensible'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/ListToggle'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
+Plug 'majutsushi/tagbar', { 'on': 'TagBar' }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
+Plug 'scrooloose/nerdcommenter'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'nacitar/a.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'fannheyward/rainbow_parentheses.vim'
+Plug 'vim-scripts/loremipsum'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'mhinz/vim-startify'
+Plug 'fatih/vim-go'
+Plug 'bling/vim-airline'
+Plug 'junegunn/vim-easy-align'
+Plug 'dyng/ctrlsf.vim'
+Plug 'chrisbra/vim-diff-enhanced'
+Plug 'ConradIrwin/vim-bracketed-paste'
+Plug 'terryma/vim-expand-region'
+Plug 'scrooloose/syntastic'
+Plug 'elzr/vim-json'
+Plug 'marijnh/tern_for_vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'Shougo/vimproc.vim'
+call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <leader>ee :e ~/.vimrc<cr>
