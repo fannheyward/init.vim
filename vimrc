@@ -9,24 +9,21 @@ Plug 'honza/vim-snippets'
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
 Plug 'majutsushi/tagbar', { 'on': 'TagBar' }
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'scrooloose/nerdcommenter'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'nacitar/a.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'fannheyward/rainbow_parentheses.vim'
 Plug 'vim-scripts/loremipsum'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
 Plug 'mhinz/vim-startify'
 Plug 'fatih/vim-go'
 Plug 'bling/vim-airline'
-Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'dyng/ctrlsf.vim'
-Plug 'chrisbra/vim-diff-enhanced'
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'terryma/vim-expand-region'
 Plug 'scrooloose/syntastic'
 Plug 'elzr/vim-json'
 Plug 'marijnh/tern_for_vim'
@@ -128,12 +125,6 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
 " Tasklist
 let g:tlTokenList = ['TODO' , 'WTF', 'FIX']
-
-" rainbow_parentheses
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadSquare " []
-au Syntax * RainbowParenthesesLoadBraces " {}
-"au Syntax * RainbowParenthesesLoadChevrons " <>
 
 " Startify
 let g:startify_custom_header = [
