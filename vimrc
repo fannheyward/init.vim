@@ -17,7 +17,7 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/loremipsum'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary', { 'on': '<Plug>Commentary' }
+Plug 'tpope/vim-commentary'
 Plug 'mhinz/vim-startify'
 Plug 'fatih/vim-go'
 Plug 'bling/vim-airline'
