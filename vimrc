@@ -7,7 +7,7 @@ Plug 'Valloric/ListToggle'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
-Plug 'majutsushi/tagbar', { 'on': 'TagBar' }
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
