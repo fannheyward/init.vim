@@ -2,34 +2,48 @@ set nocompatible              " be iMproved, required
 
 call plug#begin()
 Plug 'tpope/vim-sensible'
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'Valloric/ListToggle'
-Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', { 'on': 'Tagbar' }
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'nacitar/a.vim'
+Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/loremipsum'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
-Plug 'mhinz/vim-startify'
 Plug 'fatih/vim-go'
-Plug 'bling/vim-airline'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-Plug 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'scrooloose/syntastic'
 Plug 'elzr/vim-json'
 Plug 'marijnh/tern_for_vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'Shougo/vimproc.vim'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'klen/python-mode'
+
+if has('nvim')
+    Plug 'benekastah/neomake'
+
+    autocmd! BufWritePost * Neomake
+else
+    Plug 'tpope/vim-dispatch'
+    Plug 'scrooloose/syntastic'
+endif
+
+augroup lazy_load
+  autocmd!
+  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
+                     \| call youcompleteme#Enable() | autocmd! lazy_load
+augroup END
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,48 +125,19 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
 
-" ctrlp_extensions
-let g:ctrlp_extensions = ['funky']
-let g:ctrlp_funky_syntax_highlight = 1
-:com! -n=0 D CtrlPFunky
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-
 " CtrlSF
 :com! -n=* F CtrlSF <args>
-:com! -n=0 FOpen CtrlSFOpen
 "let g:ctrlsf_auto_close = 0
 
 " Tasklist
 let g:tlTokenList = ['TODO' , 'WTF', 'FIX']
-
-" Startify
-let g:startify_custom_header = [
-    \'  YYYYYY       YYYYYYYY EEEEEEEEEEEEEEEEEEEEE    SSSSSSSSSSSSSSS',
-    \'  Y:::::Y       Y:::::Y E::::::::::::::::::::E  SS:::::::::::::::S',
-    \'  Y:::::Y       Y:::::Y E::::::::::::::::::::E S:::::SSSSSS::::::S',
-    \'  Y::::::Y     Y::::::Y EE::::::EEEEEEEEE::::E S:::::S     SSSSSSS',
-    \'  YYY:::::Y   Y:::::YYY   E:::::E       EEEEEE S:::::S',
-    \'     Y:::::Y Y:::::Y      E:::::E              S:::::S',
-    \'      Y:::::Y:::::Y       E::::::EEEEEEEEEE     S::::SSSS',
-    \'       Y:::::::::Y        E:::::::::::::::E      SS::::::SSSSS',
-    \'        Y:::::::Y         E:::::::::::::::E        SSS::::::::SS',
-    \'         Y:::::Y          E::::::EEEEEEEEEE           SSSSSS::::S',
-    \'         Y:::::Y          E:::::E                          S:::::S',
-    \'         Y:::::Y          E:::::E       EEEEEE             S:::::S',
-    \'         Y:::::Y        EE::::::EEEEEEEE:::::E SSSSSSS     S:::::S',
-    \'      YYYY:::::YYYY     E::::::::::::::::::::E S::::::SSSSSS:::::S',
-    \'      Y:::::::::::Y     E::::::::::::::::::::E S:::::::::::::::SS',
-    \'      YYYYYYYYYYYYY     EEEEEEEEEEEEEEEEEEEEEE  SSSSSSSSSSSSSSS',
-    \'',
-    \]
 
 " Tagbar
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
 
 " NERDTree
-let NERDTreeIgnore=['\.pyc', '\.out$', 'bak$', 'node_modules', 'dist']
+let NERDTreeIgnore=['\.pyc', '\.out$', 'bak$', 'node_modules', 'dist', 'pgdata']
 
 " YCM
 nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
@@ -168,6 +153,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Vim-go
+let g:go_dispatch_enabled = 1
 let g:go_fmt_command = "goimports"
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -190,4 +176,8 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_html_checkers = ["jshint"]
 let g:syntastic_shell = "/bin/sh"
+
+" neomake
+let g:neomake_open_list = 2
+let g:neomake_serialize = 1
 
