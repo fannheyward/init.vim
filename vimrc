@@ -31,10 +31,12 @@ Plug 'klen/python-mode'
 
 if has('nvim')
     Plug 'benekastah/neomake'
+    tnoremap <Esc> <C-\><C-n>
 
     autocmd! BufWritePost * Neomake
 else
     Plug 'tpope/vim-dispatch'
+    Plug 'radenling/vim-dispatch-neovim'
     Plug 'scrooloose/syntastic'
 endif
 
@@ -67,6 +69,7 @@ set encoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 set fileencoding=utf-8
 
+set clipboard=unnamed
 set number
 setlocal noswapfile
 set smartindent       "set smart indent
@@ -180,4 +183,9 @@ let g:syntastic_shell = "/bin/sh"
 " neomake
 let g:neomake_open_list = 2
 let g:neomake_serialize = 1
+
+let g:neomake_lua_luacheck_maker = {
+    \ 'args': ['--std=ngx_lua', '--no-color', '--no-unused'],
+    \ }
+let g:neomake_lua_enabled_makers = ['luacheck']
 
