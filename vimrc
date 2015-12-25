@@ -22,11 +22,9 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'elzr/vim-json'
-Plug 'marijnh/tern_for_vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'Quramy/tsuquyomi'
 Plug 'Shougo/vimproc.vim'
-Plug 'AndrewRadev/splitjoin.vim'
 Plug 'klen/python-mode'
 
 if has('nvim')
