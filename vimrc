@@ -7,7 +7,7 @@ Plug 'Valloric/ListToggle'
 Plug 'SirVer/ultisnips', { 'on': [] }
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
-Plug 'majutsushi/tagbar', { 'on': 'Tagbar' }
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -22,9 +22,10 @@ Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'elzr/vim-json'
-Plug 'leafgarland/typescript-vim'
-Plug 'Quramy/tsuquyomi'
-Plug 'Shougo/vimproc.vim'
+Plug 'Konfekt/FastFold'
+" Plug 'leafgarland/typescript-vim'
+" Plug 'Quramy/tsuquyomi'
+" Plug 'Shougo/vimproc.vim'
 Plug 'klen/python-mode'
 
 if has('nvim')
@@ -125,10 +126,11 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
+set wildignore+=*/haddit_server1/*,*/haddit_server2/*,*/haddit_server3/*,*/haddit_server4/*,*/haddit_server5/*,*/haddit_server6/*,*/haddit_server7/*,*/haddit_server8/*,*/pgdata/*
 
 " CtrlSF
 :com! -n=* F CtrlSF <args>
-"let g:ctrlsf_auto_close = 0
+let g:ctrlsf_auto_close = 0
 
 " Tasklist
 let g:tlTokenList = ['TODO' , 'WTF', 'FIX']
@@ -180,7 +182,6 @@ let g:syntastic_shell = "/bin/sh"
 
 " neomake
 let g:neomake_open_list = 2
-let g:neomake_serialize = 1
 
 let g:neomake_lua_luacheck_maker = {
     \ 'args': ['--std=ngx_lua', '--no-color', '--no-unused'],
