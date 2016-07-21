@@ -2,9 +2,8 @@ set nocompatible              " be iMproved, required
 
 call plug#begin()
 Plug 'tpope/vim-sensible'
-Plug 'Valloric/YouCompleteMe', { 'on': [] }
 Plug 'Valloric/ListToggle'
-Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
 Plug 'majutsushi/tagbar'
@@ -26,24 +25,29 @@ Plug 'Konfekt/FastFold'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
 " Plug 'Shougo/vimproc.vim'
-Plug 'klen/python-mode'
 
 if has('nvim')
     Plug 'benekastah/neomake'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'Shougo/context_filetype.vim'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'carlitux/deoplete-ternjs'
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
     tnoremap <Esc> <C-\><C-n>
 
     autocmd! BufWritePost * Neomake
 else
+    Plug 'Valloric/YouCompleteMe'
     Plug 'tpope/vim-dispatch'
     Plug 'radenling/vim-dispatch-neovim'
     Plug 'scrooloose/syntastic'
-endif
 
-augroup lazy_load
-  autocmd!
-  autocmd InsertEnter * call plug#load('ultisnips', 'YouCompleteMe')
-                     \| call youcompleteme#Enable() | autocmd! lazy_load
-augroup END
+    augroup lazy_load
+      autocmd!
+      autocmd InsertEnter * call plug#load('YouCompleteMe')
+                         \| call youcompleteme#Enable() | autocmd! lazy_load
+    augroup END
+endif
 
 call plug#end()
 
@@ -83,6 +87,7 @@ set matchpairs+=<:>
 set hlsearch
 set ignorecase smartcase
 set completeopt=longest,menu
+set completeopt+=noinsert
 let do_syntax_sel_menu=1
 set updatetime=200
 
@@ -102,7 +107,8 @@ autocmd FileType ruby,html,javascript,css,json setlocal shiftwidth=2 tabstop=2
 "" Recommended key-mappings. For no inserting <CR> key.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+  " return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+  return pumvisible() ? deoplete#close_popup() : "\<CR>"
 endfunction
 
 cs add cscope.out
@@ -143,12 +149,12 @@ let g:tagbar_autoclose = 1
 let NERDTreeIgnore=['\.pyc', '\.out$', 'bak$', 'node_modules', 'dist', 'pgdata']
 
 " YCM
-nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
-let g:ycm_complete_in_comments = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_min_num_of_chars_for_completion=1
-let g:ycm_server_log_level = 'error'
+" nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_collect_identifiers_from_tags_files = 1
+" let g:ycm_min_num_of_chars_for_completion=1
+" let g:ycm_server_log_level = 'error'
 
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-k>"
@@ -187,4 +193,9 @@ let g:neomake_lua_luacheck_maker = {
     \ 'args': ['--std=ngx_lua', '--no-color', '--no-unused'],
     \ }
 let g:neomake_lua_enabled_makers = ['luacheck']
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+inoremap <silent><expr> <Tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
 
