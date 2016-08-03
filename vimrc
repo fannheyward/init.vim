@@ -36,17 +36,6 @@ if has('nvim')
     tnoremap <Esc> <C-\><C-n>
 
     autocmd! BufWritePost * Neomake
-else
-    Plug 'Valloric/YouCompleteMe'
-    Plug 'tpope/vim-dispatch'
-    Plug 'radenling/vim-dispatch-neovim'
-    Plug 'scrooloose/syntastic'
-
-    augroup lazy_load
-      autocmd!
-      autocmd InsertEnter * call plug#load('YouCompleteMe')
-                         \| call youcompleteme#Enable() | autocmd! lazy_load
-    augroup END
 endif
 
 call plug#end()
@@ -148,14 +137,6 @@ let g:tagbar_autoclose = 1
 " NERDTree
 let NERDTreeIgnore=['\.pyc', '\.out$', 'bak$', 'node_modules', 'dist', 'pgdata']
 
-" YCM
-" nnoremap <buffer> <silent> gd :YcmCompleter GoTo<cr>
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" let g:ycm_collect_identifiers_from_tags_files = 1
-" let g:ycm_min_num_of_chars_for_completion=1
-" let g:ycm_server_log_level = 'error'
-
 " UltiSnips
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
@@ -178,17 +159,8 @@ vmap <Enter> <Plug>(EasyAlign)
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_html_checkers = ["jshint"]
-let g:syntastic_shell = "/bin/sh"
-
 " neomake
 let g:neomake_open_list = 2
-
 let g:neomake_lua_luacheck_maker = {
     \ 'args': ['--std=ngx_lua', '--no-color', '--no-unused'],
     \ }
