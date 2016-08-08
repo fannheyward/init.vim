@@ -22,6 +22,7 @@ Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'elzr/vim-json'
 Plug 'Konfekt/FastFold'
+Plug 'AndrewRadev/splitjoin.vim'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
 " Plug 'Shougo/vimproc.vim'
@@ -145,12 +146,22 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 " Vim-go
 let g:go_dispatch_enabled = 1
 let g:go_fmt_command = "goimports"
+let g:go_autodetect_gopath = 1
+let g:go_list_type = "quickfix"
+
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_generate_tags = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 au FileType go nmap <leader>b <Plug>(go-build)
+" Open :GoDeclsDir with ctrl-g
+nmap <C-g> :GoDeclsDir<cr>
+imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
