@@ -45,8 +45,6 @@ call plug#end()
 map <silent> <leader>ee :e ~/.vimrc<cr>
 map <silent> <leader>n :nohlsearch<cr>
 inoremap <C-g> <Esc>
-inoremap jj <Esc>
-inoremap jk <ESC>
 
 nmap ? /\<\><Left><Left>
 
