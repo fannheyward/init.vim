@@ -23,6 +23,7 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'elzr/vim-json'
 Plug 'Konfekt/FastFold'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'sk1418/Join'
 " Plug 'leafgarland/typescript-vim'
 " Plug 'Quramy/tsuquyomi'
 " Plug 'Shougo/vimproc.vim'
@@ -157,6 +158,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 au FileType go nmap <leader>b <Plug>(go-build)
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 " Open :GoDeclsDir with ctrl-g
 nmap <C-g> :GoDeclsDir<cr>
 imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
