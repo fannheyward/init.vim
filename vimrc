@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 
 call plug#begin()
 Plug 'tpope/vim-sensible'
+Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/ListToggle'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
@@ -24,15 +25,13 @@ Plug 'elzr/vim-json'
 Plug 'Konfekt/FastFold'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'sk1418/Join'
-" Plug 'leafgarland/typescript-vim'
-" Plug 'Quramy/tsuquyomi'
-" Plug 'Shougo/vimproc.vim'
 
 if has('nvim')
     Plug 'benekastah/neomake'
     Plug 'Shougo/deoplete.nvim'
     Plug 'Shougo/context_filetype.vim'
     Plug 'zchee/deoplete-jedi'
+    " Plug 'mhartington/deoplete-typescript'
     Plug 'carlitux/deoplete-ternjs'
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     tnoremap <Esc> <C-\><C-n>
@@ -43,7 +42,9 @@ endif
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <silent> <leader>ee :e ~/.vimrc<cr>
+map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
+map <silent> <leader>dd :e $HOME/.config/nvim/fannheyward.dict<cr>
+setl dictionary+=$HOME/.config/nvim/fannheyward.dict
 map <silent> <leader>n :nohlsearch<cr>
 inoremap <C-g> <Esc>
 
@@ -178,7 +179,10 @@ let g:neomake_lua_luacheck_maker = {
 let g:neomake_lua_enabled_makers = ['luacheck']
 
 " deoplete
+let g:python_host_skip_check = 1
+let g:python3_host_skip_check = 1
 let g:deoplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 inoremap <silent><expr> <Tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
+let g:deoplete#sources#tss#javascript_support = 1
 
