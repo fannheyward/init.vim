@@ -25,13 +25,14 @@ Plug 'elzr/vim-json'
 Plug 'Konfekt/FastFold'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'sk1418/Join'
+Plug 'easymotion/vim-easymotion'
 
 if has('nvim')
     Plug 'benekastah/neomake'
     Plug 'Shougo/deoplete.nvim'
     Plug 'Shougo/context_filetype.vim'
     Plug 'zchee/deoplete-jedi'
-    " Plug 'mhartington/deoplete-typescript'
+    Plug 'mhartington/deoplete-typescript'
     Plug 'carlitux/deoplete-ternjs'
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     tnoremap <Esc> <C-\><C-n>
@@ -47,6 +48,7 @@ map <silent> <leader>dd :e $HOME/.config/nvim/fannheyward.dict<cr>
 setl dictionary+=$HOME/.config/nvim/fannheyward.dict
 map <silent> <leader>n :nohlsearch<cr>
 inoremap <C-g> <Esc>
+inoremap jj <Esc>
 
 nmap ? /\<\><Left><Left>
 
@@ -185,4 +187,7 @@ let g:deoplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 inoremap <silent><expr> <Tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
 let g:deoplete#sources#tss#javascript_support = 1
+
+" EasyMotion
+let g:EasyMotion_keys = 'abcdefghijkmnqrstuvwxyz'
 
