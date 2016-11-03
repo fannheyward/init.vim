@@ -20,9 +20,7 @@ Plug 'tpope/vim-commentary'
 Plug 'fatih/vim-go'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
-Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'elzr/vim-json'
-Plug 'Konfekt/FastFold'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'sk1418/Join'
 Plug 'easymotion/vim-easymotion'
