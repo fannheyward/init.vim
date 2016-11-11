@@ -1,7 +1,6 @@
 set nocompatible              " be iMproved, required
 
 call plug#begin()
-Plug 'tpope/vim-sensible'
 Plug 'sheerun/vim-polyglot'
 Plug 'Valloric/ListToggle'
 Plug 'SirVer/ultisnips'
