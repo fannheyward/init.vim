@@ -143,7 +143,6 @@ let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Vim-go
-let g:go_dispatch_enabled = 1
 let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
 let g:go_list_type = "quickfix"
@@ -180,11 +179,18 @@ let g:neomake_lua_enabled_makers = ['luacheck']
 " deoplete
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
+let g:python3_host_prog = '/usr/local/bin/python3'
 let g:deoplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
 inoremap <silent><expr> <Tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
 let g:deoplete#sources#tss#javascript_support = 1
 
 " EasyMotion
 let g:EasyMotion_keys = 'abcdefghijkmnqrstuvwxyz'
 
+" deoplete-go settings
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#use_cache = 1
+let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
+let g:deoplete#sources#go#package_dot = 1
+let g:deoplete#sources#go#pointer = 1
