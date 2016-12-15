@@ -13,8 +13,6 @@ Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'vim-scripts/loremipsum'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'fatih/vim-go'
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
@@ -23,9 +21,10 @@ Plug 'elzr/vim-json'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'sk1418/Join'
 Plug 'easymotion/vim-easymotion'
+Plug 'chase/vim-ansible-yaml'
+Plug 'w0rp/ale'
 
 if has('nvim')
-    Plug 'benekastah/neomake'
     Plug 'Shougo/deoplete.nvim'
     Plug 'Shougo/context_filetype.vim'
     Plug 'zchee/deoplete-jedi'
@@ -33,8 +32,6 @@ if has('nvim')
     Plug 'carlitux/deoplete-ternjs'
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     tnoremap <Esc> <C-\><C-n>
-
-    autocmd! BufWritePost * Neomake
 endif
 
 call plug#end()
@@ -144,8 +141,9 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 
 " Vim-go
 let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
 let g:go_list_type = "quickfix"
+let g:go_auto_type_info = 0
+let g:go_updatetime = 200
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -169,17 +167,11 @@ vmap <Enter> <Plug>(EasyAlign)
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-" neomake
-let g:neomake_open_list = 2
-let g:neomake_lua_luacheck_maker = {
-    \ 'args': ['--std=ngx_lua', '--no-color', '--no-unused'],
-    \ }
-let g:neomake_lua_enabled_makers = ['luacheck']
-
 " deoplete
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
 let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2'
 let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr> <Tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
 let g:deoplete#sources#tss#javascript_support = 1
