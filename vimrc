@@ -23,6 +23,8 @@ Plug 'sk1418/Join'
 Plug 'easymotion/vim-easymotion'
 Plug 'chase/vim-ansible-yaml'
 Plug 'w0rp/ale'
+Plug 'xolox/vim-misc'
+Plug 'https://git.oschina.net/iamdsy/vim-lua-ftplugin'
 
 if has('nvim')
     Plug 'Shougo/deoplete.nvim'
@@ -186,3 +188,9 @@ let g:deoplete#sources#go#use_cache = 1
 let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#pointer = 1
+
+" Lua
+let g:lua_interpreter_path = '/usr/local/openresty/bin/resty'
+let $LUA_PATH = '/usr/local/openresty/lualib/resty/?.lua'
+let $LUA_CPATH = '/usr/local/openresty/lualib/?.so'
+let g:lua_complete_omni = 1
