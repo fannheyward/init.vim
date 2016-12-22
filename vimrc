@@ -27,6 +27,7 @@ Plug 'xolox/vim-misc'
 Plug 'https://git.oschina.net/iamdsy/vim-lua-ftplugin'
 
 if has('nvim')
+    Plug 'benekastah/neomake'
     Plug 'Shougo/deoplete.nvim'
     Plug 'Shougo/context_filetype.vim'
     Plug 'zchee/deoplete-jedi'
@@ -34,6 +35,8 @@ if has('nvim')
     Plug 'carlitux/deoplete-ternjs'
     Plug 'zchee/deoplete-go', { 'do': 'make'}
     tnoremap <Esc> <C-\><C-n>
+
+    autocmd! BufWritePost * Neomake
 endif
 
 call plug#end()
@@ -77,7 +80,7 @@ set ignorecase smartcase
 set completeopt=longest,menu
 set completeopt+=noinsert
 let do_syntax_sel_menu=1
-set updatetime=200
+set updatetime=100
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
@@ -145,7 +148,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 0
-let g:go_updatetime = 200
+let g:go_updatetime = 100
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -194,3 +197,13 @@ let g:lua_interpreter_path = '/usr/local/openresty/bin/resty'
 let $LUA_PATH = '/usr/local/openresty/lualib/resty/?.lua'
 let $LUA_CPATH = '/usr/local/openresty/lualib/?.so'
 let g:lua_complete_omni = 1
+
+" ALE
+let g:ale_set_loclist = 0
+
+" neomake
+let g:neomake_open_list = 1
+let g:neomake_lua_luacheck_maker = {
+            \ 'args': ['--std=ngx_lua', '--no-color', '--no-unused'],
+            \ }
+let g:neomake_lua_enabled_makers = ['luacheck']
