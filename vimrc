@@ -76,6 +76,7 @@ set completeopt=longest,menu
 set completeopt+=noinsert
 let do_syntax_sel_menu=1
 set updatetime=100
+set inccommand=split
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! %!sudo tee > /dev/null %
@@ -183,3 +184,4 @@ let $LUA_PATH = '/usr/local/openresty/lualib/resty/?.lua'
 let $LUA_CPATH = '/usr/local/openresty/lualib/?.so'
 let g:lua_complete_omni = 1
 
+autocmd filetype crontab setlocal nobackup nowritebackup
