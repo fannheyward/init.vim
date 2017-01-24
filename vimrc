@@ -24,9 +24,10 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'xolox/vim-misc', { 'for': 'lua' }
 Plug 'https://git.oschina.net/iamdsy/vim-lua-ftplugin', { 'for': 'lua' }
+Plug 'python-mode/python-mode', { 'for': 'python' }
 
 if has('nvim')
-    Plug 'Shougo/deoplete.nvim'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/context_filetype.vim'
     Plug 'zchee/deoplete-jedi', { 'for': 'python' }
     Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
