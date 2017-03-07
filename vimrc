@@ -14,6 +14,7 @@ Plug 'tpope/vim-commentary'
 Plug 'sk1418/Join'
 Plug 'w0rp/ale'
 Plug 'Chiel92/vim-autoformat'
+Plug 'junegunn/fzf.vim'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -37,6 +38,7 @@ if has('nvim')
 endif
 
 call plug#end()
+set rtp+=/usr/local/opt/fzf
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
@@ -60,9 +62,9 @@ set encoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 set fileencoding=utf-8
 
+set hidden
 set clipboard=unnamed
 set number
-setlocal noswapfile
 set smartindent       "set smart indent
 set expandtab
 set tabstop=4
@@ -79,12 +81,11 @@ set completeopt+=noinsert
 let do_syntax_sel_menu=1
 set updatetime=100
 set inccommand=split
-
-" Allow saving of files as sudo when I forgot to start vim using sudo.
-cmap w!! %!sudo tee > /dev/null %
+setlocal noswapfile
 
 " some autocmd
 autocmd FileType ruby,html,javascript,css,json setlocal shiftwidth=2 tabstop=2
+autocmd filetype crontab setlocal nobackup nowritebackup
 
 :command W w
 :command Q q
@@ -100,21 +101,7 @@ function! s:my_cr_function()
   return pumvisible() ? deoplete#close_popup() : "\<CR>"
 endfunction
 
-cs add cscope.out
-
-source $VIMRUNTIME/macros/matchit.vim
-
-" Plugin config.
-" CtrlP
-let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
-
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
+cscope add cscope.out
 
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -122,6 +109,24 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
 set wildignore+=*/haddit_server1/*,*/haddit_server2/*,*/haddit_server3/*,*/haddit_server4/*,*/haddit_server5/*,*/haddit_server6/*,*/haddit_server7/*,*/haddit_server8/*,*/pgdata/*
+
+" Plugin config.
+" FZF
+nnoremap <silent> <c-P> :Files<CR>
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" CtrlP
+let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " CtrlSF
 :com! -n=* F CtrlSF <args>
