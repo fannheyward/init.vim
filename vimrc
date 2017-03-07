@@ -29,6 +29,7 @@ Plug 'https://git.oschina.net/iamdsy/vim-lua-ftplugin', { 'for': 'lua' }
 Plug 'python-mode/python-mode', { 'for': 'python' }
 
 if has('nvim')
+    Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/context_filetype.vim'
     Plug 'zchee/deoplete-jedi', { 'for': 'python' }
@@ -191,4 +192,17 @@ let $LUA_PATH = '/usr/local/openresty/lualib/resty/?.lua'
 let $LUA_CPATH = '/usr/local/openresty/lualib/?.so'
 let g:lua_complete_omni = 1
 
-autocmd filetype crontab setlocal nobackup nowritebackup
+" langserver
+autocmd FileType go,python LanguageClientStart
+
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
+nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['language-server-stdio.js', '--trace', '--logfile', expand('/tmp/langserver-js.log')],
+    \ 'typescript': ['language-server-stdio.js', '--trace', '--logfile', expand('/tmp/langserver-js.log')],
+    \ 'go': ['go-langserver', '--trace', '--logfile', expand('/tmp/langserver-go.log')],
+    \ 'python': ['pyls'],
+    \ }
