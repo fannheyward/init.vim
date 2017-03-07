@@ -13,6 +13,7 @@ Plug 'vim-scripts/loremipsum'
 Plug 'tpope/vim-commentary'
 Plug 'sk1418/Join'
 Plug 'w0rp/ale'
+Plug 'Chiel92/vim-autoformat'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
