@@ -2,24 +2,25 @@ set nocompatible              " be iMproved, required
 
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
-Plug 'Valloric/ListToggle'
+" Plug 'Valloric/ListToggle'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'bronson/vim-trailing-whitespace'
-Plug 'vim-scripts/loremipsum'
 Plug 'tpope/vim-commentary'
-Plug 'sk1418/Join'
 Plug 'w0rp/ale'
-Plug 'Chiel92/vim-autoformat'
-Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
+Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
+Plug 'junegunn/fzf.vim', { 'on': 'Files'}
+Plug 'vim-scripts/loremipsum', { 'on': 'Loremipsum' }
+Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
+Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'chase/vim-ansible-yaml', { 'for': 'yaml'}
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -112,6 +113,10 @@ set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
 set wildignore+=*/haddit_server1/*,*/haddit_server2/*,*/haddit_server3/*,*/haddit_server4/*,*/haddit_server5/*,*/haddit_server6/*,*/haddit_server7/*,*/haddit_server8/*,*/pgdata/*
 
 " Plugin config.
+" ALE
+let g:ale_lint_on_enter = 0
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 " FZF
 nnoremap <silent> <c-P> :Files<CR>
 imap <c-x><c-k> <plug>(fzf-complete-word)
