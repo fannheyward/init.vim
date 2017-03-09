@@ -11,6 +11,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'vim-airline/vim-airline'
+Plug 'roxma/nvim-completion-manager'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -27,20 +28,19 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'xolox/vim-misc', { 'for': 'lua' }
 Plug 'https://git.oschina.net/iamdsy/vim-lua-ftplugin', { 'for': 'lua' }
-Plug 'python-mode/python-mode', { 'for': 'python' }
+" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
-if has('nvim')
-    Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/context_filetype.vim'
-    Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-    Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-    Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
-    tnoremap <Esc> <C-\><C-n>
-endif
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/context_filetype.vim'
+" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+" Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
+
+tnoremap <Esc> <C-\><C-n>
 
 call plug#end()
-set rtp+=/usr/local/opt/fzf
+" set rtp+=/usr/local/opt/fzf
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
@@ -80,6 +80,7 @@ set hlsearch
 set ignorecase smartcase
 set completeopt=longest,menu
 set completeopt+=noinsert
+set completeopt+=noselect
 let do_syntax_sel_menu=1
 set updatetime=100
 set inccommand=split
@@ -99,8 +100,8 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 "" Recommended key-mappings. For no inserting <CR> key.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  " return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
-  return pumvisible() ? deoplete#close_popup() : "\<CR>"
+  return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+  " return pumvisible() ? deoplete#close_popup() : "\<CR>"
 endfunction
 
 cscope add cscope.out
@@ -165,11 +166,9 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-au FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <leader>b <Plug>(go-build)
+autocmd FileType go nmap <C-g> :GoDeclsDir<cr>
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-" Open :GoDeclsDir with ctrl-g
-nmap <C-g> :GoDeclsDir<cr>
-imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
@@ -180,7 +179,7 @@ let g:python3_host_skip_check = 1
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/local/bin/python2'
 let g:deoplete#enable_at_startup = 1
-inoremap <silent><expr> <Tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
+" inoremap <silent><expr> <Tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
 let g:deoplete#sources#tss#javascript_support = 1
 
 " deoplete-go settings
@@ -201,6 +200,8 @@ let g:lua_complete_omni = 1
 autocmd FileType go,python LanguageClientStart
 
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
@@ -211,3 +212,8 @@ let g:LanguageClient_serverCommands = {
     \ 'go': ['go-langserver', '--trace', '--logfile', expand('/tmp/langserver-go.log')],
     \ 'python': ['pyls'],
     \ }
+
+" NCM
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+set shortmess+=c
+let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
