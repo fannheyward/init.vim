@@ -10,7 +10,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
-Plug 'vim-airline/vim-airline'
 Plug 'roxma/nvim-completion-manager'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -197,7 +196,7 @@ let $LUA_CPATH = '/usr/local/openresty/lualib/?.so'
 let g:lua_complete_omni = 1
 
 " langserver
-autocmd FileType go,python LanguageClientStart
+autocmd FileType python LanguageClientStart
 
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
@@ -207,9 +206,7 @@ nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['language-server-stdio.js', '--trace', '--logfile', expand('/tmp/langserver-js.log')],
-    \ 'typescript': ['language-server-stdio.js', '--trace', '--logfile', expand('/tmp/langserver-js.log')],
-    \ 'go': ['go-langserver', '--trace', '--logfile', expand('/tmp/langserver-go.log')],
+    \ 'go': ['go-langserver',],
     \ 'python': ['pyls'],
     \ }
 
