@@ -25,11 +25,9 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'chase/vim-ansible-yaml', { 'for': 'yaml'}
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elzr/vim-json', { 'for': 'json' }
-Plug 'xolox/vim-misc', { 'for': 'lua' }
-Plug 'https://git.oschina.net/iamdsy/vim-lua-ftplugin', { 'for': 'lua' }
-" Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'Shougo/context_filetype.vim'
 " Plug 'zchee/deoplete-jedi', { 'for': 'python' }
@@ -39,7 +37,7 @@ Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 tnoremap <Esc> <C-\><C-n>
 
 call plug#end()
-" set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/opt/fzf
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
@@ -189,22 +187,19 @@ let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#pointer = 1
 
-" Lua
-let g:lua_interpreter_path = '/usr/local/openresty/bin/resty'
-let $LUA_PATH = '/usr/local/openresty/lualib/resty/?.lua'
-let $LUA_CPATH = '/usr/local/openresty/lualib/?.so'
-let g:lua_complete_omni = 1
+" Python-mode
+let g:pymode_lint = 0
 
 " langserver
-autocmd FileType python LanguageClientStart
+" autocmd FileType python LanguageClientStart
 
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
-nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
+" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+" nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+" nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
+" nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
+" nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
 let g:LanguageClient_serverCommands = {
     \ 'go': ['go-langserver',],
     \ 'python': ['pyls'],
