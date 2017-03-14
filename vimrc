@@ -10,14 +10,13 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
-Plug 'roxma/nvim-completion-manager'
+" Plug 'roxma/nvim-completion-manager'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
-Plug 'junegunn/fzf.vim', { 'on': 'Files'}
 Plug 'vim-scripts/loremipsum', { 'on': 'Loremipsum' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
@@ -28,16 +27,14 @@ Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/context_filetype.vim'
-" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-" Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-" Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
-
-tnoremap <Esc> <C-\><C-n>
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/neoinclude.vim'
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 
 call plug#end()
-set rtp+=/usr/local/opt/fzf
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
@@ -48,6 +45,7 @@ inoremap <C-g> <Esc>
 inoremap jj <Esc>
 
 nmap ? /\<\><Left><Left>
+tnoremap <Esc> <C-\><C-n>
 
 set guifont=Monaco:h15
 set guifontwide=Monaco:h15
@@ -95,10 +93,10 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 :command WQa wqa
 
 "" Recommended key-mappings. For no inserting <CR> key.
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>\<C-y>" : "\<Tab>"
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
-  " return pumvisible() ? deoplete#close_popup() : "\<CR>"
 endfunction
 
 cscope add cscope.out
@@ -115,13 +113,6 @@ set wildignore+=*/haddit_server1/*,*/haddit_server2/*,*/haddit_server3/*,*/haddi
 let g:ale_lint_on_enter = 0
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-" FZF
-nnoremap <silent> <c-P> :Files<CR>
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
 if executable('ag')
@@ -137,7 +128,7 @@ endif
 let g:ctrlsf_auto_close = 0
 
 " Tasklist
-let g:tlTokenList = ['TODO' , 'WTF', 'FIX']
+let g:tlTokenList = ['TODO', 'WTF', 'FIX']
 
 " Tagbar
 let g:tagbar_autofocus = 1
@@ -176,7 +167,6 @@ let g:python3_host_skip_check = 1
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:python_host_prog = '/usr/local/bin/python2'
 let g:deoplete#enable_at_startup = 1
-" inoremap <silent><expr> <Tab> pumvisible() ? deoplete#close_popup() : "\<tab>"
 let g:deoplete#sources#tss#javascript_support = 1
 
 " deoplete-go settings
@@ -206,6 +196,5 @@ let g:LanguageClient_serverCommands = {
     \ }
 
 " NCM
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 set shortmess+=c
 let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
