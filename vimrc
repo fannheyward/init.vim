@@ -2,7 +2,6 @@ set nocompatible              " be iMproved, required
 
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
-" Plug 'Valloric/ListToggle'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
@@ -10,6 +9,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
+Plug 'fannheyward/eleline.vim'
+" Plug 'itchyny/lightline.vim'
+" Plug 'wesleyche/SrcExpl'
 " Plug 'roxma/nvim-completion-manager'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -21,9 +23,7 @@ Plug 'vim-scripts/loremipsum', { 'on': 'Loremipsum' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 
-Plug 'chase/vim-ansible-yaml', { 'for': 'yaml'}
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'elzr/vim-json', { 'for': 'json' }
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
@@ -45,6 +45,7 @@ inoremap <C-g> <Esc>
 inoremap jj <Esc>
 
 nmap ? /\<\><Left><Left>
+nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 
 set guifont=Monaco:h15
