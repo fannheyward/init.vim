@@ -115,7 +115,7 @@ set wildignore+=*/haddit_server1/*,*/haddit_server2/*,*/haddit_server3/*,*/haddi
 let g:ale_lint_on_enter = 0
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
-            \   'go': ['gofmt', 'golint', 'govet', 'gobuild'],
+            \   'go': ['golint', 'govet', 'gobuild'],
             \}
 
 " CtrlP
