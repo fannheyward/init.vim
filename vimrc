@@ -6,6 +6,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
@@ -123,6 +124,9 @@ if executable('ag')
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+
+nnoremap <C-g> :CtrlPFunky<cr>
+let g:ctrlp_funky_syntax_highlight = 1
 
 " CtrlSF
 :com! -n=* F CtrlSF <args>
