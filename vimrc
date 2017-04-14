@@ -98,7 +98,7 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>\<C-y>" : "\<Tab>"
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+    return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
 endfunction
 
 cscope add cscope.out
@@ -114,15 +114,18 @@ set wildignore+=*/haddit_server1/*,*/haddit_server2/*,*/haddit_server3/*,*/haddi
 " ALE
 let g:ale_lint_on_enter = 0
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+let g:ale_linters = {
+            \   'go': ['gofmt', 'golint', 'govet', 'gobuild'],
+            \}
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
 if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 nnoremap <C-g> :CtrlPFunky<cr>
@@ -196,9 +199,9 @@ let g:pymode_lint = 0
 " nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
 " nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
 let g:LanguageClient_serverCommands = {
-    \ 'go': ['go-langserver',],
-    \ 'python': ['pyls'],
-    \ }
+            \ 'go': ['go-langserver',],
+            \ 'python': ['pyls'],
+            \ }
 
 " NCM
 set shortmess+=c
