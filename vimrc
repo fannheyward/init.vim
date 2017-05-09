@@ -4,7 +4,7 @@ call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'altercation/vim-colors-solarized'
@@ -19,13 +19,12 @@ Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
 Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
-Plug 'Chiel92/vim-autoformat', { 'on': 'Autoformat' }
+Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'vim-scripts/loremipsum', { 'on': 'Loremipsum' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 
 " Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -116,6 +115,7 @@ let g:ale_lint_on_enter = 0
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_linters = {
             \   'go': ['golint', 'go vet', 'go build'],
+            \   'python': ['flake8', 'pylint'],
             \}
 
 " CtrlP
@@ -185,10 +185,8 @@ let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#pointer = 1
 
-" Python-mode
-let g:pymode_lint = 0
-
 " langserver
+" let g:LanguageClient_autoStart = 1
 " autocmd FileType python LanguageClientStart
 
 " nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
