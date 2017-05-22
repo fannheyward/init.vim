@@ -4,13 +4,13 @@ call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
-Plug 'fannheyward/eleline.vim'
+Plug 'liuchengxu/eleline.vim'
 " Plug 'itchyny/lightline.vim'
 " Plug 'wesleyche/SrcExpl'
 " Plug 'roxma/nvim-completion-manager'
@@ -30,7 +30,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neoinclude.vim'
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 
@@ -204,3 +204,8 @@ let g:LanguageClient_serverCommands = {
 " NCM
 set shortmess+=c
 let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
+
+" jedi-vim
+let g:jedi#goto_command = "gd"
+let g:jedi#goto_assignments_command = "gd"
+let g:jedi#goto_definitions_command = "gd"
