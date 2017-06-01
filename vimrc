@@ -81,6 +81,8 @@ let do_syntax_sel_menu=1
 set updatetime=100
 set inccommand=split
 setlocal noswapfile
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 " some autocmd
 autocmd FileType ruby,html,javascript,css,json setlocal shiftwidth=2 tabstop=2
