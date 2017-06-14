@@ -38,6 +38,7 @@ map <silent> <leader>n :nohlsearch<cr>
 nmap ? /\<\><Left><Left>
 
 inoremap <C-g> <Esc>
+inoremap <C-c> <Esc>
 inoremap jj <Esc>
 inoremap jk <ESC>
 

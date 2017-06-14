@@ -42,6 +42,7 @@ map <silent> <leader>dd :e $HOME/.config/nvim/fannheyward.dict<cr>
 setl dictionary+=$HOME/.config/nvim/fannheyward.dict
 map <silent> <leader>n :nohlsearch<cr>
 inoremap <C-g> <Esc>
+inoremap <C-c> <ESC>
 inoremap jj <Esc>
 
 nmap ? /\<\><Left><Left>
@@ -165,7 +166,7 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 autocmd FileType go nmap <leader>b <Plug>(go-build)
-autocmd FileType go nmap <C-g> :GoDeclsDir<cr>
+autocmd FileType go nmap <C-g> :GoDecls<cr>
 autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 
 " EasyAlign
@@ -203,11 +204,8 @@ let g:LanguageClient_serverCommands = {
             \ 'python': ['pyls'],
             \ }
 
-" NCM
-set shortmess+=c
-let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
-
 " jedi-vim
 let g:jedi#goto_command = "gd"
 let g:jedi#goto_assignments_command = "gd"
 let g:jedi#goto_definitions_command = "gd"
+let g:jedi#completions_command = "<Tab>"
