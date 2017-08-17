@@ -31,6 +31,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 
@@ -208,4 +209,4 @@ let g:LanguageClient_serverCommands = {
 let g:jedi#goto_command = "gd"
 let g:jedi#goto_assignments_command = "gd"
 let g:jedi#goto_definitions_command = "gd"
-let g:jedi#completions_command = "<Tab>"
+let g:jedi#completions_enabled = 0
