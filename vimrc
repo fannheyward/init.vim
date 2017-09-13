@@ -104,8 +104,6 @@ function! s:my_cr_function()
     return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
 endfunction
 
-cscope add cscope.out
-
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
