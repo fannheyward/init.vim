@@ -39,8 +39,8 @@ call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
-map <silent> <leader>dd :e $HOME/.config/nvim/fannheyward.dict<cr>
-setl dictionary+=$HOME/.config/nvim/fannheyward.dict
+map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<cr>
+setl dictionary+=$HOME/.config/nvim/dev.dict
 map <silent> <leader>n :nohlsearch<cr>
 inoremap <C-g> <Esc>
 inoremap <C-c> <ESC>
