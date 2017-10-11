@@ -26,7 +26,7 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
 
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins', 'for': 'lua' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neoinclude.vim'
@@ -153,6 +153,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 0
+let g:go_auto_sameids = 1
 let g:go_updatetime = 100
 
 let g:go_highlight_types = 1
@@ -188,19 +189,18 @@ let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#pointer = 1
 
 " langserver
-" let g:LanguageClient_autoStart = 1
-" autocmd FileType python LanguageClientStart
+let g:LanguageClient_autoStart = 1
+" autocmd FileType lua LanguageClientStart
 
-" nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-" nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-" nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-" nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
-" nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
-" nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
+nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
 let g:LanguageClient_serverCommands = {
-            \ 'go': ['go-langserver',],
-            \ 'python': ['pyls'],
+            \ 'lua': ['lua-lsp'],
             \ }
 
 " jedi-vim
