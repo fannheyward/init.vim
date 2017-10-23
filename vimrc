@@ -13,7 +13,7 @@ Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
 " Plug 'itchyny/lightline.vim'
 " Plug 'wesleyche/SrcExpl'
-" Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/nvim-completion-manager'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -26,14 +26,14 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
 
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins', 'for': 'lua' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/context_filetype.vim'
+" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins', 'for': 'lua' }
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
+" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
+" Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 
 call plug#end()
 
@@ -111,6 +111,11 @@ set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
 set wildignore+=*/haddit_server1/*,*/haddit_server2/*,*/haddit_server3/*,*/haddit_server4/*,*/haddit_server5/*,*/haddit_server6/*,*/haddit_server7/*,*/haddit_server8/*,*/pgdata/*
 
+let g:python_host_skip_check = 1
+let g:python3_host_skip_check = 1
+let g:python3_host_prog = '/usr/local/bin/python3'
+let g:python_host_prog = '/usr/local/bin/python2'
+
 " Plugin config.
 " ALE
 let g:ale_lint_on_enter = 0
@@ -153,7 +158,6 @@ let g:UltiSnipsJumpBackwardTrigger="<c-b>"
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 0
-let g:go_auto_sameids = 1
 let g:go_updatetime = 100
 
 let g:go_highlight_types = 1
@@ -173,12 +177,8 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 vmap <Enter> <Plug>(EasyAlign)
 
 " deoplete
-let g:python_host_skip_check = 1
-let g:python3_host_skip_check = 1
-let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#tss#javascript_support = 1
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources#tss#javascript_support = 1
 
 " deoplete-go settings
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
