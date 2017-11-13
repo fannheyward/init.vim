@@ -11,8 +11,6 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
-" Plug 'itchyny/lightline.vim'
-" Plug 'wesleyche/SrcExpl'
 Plug 'roxma/nvim-completion-manager'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -25,15 +23,7 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
-
-" Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins', 'for': 'lua' }
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/neoinclude.vim'
 Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
-" Plug 'carlitux/deoplete-ternjs', { 'for': 'javascript' }
-" Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 
 call plug#end()
 
@@ -176,20 +166,8 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
 
-" deoplete
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources#tss#javascript_support = 1
-
-" deoplete-go settings
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#use_cache = 1
-let g:deoplete#sources#go#json_directory = '~/.cache/deoplete/go'
-let g:deoplete#sources#go#package_dot = 1
-let g:deoplete#sources#go#pointer = 1
-
 " langserver
-let g:LanguageClient_autoStart = 1
+" let g:LanguageClient_autoStart = 1
 " autocmd FileType lua LanguageClientStart
 
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
