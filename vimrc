@@ -186,3 +186,6 @@ let g:jedi#goto_command = "gd"
 let g:jedi#goto_assignments_command = "gd"
 let g:jedi#goto_definitions_command = "gd"
 let g:jedi#completions_enabled = 0
+
+" NCM
+let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
