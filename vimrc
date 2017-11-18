@@ -12,6 +12,7 @@ Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
 Plug 'roxma/nvim-completion-manager'
+Plug 'Shougo/neoinclude.vim'
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -23,7 +24,7 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 call plug#end()
 
@@ -109,10 +110,16 @@ let g:python_host_prog = '/usr/local/bin/python2'
 " Plugin config.
 " ALE
 let g:ale_lint_on_enter = 0
+let g:ale_fix_on_save = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 let g:ale_linters = {
-            \   'go': ['golint', 'go vet', 'go build'],
-            \   'python': ['flake8', 'pylint'],
+            \ 'go': ['golint', 'go vet', 'go build'],
+            \ 'python': ['flake8', 'pylint'],
+            \}
+let g:ale_fixers = {
+            \ 'python' : ['autopep8', 'remove_trailing_lines', 'trim_whitespace'],
+            \ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace']
             \}
 
 " CtrlP
@@ -167,8 +174,16 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 vmap <Enter> <Plug>(EasyAlign)
 
 " langserver
-" let g:LanguageClient_autoStart = 1
-" autocmd FileType lua LanguageClientStart
+autocmd FileType python LanguageClientStart
+autocmd FileType lua LanguageClientStart
+let g:LanguageClient_autoStart = 0
+let g:LanguageClient_serverCommands = {
+            \ 'lua': ['lua-lsp'],
+            \ 'python': ['pyls'],
+            \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+            \ 'javascript': ['javascript-typescript-stdio'],
+            \ 'javascript.jsx': ['javascript-typescript-stdio'],
+            \ }
 
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
@@ -177,15 +192,6 @@ nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
-let g:LanguageClient_serverCommands = {
-            \ 'lua': ['lua-lsp'],
-            \ }
-
-" jedi-vim
-let g:jedi#goto_command = "gd"
-let g:jedi#goto_assignments_command = "gd"
-let g:jedi#goto_definitions_command = "gd"
-let g:jedi#completions_enabled = 0
 
 " NCM
 let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
