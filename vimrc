@@ -7,7 +7,7 @@ Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tacahiroy/ctrlp-funky'
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
@@ -46,7 +46,7 @@ set guifontwide=Monaco:h15
 set background=dark
 let g:solarized_termtrans = 1
 let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme solarized8
 
 " Chinese encodingcoding
 set encoding=utf-8
