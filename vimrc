@@ -13,6 +13,8 @@ Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
 Plug 'roxma/nvim-completion-manager'
 Plug 'Shougo/neoinclude.vim'
+Plug 'blueyed/argtextobj.vim' "via/cia
+Plug 'michaeljsmith/vim-indent-object' "vii - o
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -41,6 +43,7 @@ nmap ? /\<\><Left><Left>
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 
+set termguicolors
 set guifont=Monaco:h15
 set guifontwide=Monaco:h15
 set background=dark
