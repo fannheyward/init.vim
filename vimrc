@@ -11,10 +11,11 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
-Plug 'roxma/nvim-completion-manager'
-Plug 'Shougo/neoinclude.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
+Plug 'Shougo/neoinclude.vim'
+Plug 'Shougo/context_filetype.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -26,6 +27,7 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 call plug#end()
@@ -197,4 +199,14 @@ nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
 
 " NCM
-let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
+" Plug 'roxma/nvim-completion-manager'
+" let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+
+" deoplete-go settings
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#package_dot = 1
+let g:deoplete#sources#go#pointer = 1
