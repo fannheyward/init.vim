@@ -198,10 +198,6 @@ nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
 nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
 nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
 
-" NCM
-" Plug 'roxma/nvim-completion-manager'
-" let g:cm_matcher = {'module': 'cm_matchers.fuzzy_matcher', 'case': 'smartcase'}
-
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
