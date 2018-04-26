@@ -16,6 +16,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-unimpaired'
 Plug 'mhinz/vim-signify'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -227,3 +228,8 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
+
+" vim-gutentags
+set tags=./.tags;,.tags
+let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
+let g:gutentags_ctags_tagfile = '.tags'
