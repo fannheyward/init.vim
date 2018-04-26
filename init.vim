@@ -4,14 +4,16 @@ call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'tacahiroy/ctrlp-funky'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -119,7 +121,7 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
 let g:ale_linters = {
             \ 'go': ['golint', 'go vet', 'go build'],
-            \ 'python': ['flake8', 'pylint'],
+            \ 'python': ['pyls'],
             \}
 let g:ale_fixers = {
             \ 'python' : ['autopep8', 'remove_trailing_lines', 'trim_whitespace'],
@@ -205,3 +207,21 @@ let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#package_dot = 1
 let g:deoplete#sources#go#pointer = 1
+
+" FZF
+let $FZF_DEFAULT_OPTS .= ' --inline-info'
+if executable('ag')
+    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+endif
+
+nnoremap <silent> <C-P> :Files<CR>
+nnoremap <C-g> :BTags<cr>
+
+nmap <leader><tab> <plug>(fzf-maps-n)
+xmap <leader><tab> <plug>(fzf-maps-x)
+omap <leader><tab> <plug>(fzf-maps-o)
+
+imap <c-x><c-k> <plug>(fzf-complete-word)
+imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+imap <c-x><c-l> <plug>(fzf-complete-line)
