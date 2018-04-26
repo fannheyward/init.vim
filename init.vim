@@ -105,11 +105,9 @@ function! s:my_cr_function()
 endfunction
 
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
-set wildignore+=*/bower_components/*,*/node_modules/*
-set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
-set wildignore+=*/haddit_server1/*,*/haddit_server2/*,*/haddit_server3/*,*/haddit_server4/*,*/haddit_server5/*,*/haddit_server6/*,*/haddit_server7/*,*/haddit_server8/*,*/pgdata/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
+set wildignore+=*/bower_components/*,bower_components/*,*/node_modules/*,node_modules/*,*/vendor/*,vendor/*
+set wildignore+=*/nginx_runtime/*,nginx_runtime/*,*/build/*,build/*,*/logs/*,logs/*,*/dist/*,dist/*
 
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
