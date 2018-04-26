@@ -65,7 +65,7 @@ set fileencoding=utf-8
 set hidden
 set clipboard=unnamed
 set number
-set smartindent       "set smart indent
+set smartindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -79,6 +79,7 @@ set ignorecase smartcase
 set completeopt=longest,menu
 set completeopt+=noinsert
 set completeopt+=noselect
+set switchbuf=useopen,usetab,newtab
 let do_syntax_sel_menu=1
 set updatetime=100
 set inccommand=split
