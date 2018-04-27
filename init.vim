@@ -10,7 +10,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
@@ -113,8 +113,8 @@ set wildignore+=*/nginx_runtime/*,nginx_runtime/*,*/build/*,build/*,*/logs/*,log
 
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
+let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
-let g:python_host_prog = '/usr/local/bin/python2'
 
 " Plugin config.
 " ALE
