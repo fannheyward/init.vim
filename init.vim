@@ -33,7 +33,6 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 call plug#end()
 
@@ -181,26 +180,6 @@ autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
-
-" langserver
-autocmd FileType python LanguageClientStart
-autocmd FileType lua LanguageClientStart
-let g:LanguageClient_autoStart = 0
-let g:LanguageClient_serverCommands = {
-            \ 'lua': ['lua-lsp'],
-            \ 'python': ['pyls'],
-            \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-            \ 'javascript': ['javascript-typescript-stdio'],
-            \ 'javascript.jsx': ['javascript-typescript-stdio'],
-            \ }
-
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
-nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
