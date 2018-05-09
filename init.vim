@@ -18,6 +18,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'farmergreg/vim-lastplace'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
