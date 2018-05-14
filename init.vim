@@ -2,6 +2,7 @@ set nocompatible              " be iMproved, required
 
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
+Plug 'Valloric/ListToggle'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -10,7 +11,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'
+" Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
@@ -22,6 +23,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -122,8 +124,6 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nnoremap <silent> gd :ALEGoToDefinition<CR>
-nnoremap <silent> R :ALEFindReferences<CR>
 
 let g:ale_linters = {
             \ 'go': ['golint', 'go vet', 'go build'],
@@ -215,3 +215,21 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
+
+" langserver
+let g:LanguageClient_serverCommands = {
+            \ 'lua': ['lua-lsp'],
+            \ 'python': ['pyls'],
+            \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+            \ 'javascript': ['javascript-typescript-stdio'],
+            \ 'typescript': ['javascript-typescript-stdio'],
+            \ 'javascript.jsx': ['javascript-typescript-stdio'],
+            \ }
+
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
+nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
