@@ -223,6 +223,7 @@ let g:LanguageClient_serverCommands = {
             \ 'javascript': ['javascript-typescript-stdio'],
             \ 'typescript': ['javascript-typescript-stdio'],
             \ 'javascript.jsx': ['javascript-typescript-stdio'],
+            \ 'vue': ['vls'],
             \ }
 
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
