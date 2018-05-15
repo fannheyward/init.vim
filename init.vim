@@ -37,6 +37,7 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 call plug#end()
 
