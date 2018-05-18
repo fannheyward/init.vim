@@ -89,7 +89,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " some autocmd
-autocmd FileType ruby,html,javascript,css,json setlocal shiftwidth=2 tabstop=2
+autocmd FileType ruby,html,javascript,typescript,css,json setlocal shiftwidth=2 tabstop=2
 autocmd filetype crontab setlocal nobackup nowritebackup
 
 :command W w
