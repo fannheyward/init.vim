@@ -2,14 +2,13 @@ set nocompatible              " be iMproved, required
 
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
-Plug 'Valloric/ListToggle'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'w0rp/ale'
+Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
@@ -33,7 +32,7 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
-Plug 'zchee/deoplete-jedi', { 'for': 'python' }
+" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 call plug#end()
@@ -121,15 +120,19 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " ALE
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nnoremap <silent> gd :ALEGoToDefinition<CR>
+nnoremap <silent> R :ALEFindReferences<CR>
 
 let g:ale_linters = {
             \ 'go': ['golint', 'go vet', 'go build'],
-            \ 'python': ['pylint', 'pyls'],
+            \ 'python': ['pyls'],
             \}
 let g:ale_fixers = {
             \ 'python' : ['yapf', 'remove_trailing_lines', 'trim_whitespace'],
-            \ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace']
+            \ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+            \ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
             \}
 
 " CtrlP
