@@ -21,7 +21,6 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'Shougo/neoinclude.vim'
 Plug 'Shougo/context_filetype.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -214,22 +213,3 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
-
-" langserver
-let g:LanguageClient_serverCommands = {
-            \ 'lua': ['lua-lsp'],
-            \ 'python': ['pyls'],
-            \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-            \ 'javascript': ['javascript-typescript-stdio'],
-            \ 'typescript': ['javascript-typescript-stdio'],
-            \ 'javascript.jsx': ['javascript-typescript-stdio'],
-            \ 'vue': ['vls'],
-            \ }
-
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-nnoremap <silent> <c-]> :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> D :call LanguageClient_textDocument_documentSymbol()<CR>
-nnoremap <silent> R :call LanguageClient_textDocument_references()<CR>
-nnoremap <silent> W :call LanguageClient_workspace_symbol()<CR>
