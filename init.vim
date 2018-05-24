@@ -6,7 +6,6 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-unimpaired'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 Plug 'liuchengxu/eleline.vim'
@@ -42,7 +41,6 @@ map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
 map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<cr>
 setl dictionary+=$HOME/.config/nvim/dev.dict
 map <silent> <leader>n :nohlsearch<cr>
-inoremap <C-g> <Esc>
 inoremap <C-c> <ESC>
 inoremap jj <Esc>
 
@@ -124,6 +122,7 @@ let g:ale_completion_enabled = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nnoremap <silent> gd :ALEGoToDefinition<CR>
 nnoremap <silent> R :ALEFindReferences<CR>
+nnoremap <silent> K :ALEHover<CR>
 
 let g:ale_linters = {
             \ 'go': ['golint', 'go vet', 'go build'],
