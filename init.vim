@@ -49,10 +49,7 @@ nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 
 set termguicolors
-set guifont=Monaco:h15
-set guifontwide=Monaco:h15
 set background=dark
-let g:solarized_termtrans = 1
 let g:solarized_termcolors=256
 colorscheme solarized8
 
@@ -79,7 +76,6 @@ set completeopt=longest,menu
 set completeopt+=noinsert
 set completeopt+=noselect
 set switchbuf=useopen,usetab,newtab
-let do_syntax_sel_menu=1
 set updatetime=100
 set inccommand=split
 setlocal noswapfile
@@ -109,6 +105,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
 set wildignore+=*/bower_components/*,bower_components/*,*/node_modules/*,node_modules/*,*/vendor/*,vendor/*
 set wildignore+=*/nginx_runtime/*,nginx_runtime/*,*/build/*,build/*,*/logs/*,logs/*,*/dist/*,dist/*
 
+" speedup
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
 let g:python_host_prog = '/usr/bin/python'
