@@ -212,3 +212,4 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
+let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
