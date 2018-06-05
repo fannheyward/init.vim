@@ -1,5 +1,3 @@
-set nocompatible              " be iMproved, required
-
 call plug#begin()
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
@@ -61,7 +59,7 @@ set fileencoding=utf-8
 set hidden
 set clipboard=unnamed
 set number
-set smartindent
+set autoindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
