@@ -64,7 +64,6 @@ set fileencoding=utf-8
 set hidden
 set clipboard=unnamed
 set number
-set autoindent
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -73,7 +72,6 @@ set foldmethod=indent
 set showmatch
 set matchtime=2
 set matchpairs+=<:>
-set hlsearch
 set ignorecase smartcase
 set completeopt=longest,menu
 set completeopt+=noinsert
