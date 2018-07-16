@@ -19,10 +19,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
+Plug 'Shougo/echodoc'
 " Plug 'Shougo/neoinclude.vim'
 " Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/echodoc'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -79,6 +79,7 @@ set switchbuf=useopen,usetab,newtab
 set updatetime=100
 set inccommand=split
 set noshowmode
+set completeopt=menu
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -101,6 +102,18 @@ function! s:my_cr_function()
     return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
 endfunction
 
+inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
 set wildignore+=*/bower_components/*,bower_components/*,*/node_modules/*,node_modules/*,*/vendor/*,vendor/*
@@ -118,9 +131,16 @@ let g:node_host_prog = '/Users/fannheyward/.config/yarn/global/node_modules/neov
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
-nnoremap <silent> gd :ALEGoToDefinition<CR>
+" nnoremap <silent> gd :ALEGoToDefinition<CR>
 nnoremap <silent> R :ALEFindReferences<CR>
 nnoremap <silent> K :ALEHover<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nnoremap <silent> K :call CocAction('doHover')<CR>
 
 let g:ale_linters = {
             \ 'go': ['golint', 'go vet', 'go build'],
