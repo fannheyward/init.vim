@@ -22,6 +22,7 @@ Plug 'farmergreg/vim-lastplace'
 " Plug 'Shougo/neoinclude.vim'
 " Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/echodoc'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -77,6 +78,7 @@ set ignorecase smartcase
 set switchbuf=useopen,usetab,newtab
 set updatetime=100
 set inccommand=split
+set noshowmode
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -212,3 +214,6 @@ set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
+
+" echodoc
+let g:echodoc_enable_at_startup = 1
