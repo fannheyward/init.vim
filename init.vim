@@ -19,9 +19,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
-Plug 'Shougo/neoinclude.vim'
-Plug 'Shougo/context_filetype.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/neoinclude.vim'
+" Plug 'Shougo/context_filetype.vim'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -33,7 +34,7 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
+" Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
 " Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
@@ -73,9 +74,6 @@ set showmatch
 set matchtime=2
 set matchpairs+=<:>
 set ignorecase smartcase
-set completeopt=longest,menu
-set completeopt+=noinsert
-set completeopt+=noselect
 set switchbuf=useopen,usetab,newtab
 set updatetime=100
 set inccommand=split
@@ -111,12 +109,12 @@ let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
+let g:node_host_prog = '/Users/fannheyward/.config/yarn/global/node_modules/neovim/bin/cli.js'
 
 " Plugin config.
 " ALE
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 nnoremap <silent> gd :ALEGoToDefinition<CR>
 nnoremap <silent> R :ALEFindReferences<CR>
