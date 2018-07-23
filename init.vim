@@ -51,6 +51,8 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<cr>
 
+nnoremap <Space> za
+
 inoremap <C-c> <ESC>
 inoremap jj <Esc>
 
@@ -132,12 +134,12 @@ augroup end
 " }}
 
 " command {{
-:command W w
-:command Q q
-:command Qa qa
-:command Wa wa
-:command Wqa wqa
-:command WQa wqa
+command! W w
+command! Q q
+command! Qa qa
+command! Wa wa
+command! Wqa wqa
+command! WQa wqa
 " }}
 
 " wildignore {{
