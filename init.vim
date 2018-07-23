@@ -1,3 +1,4 @@
+" plug.vim {{
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -40,10 +41,9 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 call plug#end()
+" }}
 
-"""""""""""""""""""""""
-" mappings
-"""""""""""""""""""""""
+" mappings {{
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
 map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<cr>
 setl dictionary+=$HOME/.config/nvim/dev.dict
@@ -75,12 +75,12 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+" }}
 
-" Chinese encodingcoding
+" basic {{
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
-" basic
 set termguicolors
 set background=dark
 let g:solarized_termcolors=256
@@ -107,8 +107,9 @@ set completeopt=menu
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
+" }}
 
-" some autocmd
+" autocmd {{
 augroup common
   autocmd!
   autocmd FileType ruby,html,javascript,typescript,css,json setlocal shiftwidth=2 tabstop=2
@@ -128,29 +129,34 @@ augroup common
         \    setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
 augroup end
+" }}
 
+" command {{
 :command W w
 :command Q q
 :command Qa qa
 :command Wa wa
 :command Wqa wqa
 :command WQa wqa
+" }}
 
+" wildignore {{
 set wildignore+=*~,*/.git/*,*/.svn/*,*/.DS_Store
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
 set wildignore+=*/bower_components/*,bower_components/*,*/node_modules/*,node_modules/*,*/vendor/*,vendor/*
 set wildignore+=*/nginx_runtime/*,nginx_runtime/*,*/build/*,build/*,*/logs/*,logs/*,*/dist/*,dist/*
+" }}
 
-" speedup
+" speedup {{
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 let g:node_host_prog = '/Users/fannheyward/.config/yarn/global/node_modules/neovim/bin/cli.js'
+" }}
 
-" Plugin config.
-" ALE
+" ALE {{
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -167,8 +173,9 @@ let g:ale_fixers = {
       \ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
       \ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
       \}
+" }}
 
-" CtrlP
+" CtrlP {{
 let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
 if executable('ag')
   " Use ag over grep
@@ -180,24 +187,29 @@ endif
 
 nnoremap <C-g> :CtrlPFunky<cr>
 let g:ctrlp_funky_syntax_highlight = 1
+" }}
 
-" CtrlSF
+" CtrlSF {{
 :com! -n=* F CtrlSF <args>
 let g:ctrlsf_auto_close = 0
+" }}
 
-" Tasklist
+" Tasklist {{
 let g:tlTokenList = ['TODO', 'WTF', 'FIX']
+" }}
 
-" Tagbar
+" Tagbar {{
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
+" }}
 
-" UltiSnips
+" UltiSnips {{
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+" }}
 
-" Vim-go
+" Vim-go {{
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 0
@@ -212,19 +224,21 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+" }}
 
-" EasyAlign
+" EasyAlign {{
 vmap <Enter> <Plug>(EasyAlign)
+" }}
 
-" deoplete
+" deoplete {{
 let g:deoplete#enable_at_startup = 1
 
-" deoplete-go settings
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 let g:deoplete#sources#go#pointer = 1
+" }}
 
-" FZF
+" FZF {{
 let $FZF_DEFAULT_OPTS .= ' --inline-info'
 if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
@@ -241,17 +255,20 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
+" }}
 
-" vim-gutentags
+" vim-gutentags {{
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
+" }}
 
-" echodoc
+" echodoc {{
 let g:echodoc_enable_at_startup = 1
+" }}
 
-" coc.nvim
+" coc.nvim {{
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -259,5 +276,6 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nnoremap <silent> K :call CocAction('doHover')<CR>
+" }}
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
