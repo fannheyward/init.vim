@@ -1,6 +1,6 @@
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
-    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 call plug#begin()
@@ -61,30 +61,30 @@ tnoremap <Esc> <C-\><C-n>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>\<C-y>" : "\<Tab>"
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-    return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+  return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
 endfunction
 
 inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Chinese encodingcoding
+set fileencoding=utf-8
+set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
 " basic
 set termguicolors
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized8
-
-" Chinese encodingcoding
-set fileencoding=utf-8
-set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
 set hidden
 set clipboard=unnamed
@@ -97,7 +97,8 @@ set foldmethod=indent
 set showmatch
 set matchtime=2
 set matchpairs+=<:>
-set ignorecase smartcase
+set ignorecase
+set smartcase
 set switchbuf=useopen,usetab,newtab
 set updatetime=100
 set inccommand=split
@@ -158,23 +159,23 @@ nnoremap <silent> R :ALEFindReferences<CR>
 nnoremap <silent> K :ALEHover<CR>
 
 let g:ale_linters = {
-            \ 'go': ['golint', 'go vet', 'go build'],
-            \ 'python': ['pyls'],
-            \}
+      \ 'go': ['golint', 'go vet', 'go build'],
+      \ 'python': ['pyls'],
+      \}
 let g:ale_fixers = {
-            \ 'python' : ['yapf', 'remove_trailing_lines', 'trim_whitespace'],
-            \ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-            \ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-            \}
+      \ 'python' : ['yapf', 'remove_trailing_lines', 'trim_whitespace'],
+      \ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+      \ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+      \}
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
 if executable('ag')
-    " Use ag over grep
-    set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
 
-    " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
 nnoremap <C-g> :CtrlPFunky<cr>
@@ -226,7 +227,7 @@ let g:deoplete#sources#go#pointer = 1
 " FZF
 let $FZF_DEFAULT_OPTS .= ' --inline-info'
 if executable('ag')
-    let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 endif
 
 nnoremap <silent> <C-P> :Files<CR>
