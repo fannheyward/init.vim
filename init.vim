@@ -41,27 +41,50 @@ Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 call plug#end()
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""
+" mappings
+"""""""""""""""""""""""
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
 map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<cr>
 setl dictionary+=$HOME/.config/nvim/dev.dict
+
+map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<cr>
+
 inoremap <C-c> <ESC>
 inoremap jj <Esc>
 
-nmap ? /\<\><Left><Left>
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 
+" Recommended key-mappings. For no inserting <CR> key.
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>\<C-y>" : "\<Tab>"
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+    return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+endfunction
+
+inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <TAB>
+        \ pumvisible() ? "\<C-n>" :
+        \ <SID>check_back_space() ? "\<TAB>" :
+        \ coc#refresh()
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" basic
 set termguicolors
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized8
 
 " Chinese encodingcoding
-set encoding=utf-8
-set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 set fileencoding=utf-8
+set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
 set hidden
 set clipboard=unnamed
@@ -95,25 +118,6 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 :command Wqa wqa
 :command WQa wqa
 
-"" Recommended key-mappings. For no inserting <CR> key.
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>\<C-y>" : "\<Tab>"
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
-endfunction
-
-inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <TAB>
-        \ pumvisible() ? "\<C-n>" :
-        \ <SID>check_back_space() ? "\<TAB>" :
-        \ coc#refresh()
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
 set wildignore+=*/bower_components/*,bower_components/*,*/node_modules/*,node_modules/*,*/vendor/*,vendor/*
@@ -134,13 +138,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " nnoremap <silent> gd :ALEGoToDefinition<CR>
 nnoremap <silent> R :ALEFindReferences<CR>
 nnoremap <silent> K :ALEHover<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nnoremap <silent> K :call CocAction('doHover')<CR>
 
 let g:ale_linters = {
             \ 'go': ['golint', 'go vet', 'go build'],
@@ -237,3 +234,12 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 
 " echodoc
 let g:echodoc_enable_at_startup = 1
+
+" coc.nvim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> [c <Plug>(coc-diagnostic-prev)
+nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nnoremap <silent> K :call CocAction('doHover')<CR>
