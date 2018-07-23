@@ -108,8 +108,25 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 " some autocmd
-autocmd FileType ruby,html,javascript,typescript,css,json setlocal shiftwidth=2 tabstop=2
-autocmd filetype crontab setlocal nobackup nowritebackup
+augroup common
+  autocmd!
+  autocmd FileType ruby,html,javascript,typescript,css,json setlocal shiftwidth=2 tabstop=2
+  autocmd Filetype crontab setlocal nobackup nowritebackup
+  autocmd FileType go nmap <leader>b <Plug>(go-build)
+  autocmd FileType go nmap <C-g> :GoDecls<cr>
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+
+  autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+  autocmd BufReadPost *.log normal! G
+  autocmd CursorHoldI,CursorMovedI * call CocAction('showSignatureHelp')
+  " autocmd BufNewFile,BufReadPost *.json setf jsonc
+
+  " set up default omnifunc
+  autocmd Filetype *
+        \ if &omnifunc == "" |
+        \    setlocal omnifunc=syntaxcomplete#Complete |
+        \ endif
+augroup end
 
 :command W w
 :command Q q
@@ -118,6 +135,7 @@ autocmd filetype crontab setlocal nobackup nowritebackup
 :command Wqa wqa
 :command WQa wqa
 
+set wildignore+=*~,*/.git/*,*/.svn/*,*/.DS_Store
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
 set wildignore+=*/bower_components/*,bower_components/*,*/node_modules/*,node_modules/*,*/vendor/*,vendor/*
@@ -193,9 +211,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-autocmd FileType go nmap <leader>b <Plug>(go-build)
-autocmd FileType go nmap <C-g> :GoDecls<cr>
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 
 " EasyAlign
 vmap <Enter> <Plug>(EasyAlign)
@@ -243,3 +258,5 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nnoremap <silent> K :call CocAction('doHover')<CR>
+
+" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
