@@ -12,7 +12,7 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
-Plug 'liuchengxu/eleline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
 Plug '/usr/local/opt/fzf'
@@ -123,6 +123,7 @@ augroup common
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
   autocmd CursorHoldI,CursorMovedI * call CocAction('showSignatureHelp')
+  autocmd User CocQuickfixChange :lopen
   " autocmd BufNewFile,BufReadPost *.json setf jsonc
 
   " set up default omnifunc
@@ -278,6 +279,18 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nnoremap <silent> K :call CocAction('doHover')<CR>
+" }}
+
+" lightline {{
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ }
 " }}
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
