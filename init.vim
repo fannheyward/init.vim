@@ -53,6 +53,8 @@ map <silent> <leader>n :nohlsearch<cr>
 
 nnoremap <Space> za
 
+nnoremap <leader>cp :set clipboard=unnamed<CR>
+
 inoremap <C-c> <ESC>
 inoremap jj <Esc>
 
@@ -89,7 +91,6 @@ let g:solarized_termcolors=256
 colorscheme solarized8
 
 set hidden
-set clipboard=unnamed
 set number
 set expandtab
 set tabstop=4
