@@ -24,7 +24,7 @@ Plug 'Shougo/echodoc'
 " Plug 'Shougo/neoinclude.vim'
 " Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --prod=false'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -277,6 +277,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> rn <Plug>(coc-rename)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nnoremap <silent> K :call CocAction('doHover')<CR>
