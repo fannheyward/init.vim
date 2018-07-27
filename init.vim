@@ -174,8 +174,8 @@ let g:ale_linters = {
       \}
 let g:ale_fixers = {
       \ 'python' : ['yapf', 'remove_trailing_lines', 'trim_whitespace'],
-      \ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-      \ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+      \ 'javascript': ['remove_trailing_lines', 'trim_whitespace'],
+      \ 'typescript': ['remove_trailing_lines', 'trim_whitespace'],
       \}
 " }}
 
