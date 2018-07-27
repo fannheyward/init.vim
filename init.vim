@@ -52,8 +52,10 @@ map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<cr>
 
 nnoremap <Space> za
-
 nnoremap <leader>cp :set clipboard=unnamed<CR>
+
+vmap <leader>f  <Plug>(coc-format-selected)<CR>
+nmap <leader>f  <Plug>(coc-format-selected)<CR>
 
 inoremap <C-c> <ESC>
 inoremap jj <Esc>
@@ -136,12 +138,14 @@ augroup end
 " }}
 
 " command {{
-command! W w
-command! Q q
-command! Qa qa
-command! Wa wa
-command! Wqa wqa
-command! WQa wqa
+command! W :w
+command! Q :q
+command! Qa :qa
+command! Wa :wa
+command! Wqa :wqa
+command! WQa :wqa
+
+command! Format :call CocAction('format')
 " }}
 
 " wildignore {{
