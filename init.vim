@@ -24,7 +24,7 @@ Plug 'Shougo/echodoc'
 " Plug 'Shougo/neoinclude.vim'
 " Plug 'Shougo/context_filetype.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --prod=false'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
