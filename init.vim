@@ -9,6 +9,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lifepillar/vim-solarized8'
+Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
@@ -90,7 +91,7 @@ set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,eu
 set termguicolors
 set background=dark
 let g:solarized_termcolors=256
-colorscheme solarized8
+colorscheme nova
 
 set hidden
 set number
