@@ -71,6 +71,7 @@ function! s:my_cr_function()
   return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
 endfunction
 
+imap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
 inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
