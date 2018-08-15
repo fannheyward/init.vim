@@ -51,12 +51,10 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 
 map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<cr>
+map <silent> <leader>o :only<CR>
 
 nnoremap <Space> za
 nnoremap <leader>cp :set clipboard=unnamed<CR>
-
-vmap <leader>f  <Plug>(coc-format-selected)<CR>
-nmap <leader>f  <Plug>(coc-format-selected)<CR>
 
 inoremap <C-c> <ESC>
 inoremap jj <Esc>
@@ -127,8 +125,6 @@ augroup common
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
-  autocmd CursorHoldI,CursorMovedI * call CocAction('showSignatureHelp')
-  autocmd User CocQuickfixChange :lopen
   " autocmd BufNewFile,BufReadPost *.json setf jsonc
 
   " set up default omnifunc
@@ -287,18 +283,6 @@ nmap <silent> rn <Plug>(coc-rename)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nnoremap <silent> K :call CocAction('doHover')<CR>
-" }}
-
-" lightline {{
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ }
 " }}
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
