@@ -1,0 +1,18 @@
+{
+  "coc.source.gocode.enable": false,
+  "languageserver": {
+    "go": {
+      "command": "go-langserver",
+      "filetypes": ["go"],
+      "cwd": ".",
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true
+      }
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "filetypes": ["sh"],
+      "args": ["start"]
+    }
+  }
+}
