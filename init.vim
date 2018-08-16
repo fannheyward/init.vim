@@ -30,7 +30,6 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
-Plug 'junegunn/vim-easy-align', { 'on': ['<Plug>(EasyAlign)', 'EasyAlign'] }
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'vim-scripts/loremipsum', { 'on': 'Loremipsum' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
@@ -125,7 +124,7 @@ augroup common
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
-  " autocmd BufNewFile,BufReadPost *.json setf jsonc
+  autocmd BufNewFile,BufReadPost *.json setf jsonc
 
   " set up default omnifunc
   autocmd Filetype *
@@ -230,10 +229,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-" }}
-
-" EasyAlign {{
-vmap <Enter> <Plug>(EasyAlign)
 " }}
 
 " deoplete {{
