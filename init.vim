@@ -61,15 +61,7 @@ inoremap jj <Esc>
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 
-" Recommended key-mappings. For no inserting <CR> key.
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>\<C-y>" : "\<Tab>"
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
-endfunction
-
-imap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
-inoremap <silent><expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <TAB>
@@ -270,6 +262,7 @@ let g:echodoc_enable_at_startup = 1
 " }}
 
 " coc.nvim {{
+imap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
