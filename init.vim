@@ -22,9 +22,6 @@ Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
 Plug 'Shougo/echodoc'
-" Plug 'Shougo/neoinclude.vim'
-" Plug 'Shougo/context_filetype.vim'
-" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -36,8 +33,6 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
-" Plug 'zchee/deoplete-go', { 'do': 'make', 'for': 'go'}
-" Plug 'zchee/deoplete-jedi', { 'for': 'python' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 call plug#end()
@@ -150,7 +145,6 @@ let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
-" let g:node_host_prog = '/Users/fannheyward/.config/yarn/global/node_modules/neovim/bin/cli.js'
 " }}
 
 " ALE {{
@@ -162,7 +156,6 @@ nnoremap <silent> R :ALEFindReferences<CR>
 nnoremap <silent> K :ALEHover<CR>
 
 let g:ale_linters = {
-      \ 'go': ['golint', 'go vet', 'go build'],
       \ 'python': ['pyls'],
       \}
 let g:ale_fixers = {
@@ -221,14 +214,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-" }}
-
-" deoplete {{
-let g:deoplete#enable_at_startup = 1
-
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#pointer = 1
 " }}
 
 " FZF {{
