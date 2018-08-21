@@ -34,6 +34,7 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
+Plug 'chemzqm/jsonc.vim', { 'for': 'jsonc' }
 
 call plug#end()
 " }}
