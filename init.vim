@@ -259,4 +259,8 @@ nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nnoremap <silent> K :call CocAction('doHover')<CR>
 " }}
 
+" vim-signify {{ "
+let g:signify_vcs_list = [ 'git' ]
+" }} vim-signify "
+
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
