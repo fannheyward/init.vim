@@ -39,6 +39,23 @@ Plug 'chemzqm/jsonc.vim', { 'for': 'jsonc' }
 call plug#end()
 " }}
 
+" functions {{ "
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! RenameCWord(cword)
+  let l:cursor_pos = getpos(".")
+  let l:word = expand("<".a:cword.">")
+  let l:rename = input('Rename: ', l:word)
+  if l:rename != ''
+    execute "%s/\\<".l:word."\\>/".l:rename."/g"
+  endif
+  call cursor(l:cursor_pos[1], l:cursor_pos[2])
+endfunction
+" }} functions "
+
 " mappings {{
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
 map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<cr>
@@ -64,10 +81,6 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
 " }}
 
 " basic {{
@@ -131,6 +144,7 @@ command! Wqa :wqa
 command! WQa :wqa
 
 command! Format :call CocAction('format')
+command! Rename :call RenameCWord('cword')
 " }}
 
 " wildignore {{
