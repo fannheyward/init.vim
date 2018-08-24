@@ -71,6 +71,9 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 inoremap <C-c> <ESC>
 inoremap jj <Esc>
 
+nnoremap <silent> gb :bn<CR>
+nnoremap <silent> gB :bp<CR>
+
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 
