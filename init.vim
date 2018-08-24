@@ -1,4 +1,4 @@
-" plug.vim {{
+" plug.vim {{ "
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -28,7 +28,6 @@ Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
-Plug 'vim-scripts/loremipsum', { 'on': 'Loremipsum' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 
@@ -37,7 +36,7 @@ Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'chemzqm/jsonc.vim', { 'for': 'jsonc' }
 
 call plug#end()
-" }}
+" }} plug.vim "
 
 " functions {{ "
 function! s:check_back_space() abort
@@ -56,7 +55,7 @@ function! RenameCWord(cword)
 endfunction
 " }} functions "
 
-" mappings {{
+" mappings {{ "
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
 map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<cr>
 setl dictionary+=$HOME/.config/nvim/dev.dict
@@ -84,9 +83,9 @@ inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-" }}
+" }} mappings "
 
-" basic {{
+" basic {{ "
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
@@ -115,9 +114,14 @@ set completeopt=menu
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-" }}
 
-" autocmd {{
+let g:python_host_skip_check = 1
+let g:python3_host_skip_check = 1
+let g:python_host_prog = '/usr/bin/python'
+let g:python3_host_prog = '/usr/local/bin/python3'
+" }} basic "
+
+" autocmd {{ "
 augroup common
   autocmd!
   autocmd FileType ruby,html,javascript,typescript,css,json setlocal shiftwidth=2 tabstop=2
@@ -136,9 +140,9 @@ augroup common
         \    setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
 augroup end
-" }}
+" }} autocmd "
 
-" command {{
+" command {{ "
 command! W :w
 command! Q :q
 command! Qa :qa
@@ -148,24 +152,17 @@ command! WQa :wqa
 
 command! Format :call CocAction('format')
 command! Rename :call RenameCWord('cword')
-" }}
+" }} command "
 
-" wildignore {{
+" wildignore {{ "
 set wildignore+=*~,*/.git/*,*/.svn/*,*/.DS_Store
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
 set wildignore+=*/bower_components/*,bower_components/*,*/node_modules/*,node_modules/*,*/vendor/*,vendor/*
 set wildignore+=*/nginx_runtime/*,nginx_runtime/*,*/build/*,build/*,*/logs/*,logs/*,*/dist/*,dist/*
-" }}
+" }} wildignore "
 
-" speedup {{
-let g:python_host_skip_check = 1
-let g:python3_host_skip_check = 1
-let g:python_host_prog = '/usr/bin/python'
-let g:python3_host_prog = '/usr/local/bin/python3'
-" }}
-
-" ALE {{
+" ALE {{ "
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -181,9 +178,9 @@ let g:ale_fixers = {
       \ 'javascript': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'typescript': ['remove_trailing_lines', 'trim_whitespace'],
       \}
-" }}
+" }} ALE "
 
-" CtrlP {{
+" CtrlP {{ "
 let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
 if executable('ag')
   " Use ag over grep
@@ -195,29 +192,29 @@ endif
 
 nnoremap <C-g> :CtrlPFunky<cr>
 let g:ctrlp_funky_syntax_highlight = 1
-" }}
+" }} CtrlP "
 
-" CtrlSF {{
+" CtrlSF {{ "
 :com! -n=* F CtrlSF <args>
 let g:ctrlsf_auto_close = 0
-" }}
+" }} CtrlSF "
 
-" Tasklist {{
+" TaskList {{ "
 let g:tlTokenList = ['TODO', 'WTF', 'FIX']
-" }}
+" }} TaskList "
 
-" Tagbar {{
+" Tagbar {{ "
 let g:tagbar_autofocus = 1
 let g:tagbar_autoclose = 1
-" }}
+" }} Tagbar "
 
-" UltiSnips {{
+" UltiSnips {{ "
 let g:UltiSnipsExpandTrigger="<c-k>"
 let g:UltiSnipsJumpForwardTrigger="<c-k>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" }}
+" }} UltiSnips "
 
-" Vim-go {{
+" vim-go {{ "
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 0
@@ -232,9 +229,9 @@ let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-" }}
+" }} vim-go "
 
-" FZF {{
+" FZF {{ "
 let $FZF_DEFAULT_OPTS .= ' --inline-info'
 if executable('ag')
   let $FZF_DEFAULT_COMMAND = 'ag -g ""'
@@ -251,20 +248,20 @@ imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
-" }}
+" }} FZF "
 
-" vim-gutentags {{
+" vim-gutentags {{ "
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
-" }}
+" }} vim-gutentags "
 
-" echodoc {{
+" echodoc {{ "
 let g:echodoc_enable_at_startup = 1
-" }}
+" }} echodoc "
 
-" coc.nvim {{
+" coc.nvim {{ "
 imap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -274,7 +271,7 @@ nmap <silent> rn <Plug>(coc-rename)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 nnoremap <silent> K :call CocAction('doHover')<CR>
-" }}
+" }} coc.nvim "
 
 " vim-signify {{ "
 let g:signify_vcs_list = [ 'git' ]
