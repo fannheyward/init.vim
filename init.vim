@@ -125,17 +125,17 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 augroup common
   autocmd!
   autocmd FileType ruby,html,javascript,typescript,css,json setlocal shiftwidth=2 tabstop=2
-  autocmd Filetype crontab setlocal nobackup nowritebackup
+  autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <C-g> :GoDecls<cr>
-  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
   autocmd BufNewFile,BufReadPost *.json setf jsonc
 
   " set up default omnifunc
-  autocmd Filetype *
+  autocmd FileType *
         \ if &omnifunc == "" |
         \    setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
