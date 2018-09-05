@@ -5,7 +5,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lifepillar/vim-solarized8'
@@ -35,6 +34,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'chemzqm/jsonc.vim', { 'for': 'jsonc' }
 
+Plug 'sheerun/vim-polyglot'
 call plug#end()
 " }} plug.vim "
 
