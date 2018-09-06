@@ -53,6 +53,14 @@ function! RenameCWord(cword)
   endif
   call cursor(l:cursor_pos[1], l:cursor_pos[2])
 endfunction
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 " }} functions "
 
 " mappings {{ "
@@ -134,6 +142,8 @@ augroup common
   autocmd BufReadPost *.log normal! G
   autocmd BufNewFile,BufReadPost *.json setf jsonc
 
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+
   " set up default omnifunc
   autocmd FileType *
         \ if &omnifunc == "" |
@@ -168,7 +178,6 @@ let g:ale_fix_on_save = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " nnoremap <silent> gd :ALEGoToDefinition<CR>
 nnoremap <silent> R :ALEFindReferences<CR>
-nnoremap <silent> K :ALEHover<CR>
 
 let g:ale_linters = {
       \ 'python': ['pyls'],
@@ -270,7 +279,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> rn <Plug>(coc-rename)
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
-nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 " }} coc.nvim "
 
 " vim-signify {{ "
