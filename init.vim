@@ -64,12 +64,12 @@ endfunction
 " }} functions "
 
 " mappings {{ "
-map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<cr>
-map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<cr>
+map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<CR>
+map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<CR>
 setl dictionary+=$HOME/.config/nvim/dev.dict
 
 map ? /\<\><Left><Left>
-map <silent> <leader>n :nohlsearch<cr>
+map <silent> <leader>n :nohlsearch<CR>
 map <silent> <leader>o :only<CR>
 
 nnoremap <Space> za
@@ -80,6 +80,8 @@ inoremap jj <Esc>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
+nnoremap <silent> go :only<CR>
+nnoremap <silent> gn :nohlsearch<CR>
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
@@ -119,6 +121,7 @@ set updatetime=100
 set inccommand=split
 set noshowmode
 set completeopt=menu
+set cmdheight=2
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
