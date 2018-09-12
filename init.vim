@@ -70,7 +70,6 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 
 map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<CR>
-map <silent> <leader>o :only<CR>
 
 nnoremap <Space> za
 nnoremap <leader>cp :set clipboard=unnamed<CR>
@@ -80,8 +79,6 @@ inoremap jj <Esc>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
-nnoremap <silent> go :only<CR>
-nnoremap <silent> gn :nohlsearch<CR>
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
