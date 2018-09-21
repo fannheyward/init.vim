@@ -162,6 +162,7 @@ command! WQa :wqa
 
 command! Format :call CocAction('format')
 command! Rename :call RenameCWord('cword')
+command! PrettyJSON %!python -m json.tool
 " }} command "
 
 " wildignore {{ "
