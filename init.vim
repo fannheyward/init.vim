@@ -21,6 +21,7 @@ Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
 Plug 'Shougo/echodoc'
+Plug 'janko-m/vim-test'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -286,5 +287,15 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 " vim-signify {{ "
 let g:signify_vcs_list = [ 'git' ]
 " }} vim-signify "
+
+" vim-test {{ "
+let test#strategy = "neovim"
+
+nmap <silent> t<C-n> :TestNearest<CR> " t Ctrl+n
+nmap <silent> t<C-f> :TestFile<CR>    " t Ctrl+f
+nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
+nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
+nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
+" }} vim-test "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
