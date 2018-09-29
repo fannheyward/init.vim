@@ -191,20 +191,6 @@ let g:ale_fixers = {
       \}
 " }} ALE "
 
-" CtrlP {{ "
-let g:ctrlp_custom_ignore = '\v[\/](bower_components|node_modules|vendor|target|dist|_site|nginx_runtime|build|logs|data)|(\.(swp|ico|git|svn))$'
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-
-nnoremap <C-g> :CtrlPFunky<cr>
-let g:ctrlp_funky_syntax_highlight = 1
-" }} CtrlP "
-
 " CtrlSF {{ "
 :com! -n=* F CtrlSF <args>
 let g:ctrlsf_auto_close = 0
@@ -213,11 +199,6 @@ let g:ctrlsf_auto_close = 0
 " TaskList {{ "
 let g:tlTokenList = ['TODO', 'WTF', 'FIX']
 " }} TaskList "
-
-" Tagbar {{ "
-let g:tagbar_autofocus = 1
-let g:tagbar_autoclose = 1
-" }} Tagbar "
 
 " UltiSnips {{ "
 let g:UltiSnipsExpandTrigger="<c-k>"
