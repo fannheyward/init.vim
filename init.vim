@@ -74,6 +74,7 @@ map <silent> <leader>n :nohlsearch<CR>
 
 nnoremap <Space> za
 nnoremap <leader>cp :set clipboard=unnamed<CR>
+nnoremap <leader>f :echom @%<CR>
 
 inoremap <C-c> <ESC>
 inoremap jj <Esc>
@@ -254,6 +255,9 @@ let g:echodoc_enable_at_startup = 1
 " }} echodoc "
 
 " coc.nvim {{ "
+let g:coc_auto_copen = 0
+autocmd User CocQuickfixChange :call fzf_quickfix#run()
+
 imap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
