@@ -134,7 +134,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " autocmd {{ "
 augroup common
   autocmd!
-  autocmd FileType ruby,html,javascript,typescript,css,json setlocal shiftwidth=2 tabstop=2
+  autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <C-g> :GoDecls<cr>
@@ -187,7 +187,7 @@ let g:ale_linters = {
       \ 'python': ['pyls'],
       \}
 let g:ale_fixers = {
-      \ '*' : ['remove_trailing_lines', 'trim_whitespace'],
+      \ '*' : ['trim_whitespace'],
       \ 'python' : ['yapf'],
       \}
 " }} ALE "
