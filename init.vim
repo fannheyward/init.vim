@@ -22,6 +22,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
 Plug 'Shougo/echodoc'
 Plug 'janko-m/vim-test'
+Plug 'airblade/vim-rooter'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
