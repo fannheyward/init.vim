@@ -166,7 +166,7 @@ command! WQa :wqa
 command! Format :call CocAction('format')
 command! Rename :call RenameCWord('cword')
 command! PrettyJSON :%!python -m json.tool
-command! CocExtensionInstall :CocInstall coc-json coc-tsserver coc-tslint coc-eslint coc-pyls coc-prettier
+command! CocExtensionInstall :CocInstall coc-json coc-tsserver coc-tslint coc-eslint coc-pyls coc-prettier coc-css coc-html
 " }} command "
 
 " wildignore {{ "
@@ -272,6 +272,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " vim-signify {{ "
 let g:signify_vcs_list = [ 'git' ]
+
+nmap <silent>gj <plug>(signify-next-hunk)
+nmap <silent>gk <plug>(signify-prev-hunk)
 " }} vim-signify "
 
 " vim-test {{ "
