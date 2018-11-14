@@ -6,7 +6,9 @@
       "filetypes": ["go"],
       "cwd": ".",
       "initializationOptions": {
-        "gocodeCompletionEnabled": true
+        "gocodeCompletionEnabled": true,
+        "diagnosticsEnabled": true,
+        "lintTool": "golint"
       }
     },
     "bash": {
