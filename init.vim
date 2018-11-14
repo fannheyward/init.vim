@@ -186,6 +186,8 @@ nnoremap <silent> R :ALEFindReferences<CR>
 
 let g:ale_linters = {
       \ 'python': ['pyls'],
+      \ 'javascript': [],
+      \ 'typescript': []
       \}
 let g:ale_fixers = {
       \ '*' : ['trim_whitespace'],
@@ -253,6 +255,7 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 
 " echodoc {{ "
 let g:echodoc_enable_at_startup = 1
+let g:echodoc#type = "virtual"
 " }} echodoc "
 
 " coc.nvim {{ "
