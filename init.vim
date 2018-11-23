@@ -101,7 +101,6 @@ set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
 set termguicolors
-set background=dark
 let g:solarized_termcolors=256
 colorscheme nova
 
@@ -181,6 +180,7 @@ set wildignore+=*/nginx_runtime/*,nginx_runtime/*,*/build/*,build/*,*/logs/*,log
 " ALE {{ "
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
+let g:ale_virtualtext_cursor = 1
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " nnoremap <silent> gd :ALEGoToDefinition<CR>
 nnoremap <silent> R :ALEFindReferences<CR>
