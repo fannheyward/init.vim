@@ -10,6 +10,7 @@ Plug 'honza/vim-snippets'
 Plug 'lifepillar/vim-solarized8'
 Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-markdown'
 Plug 'jiangmiao/auto-pairs'
 Plug 'w0rp/ale'
 Plug 'itchyny/lightline.vim'
@@ -166,7 +167,7 @@ command! WQa :wqa
 command! Format :call CocAction('format')
 command! Rename :call RenameCWord('cword')
 command! PrettyJSON :%!python -m json.tool
-command! CocExtensionInstall :CocInstall coc-json coc-tsserver coc-tslint coc-eslint coc-pyls coc-prettier coc-css coc-html
+command! CocExtensionInstall :CocInstall coc-json coc-tsserver coc-tslint coc-eslint coc-html coc-prettier coc-highlight coc-dictionary coc-tag coc-ultisnips coc-word
 " }} command "
 
 " wildignore {{ "
@@ -289,5 +290,9 @@ nmap <silent> t<C-s> :TestSuite<CR>   " t Ctrl+s
 nmap <silent> t<C-l> :TestLast<CR>    " t Ctrl+l
 nmap <silent> t<C-g> :TestVisit<CR>   " t Ctrl+g
 " }} vim-test "
+
+" vim-markdown {{ "
+let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'typescript', 'ts=typescript']
+" }} vim-markdown "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
