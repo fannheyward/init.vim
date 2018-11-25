@@ -1,5 +1,4 @@
 {
-  "coc.source.gocode.enable": false,
   "languageserver": {
     "go": {
       "command": "go-langserver",
