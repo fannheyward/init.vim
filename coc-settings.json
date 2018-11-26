@@ -4,6 +4,7 @@
       "command": "go-langserver",
       "filetypes": ["go"],
       "cwd": ".",
+      "revealOutputChannelOn": "never",
       "initializationOptions": {
         "gocodeCompletionEnabled": true,
         "diagnosticsEnabled": true,
