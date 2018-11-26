@@ -22,6 +22,7 @@ Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
 Plug 'Shougo/echodoc'
+Plug 'Shougo/denite.nvim'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
@@ -74,7 +75,6 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<CR>
 
-nnoremap <Space> za
 nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <leader>f :echom @%<CR>
 
@@ -86,14 +86,6 @@ nnoremap <silent> gB :bp<CR>
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
-
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-inoremap <silent><expr> <c-space> coc#refresh()
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
 " }} mappings "
 
 " basic {{ "
@@ -122,6 +114,7 @@ set inccommand=split
 set noshowmode
 set completeopt=menu
 set cmdheight=2
+set formatexpr=CocAction('formatSelected')
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -166,7 +159,7 @@ command! WQa :wqa
 command! Format :call CocAction('format')
 command! Rename :call RenameCWord('cword')
 command! PrettyJSON :%!python -m json.tool
-command! CocExtensionInstall :CocInstall coc-json coc-tsserver coc-tslint coc-eslint coc-html coc-prettier coc-highlight coc-dictionary coc-tag coc-ultisnips coc-word
+command! CocExtensionInstall :CocInstall coc-json coc-tsserver coc-tslint coc-eslint coc-html coc-prettier coc-highlight coc-dictionary coc-tag coc-ultisnips
 " }} command "
 
 " wildignore {{ "
@@ -261,7 +254,7 @@ let g:echodoc#type = "virtual"
 
 " coc.nvim {{ "
 let g:coc_auto_copen = 0
-autocmd User CocQuickfixChange :call fzf_quickfix#run()
+autocmd User CocQuickfixChange :Denite -mode=normal quickfix
 
 imap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
 nmap <silent> gd <Plug>(coc-definition)
@@ -269,16 +262,28 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> rn <Plug>(coc-rename)
-nmap <silent> [c <Plug>(coc-diagnostic-prev)
-nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> ge <Plug>(coc-diagnostic-next)
+
+inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <space>a  :<C-u>Denite coc-diagnostic<cr>
+nnoremap <silent> <space>o  :<C-u>Denite coc-symbols<cr>
+nnoremap <silent> <space>t  :<C-u>Denite coc-workspace<cr>
+nnoremap <silent> <space>c  :<C-u>Denite coc-command<cr>
 " }} coc.nvim "
 
 " vim-signify {{ "
 let g:signify_vcs_list = [ 'git' ]
 
-nmap <silent>gj <plug>(signify-next-hunk)
-nmap <silent>gk <plug>(signify-prev-hunk)
+nmap <silent> gj <plug>(signify-next-hunk)
+nmap <silent> gk <plug>(signify-prev-hunk)
 " }} vim-signify "
 
 " vim-test {{ "
