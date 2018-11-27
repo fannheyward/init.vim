@@ -164,14 +164,6 @@ command! PrettyJSON :%!python -m json.tool
 command! CocExtensionInstall :CocInstall coc-json coc-tsserver coc-tslint coc-eslint coc-html coc-prettier coc-highlight coc-dictionary coc-tag coc-ultisnips
 " }} command "
 
-" wildignore {{ "
-set wildignore+=*~,*/.git/*,*/.svn/*,*/.DS_Store
-set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
-set wildignore+=*/bower_components/*,bower_components/*,*/node_modules/*,node_modules/*,*/vendor/*,vendor/*
-set wildignore+=*/nginx_runtime/*,nginx_runtime/*,*/build/*,build/*,*/logs/*,logs/*,*/dist/*,dist/*
-" }} wildignore "
-
 " ALE {{ "
 let g:ale_lint_on_enter = 0
 let g:ale_fix_on_save = 1
