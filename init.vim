@@ -131,7 +131,7 @@ augroup common
   autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType go nmap <leader>b <Plug>(go-build)
-  autocmd FileType go nmap <C-g> :GoDecls<cr>
+  autocmd FileType go nmap <C-g> :GoDecls<CR>
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
@@ -139,6 +139,7 @@ augroup common
   autocmd BufNewFile,BufReadPost *.json setf jsonc
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd User CocQuickfixChange :<C-u>Denite -mode=normal quickfix
 
   " set up default omnifunc
   autocmd FileType *
@@ -228,7 +229,7 @@ if executable('ag')
 endif
 
 nnoremap <silent> <C-P> :Files<CR>
-nnoremap <C-g> :BTags<cr>
+nnoremap <C-g> :BTags<CR>
 
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
@@ -254,7 +255,6 @@ let g:echodoc#type = "virtual"
 
 " coc.nvim {{ "
 let g:coc_auto_copen = 0
-autocmd User CocQuickfixChange :Denite -mode=normal quickfix
 
 imap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
 nmap <silent> gd <Plug>(coc-definition)
@@ -273,11 +273,57 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <space>a  :<C-u>Denite coc-diagnostic<cr>
-nnoremap <silent> <space>o  :<C-u>Denite coc-symbols<cr>
-nnoremap <silent> <space>t  :<C-u>Denite coc-workspace<cr>
-nnoremap <silent> <space>c  :<C-u>Denite coc-command<cr>
+nnoremap <silent> <space>a  :<C-u>Denite coc-diagnostic<CR>
+nnoremap <silent> <space>o  :<C-u>Denite coc-symbols<CR>
+nnoremap <silent> <space>w  :<C-u>Denite coc-workspace<CR>
+nnoremap <silent> <space>c  :<C-u>Denite coc-command<CR>
 " }} coc.nvim "
+
+" Denite {{ "
+call denite#custom#option('default', 'reversed', 1)
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-a>',
+      \ '<denite:move_caret_to_head>',
+      \ 'noremap'
+      \)
+
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-j>',
+      \ '<denite:move_to_next_line>',
+      \ 'noremap'
+      \)
+
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-k>',
+      \ '<denite:move_to_previous_line>',
+      \ 'noremap'
+      \)
+
+call denite#custom#map(
+      \ 'insert',
+      \ '<C-t>',
+      \ '<denite:do_action:tabopen>',
+      \ 'noremap'
+      \)
+
+nnoremap <silent> <space>b  :<C-u>Denite buffer<CR>
+nnoremap <silent> <space>t  :<C-u>Denite tag<CR>
+nnoremap <silent> <space>s  :<C-u>DeniteCursorWord  line<CR>
+nnoremap <silent> <space>S  :<C-u>DeniteCursorWord  grep<CR>
+nnoremap <silent> <space>q  :<C-u>Denite -mode=normal quickfix<CR>
+nnoremap <silent> <space>j  :Denite -resume -cursor-pos=+1 -immediately<CR>
+nnoremap <silent> <space>k  :Denite -resume -cursor-pos=-1 -immediately<CR>
+" }} Denite "
 
 " vim-signify {{ "
 let g:signify_vcs_list = [ 'git' ]
