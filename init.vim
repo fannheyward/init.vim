@@ -26,6 +26,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
+Plug 'raghur/fruzzy', {'do': { -> fruzzy#install()}}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -339,5 +340,10 @@ let test#strategy = "neovim"
 " vim-markdown {{ "
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'typescript', 'ts=typescript']
 " }} vim-markdown "
+
+" Fruzzy {{ "
+let g:fruzzy#usenative = 1
+call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
+" }} Fruzzy "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
