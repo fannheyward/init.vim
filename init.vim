@@ -138,7 +138,8 @@ augroup common
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
-  autocmd BufNewFile,BufReadPost *.json setf jsonc
+  autocmd BufNewFile,BufReadPost *.json setfiletype jsonc
+  autocmd BufNewFile,BufReadPost *.md setfiletype markdown
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocQuickfixChange :<C-u>Denite -mode=normal quickfix
