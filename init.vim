@@ -26,7 +26,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
-Plug 'raghur/fruzzy', {'do': { -> fruzzy#install()}}
+Plug 'raghur/fruzzy', { 'do': { -> fruzzy#install()} }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -116,6 +116,7 @@ set noshowmode
 set completeopt=menu
 set cmdheight=2
 set formatexpr=CocAction('formatSelected')
+set shortmess+=c
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
