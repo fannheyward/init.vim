@@ -21,7 +21,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
-Plug 'Shougo/echodoc'
 Plug 'Shougo/denite.nvim'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
@@ -242,11 +241,6 @@ let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " }} vim-gutentags "
-
-" echodoc {{ "
-let g:echodoc_enable_at_startup = 1
-let g:echodoc#type = "virtual"
-" }} echodoc "
 
 " coc.nvim {{ "
 let g:coc_auto_copen = 0
