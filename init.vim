@@ -141,7 +141,7 @@ augroup common
   autocmd BufNewFile,BufReadPost *.md setfiletype markdown
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd User CocQuickfixChange :<C-u>Denite -mode=normal quickfix
+  autocmd User CocQuickfixChange :Denite -mode=normal quickfix
 
   " set up default omnifunc
   autocmd FileType *
