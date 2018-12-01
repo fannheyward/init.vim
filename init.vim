@@ -133,6 +133,7 @@ augroup common
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <C-g> :GoDecls<CR>
+  autocmd FileType go setlocal omnifunc=syntaxcomplete#Complete
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
