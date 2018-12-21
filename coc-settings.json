@@ -15,7 +15,8 @@
     "bash": {
       "command": "bash-language-server",
       "filetypes": ["sh"],
-      "args": ["start"]
+      "args": ["start"],
+      "ignoredRootPaths": ["~"]
     }
   }
 }

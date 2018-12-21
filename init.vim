@@ -24,7 +24,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'Shougo/denite.nvim'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --prod'}
 Plug 'raghur/fruzzy', { 'do': { -> fruzzy#install()} }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
