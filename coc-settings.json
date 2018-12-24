@@ -2,14 +2,10 @@
   "coc.preferences.hoverTarget": "echo",
   "languageserver": {
     "go": {
-      "command": "go-langserver",
+      "command": "bingo",
       "filetypes": ["go"],
-      "cwd": ".",
-      "revealOutputChannelOn": "never",
       "initializationOptions": {
-        "gocodeCompletionEnabled": true,
-        "diagnosticsEnabled": true,
-        "lintTool": "golint"
+        "useGlobalCache": true
       }
     },
     "bash": {
