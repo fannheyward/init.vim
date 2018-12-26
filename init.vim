@@ -25,7 +25,7 @@ Plug 'Shougo/denite.nvim'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --prod'}
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 Plug 'raghur/fruzzy', { 'do': { -> fruzzy#install()} }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -136,6 +136,7 @@ augroup common
   autocmd FileType go nmap <C-g> :GoDecls<CR>
   autocmd FileType go setlocal omnifunc=syntaxcomplete#Complete
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
