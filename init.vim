@@ -117,6 +117,7 @@ set completeopt=menu
 set cmdheight=2
 set formatexpr=CocAction('formatSelected')
 set shortmess+=c
+set diffopt+=internal,algorithm:patience
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -250,7 +251,6 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " coc.nvim {{ "
 let g:coc_auto_copen = 0
 
-imap <silent> <C-x><C-u> <Plug>(coc-complete-custom)
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
