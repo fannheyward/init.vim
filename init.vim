@@ -143,6 +143,8 @@ augroup common
   autocmd BufReadPost *.log normal! G
   autocmd BufNewFile,BufReadPost *.json setfiletype jsonc
   autocmd BufNewFile,BufReadPost *.md setfiletype markdown
+  autocmd BufNewFile,BufReadPost *.tsx setfiletype typescript.tsx
+  autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocQuickfixChange :Denite -mode=normal quickfix
@@ -252,10 +254,11 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 let g:coc_auto_copen = 0
 
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> rn <Plug>(coc-rename)
+nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
 
 inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
