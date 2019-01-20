@@ -37,9 +37,9 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
-Plug 'chemzqm/jsonc.vim', { 'for': 'jsonc' }
 
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/jsonc.vim'
 call plug#end()
 " }} plug.vim "
 
@@ -168,7 +168,6 @@ command! WQa :wqa
 command! Format :call CocAction('format')
 command! Rename :call RenameCWord('cword')
 command! PrettyJSON :%!python -m json.tool
-command! CocExtensionInstall :CocInstall coc-json coc-tsserver coc-tslint coc-eslint coc-html coc-prettier coc-highlight coc-dictionary coc-tag coc-ultisnips
 " }} command "
 
 " ALE {{ "
@@ -252,6 +251,7 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 
 " coc.nvim {{ "
 let g:coc_auto_copen = 0
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-ultisnips']
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-declaration)
