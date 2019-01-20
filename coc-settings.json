@@ -6,8 +6,8 @@
       "command": "bingo",
       "filetypes": ["go"],
       "initializationOptions": {
-        "useGlobalCache": true,
-        "golistDuration": 30
+        "enhanceSignatureHelp": true,
+        "useGlobalCache": true
       }
     },
     "bash": {
