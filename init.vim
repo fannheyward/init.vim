@@ -141,7 +141,6 @@ augroup common
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
-  autocmd BufNewFile,BufReadPost *.json setfiletype jsonc
   autocmd BufNewFile,BufReadPost *.md setfiletype markdown
   autocmd BufNewFile,BufReadPost *.tsx setfiletype typescript.tsx
   autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
@@ -169,6 +168,14 @@ command! Format :call CocAction('format')
 command! Rename :call RenameCWord('cword')
 command! PrettyJSON :%!python -m json.tool
 " }} command "
+
+" wildignore {{ "
+set wildignore+=*/.git/*,*/.svn/*,*/.DS_Store
+set wildignore+=*.log,*.pyc,*.sqlite,*.sqlite3,cscope.out
+set wildignore+=*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
+set wildignore+=*/node_modules/*,*/bower_components/*,/vendor/*
+set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
+" }} wildignore "
 
 " ALE {{ "
 let g:ale_lint_on_enter = 0
