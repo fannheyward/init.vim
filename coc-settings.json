@@ -1,6 +1,7 @@
 {
   "coc.preferences.hoverTarget": "echo",
   "coc.preferences.codeLens.enable": true,
+  "coc.preferences.diagnostic.virtualText": true,
   "languageserver": {
     "go": {
       "command": "bingo",
