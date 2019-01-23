@@ -21,12 +21,10 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
-Plug 'Shougo/denite.nvim'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
-Plug 'raghur/fruzzy', { 'do': { -> fruzzy#install()} }
+Plug 'neoclide/coc.nvim', { 'branch': 'list', 'do': 'yarn install' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -146,7 +144,7 @@ augroup common
   autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd User CocQuickfixChange :Denite -mode=normal quickfix
+  autocmd User CocQuickfixChange :CocList --normal location
 
   " set up default omnifunc
   autocmd FileType *
@@ -257,7 +255,6 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " }} vim-gutentags "
 
 " coc.nvim {{ "
-let g:coc_auto_copen = 0
 let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-ultisnips']
 
 nmap <silent> gd <Plug>(coc-definition)
@@ -277,57 +274,9 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <space>a  :<C-u>Denite coc-diagnostic<CR>
-nnoremap <silent> <space>o  :<C-u>Denite coc-symbols<CR>
-nnoremap <silent> <space>w  :<C-u>Denite coc-workspace<CR>
-nnoremap <silent> <space>c  :<C-u>Denite coc-command<CR>
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
+nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
 " }} coc.nvim "
-
-" Denite {{ "
-call denite#custom#option('default', 'reversed', 1)
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-a>',
-      \ '<denite:move_caret_to_head>',
-      \ 'noremap'
-      \)
-
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-j>',
-      \ '<denite:move_to_next_line>',
-      \ 'noremap'
-      \)
-
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-k>',
-      \ '<denite:move_to_previous_line>',
-      \ 'noremap'
-      \)
-
-call denite#custom#map(
-      \ 'insert',
-      \ '<C-t>',
-      \ '<denite:do_action:tabopen>',
-      \ 'noremap'
-      \)
-
-nnoremap <silent> <space>b  :<C-u>Denite buffer<CR>
-nnoremap <silent> <space>t  :<C-u>Denite tag<CR>
-nnoremap <silent> <space>s  :<C-u>DeniteCursorWord  line<CR>
-nnoremap <silent> <space>S  :<C-u>DeniteCursorWord  grep<CR>
-nnoremap <silent> <space>q  :<C-u>Denite -mode=normal quickfix<CR>
-nnoremap <silent> <space>j  :Denite -resume -cursor-pos=+1 -immediately<CR>
-nnoremap <silent> <space>k  :Denite -resume -cursor-pos=-1 -immediately<CR>
-" }} Denite "
 
 " vim-signify {{ "
 let g:signify_vcs_list = [ 'git' ]
@@ -343,10 +292,5 @@ let test#strategy = "neovim"
 " vim-markdown {{ "
 let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'typescript', 'ts=typescript']
 " }} vim-markdown "
-
-" Fruzzy {{ "
-let g:fruzzy#usenative = 1
-call denite#custom#source('_', 'matchers', ['matcher/fruzzy'])
-" }} Fruzzy "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
