@@ -7,8 +7,15 @@
       "command": "bingo",
       "filetypes": ["go"],
       "initializationOptions": {
-        "enhanceSignatureHelp": true,
-        "useGlobalCache": true
+        "enhanceSignatureHelp": true
+      }
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cacheDirectory": "/tmp/ccls"
       }
     },
     "bash": {
