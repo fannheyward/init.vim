@@ -12,7 +12,6 @@ Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-markdown'
 Plug 'jiangmiao/auto-pairs'
-Plug 'w0rp/ale'
 Plug 'itchyny/lightline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
@@ -165,6 +164,7 @@ command! WQa :wqa
 command! Format :call CocAction('format')
 command! Rename :call RenameCWord('cword')
 command! PrettyJSON :%!python -m json.tool
+command! Signify :SignifyRefresh
 " }} command "
 
 " wildignore {{ "
@@ -174,25 +174,6 @@ set wildignore+=*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
 set wildignore+=*/node_modules/*,*/bower_components/*,/vendor/*
 set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
 " }} wildignore "
-
-" ALE {{ "
-let g:ale_lint_on_enter = 0
-let g:ale_fix_on_save = 1
-let g:ale_virtualtext_cursor = 1
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-" nnoremap <silent> gd :ALEGoToDefinition<CR>
-nnoremap <silent> R :ALEFindReferences<CR>
-
-let g:ale_linters = {
-      \ 'python': ['pyls'],
-      \ 'javascript': [],
-      \ 'typescript': []
-      \}
-let g:ale_fixers = {
-      \ '*' : ['trim_whitespace'],
-      \ 'python' : ['yapf'],
-      \}
-" }} ALE "
 
 " CtrlSF {{ "
 :com! -n=* F CtrlSF <args>
