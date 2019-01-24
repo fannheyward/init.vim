@@ -23,7 +23,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
-Plug 'neoclide/coc.nvim', { 'branch': 'list', 'do': 'yarn install' }
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -143,7 +143,6 @@ augroup common
   autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd User CocQuickfixChange :CocList --normal location
 
   " set up default omnifunc
   autocmd FileType *
