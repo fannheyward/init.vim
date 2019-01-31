@@ -6,7 +6,6 @@ endif
 
 call plug#begin()
 Plug 'honza/vim-snippets'
-Plug 'lifepillar/vim-solarized8'
 Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-markdown'
