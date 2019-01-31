@@ -5,7 +5,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'lifepillar/vim-solarized8'
 Plug 'trevordmiller/nova-vim'
@@ -236,7 +235,7 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " }} vim-gutentags "
 
 " coc.nvim {{ "
-let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-ultisnips', 'coc-lists']
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists']
 
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gD <Plug>(coc-declaration)
@@ -258,8 +257,13 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
 nnoremap <silent> <space>w  :<C-u>CocList symbols<CR>
+nnoremap <silent> <space>b  :<C-u>CocList --number-select buffers<CR>
+nnoremap <silent> <space>m  :<C-u>CocList --number-select mru<CR>
 nnoremap <silent> <space>s  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent> <space>S  :exe 'CocList --normal grep '.expand('<cword>').''<CR>
+
+imap <C-k> <Plug>(coc-snippets-expand)
+vmap <C-j> <Plug>(coc-snippets-select)
 " }} coc.nvim "
 
 " vim-signify {{ "
