@@ -128,13 +128,14 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " autocmd {{ "
 augroup common
   autocmd!
-  autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
-  autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType go nmap <leader>b <Plug>(go-build)
   autocmd FileType go nmap <C-g> :GoDecls<CR>
+  autocmd FileType go setlocal expandtab
   autocmd FileType go setlocal omnifunc=syntaxcomplete#Complete
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
+  autocmd FileType crontab setlocal nobackup nowritebackup
+  autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
