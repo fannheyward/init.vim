@@ -3,6 +3,11 @@
   "coc.preferences.codeLens.enable": true,
   "coc.preferences.diagnostic.virtualText": true,
   "languageserver": {
+    "efm": {
+      /* go get github.com/mattn/efm-langserver/cmd/efm-langserver */
+      "command": "efm-langserver",
+      "filetypes": ["markdown"]
+    },
     "go": {
       "command": "bingo",
       "filetypes": ["go"],
