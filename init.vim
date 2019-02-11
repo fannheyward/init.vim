@@ -255,7 +255,7 @@ inoremap <silent><expr> <TAB>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
-nnoremap <silent> <space>w  :<C-u>CocList symbols<CR>
+nnoremap <silent> <space>w  :<C-u>CocList -I symbols<CR>
 nnoremap <silent> <space>b  :<C-u>CocList --number-select buffers<CR>
 nnoremap <silent> <space>m  :<C-u>CocList --number-select mru<CR>
 nnoremap <silent> <space>s  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
