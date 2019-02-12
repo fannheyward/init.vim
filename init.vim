@@ -51,6 +51,17 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+
+function! s:GoToDefinition()
+  function! s:handler(err, resp)
+    let line = coc#util#echo_line()
+    if line =~ 'Definition not found'
+      call searchdecl(expand('<cword>'))
+    endif
+  endfunction
+
+  call CocActionAsync('jumpDefinition', function('s:handler'))
+endfunction
 " }} functions "
 
 " mappings {{ "
@@ -225,7 +236,7 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " coc.nvim {{ "
 let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists']
 
-nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
