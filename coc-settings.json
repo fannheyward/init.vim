@@ -11,6 +11,7 @@
     "go": {
       "command": "bingo",
       "filetypes": ["go"],
+      "rootPatterns": ["go.mod", ".git/"],
       "initializationOptions": {
         "enhanceSignatureHelp": true
       }
