@@ -9,6 +9,7 @@ Plug 'honza/vim-snippets'
 Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-markdown'
+" Plug 'tpope/vim-apathy'
 Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
@@ -132,6 +133,9 @@ augroup common
   autocmd FileType go setlocal expandtab
   autocmd FileType go setlocal omnifunc=syntaxcomplete#Complete
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
+  autocmd FileType lua setlocal include=require
+  autocmd FileType lua setlocal define=function
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
