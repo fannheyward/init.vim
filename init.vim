@@ -44,16 +44,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-function! RenameCWord(cword)
-  let l:cursor_pos = getpos(".")
-  let l:word = expand("<".a:cword.">")
-  let l:rename = input('Rename: ', l:word)
-  if l:rename != ''
-    execute "%s/\\<".l:word."\\>/".l:rename."/g"
-  endif
-  call cursor(l:cursor_pos[1], l:cursor_pos[2])
-endfunction
-
 function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
@@ -160,7 +150,6 @@ command! Wqa :wqa
 command! WQa :wqa
 
 command! Format :call CocAction('format')
-command! Rename :call RenameCWord('cword')
 command! PrettyJSON :%!python -m json.tool
 command! Signify :SignifyRefresh
 " }} command "
