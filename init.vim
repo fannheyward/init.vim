@@ -27,7 +27,6 @@ Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'jontrainor/TaskList.vim', { 'on': 'TaskList' }
-Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
