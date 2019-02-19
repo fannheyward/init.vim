@@ -26,7 +26,7 @@ Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
-Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
+Plug 'jontrainor/TaskList.vim', { 'on': 'TaskList' }
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
@@ -182,10 +182,6 @@ set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
 :com! -n=* F CtrlSF <args>
 let g:ctrlsf_auto_close = 0
 " }} CtrlSF "
-
-" TaskList {{ "
-let g:tlTokenList = ['TODO', 'WTF', 'FIX']
-" }} TaskList "
 
 " UltiSnips {{ "
 let g:UltiSnipsExpandTrigger="<c-k>"
