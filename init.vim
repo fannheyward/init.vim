@@ -30,6 +30,7 @@ Plug 'vim-scripts/TaskList.vim', { 'on': 'TaskList' }
 Plug 'sbdchd/neoformat', {'on': 'Neoformat'}
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
+Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
@@ -258,7 +259,7 @@ inoremap <silent><expr> <TAB>
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
-nnoremap <silent> <space>o  :<C-u>CocList outline<CR>
+nnoremap <silent> <space>o  :<C-u>Vista finder coc<CR>
 nnoremap <silent> <space>w  :<C-u>CocList -I symbols<CR>
 nnoremap <silent> <space>b  :<C-u>CocList --number-select buffers<CR>
 nnoremap <silent> <space>m  :<C-u>CocList --number-select mru<CR>
