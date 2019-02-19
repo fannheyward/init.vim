@@ -183,12 +183,6 @@ set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
 let g:ctrlsf_auto_close = 0
 " }} CtrlSF "
 
-" UltiSnips {{ "
-let g:UltiSnipsExpandTrigger="<c-k>"
-let g:UltiSnipsJumpForwardTrigger="<c-k>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-" }} UltiSnips "
-
 " vim-go {{ "
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
