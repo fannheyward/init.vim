@@ -5,6 +5,7 @@
   "languageserver": {
     "efm": {
       /* go get github.com/mattn/efm-langserver/cmd/efm-langserver */
+      /* yarn global add markdownlint-cli */
       "command": "efm-langserver",
       "filetypes": ["markdown"]
     },
