@@ -8,7 +8,6 @@ call plug#begin()
 Plug 'honza/vim-snippets'
 Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-markdown'
 " Plug 'tpope/vim-apathy'
 Plug 'jiangmiao/auto-pairs'
 Plug 'itchyny/lightline.vim'
@@ -19,7 +18,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
-Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
@@ -265,13 +263,5 @@ let g:signify_vcs_list = [ 'git' ]
 nmap <silent> gj <plug>(signify-next-hunk)
 nmap <silent> gk <plug>(signify-prev-hunk)
 " }} vim-signify "
-
-" vim-test {{ "
-let test#strategy = "neovim"
-" }} vim-test "
-
-" vim-markdown {{ "
-let g:markdown_fenced_languages = ['javascript', 'js=javascript', 'typescript', 'ts=typescript']
-" }} vim-markdown "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
