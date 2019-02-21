@@ -22,6 +22,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'janko-m/vim-test'
 Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
+Plug 'nelstrom/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
