@@ -1,7 +1,7 @@
 {
   "coc.preferences.hoverTarget": "echo",
-  "coc.preferences.codeLens.enable": true,
-  "coc.preferences.diagnostic.virtualText": true,
+  "codeLens.enable": true,
+  "diagnostic.virtualText": true,
   "languageserver": {
     "efm": {
       /* go get github.com/mattn/efm-langserver/cmd/efm-langserver */
