@@ -62,6 +62,12 @@ function! s:GoToDefinition()
 
   call CocActionAsync('jumpDefinition', function('s:handler'))
 endfunction
+
+function! SetupCommandAbbrs(from, to)
+  exec 'cnoreabbrev <expr> '.a:from
+        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
+        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
+endfunction
 " }} functions "
 
 " mappings {{ "
@@ -164,7 +170,9 @@ command! WQa :wqa
 
 command! Format :call CocAction('format')
 command! PrettyJSON :%!python -m json.tool
-command! Signify :SignifyRefresh
+
+call SetupCommandAbbrs('t', 'tabnew')
+call SetupCommandAbbrs('s', 'SignifyRefresh')
 " }} command "
 
 " wildignore {{ "
