@@ -171,8 +171,11 @@ command! WQa :wqa
 command! Format :call CocAction('format')
 command! PrettyJSON :%!python -m json.tool
 
+call SetupCommandAbbrs('n', 'new')
 call SetupCommandAbbrs('t', 'tabnew')
+call SetupCommandAbbrs('c', 'CocConfig')
 call SetupCommandAbbrs('s', 'SignifyRefresh')
+call SetupCommandAbbrs('m', 'CocList mru')
 " }} command "
 
 " wildignore {{ "
@@ -234,7 +237,7 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " }} vim-gutentags "
 
 " coc.nvim {{ "
-let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank']
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank']
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
@@ -258,6 +261,7 @@ nnoremap <silent> <space>o  :<C-u>Vista finder coc<CR>
 nnoremap <silent> <space>w  :<C-u>CocList -I symbols<CR>
 nnoremap <silent> <space>b  :<C-u>CocList --number-select buffers<CR>
 nnoremap <silent> <space>m  :<C-u>CocList --number-select mru<CR>
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent> <space>s  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent> <space>S  :exe 'CocList --normal grep '.expand('<cword>').''<CR>
 
