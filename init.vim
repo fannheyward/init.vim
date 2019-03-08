@@ -48,7 +48,7 @@ function! s:show_documentation()
   if &filetype == 'vim'
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    call CocActionAsync('doHover')
   endif
 endfunction
 
@@ -61,12 +61,6 @@ function! s:GoToDefinition()
   endfunction
 
   call CocActionAsync('jumpDefinition', function('s:handler'))
-endfunction
-
-function! SetupCommandAbbrs(from, to)
-  exec 'cnoreabbrev <expr> '.a:from
-        \ .' ((getcmdtype() ==# ":" && getcmdline() ==# "'.a:from.'")'
-        \ .'? ("'.a:to.'") : ("'.a:from.'"))'
 endfunction
 " }} functions "
 
@@ -161,21 +155,21 @@ augroup end
 " }} autocmd "
 
 " command {{ "
-command! W :w
-command! Q :q
-command! Qa :qa
-command! Wa :wa
-command! Wqa :wqa
-command! WQa :wqa
+command! -nargs=0 Q     :q
+command! -nargs=0 Qa    :qa
+command! -nargs=0 T     :tabnew
+command! -nargs=0 W     :w
+command! -nargs=0 Wa    :wa
+command! -nargs=0 Wqa   :wqa
+command! -nargs=0 WQa   :wqa
 
-command! Format :call CocAction('format')
-command! PrettyJSON :%!python -m json.tool
+command! -nargs=0 C     :CocConfig
+command! -nargs=0 S     :SignifyRefresh
+command! -nargs=0 M     :CocList mru
+command! -nargs=0 R     :CocListResume
 
-call SetupCommandAbbrs('n', 'new')
-call SetupCommandAbbrs('t', 'tabnew')
-call SetupCommandAbbrs('c', 'CocConfig')
-call SetupCommandAbbrs('s', 'SignifyRefresh')
-call SetupCommandAbbrs('m', 'CocList mru')
+command! -nargs=0 Format      :call CocAction('format')
+command! -nargs=0 JSONPretty  :%!python -m json.tool
 " }} command "
 
 " wildignore {{ "
