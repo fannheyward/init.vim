@@ -38,53 +38,6 @@ Plug 'neoclide/jsonc.vim'
 call plug#end()
 " }} plug.vim "
 
-" functions {{ "
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
-
-function! s:GoToDefinition()
-  function! s:handler(err, resp)
-    let line = coc#util#echo_line()
-    if line =~ 'Definition not found'
-      call searchdecl(expand('<cword>'))
-    endif
-  endfunction
-
-  call CocActionAsync('jumpDefinition', function('s:handler'))
-endfunction
-" }} functions "
-
-" mappings {{ "
-map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<CR>
-map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<CR>
-setl dictionary+=$HOME/.config/nvim/dev.dict
-
-map ? /\<\><Left><Left>
-map <silent> <leader>n :nohlsearch<CR>
-
-nnoremap <leader>cp :set clipboard=unnamed<CR>
-nnoremap <leader>f :echom @%<CR>
-
-inoremap <C-c> <ESC>
-inoremap jj <Esc>
-
-nnoremap <silent> gb :bn<CR>
-nnoremap <silent> gB :bp<CR>
-
-nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
-tnoremap <Esc> <C-\><C-n>
-" }} mappings "
-
 " basic {{ "
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
@@ -171,6 +124,53 @@ command! -nargs=0 R     :CocListResume
 command! -nargs=0 Format      :call CocAction('format')
 command! -nargs=0 JSONPretty  :%!python -m json.tool
 " }} command "
+
+" mappings {{ "
+map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<CR>
+map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<CR>
+setl dictionary+=$HOME/.config/nvim/dev.dict
+
+map ? /\<\><Left><Left>
+map <silent> <leader>n :nohlsearch<CR>
+
+nnoremap <leader>cp :set clipboard=unnamed<CR>
+nnoremap <leader>f :echom @%<CR>
+
+inoremap <C-c> <ESC>
+inoremap jj <Esc>
+
+nnoremap <silent> gb :bn<CR>
+nnoremap <silent> gB :bp<CR>
+
+nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
+tnoremap <Esc> <C-\><C-n>
+" }} mappings "
+
+" functions {{ "
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+function! s:show_documentation()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
+function! s:GoToDefinition()
+  function! s:handler(err, resp)
+    let line = coc#util#echo_line()
+    if line =~ 'Definition not found'
+      call searchdecl(expand('<cword>'))
+    endif
+  endfunction
+
+  call CocActionAsync('jumpDefinition', function('s:handler'))
+endfunction
+" }} functions "
 
 " wildignore {{ "
 set wildignore+=*/.git/*,*/.svn/*,*/.DS_Store
