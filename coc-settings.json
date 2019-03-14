@@ -2,6 +2,7 @@
   "coc.preferences.hoverTarget": "echo",
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
+  "diagnostic.refreshAfterSave": true,
   "languageserver": {
     "efm": {
       /* go get github.com/mattn/efm-langserver/cmd/efm-langserver */
@@ -20,7 +21,7 @@
     "ccls": {
       "command": "ccls",
       "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "rootPatterns": ["compile_commands.json", ".ccls", ".root", ".git/"],
       "initializationOptions": {
         "cacheDirectory": "/tmp/ccls"
       }

@@ -21,6 +21,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
+Plug 'neoclide/vim-jsx-improve'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
@@ -98,6 +99,7 @@ augroup common
   autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
   " set up default omnifunc
   autocmd FileType *
@@ -231,7 +233,7 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " }} vim-gutentags "
 
 " coc.nvim {{ "
-let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank']
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax']
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
