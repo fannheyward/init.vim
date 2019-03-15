@@ -10,7 +10,7 @@ Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-apathy'
 Plug 'jiangmiao/auto-pairs'
-Plug 'itchyny/lightline.vim'
+Plug 'liuchengxu/eleline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
 Plug '/usr/local/opt/fzf'
