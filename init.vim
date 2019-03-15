@@ -101,6 +101,7 @@ augroup common
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd User CocQuickfixChange :CocList --normal quickfix
 
   " set up default omnifunc
   autocmd FileType *
@@ -121,7 +122,6 @@ command! -nargs=0 WQa   :wqa
 
 command! -nargs=0 C     :CocConfig
 command! -nargs=0 S     :SignifyRefresh
-command! -nargs=0 M     :CocList mru
 command! -nargs=0 R     :CocListResume
 
 command! -nargs=0 Format      :call CocAction('format')
@@ -253,13 +253,15 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 nnoremap <silent> <space>o  :<C-u>Vista finder coc<CR>
-nnoremap <silent> <space>w  :<C-u>CocList -I symbols<CR>
-nnoremap <silent> <space>b  :<C-u>CocList --number-select buffers<CR>
-nnoremap <silent> <space>m  :<C-u>CocList --number-select mru<CR>
+nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
+nnoremap <silent> <space>l  :<C-u>CocList locationlist<CR>
+nnoremap <silent> <space>q  :<C-u>CocList quickfix<CR>
+nnoremap <silent> <space>w  :<C-u>CocList symbols<CR>
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<CR>
-nnoremap <silent> <space>s  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
+nnoremap <silent> <space>m  :<C-u>CocList -A -N mru<CR>
+nnoremap <silent> <space>t  :<C-u>CocList -A -N --normal buffers<CR>
+nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent> <space>S  :exe 'CocList --normal grep '.expand('<cword>').''<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
