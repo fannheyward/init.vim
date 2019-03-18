@@ -1,5 +1,6 @@
 {
   "coc.preferences.hoverTarget": "echo",
+  "coc.preferences.signatureHelpTarget": "echo",
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.refreshAfterSave": true,
