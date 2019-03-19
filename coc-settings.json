@@ -1,9 +1,9 @@
 {
-  "coc.preferences.hoverTarget": "echo",
-  "coc.preferences.signatureHelpTarget": "echo",
+  /* "coc.preferences.hoverTarget": "echo", */
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.refreshAfterSave": true,
+  "signature.target": "echo",
   "languageserver": {
     "efm": {
       /* go get github.com/mattn/efm-langserver/cmd/efm-langserver */

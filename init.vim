@@ -147,6 +147,9 @@ inoremap jj <Esc>
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 
+nnoremap <expr><C-f> coc#util#has_float() ? coc#util#float_scroll(1) : "\<C-f>"
+nnoremap <expr><C-b> coc#util#has_float() ? coc#util#float_scroll(0) : "\<C-b>"
+
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
 " }} mappings "
