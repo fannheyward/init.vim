@@ -280,4 +280,8 @@ nmap <silent> gj <plug>(signify-next-hunk)
 nmap <silent> gk <plug>(signify-prev-hunk)
 " }} vim-signify "
 
+" vim-rooter {{ "
+let g:rooter_patterns = ['.root', 'package.json', '.git/']
+" }} vim-rooter "
+
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
