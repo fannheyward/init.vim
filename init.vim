@@ -23,7 +23,7 @@ Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'sgur/vim-editorconfig'
-Plug 'neoclide/coc.nvim', { 'do': 'yarn install' }
+Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
@@ -33,6 +33,7 @@ Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 
 Plug 'fatih/vim-go', { 'for': 'go' }
+" Plug 'Carpetsmoker/gopher.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 Plug 'sheerun/vim-polyglot'
@@ -234,6 +235,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " vim-gutentags {{ "
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
+let g:gutentags_exclude_filetypes = ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " }} vim-gutentags "
@@ -248,6 +250,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
+nmap <silent> gq <Plug>(coc-fix-current)
 
 inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
@@ -262,7 +265,7 @@ nnoremap <silent> <space>o  :<C-u>Vista finder coc<CR>
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 nnoremap <silent> <space>l  :<C-u>CocList locationlist<CR>
 nnoremap <silent> <space>q  :<C-u>CocList quickfix<CR>
-nnoremap <silent> <space>w  :<C-u>CocList symbols<CR>
+nnoremap <silent> <space>w  :<C-u>CocList -I -N symbols<CR>
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent> <space>m  :<C-u>CocList -A -N mru<CR>
 nnoremap <silent> <space>t  :<C-u>CocList -A -N --normal buffers<CR>
