@@ -273,7 +273,6 @@ nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cwor
 nnoremap <silent> <space>S  :exe 'CocList --normal grep '.expand('<cword>').''<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
 " }} coc.nvim "
 
 " vim-signify {{ "

@@ -3,8 +3,11 @@
   "coc.preferences.enableFloatHighlight": false,
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
-  "diagnostic.refreshAfterSave": true,
   "signature.target": "echo",
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
   "languageserver": {
     "efm": {
       /* go get github.com/mattn/efm-langserver/cmd/efm-langserver */
@@ -17,6 +20,7 @@
       "filetypes": ["go"],
       "rootPatterns": ["go.mod", ".git/"],
       "initializationOptions": {
+        "diagnosticsStyle": "instant",
         "enhanceSignatureHelp": true
       }
     },
