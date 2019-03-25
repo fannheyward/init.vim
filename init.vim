@@ -195,12 +195,15 @@ let g:ctrlsf_auto_close = 0
 " }} CtrlSF "
 
 " vim-go {{ "
+let g:go_fmt_autosave = 0
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 0
 let g:go_updatetime = 100
 let g:go_doc_keywordprg_enabled = 0
 let g:go_def_mapping_enabled = 0
+let g:go_def_mode = 'gopls'
+let g:go_info_mode = 'guru'
 
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
@@ -235,7 +238,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " vim-gutentags {{ "
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
-let g:gutentags_exclude_filetypes = ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx']
+let g:gutentags_exclude_filetypes = ['javascript', 'javascript.jsx', 'typescript', 'typescript.jsx', 'go']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " }} vim-gutentags "
@@ -251,6 +254,8 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gq <Plug>(coc-fix-current)
+
+vmap <leader> f  <Plug>(coc-format-selected)
 
 inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
