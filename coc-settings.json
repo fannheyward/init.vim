@@ -3,6 +3,7 @@
   "coc.preferences.enableFloatHighlight": false,
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
+  "diagnostic.checkCurrentLine": true,
   "signature.target": "echo",
   "snippets.extends": {
     "javascriptreact": ["javascript"],
@@ -23,6 +24,11 @@
         "diagnosticsStyle": "instant",
         "enhanceSignatureHelp": true
       }
+    },
+    "gopls": {
+      "command": "gopls",
+      "filetypes": ["gox"],
+      "rootPatterns": ["go.mod", ".git/"]
     },
     "ccls": {
       "command": "ccls",
