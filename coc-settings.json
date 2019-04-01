@@ -16,18 +16,9 @@
       "command": "efm-langserver",
       "filetypes": ["markdown"]
     },
-    "go": {
-      "command": "bingo",
-      "filetypes": ["go"],
-      "rootPatterns": ["go.mod", ".git/"],
-      "initializationOptions": {
-        "diagnosticsStyle": "instant",
-        "enhanceSignatureHelp": true
-      }
-    },
     "gopls": {
       "command": "gopls",
-      "filetypes": ["gox"],
+      "filetypes": ["go"],
       "rootPatterns": ["go.mod", ".git/"]
     },
     "ccls": {
