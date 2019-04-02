@@ -1,6 +1,7 @@
 {
   /* "coc.preferences.hoverTarget": "echo", */
   "coc.preferences.enableFloatHighlight": false,
+  "coc.preferences.formatOnType": true,
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,

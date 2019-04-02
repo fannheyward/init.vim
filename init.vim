@@ -9,7 +9,6 @@ Plug 'honza/vim-snippets'
 Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
 " Plug 'tpope/vim-apathy'
-Plug 'jiangmiao/auto-pairs'
 Plug 'liuchengxu/eleline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
@@ -115,6 +114,7 @@ augroup end
 " }} autocmd "
 
 " command {{ "
+command! -nargs=0 E     :e
 command! -nargs=0 Q     :q
 command! -nargs=0 Qa    :qa
 command! -nargs=0 T     :tabnew
@@ -192,7 +192,6 @@ let g:ctrlsf_auto_close = 0
 " }} CtrlSF "
 
 " vim-go {{ "
-let g:go_fmt_autosave = 0
 let g:go_fmt_command = "goimports"
 let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 0
@@ -241,7 +240,7 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 " }} vim-gutentags "
 
 " coc.nvim {{ "
-let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax']
+let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax']
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
@@ -254,7 +253,8 @@ nmap <silent> gq <Plug>(coc-fix-current)
 
 vmap <leader> f  <Plug>(coc-format-selected)
 
-inoremap <silent><expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
+	      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <TAB>
@@ -272,7 +272,7 @@ nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent> <space>m  :<C-u>CocList -A -N mru<CR>
 nnoremap <silent> <space>t  :<C-u>CocList -A -N --normal buffers<CR>
 nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
-nnoremap <silent> <space>S  :exe 'CocList --normal grep '.expand('<cword>').''<CR>
+nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
 " }} coc.nvim "
