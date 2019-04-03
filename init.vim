@@ -140,13 +140,30 @@ map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<CR>
 
 nnoremap <leader>cp :set clipboard=unnamed<CR>
-nnoremap <leader>f :echom @%<CR>
-
-inoremap <C-c> <ESC>
-inoremap jj <Esc>
+nnoremap <leader>f :echomsg @%<CR>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
+
+" insert mode
+inoremap <C-c> <ESC>
+inoremap <C-w> <C-[>diwa
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-u> <C-G>u<C-U>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-a> <Home>
+inoremap <expr><C-e> pumvisible() ? "\<C-e>" : "\<End>"
+
+" command line mappings
+cnoremap <C-a> <Home>
+cnoremap <C-b> <S-Left>
+cnoremap <C-f> <S-Right>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
+cnoremap <C-h> <BS>
+cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
