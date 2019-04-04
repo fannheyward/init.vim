@@ -10,6 +10,12 @@
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
   },
+  "list.normalMappings": {
+    "<C-c>": "do:exit"
+  },
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
   "languageserver": {
     "efm": {
       /* go get github.com/mattn/efm-langserver/cmd/efm-langserver */
