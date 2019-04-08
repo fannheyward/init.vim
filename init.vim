@@ -70,6 +70,7 @@ set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set wildoptions=pum
 set pumheight=20
+set selection=exclusive
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
