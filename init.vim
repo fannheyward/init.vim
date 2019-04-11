@@ -31,8 +31,6 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 
-Plug 'fatih/vim-go', { 'for': 'go' }
-" Plug 'Carpetsmoker/gopher.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 Plug 'sheerun/vim-polyglot'
@@ -208,27 +206,6 @@ set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
 :com! -n=* F CtrlSF <args>
 let g:ctrlsf_auto_close = 0
 " }} CtrlSF "
-
-" vim-go {{ "
-let g:go_fmt_command = "goimports"
-let g:go_list_type = "quickfix"
-let g:go_auto_type_info = 0
-let g:go_updatetime = 100
-let g:go_doc_keywordprg_enabled = 0
-let g:go_def_mapping_enabled = 0
-let g:go_def_mode = 'gopls'
-let g:go_info_mode = 'guru'
-
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_structs = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-" }} vim-go "
 
 " FZF {{ "
 let $FZF_DEFAULT_OPTS .= ' --inline-info'

@@ -2,6 +2,7 @@
   /* "coc.preferences.hoverTarget": "echo", */
   "coc.preferences.enableFloatHighlight": false,
   "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": ["go"],
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
