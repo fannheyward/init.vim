@@ -128,6 +128,7 @@ command! -nargs=0 R     :CocListResume
 
 command! -nargs=0 Format      :call CocAction('format')
 command! -nargs=0 JSONPretty  :%!python -m json.tool
+command! -nargs=0 Todos       :CocList -A --normal grep -e TODO|FIXME
 " }} command "
 
 " mappings {{ "
@@ -244,9 +245,11 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
-nmap <silent> gq <Plug>(coc-fix-current)
+nmap <silent> gx <Plug>(coc-fix-current)
+nmap <silent> ga <Plug>(coc-codeaction)
 
 vmap <leader> f  <Plug>(coc-format-selected)
+vmap <leader> a  <Plug>(coc-codeaction-selected)
 
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
 	      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
