@@ -68,7 +68,6 @@ set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set wildoptions=pum
 set pumheight=20
-set selection=exclusive
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -82,10 +81,7 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " autocmd {{ "
 augroup common
   autocmd!
-  autocmd FileType go nmap <leader>b <Plug>(go-build)
-  autocmd FileType go nmap <C-g> :GoDecls<CR>
   autocmd FileType go setlocal expandtab
-  autocmd FileType go setlocal omnifunc=syntaxcomplete#Complete
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
   autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
   autocmd FileType lua setlocal include=require
