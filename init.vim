@@ -192,11 +192,16 @@ endfunction
 " }} functions "
 
 " wildignore {{ "
-set wildignore+=*/.git/*,*/.svn/*,*/.DS_Store
-set wildignore+=*.log,*.pyc,*.sqlite,*.sqlite3,cscope.out
-set wildignore+=*.so,*.swp,*.zip,*.exe,*.min.js,*.min.css
-set wildignore+=*/node_modules/*,*/bower_components/*,/vendor/*
-set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
+set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib
+set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
+set wildignore+=*.log,*.pyc,*.sqlite,*.sqlite3,*.min.js,*.min.css,*.tags
+set wildignore+=*.zip,*.7z,*.rar,*.gz,*.tar,*.gzip,*.bz2,*.tgz,*.xz
+set wildignore+=*.png,*.jpg,*.gif,*.bmp,*.tga,*.pcx,*.ppm,*.img,*.iso
+set wildignore+=*.pdf,*.dmg,*.app,*.ipa,*.apk,*.mobi,*.epub
+set wildignore+=*.mp4,*.avi,*.flv,*.mov,*.mkv,*.swf,*.swc
+set wildignore+=*.ppt,*.pptx,*.doc,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
+set wildignore+=*/.git/*,*/.svn/*,*.DS_Store
+set wildignore+=*/node_modules/*,*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
 " }} wildignore "
 
 " CtrlSF {{ "
