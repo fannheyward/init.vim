@@ -31,6 +31,7 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 
+Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 Plug 'sheerun/vim-polyglot'
@@ -286,5 +287,9 @@ nmap <silent> gk <plug>(signify-prev-hunk)
 " vim-rooter {{ "
 let g:rooter_patterns = ['.root', 'package.json', '.git/']
 " }} vim-rooter "
+
+" go.vim {{ "
+let g:go_fmt_command = "gofumports"
+" }} go.vim "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
