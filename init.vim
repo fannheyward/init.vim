@@ -9,8 +9,6 @@ Plug 'honza/vim-snippets'
 Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/eleline.vim'
-Plug 'blueyed/argtextobj.vim' "via/cia
-Plug 'michaeljsmith/vim-indent-object' "vii - o
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-signify'
