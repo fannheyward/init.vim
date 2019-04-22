@@ -8,7 +8,6 @@ call plug#begin()
 Plug 'honza/vim-snippets'
 Plug 'trevordmiller/nova-vim'
 Plug 'tpope/vim-commentary'
-" Plug 'tpope/vim-apathy'
 Plug 'liuchengxu/eleline.vim'
 Plug 'blueyed/argtextobj.vim' "via/cia
 Plug 'michaeljsmith/vim-indent-object' "vii - o
@@ -30,6 +29,8 @@ Plug 'jontrainor/TaskList.vim', { 'on': 'TaskList' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
@@ -135,6 +136,7 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 
 map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <leader>f :echomsg @%<CR>
