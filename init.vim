@@ -211,13 +211,8 @@ let g:ctrlsf_auto_close = 0
 " }} CtrlSF "
 
 " FZF {{ "
-let $FZF_DEFAULT_OPTS .= ' --inline-info'
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-endif
-
 nnoremap <silent> <C-P> :Files<CR>
-nnoremap <C-g> :BTags<CR>
+nnoremap <silent> <C-g> :Rg<Cr>
 
 nmap <leader><tab> <plug>(fzf-maps-n)
 xmap <leader><tab> <plug>(fzf-maps-x)
