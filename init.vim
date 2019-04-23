@@ -125,6 +125,7 @@ command! -nargs=0 R     :CocListResume
 command! -nargs=0 Format      :call CocAction('format')
 command! -nargs=0 JSONPretty  :%!python -m json.tool
 command! -nargs=0 Todos       :CocList -A --normal grep -e TODO|FIXME
+command! -nargs=+ Find        :exe 'CocList -A --normal grep --smart-case '.<q-args>
 " }} command "
 
 " mappings {{ "
