@@ -16,13 +16,11 @@ Plug 'farmergreg/vim-lastplace'
 Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
-Plug 'neoclide/vim-jsx-improve'
 Plug 'sgur/vim-editorconfig'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
-Plug 'jontrainor/TaskList.vim', { 'on': 'TaskList' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
@@ -33,6 +31,7 @@ Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 Plug 'sheerun/vim-polyglot'
+Plug 'neoclide/vim-jsx-improve'
 Plug 'neoclide/jsonc.vim'
 call plug#end()
 " }} plug.vim "
@@ -231,6 +230,14 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', 'node_modules', 'dist', 'vendor']
 " }} vim-gutentags "
 
+" vim-rooter {{ "
+let g:rooter_patterns = ['.root', 'package.json', '.git/']
+" }} vim-rooter "
+
+" go.vim {{ "
+let g:go_fmt_command = "gofumports"
+" }} go.vim "
+
 " coc.nvim {{ "
 let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax', 'coc-git']
 
@@ -273,13 +280,5 @@ nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').'
 
 imap <C-k> <Plug>(coc-snippets-expand)
 " }} coc.nvim "
-
-" vim-rooter {{ "
-let g:rooter_patterns = ['.root', 'package.json', '.git/']
-" }} vim-rooter "
-
-" go.vim {{ "
-let g:go_fmt_command = "gofumports"
-" }} go.vim "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
