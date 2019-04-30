@@ -11,7 +11,6 @@ Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/eleline.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'mhinz/vim-signify'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
 Plug 'airblade/vim-rooter'
@@ -119,7 +118,6 @@ command! -nargs=0 Wqa   :wqa
 command! -nargs=0 WQa   :wqa
 
 command! -nargs=0 C     :CocConfig
-command! -nargs=0 S     :SignifyRefresh
 command! -nargs=0 R     :CocListResume
 
 command! -nargs=0 Format      :call CocAction('format')
@@ -234,7 +232,7 @@ let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.
 " }} vim-gutentags "
 
 " coc.nvim {{ "
-let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax']
+let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax', 'coc-git']
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
@@ -245,6 +243,9 @@ nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gx <Plug>(coc-fix-current)
 nmap <silent> ga <Plug>(coc-codeaction)
+nmap <silent> gj <Plug>(coc-git-nextchunk)
+nmap <silent> gk <Plug>(coc-git-prevchunk)
+nmap <silent> gs <Plug>(coc-git-chunkinfo)
 
 vmap <leader> f  <Plug>(coc-format-selected)
 vmap <leader> a  <Plug>(coc-codeaction-selected)
@@ -272,13 +273,6 @@ nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').'
 
 imap <C-k> <Plug>(coc-snippets-expand)
 " }} coc.nvim "
-
-" vim-signify {{ "
-let g:signify_vcs_list = [ 'git' ]
-
-nmap <silent> gj <plug>(signify-next-hunk)
-nmap <silent> gk <plug>(signify-prev-hunk)
-" }} vim-signify "
 
 " vim-rooter {{ "
 let g:rooter_patterns = ['.root', 'package.json', '.git/']
