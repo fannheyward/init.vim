@@ -255,9 +255,6 @@ nmap <silent> gj <Plug>(coc-git-nextchunk)
 nmap <silent> gk <Plug>(coc-git-prevchunk)
 nmap <silent> gs <Plug>(coc-git-chunkinfo)
 
-vmap <leader> f  <Plug>(coc-format-selected)
-vmap <leader> a  <Plug>(coc-codeaction-selected)
-
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
 	      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
