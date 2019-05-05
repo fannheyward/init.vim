@@ -18,6 +18,7 @@ Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
+" Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
