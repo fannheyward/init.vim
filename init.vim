@@ -21,7 +21,6 @@ Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
-Plug 'dyng/ctrlsf.vim', { 'on': 'CtrlSF' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
@@ -204,11 +203,6 @@ set wildignore+=*.ppt,*.pptx,*.doc,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
 set wildignore+=*/.git/*,*/.svn/*,*.DS_Store
 set wildignore+=*/node_modules/*,*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
 " }} wildignore "
-
-" CtrlSF {{ "
-:com! -n=* F CtrlSF <args>
-let g:ctrlsf_auto_close = 0
-" }} CtrlSF "
 
 " FZF {{ "
 nnoremap <silent> <C-P> :Files<CR>
