@@ -182,7 +182,7 @@ endfunction
 function! s:GoToDefinition()
   function! s:handler(err, resp)
     let line = coc#util#echo_line()
-    if line =~ 'Definition not found'
+    if line =~ 'Definition provider not found for current document'
       call searchdecl(expand('<cword>'))
     endif
   endfunction
