@@ -208,10 +208,6 @@ set wildignore+=*/node_modules/*,*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*
 nnoremap <silent> <C-P> :Files<CR>
 nnoremap <silent> <C-g> :Rg<Cr>
 
-nmap <leader><tab> <plug>(fzf-maps-n)
-xmap <leader><tab> <plug>(fzf-maps-x)
-omap <leader><tab> <plug>(fzf-maps-o)
-
 imap <c-x><c-k> <plug>(fzf-complete-word)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
@@ -268,6 +264,8 @@ nnoremap <silent> <space>w  :<C-u>CocList -I -N symbols<CR>
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent> <space>m  :<C-u>CocList -A -N mru<CR>
 nnoremap <silent> <space>t  :<C-u>CocList -A -N --normal buffers<CR>
+nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 
