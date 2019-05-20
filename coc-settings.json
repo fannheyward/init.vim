@@ -1,6 +1,6 @@
 {
   /* "coc.preferences.hoverTarget": "echo", */
-  "coc.preferences.enableFloatHighlight": false,
+  /* "coc.preferences.enableFloatHighlight": false, */
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["go"],
   "codeLens.enable": true,
@@ -28,6 +28,14 @@
       "command": "gopls",
       "filetypes": ["go"],
       "rootPatterns": ["go.mod", ".git/"]
+    },
+    "dart": {
+      "command": "dart",
+      "args": [
+        "/usr/local/Cellar/dart/2.3.0/libexec/bin/snapshots/analysis_server.dart.snapshot",
+        "--lsp"
+      ],
+      "filetypes": ["dart"]
     },
     "ccls": {
       "command": "ccls",
