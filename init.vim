@@ -7,6 +7,8 @@ endif
 call plug#begin()
 Plug 'honza/vim-snippets'
 Plug 'trevordmiller/nova-vim'
+Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/eleline.vim'
 Plug '/usr/local/opt/fzf'
@@ -41,7 +43,8 @@ set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
 set termguicolors
-colorscheme nova
+let g:gruvbox_italic=1
+colorscheme gruvbox
 
 set hidden
 set number
