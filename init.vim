@@ -222,7 +222,7 @@ set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
-let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', 'node_modules', 'dist', 'vendor']
+let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
 " }} vim-gutentags "
 
 " vim-rooter {{ "
@@ -234,7 +234,7 @@ let g:go_fmt_command = "gofumports"
 " }} go.vim "
 
 " coc.nvim {{ "
-let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax', 'coc-git']
+let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax', 'coc-git', 'coc-emoji']
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
@@ -248,6 +248,7 @@ nmap <silent> ga <Plug>(coc-codeaction)
 nmap <silent> gj <Plug>(coc-git-nextchunk)
 nmap <silent> gk <Plug>(coc-git-prevchunk)
 nmap <silent> gs <Plug>(coc-git-chunkinfo)
+nmap <silent> gm <Plug>(coc-git-commit)
 
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
 	      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
