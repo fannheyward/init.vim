@@ -120,13 +120,15 @@ command! -nargs=0 Wqa   :wqa
 command! -nargs=0 WQa   :wqa
 
 command! -nargs=0 C     :CocConfig
-command! -nargs=0 R     :CocListResume
+command! -nargs=0 R     :CocRestart
+command! -nargs=0 L     :CocListResume
 
-command! -nargs=0 Format      :call CocAction('format')
-command! -nargs=0 JSONPretty  :%!python -m json.tool
-command! -nargs=0 Todos       :CocList -A --normal grep -e TODO|FIXME
-command! -nargs=0 Status      :CocList -A --normal gstatus
-command! -nargs=+ Find        :exe 'CocList -A --normal grep --smart-case '.<q-args>
+command! -nargs=0 JSONPretty    :%!python -m json.tool
+command! -nargs=0 Todos         :CocList -A --normal grep -e TODO|FIXME
+command! -nargs=0 Status        :CocList -A --normal gstatus
+command! -nargs=+ Find          :exe 'CocList -A --normal grep --smart-case '.<q-args>
+command! -nargs=0 Format        :call CocAction('format')
+command! -nargs=0 GitChunkUndo  :call CocAction('runCommand', 'git.chunkUndo')
 " }} command "
 
 " mappings {{ "
