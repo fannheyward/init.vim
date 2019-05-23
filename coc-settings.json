@@ -33,7 +33,7 @@
     "dart": {
       "command": "dart",
       "args": [
-        "/usr/local/Cellar/dart/2.3.1/libexec/bin/snapshots/analysis_server.dart.snapshot",
+        "/usr/local/opt/dart/libexec/bin/snapshots/analysis_server.dart.snapshot",
         "--lsp"
       ],
       "filetypes": ["dart"]
