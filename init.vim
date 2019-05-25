@@ -236,7 +236,7 @@ let g:go_fmt_command = "gofumports"
 " }} go.vim "
 
 " coc.nvim {{ "
-let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax', 'coc-git', 'coc-emoji']
+let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax', 'coc-git', 'coc-emoji', 'coc-calc']
 " set runtimepath^=~/src/coc-tsserver
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
