@@ -129,6 +129,7 @@ command! -nargs=0 Status        :CocList -A --normal gstatus
 command! -nargs=+ Find          :exe 'CocList -A --normal grep --smart-case '.<q-args>
 command! -nargs=0 Format        :call CocAction('format')
 command! -nargs=0 GitChunkUndo  :call CocAction('runCommand', 'git.chunkUndo')
+command! -nargs=0 OR            :call CocAction('runCommand', 'editor.action.organizeImport')
 " }} command "
 
 " mappings {{ "
