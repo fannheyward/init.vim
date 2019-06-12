@@ -237,7 +237,26 @@ let g:go_fmt_command = "gofumports"
 " }} go.vim "
 
 " coc.nvim {{ "
-let g:coc_global_extensions = ['coc-pairs', 'coc-json', 'coc-html', 'coc-tsserver', 'coc-tslint-plugin', 'coc-eslint', 'coc-prettier', 'coc-highlight', 'coc-dictionary', 'coc-tag', 'coc-snippets', 'coc-lists', 'coc-yank', 'coc-syntax', 'coc-git', 'coc-emoji', 'coc-calc', 'coc-marketplace']
+let g:coc_global_extensions = [
+      \'coc-pairs',
+      \'coc-json',
+      \'coc-html',
+      \'coc-tsserver',
+      \'coc-tslint-plugin',
+      \'coc-eslint',
+      \'coc-prettier',
+      \'coc-highlight',
+      \'coc-dictionary',
+      \'coc-tag',
+      \'coc-snippets',
+      \'coc-lists',
+      \'coc-yank',
+      \'coc-syntax',
+      \'coc-git',
+      \'coc-emoji',
+      \'coc-calc',
+      \'coc-marketplace'
+      \]
 " set runtimepath^=~/src/coc-marketplace
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
@@ -255,7 +274,7 @@ nmap <silent> gs <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
 
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
-	      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <TAB>
