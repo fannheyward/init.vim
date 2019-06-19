@@ -255,6 +255,7 @@ let g:coc_global_extensions = [
       \'coc-git',
       \'coc-emoji',
       \'coc-calc',
+      \'coc-xml',
       \'coc-marketplace'
       \]
 " set runtimepath^=~/src/coc-marketplace
