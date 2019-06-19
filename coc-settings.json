@@ -2,7 +2,7 @@
   /* "coc.preferences.hoverTarget": "echo", */
   /* "coc.preferences.enableFloatHighlight": false, */
   "coc.preferences.formatOnType": true,
-  "coc.preferences.formatOnSaveFiletypes": ["go"],
+  "coc.preferences.formatOnSaveFiletypes": ["go", "typescript"],
   "prettier.printWidth": 160,
   "prettier.singleQuote": true,
   "codeLens.enable": true,
