@@ -20,7 +20,7 @@ Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
-" Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
@@ -300,6 +300,8 @@ nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cwor
 nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
+nmap <silent> <TAB> <Plug>(coc-range-select)
+xmap <silent> <TAB> <Plug>(coc-range-select)
 " }} coc.nvim "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
