@@ -186,14 +186,14 @@ function! s:show_documentation()
 endfunction
 
 function! s:GoToDefinition()
-  function! s:handler(err, resp)
-    let line = coc#util#echo_line()
-    if line =~ 'Definition provider not found for current document'
-      call searchdecl(expand('<cword>'))
-    endif
-  endfunction
+  if CocAction('jumpDefinition')
+    return v:true
+  endif
 
-  call CocActionAsync('jumpDefinition', function('s:handler'))
+  let ret = execute("silent! normal \<C-]>")
+  if ret[:5] =~ "Error"
+    call searchdecl(expand('<cword>'))
+  endif
 endfunction
 " }} functions "
 
