@@ -256,7 +256,8 @@ let g:coc_global_extensions = [
       \'coc-emoji',
       \'coc-calc',
       \'coc-xml',
-      \'coc-marketplace'
+      \'coc-marketplace',
+      \'coc-translator'
       \]
 " set runtimepath^=~/src/coc-marketplace
 " let g:coc_force_debug = 1
@@ -293,11 +294,12 @@ nnoremap <silent> <space>q  :<C-u>CocList quickfix<CR>
 nnoremap <silent> <space>w  :<C-u>CocList -I -N symbols<CR>
 nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent> <space>m  :<C-u>CocList -A -N mru<CR>
-nnoremap <silent> <space>t  :<C-u>CocList -A -N --normal buffers<CR>
+nnoremap <silent> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
 nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
+nnoremap <silent> <space>t  :exe 'CocCommand translator.popup'<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <TAB> <Plug>(coc-range-select)
