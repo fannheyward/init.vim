@@ -19,6 +19,7 @@ Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
+Plug 'romainl/vim-cool'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
