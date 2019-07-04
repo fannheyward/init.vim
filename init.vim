@@ -100,6 +100,8 @@ augroup common
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocQuickfixChange :CocList --normal quickfix
+  autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
+  autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
 
   " set up default omnifunc
   autocmd FileType *
@@ -257,6 +259,7 @@ let g:coc_global_extensions = [
       \'coc-calc',
       \'coc-xml',
       \'coc-marketplace',
+      \'coc-smartf',
       \'coc-translator'
       \]
 " set runtimepath^=~/src/coc-marketplace
@@ -301,6 +304,7 @@ nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cwor
 nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 nnoremap <silent> <space>t  :exe 'CocCommand translator.popup'<CR>
 
+nmap f <Plug>(coc-smartf-forward)
 imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
