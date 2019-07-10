@@ -104,6 +104,8 @@ augroup common
   autocmd User SmartfEnter :hi Conceal ctermfg=220 guifg=#6638F0
   autocmd User SmartfLeave :hi Conceal ctermfg=239 guifg=#504945
 
+  autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+
   " set up default omnifunc
   autocmd FileType *
         \ if &omnifunc == "" |
