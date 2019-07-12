@@ -243,6 +243,7 @@ let g:go_fmt_command = "gofumports"
 
 " coc.nvim {{ "
 let g:coc_global_extensions = [
+      \'coc-clock',
       \'coc-pairs',
       \'coc-json',
       \'coc-html',
