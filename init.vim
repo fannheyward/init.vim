@@ -243,7 +243,6 @@ let g:go_fmt_command = "gofumports"
 
 " coc.nvim {{ "
 let g:coc_global_extensions = [
-      \'coc-clock',
       \'coc-pairs',
       \'coc-json',
       \'coc-html',
@@ -263,7 +262,6 @@ let g:coc_global_extensions = [
       \'coc-calc',
       \'coc-xml',
       \'coc-marketplace',
-      \'coc-smartf',
       \'coc-translator'
       \]
 " set runtimepath^=~/src/coc-marketplace

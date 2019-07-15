@@ -20,7 +20,6 @@
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
-  "clock.enable": true,
   "languageserver": {
     "efm": {
       /* go get github.com/mattn/efm-langserver/cmd/efm-langserver */
