@@ -123,6 +123,7 @@ command! -nargs=0 Wqa   :wqa
 command! -nargs=0 WQa   :wqa
 
 command! -nargs=0 C     :CocConfig
+command! -nargs=0 D     :CocCommand
 command! -nargs=0 R     :CocRestart
 command! -nargs=0 L     :CocListResume
 
