@@ -27,8 +27,6 @@ Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'Xuyuanp/nerdtree-git-plugin'
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
@@ -143,7 +141,6 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 
 map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<CR>
-map <C-n> :NERDTreeToggle<CR>
 
 nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <leader>f :echomsg @%<CR>
@@ -239,6 +236,13 @@ let g:rooter_patterns = ['.root', 'package.json', '.git/']
 " go.vim {{ "
 let g:go_fmt_command = "gofumports"
 " }} go.vim "
+
+" Netrw {{
+  let g:netrw_chgwin = 2
+  let g:netrw_list_hide = ',\(^\|\s\s\)\zs\.\S\+'
+  let g:netrw_winsize=20
+  let g:netrw_liststyle=3
+" }} Netrw
 
 " coc.nvim {{ "
 let g:coc_global_extensions = [
