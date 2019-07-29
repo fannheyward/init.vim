@@ -143,7 +143,6 @@ map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<CR>
 
 nnoremap <leader>cp :set clipboard=unnamed<CR>
-nnoremap <leader>f :echomsg @%<CR>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
@@ -290,6 +289,8 @@ nmap <silent> <C-d> <Plug>(coc-cursors-word)
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
 nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>rf <Plug>(coc-refactor)
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
 
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
