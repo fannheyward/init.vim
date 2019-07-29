@@ -119,6 +119,7 @@ command! -nargs=0 W     :w
 command! -nargs=0 Wa    :wa
 command! -nargs=0 Wqa   :wqa
 command! -nargs=0 WQa   :wqa
+command! -nargs=0 F     :echomsg @%
 
 command! -nargs=0 C     :CocConfig
 command! -nargs=0 D     :CocCommand
