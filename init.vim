@@ -318,6 +318,8 @@ nnoremap <silent> <space>t  :exe 'CocCommand translator.popup'<CR>
 imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <TAB> <Plug>(coc-range-select)
 xmap <silent> <TAB> <Plug>(coc-range-select)
+
+call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
