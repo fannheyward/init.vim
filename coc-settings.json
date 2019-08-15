@@ -21,12 +21,6 @@
     "<C-c>": "do:exit"
   },
   "languageserver": {
-    "efm": {
-      /* go get github.com/mattn/efm-langserver */
-      /* yarn global add markdownlint-cli */
-      "command": "efm-langserver",
-      "filetypes": ["markdown"]
-    },
     "gopls": {
       "command": "gopls",
       "filetypes": ["go"],
