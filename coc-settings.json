@@ -24,8 +24,9 @@
     "efm": {
       /* go get github.com/mattn/efm-langserver */
       /* yarn global add markdownlint-cli */
+      /* pip3 install yamllint */
       "command": "efm-langserver",
-      "filetypes": ["markdown"]
+      "filetypes": ["markdown", "yaml"]
     },
     "gopls": {
       "command": "gopls",
