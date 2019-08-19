@@ -192,6 +192,12 @@ function! s:GoToDefinition()
     call searchdecl(expand('<cword>'))
   endif
 endfunction
+function! s:select_current_word()
+  if !get(g:, 'coc_cursors_activated', 0)
+    return "\<Plug>(coc-cursors-word)"
+  endif
+  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
+endfunc
 " }} functions "
 
 " wildignore {{ "
@@ -282,7 +288,7 @@ nmap <silent> gs <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
 
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
-nmap <silent> <C-d> <Plug>(coc-cursors-word)
+nmap <expr> <silent> <C-d> <SID>select_current_word()
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
 nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>rf <Plug>(coc-refactor)
