@@ -240,10 +240,10 @@ let g:go_fmt_command = "gofumports"
 " }} go.vim "
 
 " Netrw {{
-  let g:netrw_chgwin = 2
-  let g:netrw_list_hide = ',\(^\|\s\s\)\zs\.\S\+'
-  let g:netrw_winsize=20
-  let g:netrw_liststyle=3
+let g:netrw_chgwin = 2
+let g:netrw_list_hide = ',\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_winsize=20
+let g:netrw_liststyle=3
 " }} Netrw
 
 " coc.nvim {{ "
