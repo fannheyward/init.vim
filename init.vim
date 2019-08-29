@@ -69,7 +69,7 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 let g:loaded_python_provider = 0
-let g:loaded_python3_provider = 0
+" let g:loaded_python3_provider = 0
 let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 " }} basic "
@@ -267,6 +267,7 @@ let g:coc_global_extensions = [
       \'coc-calc',
       \'coc-xml',
       \'coc-marketplace',
+      \'coc-word',
       \'coc-translator'
       \]
 " set runtimepath^=~/src/coc-marketplace
