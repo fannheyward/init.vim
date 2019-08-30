@@ -28,6 +28,7 @@ Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/vim-jsx-improve'
@@ -117,10 +118,10 @@ command! -nargs=0 Wqa   :wqa
 command! -nargs=0 WQa   :wqa
 command! -nargs=0 F     :echomsg @%
 
-command! -nargs=0 C     :CocConfig
-command! -nargs=0 D     :CocCommand
-command! -nargs=0 R     :CocRestart
-command! -nargs=0 L     :CocListResume
+command! -nargs=0 C             :CocConfig
+command! -nargs=0 R             :CocRestart
+command! -nargs=0 L             :CocListResume
+command! -nargs=0 -range D      :CocCommand
 
 command! -nargs=0 JSONPretty    :%!python -m json.tool
 command! -nargs=0 Todos         :CocList -A --normal grep -e TODO|FIXME
@@ -283,6 +284,7 @@ nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gx <Plug>(coc-fix-current)
 nmap <silent> ga <Plug>(coc-codeaction)
+nmap <silent> gl <Plug>(coc-codelens-action)
 nmap <silent> gj <Plug>(coc-git-nextchunk)
 nmap <silent> gk <Plug>(coc-git-prevchunk)
 nmap <silent> gs <Plug>(coc-git-chunkinfo)
