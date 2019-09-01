@@ -285,14 +285,15 @@ nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gx <Plug>(coc-fix-current)
 nmap <silent> ga <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codelens-action)
-nmap <silent> gj <Plug>(coc-git-nextchunk)
-nmap <silent> gk <Plug>(coc-git-prevchunk)
 nmap <silent> gs <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
 
+nmap <silent> <expr> [c &diff ? '[c' : '<Plug>(coc-git-prevchunk)'
+nmap <silent> <expr> ]c &diff ? ']c' : '<Plug>(coc-git-nextchunk)'
+nmap <silent> <expr> <C-d> <SID>select_current_word()
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
-nmap <expr> <silent> <C-d> <SID>select_current_word()
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
+
 nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>rf <Plug>(coc-refactor)
 xmap <leader>f  <Plug>(coc-format-selected)
