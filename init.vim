@@ -269,7 +269,7 @@ let g:coc_global_extensions = [
       \'coc-xml',
       \'coc-marketplace',
       \'coc-word',
-      \'coc-translator'
+      \'coc-ecdict'
       \]
 " set runtimepath^=~/src/coc-marketplace
 " let g:coc_force_debug = 1
@@ -322,7 +322,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
-nnoremap <silent> <space>t  :exe 'CocCommand translator.popup'<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <TAB> <Plug>(coc-range-select)
