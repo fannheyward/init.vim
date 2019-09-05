@@ -189,7 +189,7 @@ function! s:GoToDefinition()
   endif
 
   let ret = execute("silent! normal \<C-]>")
-  if ret[:5] =~ "Error"
+  if ret =~ "Error" || ret =~ "错误"
     call searchdecl(expand('<cword>'))
   endif
 endfunction
