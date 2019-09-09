@@ -287,6 +287,8 @@ nmap <silent> ga <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codelens-action)
 nmap <silent> gs <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
+omap <silent> ic <Plug>(coc-text-object-inner)
+xmap <silent> ic <Plug>(coc-text-object-inner)
 
 nmap <silent> <expr> [c &diff ? '[c' : '<Plug>(coc-git-prevchunk)'
 nmap <silent> <expr> ]c &diff ? ']c' : '<Plug>(coc-git-nextchunk)'
