@@ -269,6 +269,7 @@ let g:coc_global_extensions = [
       \'coc-xml',
       \'coc-marketplace',
       \'coc-word',
+      \'coc-go',
       \'coc-ecdict'
       \]
 " set runtimepath^=~/src/coc-marketplace
