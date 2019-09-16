@@ -69,6 +69,8 @@ setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+let g:loaded_node_provider = 0
+let g:loaded_ruby_provider = 0
 let g:loaded_python_provider = 0
 " let g:loaded_python3_provider = 0
 let g:python_host_prog = '/usr/bin/python'
