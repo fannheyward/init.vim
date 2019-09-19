@@ -3,7 +3,6 @@
   /* "coc.preferences.enableFloatHighlight": false, */
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": ["go", "typescript", "json", "jsonc"],
-  "suggest.timeout": 5000,
   "prettier.printWidth": 160,
   "prettier.singleQuote": true,
   "codeLens.enable": true,
@@ -21,6 +20,7 @@
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
+  "xml.logs.client": false,
   "languageserver": {
     "efm": {
       /* go get github.com/mattn/efm-langserver */
