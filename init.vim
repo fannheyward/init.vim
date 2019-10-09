@@ -275,6 +275,7 @@ let g:coc_global_extensions = [
       \'coc-webpack',
       \'coc-word',
       \'coc-go',
+      \'coc-markdownlint',
       \'coc-ecdict'
       \]
 " set runtimepath^=~/src/coc-marketplace

@@ -22,13 +22,6 @@
   },
   "xml.logs.client": false,
   "languageserver": {
-    "efm": {
-      /* go get github.com/mattn/efm-langserver */
-      /* yarn global add markdownlint-cli */
-      /* pip3 install yamllint */
-      "command": "efm-langserver",
-      "filetypes": ["markdown", "yaml"]
-    },
     "dart": {
       "command": "dart",
       "args": ["/usr/local/opt/dart/libexec/bin/snapshots/analysis_server.dart.snapshot", "--lsp"],
