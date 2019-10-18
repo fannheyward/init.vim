@@ -9,8 +9,7 @@ Plug 'honza/vim-snippets'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'tpope/vim-commentary'
 Plug 'liuchengxu/eleline.vim'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
 Plug 'zef/vim-cycle'
@@ -217,15 +216,14 @@ set wildignore+=*/.git/*,*/.svn/*,*.DS_Store
 set wildignore+=*/node_modules/*,*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
 " }} wildignore "
 
-" FZF {{ "
-nnoremap <silent> <C-P> :Files<CR>
-nnoremap <silent> <C-g> :Rg<Cr>
+" CtrlP {{ "
+nnoremap <silent> <C-l> :CtrlPLine<CR>
 
-imap <c-x><c-k> <plug>(fzf-complete-word)
-imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-j> <plug>(fzf-complete-file-ag)
-imap <c-x><c-l> <plug>(fzf-complete-line)
-" }} FZF "
+if executable('fd')
+  let g:ctrlp_user_command = 'fd --type file'
+  let g:ctrlp_use_caching = 0
+endif
+" }} CtrlP "
 
 " vim-gutentags {{ "
 set tags=./.tags;,.tags
