@@ -13,7 +13,6 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'farmergreg/vim-lastplace'
-Plug 'airblade/vim-rooter'
 Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
@@ -266,6 +265,7 @@ let g:coc_global_extensions = [
       \'coc-snippets',
       \'coc-lists',
       \'coc-yank',
+      \'coc-yaml',
       \'coc-syntax',
       \'coc-git',
       \'coc-emoji',
@@ -317,7 +317,7 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <space>o  :<C-u>Vista finder coc<CR>
+nnoremap <silent> <space>o  :<C-u>CocList -A outline<CR>
 nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
 nnoremap <silent> <space>f  :<C-u>CocList files<CR>
 nnoremap <silent> <space>l  :<C-u>CocList locationlist<CR>
