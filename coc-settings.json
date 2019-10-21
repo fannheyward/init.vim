@@ -22,6 +22,15 @@
   },
   "xml.logs.client": false,
   "languageserver": {
+    "gopls": {
+      "command": "gopls",
+      "filetypes": ["go"],
+      "rootPatterns": ["go.mod", ".git/"],
+      "initializationOptions": {
+        "usePlaceholders": true,
+        "completeUnimported": true
+      }
+    },
     "dart": {
       "command": "dart",
       "args": ["/usr/local/opt/dart/libexec/bin/snapshots/analysis_server.dart.snapshot", "--lsp"],

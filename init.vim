@@ -272,7 +272,6 @@ let g:coc_global_extensions = [
       \'coc-marketplace',
       \'coc-webpack',
       \'coc-word',
-      \'coc-go',
       \'coc-markdownlint',
       \'coc-ecdict'
       \]
