@@ -274,9 +274,6 @@ let g:coc_global_extensions = [
       \'coc-markdownlint',
       \'coc-ecdict'
       \]
-" set runtimepath^=~/src/coc-marketplace
-" let g:coc_force_debug = 1
-" let $NVIM_COC_LOG_LEVEL = 'debug'
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
