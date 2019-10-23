@@ -254,7 +254,6 @@ let g:coc_global_extensions = [
       \'coc-json',
       \'coc-html',
       \'coc-tsserver',
-      \'coc-tslint-plugin',
       \'coc-eslint',
       \'coc-prettier',
       \'coc-highlight',

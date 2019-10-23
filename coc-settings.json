@@ -20,7 +20,6 @@
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
-  "xml.logs.client": false,
   "languageserver": {
     "gopls": {
       "command": "gopls",
