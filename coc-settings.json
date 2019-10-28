@@ -20,6 +20,8 @@
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
   "languageserver": {
     "gopls": {
       "command": "gopls",
