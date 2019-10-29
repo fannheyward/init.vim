@@ -8,7 +8,7 @@
   "codeLens.enable": true,
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
-  "git.addGlameToVirtualText": true,
+  "git.addGBlameToVirtualText": true,
   "signature.target": "echo",
   "snippets.extends": {
     "javascriptreact": ["javascript"],
