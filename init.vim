@@ -195,12 +195,23 @@ function! s:GoToDefinition()
     call searchdecl(expand('<cword>'))
   endif
 endfunction
+
 function! s:select_current_word()
   if !get(g:, 'coc_cursors_activated', 0)
     return "\<Plug>(coc-cursors-word)"
   endif
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
+
+function! CopyFloatText() abort
+  let id = win_getid()
+  let winid = coc#util#get_float()
+  if winid
+    call win_gotoid(winid)
+    execute 'normal! ggvGy'
+    call win_gotoid(id)
+  endif
+endfunction
 " }} functions "
 
 " wildignore {{ "
