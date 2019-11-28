@@ -16,7 +16,7 @@ Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
-Plug 'neovim/nvim-lsp'
+" Plug 'neovim/nvim-lsp'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -345,6 +345,7 @@ call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim "
 
 " nvim-lsp {{ "
+" call lsp#set_log_level("debug")
 " call nvim_lsp#setup("rust_analyzer", {})
 " }} nvim-lsp "
 
