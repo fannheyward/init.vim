@@ -182,11 +182,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    if (coc#util#has_float() > 0)
-      wincmd w
-    else
-      call CocAction('doHover')
-    endif
+    call CocAction('doHover')
   endif
 endfunction
 
