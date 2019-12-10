@@ -28,8 +28,10 @@
       "filetypes": ["go"],
       "rootPatterns": ["go.mod", ".git/"],
       "initializationOptions": {
+        "staticcheck": true,
         "usePlaceholders": true,
-        "completeUnimported": true
+        "completeUnimported": true,
+        "caseSensitiveCompletion": true,
       }
     },
     "dart": {
