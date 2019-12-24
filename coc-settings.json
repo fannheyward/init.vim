@@ -31,7 +31,7 @@
         "staticcheck": true,
         "usePlaceholders": true,
         "completeUnimported": true,
-        "caseSensitiveCompletion": true,
+        "caseSensitiveCompletion": true
       }
     },
     "dart": {
