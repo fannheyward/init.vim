@@ -179,7 +179,9 @@ function! s:check_back_space() abort
 endfunction
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
+  if coc#util#has_float()
+    call coc#util#float_hide()
+  elseif (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     call CocAction('doHover')
