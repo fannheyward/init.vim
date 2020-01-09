@@ -20,8 +20,13 @@
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
+  "eslint.enable": false,
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
+  "markdownlint.config": {
+    "default": true,
+    "line-length": false
+  },
   "languageserver": {
     "gopls": {
       "command": "gopls",
