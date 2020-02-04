@@ -11,6 +11,7 @@
   "diagnostic.checkCurrentLine": true,
   "git.addGBlameToVirtualText": true,
   "signature.target": "echo",
+  "suggest.timeout": 5000,
   "suggest.asciiCharactersOnly": true,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
@@ -39,19 +40,6 @@
         "usePlaceholders": true,
         "completeUnimported": true,
         "caseSensitiveCompletion": true
-      }
-    },
-    "dart": {
-      "command": "dart",
-      "args": ["/usr/local/opt/dart/libexec/bin/snapshots/analysis_server.dart.snapshot", "--lsp"],
-      "filetypes": ["dart"]
-    },
-    "ccls": {
-      "command": "ccls",
-      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
-      "rootPatterns": ["compile_commands.json", ".ccls", ".root", ".git/"],
-      "initializationOptions": {
-        "cacheDirectory": "/tmp/ccls"
       }
     },
     "bash": {
