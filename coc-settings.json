@@ -26,6 +26,7 @@
   "eslint.enable": false,
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript", "typescript", "javascriptreact"],
+  "calc.replaceOriginalExpression": false,
   "markdownlint.config": {
     "default": true,
     "line-length": false
