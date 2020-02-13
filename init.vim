@@ -123,6 +123,7 @@ command! -nargs=0 C             :CocConfig
 command! -nargs=0 R             :CocRestart
 command! -nargs=0 L             :CocListResume
 command! -nargs=0 -range D      :CocCommand
+command! -nargs=0 Prettier      :CocCommand prettier.formatFile
 
 command! -nargs=0 JSONPretty    :%!python -m json.tool
 command! -nargs=0 Todos         :CocList -A --normal grep -e TODO|FIXME
