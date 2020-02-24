@@ -109,29 +109,31 @@ augroup end
 " }} autocmd "
 
 " command {{ "
-command! -nargs=0 E     :e
-command! -nargs=0 Q     :q
-command! -nargs=0 Qa    :qa
-command! -nargs=0 T     :tabnew
-command! -nargs=0 W     :w
-command! -nargs=0 Wa    :wa
-command! -nargs=0 Wqa   :wqa
-command! -nargs=0 WQa   :wqa
-command! -nargs=0 F     :echomsg @%
+command! -nargs=0 E     e
+command! -nargs=0 Q     q
+command! -nargs=0 Qa    qa
+command! -nargs=0 T     tabnew
+command! -nargs=0 W     w
+command! -nargs=0 Wa    wa
+command! -nargs=0 Wqa   wqa
+command! -nargs=0 WQa   wqa
+command! -nargs=0 F     echomsg @%
 
-command! -nargs=0 C             :CocConfig
-command! -nargs=0 R             :CocRestart
-command! -nargs=0 L             :CocListResume
-command! -nargs=0 -range D      :CocCommand
-command! -nargs=0 Prettier      :CocCommand prettier.formatFile
+command! -nargs=0 C             CocConfig
+command! -nargs=0 R             CocRestart
+command! -nargs=0 L             CocListResume
+command! -nargs=0 -range D      CocCommand
+command! -nargs=0 Prettier      CocCommand prettier.formatFile
 
-command! -nargs=0 JSONPretty    :%!python -m json.tool
-command! -nargs=0 Todos         :CocList -A --normal grep -e TODO|FIXME
-command! -nargs=0 Status        :CocList -A --normal gstatus
-command! -nargs=+ Find          :exe 'CocList -A --normal grep --smart-case '.<q-args>
-command! -nargs=0 Format        :call CocAction('format')
-command! -nargs=0 GitChunkUndo  :call CocAction('runCommand', 'git.chunkUndo')
-command! -nargs=0 OR            :call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 JSONPretty    %!python -m json.tool
+command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME
+command! -nargs=0 Status        CocList -A --normal gstatus
+command! -nargs=+ Find          exe 'CocList -A --normal grep --smart-case '.<q-args>
+command! -nargs=0 Format        call CocAction('format')
+command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
+command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 JunkFile      call s:open_junk_file()
+command! -nargs=0 JunkList      call s:open_junk_list()
 " }} command "
 
 " mappings {{ "
@@ -245,6 +247,29 @@ function! FloatScroll(forward) abort
   call nvim_win_set_cursor(float, pos)
   return ''
 endfunction
+
+" Open junk file.
+function! s:open_junk_file()
+	let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
+	let real_dir = expand(junk_dir)
+	if !isdirectory(real_dir)
+		call mkdir(real_dir, 'p')
+	endif
+
+	let filename = junk_dir.strftime('/%Y-%m-%d-%H%M%S.')
+	let filename = tr(filename, '\', '/')
+	let filename = input('Junk Code: ', filename)
+	if filename != ''
+		execute 'edit ' . fnameescape(filename)
+	endif
+endfunction
+
+function! s:open_junk_list()
+	let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
+	let junk_dir = expand(junk_dir)
+	let junk_dir = tr(junk_dir, '\', '/')
+	exec "CtrlP " . fnameescape(junk_dir)
+endfunction
 " }} functions "
 
 " wildignore {{ "
@@ -345,6 +370,8 @@ nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>rf <Plug>(coc-refactor)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
 
 " inoremap <silent><expr> <down> coc#util#has_float() ? FloatScroll(1) : "\<down>"
 " inoremap <silent><expr>  <up>  coc#util#has_float() ? FloatScroll(0) :  "\<up>"
@@ -371,6 +398,7 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
+nnoremap <silent> <space>d  :call CocAction('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <TAB> <Plug>(coc-range-select)
