@@ -37,7 +37,9 @@
     "gopls": {
       "command": "gopls",
       "filetypes": ["go"],
+      /* "args": ["-logfile", "/tmp/gopls.log", "-v", "-rpc.trace"], */
       "rootPatterns": ["go.mod", ".git/"],
+      "disableWorkspaceFolders": true,
       "initializationOptions": {
         "staticcheck": true,
         "usePlaceholders": true,
