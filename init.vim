@@ -29,7 +29,6 @@ Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 " Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-Plug 'sheerun/vim-polyglot'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'neoclide/jsonc.vim'
 call plug#end()
