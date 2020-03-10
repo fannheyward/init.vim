@@ -60,6 +60,7 @@ set noshowmode
 set completeopt=menu
 set cmdheight=2
 set formatexpr=CocAction('formatSelected')
+set tagfunc=CocTagFunc
 set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set pumheight=20
@@ -200,21 +201,6 @@ function! s:GoToDefinition()
     call searchdecl(expand('<cword>'))
   endif
 endfunction
-
-function! CocTagFunc(pattern, flags, info) abort
-	if a:flags != "c"
-		return v:null
-	endif
-
-	let name = expand("<cword>")
-	execute("call CocAction('jumpDefinition')")
-	let filename = expand('%:p')
-	let cursor_pos = getpos(".")
-	let cmd = '/\%'.cursor_pos[1].'l\%'.cursor_pos[2].'c/'
-	execute("normal \<C-o>")
-	return [ { 'name': name, 'filename': filename, 'cmd': cmd } ]
-endfunction
-set tagfunc=CocTagFunc
 
 function! s:select_current_word()
   if !get(g:, 'coc_cursors_activated', 0)
