@@ -8,11 +8,12 @@
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
   "codeLens.enable": true,
-  "diagnostic.virtualText": true,
-  "diagnostic.checkCurrentLine": true,
   "git.addGBlameToVirtualText": true,
   "signature.target": "echo",
   "diagnostic.format": "%message [%source]",
+  "diagnostic.virtualText": true,
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "suggest.timeout": 5000,
   "suggest.asciiCharactersOnly": true,
   "snippets.extends": {
@@ -33,6 +34,7 @@
     "default": true,
     "line-length": false
   },
+  "clangd.semanticHighlighting": true,
   "languageserver": {
     "gopls": {
       "command": "gopls",
@@ -47,6 +49,23 @@
         "caseSensitiveCompletion": true
       }
     },
+    /* "ccls": { */
+    /*   "command": "ccls", */
+    /*   "filetypes": ["c", "cpp", "objc", "objcpp"], */
+    /*   "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"], */
+    /*   "initializationOptions": { */
+    /*     "cache": { */
+    /*       "directory": "/tmp/ccls" */
+    /*     }, */
+    /*     "highlight": { "lsRanges": true } */
+    /*   } */
+    /* }, */
+    /* "rust": { */
+    /*   "command": "/Users/fannheyward/.config/coc/extensions/coc-rust-analyzer-data/rust-analyzer", */
+    /*   "filetypes": ["rust"], */
+    /*   "rootPatterns": ["Cargo.toml", ".git/"], */
+    /*   "progressOnInitialization": true */
+    /* }, */
     "bash": {
       "command": "bash-language-server",
       "filetypes": ["sh"],

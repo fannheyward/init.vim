@@ -16,6 +16,7 @@ Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
+Plug 'pechorin/any-jump.nvim'
 " Plug 'neovim/nvim-lsp'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -27,6 +28,7 @@ Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
+Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp']}
 " Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 Plug 'neoclide/vim-jsx-improve'
