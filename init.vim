@@ -134,6 +134,7 @@ command! -nargs=+ Find          exe 'CocList -A --normal grep --smart-case '.<q-
 command! -nargs=0 Format        call CocAction('format')
 command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
 command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.organizeImport')
+command! -nargs=0 Tsc           call CocAction('runCommand', 'tsserver.watchBuild')
 command! -nargs=0 JunkFile      call s:open_junk_file()
 command! -nargs=0 JunkList      call s:open_junk_list()
 " }} command "
