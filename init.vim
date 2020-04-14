@@ -349,6 +349,12 @@ let g:coc_global_extensions = [
       \'coc-ecdict'
       \]
 
+let g:coc_watch_extensions = ['coc-rust-analyzer', 'coc-clangd', 'coc-nextword']
+set runtimepath^=~/src/coc-rust-analyzer
+set runtimepath^=~/src/coc-pyright
+set runtimepath^=~/src/coc-clangd
+set runtimepath^=~/src/coc-nextword
+
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
