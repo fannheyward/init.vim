@@ -49,7 +49,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set nofoldenable
-set foldmethod=indent
 set showmatch
 set matchtime=2
 set matchpairs+=<:>
@@ -132,6 +131,7 @@ command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME
 command! -nargs=0 Status        CocList -A --normal gstatus
 command! -nargs=+ Find          exe 'CocList -A --normal grep --smart-case '.<q-args>
 command! -nargs=0 Format        call CocAction('format')
+command! -nargs=0 Fold          call CocAction('fold')
 command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
 command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=0 Tsc           call CocAction('runCommand', 'tsserver.watchBuild')
