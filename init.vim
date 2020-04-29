@@ -342,7 +342,6 @@ let g:coc_global_extensions = [
       \'coc-xml',
       \'coc-marketplace',
       \'coc-webpack',
-      \'coc-word',
       \'coc-lines',
       \'coc-markdownlint',
       \'coc-vimlsp',
