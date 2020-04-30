@@ -348,6 +348,10 @@ let g:coc_global_extensions = [
       \'coc-ecdict'
       \]
 
+let g:coc_filetype_map = {
+      \ 'asciidoc': 'markdown',
+      \ }
+
 let g:coc_watch_extensions = ['coc-rust-analyzer', 'coc-clangd', 'coc-nextword']
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
