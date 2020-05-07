@@ -385,6 +385,11 @@ nmap <leader>f  <Plug>(coc-format-selected)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+
 " inoremap <silent><expr> <down> coc#util#has_float() ? FloatScroll(1) : "\<down>"
 " inoremap <silent><expr>  <up>  coc#util#has_float() ? FloatScroll(0) :  "\<up>"
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
