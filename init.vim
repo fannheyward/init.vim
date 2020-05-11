@@ -418,8 +418,8 @@ nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').'
 nnoremap <silent> <space>d  :call CocAction('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim "
