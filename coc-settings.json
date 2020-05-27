@@ -15,6 +15,7 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "suggest.timeout": 5000,
+  "coc-actions.hideCursor": false,
   "suggest.asciiCharactersOnly": true,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
