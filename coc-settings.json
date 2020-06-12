@@ -10,6 +10,7 @@
   "prettier.eslintIntegration": true,
   "codeLens.enable": true,
   "git.addGBlameToVirtualText": true,
+  "git.semanticCommit.scope": false,
   "signature.target": "echo",
   "diagnostic.format": "%message [%source]",
   "diagnostic.virtualText": true,
@@ -63,7 +64,7 @@
     /*   } */
     /* }, */
     /* "rust": { */
-    /*   "command": "/Users/fannheyward/.config/coc/extensions/coc-rust-analyzer-data/rust-analyzer", */
+    /*   "command": "rust-analyzer", */
     /*   "filetypes": ["rust"], */
     /*   "rootPatterns": ["Cargo.toml", ".git/"], */
     /*   "progressOnInitialization": true */

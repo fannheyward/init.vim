@@ -80,20 +80,22 @@ let g:python3_host_prog = '/usr/local/bin/python3'
 " autocmd {{ "
 augroup common
   autocmd!
+  autocmd BufNewFile,BufReadPost *.md setfiletype markdown
+  autocmd BufNewFile,BufReadPost *.tsx setfiletype typescript.tsx
+  autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
+
   autocmd FileType go setlocal expandtab
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
   autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
   autocmd FileType lua setlocal include=require
   autocmd FileType lua setlocal define=function
+  autocmd FileType markdown setlocal suffixesadd=.md
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
-  autocmd BufNewFile,BufReadPost *.md setfiletype markdown
-  autocmd BufNewFile,BufReadPost *.tsx setfiletype typescript.tsx
-  autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
