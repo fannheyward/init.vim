@@ -405,20 +405,20 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-nnoremap <silent> <space>o  :<C-u>CocList -A outline -kind<CR>
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<CR>
-nnoremap <silent> <space>f  :<C-u>CocList files<CR>
-nnoremap <silent> <space>l  :<C-u>CocList lines<CR>
-nnoremap <silent> <space>q  :<C-u>CocList quickfix<CR>
-nnoremap <silent> <space>w  :<C-u>CocList -I -N symbols<CR>
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<CR>
-nnoremap <silent> <space>m  :<C-u>CocList -A -N mru<CR>
-nnoremap <silent> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
-nnoremap <silent> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
-nnoremap <silent> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
-nnoremap <silent> <space>d  :call CocAction('jumpDefinition', v:false)<CR>
+nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
+nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<CR>
+nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
+nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
+nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
+nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
+nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
+nnoremap <silent><nowait> <space>m  :<C-u>CocList -A -N mru<CR>
+nnoremap <silent><nowait> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
+nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
+nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
+nnoremap <silent><nowait> <space>d  :call CocAction('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <C-s> <Plug>(coc-range-select)
