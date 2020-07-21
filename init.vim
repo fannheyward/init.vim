@@ -25,6 +25,7 @@ Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
+Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
@@ -71,6 +72,7 @@ match ExtraWhitespace /\s\+$/
 
 let g:loaded_node_provider = 0
 let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
 " let g:loaded_python3_provider = 0
 let g:python_host_prog = '/usr/bin/python'
@@ -83,6 +85,7 @@ augroup common
   autocmd BufNewFile,BufReadPost *.md setfiletype markdown
   autocmd BufNewFile,BufReadPost *.tsx setfiletype typescript.tsx
   autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
+  autocmd BufNewFile,BufReadPost *.jl setfiletype julia
 
   autocmd FileType go setlocal expandtab
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
