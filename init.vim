@@ -351,6 +351,8 @@ let g:coc_global_extensions = [
       \'coc-lines',
       \'coc-markdownlint',
       \'coc-vimlsp',
+      \'coc-docthis',
+      \'coc-nextword',
       \'coc-ecdict'
       \]
 
@@ -358,11 +360,12 @@ let g:coc_filetype_map = {
       \ 'asciidoc': 'markdown',
       \ }
 
+" let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
 let g:coc_watch_extensions = ['coc-rust-analyzer', 'coc-clangd', 'coc-nextword']
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
+set runtimepath^=~/src/coc-pylance
 set runtimepath^=~/src/coc-clangd
-set runtimepath^=~/src/coc-nextword
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
