@@ -142,6 +142,7 @@ command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.orga
 command! -nargs=0 Tsc           call CocAction('runCommand', 'tsserver.watchBuild')
 command! -nargs=0 JunkFile      call s:open_junk_file()
 command! -nargs=0 JunkList      call s:open_junk_list()
+command! -nargs=0 VSCode        execute ":!code -g %:p\:" . line('.') . ":" . col('.')
 " }} command "
 
 " mappings {{ "

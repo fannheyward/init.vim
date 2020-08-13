@@ -18,6 +18,7 @@
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "suggest.timeout": 5000,
   "suggest.asciiCharactersOnly": true,
+  "snippets.ultisnips.usePythonx": false,
   "snippets.extends": {
     "javascriptreact": ["javascript"],
     "typescript": ["javascript"]
