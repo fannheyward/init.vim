@@ -17,6 +17,7 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
 Plug 'pechorin/any-jump.nvim'
+Plug 'justinmk/vim-sneak'
 " Plug 'neovim/nvim-lsp'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
