@@ -45,6 +45,7 @@ set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,eu
 set termguicolors
 colorscheme dracula
 
+set title
 set hidden
 set number
 set expandtab
