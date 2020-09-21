@@ -18,7 +18,6 @@ Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
 Plug 'pechorin/any-jump.nvim'
 Plug 'justinmk/vim-sneak'
-" Plug 'neovim/nvim-lsp'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -435,10 +434,5 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim "
-
-" nvim-lsp {{ "
-" call lsp#set_log_level("debug")
-" call nvim_lsp#setup("rust_analyzer", {})
-" }} nvim-lsp "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
