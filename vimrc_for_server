@@ -12,6 +12,8 @@ set ttimeoutlen=100
 set updatetime=200
 set history=1000
 
+set title
+set hidden
 set incsearch
 set laststatus=2
 set ruler
@@ -29,25 +31,62 @@ set matchpairs+=<:>
 set hlsearch
 set ignorecase smartcase
 set completeopt=longest,menu
-let do_syntax_sel_menu=1
+set diffopt+=internal,algorithm:patience
 
 set encoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 set fileencoding=utf-8
+
+let g:loaded_node_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
+
 map <silent> <leader>n :nohlsearch<cr>
 nmap ? /\<\><Left><Left>
 
-inoremap <C-g> <Esc>
-inoremap <C-c> <Esc>
+nnoremap <leader>cp :set clipboard=unnamed<CR>
+
+nnoremap <silent> gb :bn<CR>
+
 inoremap jj <Esc>
 inoremap jk <ESC>
+inoremap <C-g> <Esc>
+inoremap <C-c> <Esc>
+inoremap <C-c> <ESC>
+inoremap <C-w> <C-[>diwa
+inoremap <C-h> <BS>
+inoremap <C-d> <Del>
+inoremap <C-u> <C-G>u<C-U>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-a> <Home>
+inoremap <C-n> <Down>
+inoremap <C-p> <Up>
+inoremap <expr><C-e> pumvisible() ? "\<C-e>" : "\<End>"
 
-:command W w
-:command Q q
-:command Qa qa
-:command Wa wa
-:command Wqa wqa
-:command WQa wqa
+" command line mappings
+cnoremap <C-a> <Home>
+cnoremap <C-b> <S-Left>
+cnoremap <C-f> <S-Right>
+cnoremap <C-e> <End>
+cnoremap <C-d> <Del>
+cnoremap <C-h> <BS>
+cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
+
+nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
+tnoremap <Esc> <C-\><C-n>
+
+command! -nargs=0 E     e
+command! -nargs=0 Q     q
+command! -nargs=0 Qa    qa
+command! -nargs=0 T     tabnew
+command! -nargs=0 W     w
+command! -nargs=0 Wa    wa
+command! -nargs=0 Wqa   wqa
+command! -nargs=0 WQa   wqa
+command! -nargs=0 F     echomsg @%
 
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -60,3 +99,25 @@ inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
   return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
 endfunction
+
+augroup common
+  autocmd!
+
+  autocmd FileType go setlocal expandtab
+  autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
+  autocmd FileType lua setlocal include=require
+  autocmd FileType lua setlocal define=function
+  autocmd FileType markdown setlocal suffixesadd=.md
+  autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
+  autocmd FileType crontab setlocal nobackup nowritebackup
+  autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
+
+  autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
+  autocmd BufReadPost *.log normal! G
+
+  " set up default omnifunc
+  autocmd FileType *
+        \ if &omnifunc == "" |
+        \    setlocal omnifunc=syntaxcomplete#Complete |
+        \ endif
+augroup end
