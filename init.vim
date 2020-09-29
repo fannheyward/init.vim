@@ -26,6 +26,7 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
+Plug 'wfxr/minimap.vim', { 'on': 'Minimap' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
@@ -363,7 +364,6 @@ let g:coc_filetype_map = {
       \ }
 
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
-let g:coc_watch_extensions = ['coc-rust-analyzer', 'coc-clangd', 'coc-nextword']
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
 set runtimepath^=~/src/coc-pylance

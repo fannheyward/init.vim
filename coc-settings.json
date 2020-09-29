@@ -42,7 +42,9 @@
       "command": "gopls",
       "filetypes": ["go"],
       "args": ["-remote", "auto"],
-      "env": { "TMPDIR": "/tmp" },
+      "env": {
+        "TMPDIR": "/tmp"
+      },
       "rootPatterns": ["go.mod", ".git/"],
       "disableWorkspaceFolders": true,
       "initializationOptions": {
