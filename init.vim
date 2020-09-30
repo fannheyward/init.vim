@@ -348,6 +348,7 @@ let g:coc_global_extensions = [
       \'coc-git',
       \'coc-emoji',
       \'coc-calc',
+      \'coc-go',
       \'coc-xml',
       \'coc-marketplace',
       \'coc-webpack',

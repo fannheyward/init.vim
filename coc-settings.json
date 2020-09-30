@@ -37,22 +37,12 @@
     "line-length": false
   },
   "clangd.semanticHighlighting": true,
+  "go.goplsOptions": {
+    "linksInHover": false,
+    "usePlaceholders": true,
+    "staticcheck": true
+  },
   "languageserver": {
-    "gopls": {
-      "command": "gopls",
-      "filetypes": ["go"],
-      "args": ["-remote", "auto"],
-      "env": {
-        "TMPDIR": "/tmp"
-      },
-      "rootPatterns": ["go.mod", ".git/"],
-      "disableWorkspaceFolders": true,
-      "initializationOptions": {
-        "staticcheck": true,
-        "usePlaceholders": true,
-        "linksInHover": false
-      }
-    },
     /* "ccls": { */
     /*   "command": "ccls", */
     /*   "filetypes": ["c", "cpp", "objc", "objcpp"], */
