@@ -330,7 +330,6 @@ let g:netrw_liststyle=3
 
 " coc.nvim {{ "
 let g:coc_global_extensions = [
-      \'coc-actions',
       \'coc-pairs',
       \'coc-json',
       \'coc-html',
@@ -377,7 +376,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
-nmap <silent> ga :<C-u>execute 'CocCommand actions.open'<CR>
+nmap <silent> ga <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codelens-action)
 nmap <silent> gs <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
