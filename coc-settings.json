@@ -63,11 +63,5 @@
     /*   "rootPatterns": ["Cargo.toml", ".git/"], */
     /*   "progressOnInitialization": true */
     /* }, */
-    "bash": {
-      "command": "bash-language-server",
-      "filetypes": ["sh"],
-      "args": ["start"],
-      "ignoredRootPaths": ["~"]
-    }
   }
 }

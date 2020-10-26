@@ -18,6 +18,7 @@ Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
 Plug 'pechorin/any-jump.nvim'
 Plug 'justinmk/vim-sneak'
+Plug 'norcalli/nvim-colorizer.lua'
 Plug 'neoclide/coc.nvim', { 'do': 'yarn install --frozen-lockfile' }
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -230,35 +231,6 @@ function! CopyFloatText() abort
   endif
 endfunction
 
-function! FloatScroll(forward) abort
-  let float = coc#util#get_float()
-  if !float | return '' | endif
-  let buf = nvim_win_get_buf(float)
-  let buf_height = nvim_buf_line_count(buf)
-  let win_height = nvim_win_get_height(float)
-  if buf_height < win_height | return '' | endif
-  let pos = nvim_win_get_cursor(float)
-  if a:forward
-    if pos[0] == 1
-      let pos[0] += 3 * win_height / 4
-    elseif pos[0] + win_height / 2 + 1 < buf_height
-      let pos[0] += win_height / 2 + 1
-    else
-      let pos[0] = buf_height
-    endif
-  else
-    if pos[0] == buf_height
-      let pos[0] -= 3 * win_height / 4
-    elseif pos[0] - win_height / 2 + 1  > 1
-      let pos[0] -= win_height / 2 + 1
-    else
-      let pos[0] = 1
-    endif
-  endif
-  call nvim_win_set_cursor(float, pos)
-  return ''
-endfunction
-
 " Open junk file.
 function! s:open_junk_file()
 	let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
@@ -343,20 +315,17 @@ let g:coc_global_extensions = [
       \'coc-lists',
       \'coc-yank',
       \'coc-yaml',
-      \'coc-syntax',
       \'coc-git',
       \'coc-emoji',
       \'coc-calc',
       \'coc-go',
+      \'coc-sh',
       \'coc-xml',
       \'coc-marketplace',
-      \'coc-webpack',
-      \'coc-lines',
       \'coc-markdownlint',
       \'coc-vimlsp',
       \'coc-docthis',
-      \'coc-nextword',
-      \'coc-ecdict'
+      \'coc-nextword'
       \]
 
 let g:coc_filetype_map = {
@@ -401,8 +370,10 @@ omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 
-" inoremap <silent><expr> <down> coc#util#has_float() ? FloatScroll(1) : "\<down>"
-" inoremap <silent><expr>  <up>  coc#util#has_float() ? FloatScroll(0) :  "\<up>"
+nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
