@@ -194,9 +194,7 @@ function! s:check_back_space() abort
 endfunction
 
 function! s:show_documentation()
-  if coc#util#has_float()
-    call coc#util#float_hide()
-  elseif (index(['vim','help'], &filetype) >= 0)
+  if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     call CocActionAsync('doHover')
@@ -223,7 +221,7 @@ endfunc
 
 function! CopyFloatText() abort
   let id = win_getid()
-  let winid = coc#util#get_float()
+  let winid = coc#float#get_float_win()
   if winid
     call win_gotoid(winid)
     execute 'normal! ggvGy'
