@@ -30,7 +30,6 @@ Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
 Plug 'wfxr/minimap.vim', { 'on': 'Minimap' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
-Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp']}
 " Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
@@ -77,8 +76,6 @@ let g:loaded_node_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
-" let g:loaded_python3_provider = 0
-let g:python_host_prog = '/usr/bin/python'
 let g:python3_host_prog = '/usr/local/bin/python3'
 " }} basic "
 
@@ -333,7 +330,6 @@ let g:coc_filetype_map = {
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
-set runtimepath^=~/src/coc-pylance
 set runtimepath^=~/src/coc-clangd
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
@@ -372,6 +368,9 @@ nnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<
 nnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 inoremap <nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
 inoremap <nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+vnoremap <nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#nvim_scroll(1, 1) : "\<C-f>"
+vnoremap <nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#nvim_scroll(0, 1) : "\<C-b>"
+
 inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
       \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
