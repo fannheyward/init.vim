@@ -230,12 +230,12 @@ endfunction
 " Open junk file.
 function! s:open_junk_file()
 	let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
-	let real_dir = expand(junk_dir)
-	if !isdirectory(real_dir)
-		call mkdir(real_dir, 'p')
+	let junk_dir = expand(junk_dir)
+	if !isdirectory(junk_dir)
+		call mkdir(junk_dir, 'p')
 	endif
 
-	let filename = junk_dir.strftime('/%Y-%m-%d-%H%M%S.')
+	let filename = junk_dir.strftime('/%Y-%m-%d-%H%M%S.md')
 	let filename = tr(filename, '\', '/')
 	let filename = input('Junk Code: ', filename)
 	if filename != ''
@@ -246,6 +246,9 @@ endfunction
 function! s:open_junk_list()
 	let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
 	let junk_dir = expand(junk_dir)
+	if !isdirectory(junk_dir)
+		call mkdir(junk_dir, 'p')
+	endif
 	let junk_dir = tr(junk_dir, '\', '/')
 	exec "CtrlP " . fnameescape(junk_dir)
 endfunction
