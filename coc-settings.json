@@ -17,6 +17,7 @@
   "prettier.singleQuote": true,
   "prettier.eslintIntegration": true,
   "codeLens.enable": true,
+  "python.venvPath": ".venv",
   "git.addGBlameToVirtualText": true,
   "git.semanticCommit.scope": false,
   "signature.target": "echo",

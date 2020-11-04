@@ -68,6 +68,7 @@ set tagfunc=CocTagFunc
 set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set pumheight=20
+set list listchars=tab:\|\ ,trail:·,eol:¬
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -297,30 +298,27 @@ let g:netrw_liststyle=3
 
 " coc.nvim {{ "
 let g:coc_global_extensions = [
-      \'coc-pairs',
-      \'coc-json',
-      \'coc-html',
-      \'coc-tsserver',
-      \'coc-eslint',
-      \'coc-prettier',
-      \'coc-highlight',
       \'coc-dictionary',
-      \'coc-tag',
-      \'coc-snippets',
-      \'coc-lists',
-      \'coc-yank',
-      \'coc-yaml',
-      \'coc-git',
-      \'coc-emoji',
-      \'coc-calc',
-      \'coc-go',
-      \'coc-sh',
-      \'coc-xml',
-      \'coc-marketplace',
-      \'coc-markdownlint',
-      \'coc-vimlsp',
       \'coc-docthis',
-      \'coc-nextword'
+      \'coc-emoji',
+      \'coc-eslint',
+      \'coc-git',
+      \'coc-go',
+      \'coc-html',
+      \'coc-json',
+      \'coc-lists',
+      \'coc-markdownlint',
+      \'coc-marketplace',
+      \'coc-nextword',
+      \'coc-pairs',
+      \'coc-sh',
+      \'coc-snippets',
+      \'coc-tag',
+      \'coc-tsserver',
+      \'coc-vimlsp',
+      \'coc-xml',
+      \'coc-yaml',
+      \'coc-yank'
       \]
 
 let g:coc_filetype_map = {
@@ -402,5 +400,9 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim "
+
+" nvim-colorizer.lua {{ "
+lua require'colorizer'.setup()
+" }} nvim-colorizer.lua "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
