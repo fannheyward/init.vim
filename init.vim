@@ -63,7 +63,7 @@ set inccommand=split
 set noshowmode
 set completeopt=menu
 set cmdheight=2
-set formatexpr=CocAction('formatSelected')
+set formatexpr=CocActionAsync('formatSelected')
 set tagfunc=CocTagFunc
 set shortmess+=c
 set diffopt+=internal,algorithm:patience
@@ -395,7 +395,7 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
-nnoremap <silent><nowait> <space>d  :call CocAction('jumpDefinition', v:false)<CR>
+nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <C-s> <Plug>(coc-range-select)
