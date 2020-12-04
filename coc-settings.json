@@ -13,9 +13,6 @@
     "jsonc"
   ],
   "coc.source.file.ignoreHidden": false,
-  "prettier.printWidth": 160,
-  "prettier.singleQuote": true,
-  "prettier.eslintIntegration": true,
   "codeLens.enable": true,
   "python.venvPath": ".venv",
   "git.addGBlameToVirtualText": true,
