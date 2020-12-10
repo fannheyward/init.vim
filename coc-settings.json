@@ -1,6 +1,5 @@
 {
-  /* "coc.preferences.hoverTarget": "echo", */
-  /* "coc.preferences.enableFloatHighlight": false, */
+  "codeLens.enable": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnType": true,
   "coc.preferences.formatOnSaveFiletypes": [
@@ -12,17 +11,41 @@
     "json",
     "jsonc"
   ],
+  "coc.source.around.firstMatch": false,
   "coc.source.file.ignoreHidden": false,
-  "codeLens.enable": true,
-  "git.addGBlameToVirtualText": true,
-  "git.semanticCommit.scope": false,
-  "signature.target": "echo",
+  "clangd.semanticHighlighting": true,
+  "clangd.arguments": [
+    "--background-index"
+  ],
   "diagnostic.format": "%message [%source]",
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
+  "diagnostic.refreshOnInsertMode": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.packageManager": "yarn",
+  "git.addGBlameToVirtualText": true,
+  "git.semanticCommit.scope": false,
+  "go.goplsOptions": {
+    "linksInHover": false,
+    "usePlaceholders": true,
+    "staticcheck": true
+  },
+  "list.normalMappings": {
+    "<C-c>": "do:exit"
+  },
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
+  "markdownlint.config": {
+    "default": true,
+    "line-length": false
+  },
+  "python.formatting.provider": "black",
+  "signature.target": "echo",
   "suggest.timeout": 5000,
   "suggest.asciiCharactersOnly": true,
+  "snippets.ultisnips.enable": false,
   "snippets.ultisnips.usePythonx": false,
   "snippets.extends": {
     "javascriptreact": [
@@ -32,32 +55,8 @@
       "javascript"
     ]
   },
-  "list.normalMappings": {
-    "<C-c>": "do:exit"
-  },
-  "list.insertMappings": {
-    "<C-c>": "do:exit"
-  },
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": [
-    "javascript",
-    "typescript",
-    "javascriptreact"
-  ],
-  "python.formatting.provider": "black",
-  "markdownlint.config": {
-    "default": true,
-    "line-length": false
-  },
-  "clangd.semanticHighlighting": true,
-  "clangd.arguments": [
-    "--background-index"
-  ],
-  "go.goplsOptions": {
-    "linksInHover": false,
-    "usePlaceholders": true,
-    "staticcheck": true
-  },
+  "typescript.format.semicolons": "insert",
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "languageserver": {
     /* "ccls": { */
     /*   "command": "ccls", */
