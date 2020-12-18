@@ -20,7 +20,6 @@
   "diagnostic.format": "%message [%source]",
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
-  "diagnostic.refreshOnInsertMode": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "eslint.autoFixOnSave": true,
   "eslint.packageManager": "yarn",
