@@ -19,6 +19,7 @@ Plug 'romainl/vim-cool'
 Plug 'pechorin/any-jump.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -34,7 +35,6 @@ Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp']}
 " Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-Plug 'neoclide/vim-jsx-improve'
 Plug 'neoclide/jsonc.vim'
 call plug#end()
 " }} plug.vim "
@@ -411,5 +411,19 @@ call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " nvim-colorizer.lua {{ "
 lua require'colorizer'.setup()
 " }} nvim-colorizer.lua "
+
+" nvim-treesitter {{
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
+  highlight = {
+    enable = true,
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
+" }} nvim-treesitter "
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
