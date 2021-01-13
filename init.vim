@@ -19,6 +19,7 @@ Plug 'romainl/vim-cool'
 Plug 'pechorin/any-jump.nvim'
 Plug 'justinmk/vim-sneak'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'editorconfig/editorconfig-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
