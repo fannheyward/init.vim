@@ -32,7 +32,6 @@ Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
 Plug 'wfxr/minimap.vim', { 'on': 'Minimap' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
-Plug 'JuliaEditorSupport/julia-vim', { 'for': 'julia' }
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp']}
 " Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
