@@ -17,7 +17,6 @@ Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
 Plug 'pechorin/any-jump.nvim'
-Plug 'justinmk/vim-sneak'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -29,7 +28,6 @@ Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
-Plug 'wfxr/minimap.vim', { 'on': 'Minimap' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp']}
