@@ -1,4 +1,4 @@
-" plug.vim {{ "
+" plug.vim {{
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -16,7 +16,7 @@ Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
-Plug 'pechorin/any-jump.nvim'
+Plug 'pechorin/any-jump.vim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -35,9 +35,9 @@ Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp']}
 
 Plug 'neoclide/jsonc.vim'
 call plug#end()
-" }} plug.vim "
+" }} plug.vim
 
-" basic {{ "
+" basic {{
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
@@ -77,9 +77,9 @@ let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
 let g:python3_host_prog = '/usr/local/bin/python3'
-" }} basic "
+" }} basic
 
-" autocmd {{ "
+" autocmd {{
 augroup common
   autocmd!
   autocmd BufNewFile,BufReadPost *.md setfiletype markdown
@@ -112,9 +112,9 @@ augroup common
         \    setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
 augroup end
-" }} autocmd "
+" }} autocmd
 
-" command {{ "
+" command {{
 command! -nargs=0 E     e
 command! -nargs=0 Q     q
 command! -nargs=0 Qa    qa
@@ -144,9 +144,9 @@ command! -nargs=0 Jest          call CocActionAsync('runCommand', 'jest.fileTest
 command! -nargs=0 JunkFile      call s:open_junk_file()
 command! -nargs=0 JunkList      call s:open_junk_list()
 command! -nargs=0 VSCode        execute ":!code -g %:p\:" . line('.') . ":" . col('.')
-" }} command "
+" }} command
 
-" mappings {{ "
+" mappings {{
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<CR>
 map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<CR>
 setl dictionary+=$HOME/.config/nvim/dev.dict
@@ -183,9 +183,9 @@ cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
-" }} mappings "
+" }} mappings
 
-" functions {{ "
+" functions {{
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -231,32 +231,32 @@ endfunction
 
 " Open junk file.
 function! s:open_junk_file()
-	let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
-	let junk_dir = expand(junk_dir)
-	if !isdirectory(junk_dir)
-		call mkdir(junk_dir, 'p')
-	endif
+  let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
+  let junk_dir = expand(junk_dir)
+  if !isdirectory(junk_dir)
+    call mkdir(junk_dir, 'p')
+  endif
 
-	let filename = junk_dir.strftime('/%Y-%m-%d-%H%M%S.md')
-	let filename = tr(filename, '\', '/')
-	let filename = input('Junk Code: ', filename)
-	if filename != ''
-		execute 'edit ' . fnameescape(filename)
-	endif
+  let filename = junk_dir.strftime('/%Y-%m-%d-%H%M%S.md')
+  let filename = tr(filename, '\', '/')
+  let filename = input('Junk Code: ', filename)
+  if filename != ''
+    execute 'edit ' . fnameescape(filename)
+  endif
 endfunction
 
 function! s:open_junk_list()
-	let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
-	let junk_dir = expand(junk_dir)
-	if !isdirectory(junk_dir)
-		call mkdir(junk_dir, 'p')
-	endif
-	let junk_dir = tr(junk_dir, '\', '/')
-	exec "CtrlP " . fnameescape(junk_dir)
+  let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
+  let junk_dir = expand(junk_dir)
+  if !isdirectory(junk_dir)
+    call mkdir(junk_dir, 'p')
+  endif
+  let junk_dir = tr(junk_dir, '\', '/')
+  exec "CtrlP " . fnameescape(junk_dir)
 endfunction
-" }} functions "
+" }} functions
 
-" wildignore {{ "
+" wildignore {{
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib
 set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
 set wildignore+=*.log,*.pyc,*.sqlite,*.sqlite3,*.min.js,*.min.css,*.tags
@@ -267,32 +267,32 @@ set wildignore+=*.mp4,*.avi,*.flv,*.mov,*.mkv,*.swf,*.swc
 set wildignore+=*.ppt,*.pptx,*.doc,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
 set wildignore+=*/.git/*,*/.svn/*,*.DS_Store
 set wildignore+=*/node_modules/*,*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
-" }} wildignore "
+" }} wildignore
 
-" CtrlP {{ "
+" CtrlP {{
 nnoremap <silent> <C-l> :CtrlPLine<CR>
 
 if executable('fd')
   let g:ctrlp_user_command = 'fd --type file'
   let g:ctrlp_use_caching = 0
 endif
-" }} CtrlP "
+" }} CtrlP
 
-" vim-gutentags {{ "
+" vim-gutentags {{
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
-" }} vim-gutentags "
+" }} vim-gutentags
 
-" vim-rooter {{ "
+" vim-rooter {{
 let g:rooter_patterns = ['.root', 'package.json', '.git/']
-" }} vim-rooter "
+" }} vim-rooter
 
-" go.vim {{ "
+" go.vim {{
 let g:go_fmt_command = "gofumports"
-" }} go.vim "
+" }} go.vim
 
 " Netrw {{
 let g:netrw_chgwin = 2
@@ -301,7 +301,7 @@ let g:netrw_winsize=20
 let g:netrw_liststyle=3
 " }} Netrw
 
-" coc.nvim {{ "
+" coc.nvim {{
 let g:coc_global_extensions = [
       \'coc-dictionary',
       \'coc-docthis',
@@ -404,11 +404,11 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
 call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
-" }} coc.nvim "
+" }} coc.nvim
 
-" nvim-colorizer.lua {{ "
+" nvim-colorizer.lua {{
 lua require'colorizer'.setup()
-" }} nvim-colorizer.lua "
+" }} nvim-colorizer.lua
 
 " nvim-treesitter {{
 lua <<EOF
@@ -422,6 +422,10 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
-" }} nvim-treesitter "
+" }} nvim-treesitter
+
+" any-jump.vim {{
+let g:any_jump_disable_default_keybindings = 1
+" }}"
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
