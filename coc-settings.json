@@ -41,6 +41,7 @@
     "line-length": false
   },
   "python.formatting.provider": "black",
+  "python.linting.enabled": false,
   "signature.target": "echo",
   "suggest.timeout": 5000,
   "suggest.asciiCharactersOnly": true,
