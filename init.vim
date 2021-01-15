@@ -24,10 +24,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
-Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 Plug 'sk1418/Join', { 'on': 'Join'}
+Plug 'chrisbra/NrrwRgn'
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
+Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp']}
