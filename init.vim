@@ -25,7 +25,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'sk1418/Join', { 'on': 'Join'}
-Plug 'chrisbra/NrrwRgn'
+Plug 'chrisbra/NrrwRgn', { 'on': 'NR' }
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
