@@ -31,7 +31,6 @@ Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
-Plug 'jackguo380/vim-lsp-cxx-highlight', { 'for': ['c', 'cpp']}
 " Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 Plug 'neoclide/jsonc.vim'
@@ -96,7 +95,7 @@ augroup common
   autocmd FileType markdown setlocal suffixesadd=.md
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
-  autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
+  autocmd FileType ruby,html,javascript,typescript,css,json,vue,vim setlocal shiftwidth=2 tabstop=2
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G

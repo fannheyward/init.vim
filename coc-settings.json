@@ -13,7 +13,6 @@
   ],
   "coc.source.around.firstMatch": false,
   "coc.source.file.ignoreHidden": false,
-  "clangd.semanticHighlighting": true,
   "clangd.arguments": [
     "--background-index"
   ],
