@@ -30,8 +30,12 @@ set matchtime=2
 set matchpairs+=<:>
 set hlsearch
 set ignorecase smartcase
-set completeopt=longest,menu
+set completeopt=menu
 set diffopt+=internal,algorithm:patience
+set list listchars=tab:\|\ ,trail:·,eol:¬
+setlocal noswapfile
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 
 set encoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
@@ -94,10 +98,14 @@ set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
 set wildignore+=*/bower_components/*,*/node_modules/*
 set wildignore+=*/nginx_runtime/*,*/build/*,*/logs/*
 
-"" Recommended key-mappings. For no inserting <CR> key.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return pumvisible() ? "\<C-n>\<C-y>" : "\<CR>"
+inoremap <silent><expr> <cr> pumvisible()? "\<c-y>" : "\<cr>"
+inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" : "\<c-n>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 augroup common
