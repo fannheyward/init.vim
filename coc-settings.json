@@ -56,24 +56,49 @@
   },
   "typescript.format.semicolons": "insert",
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  "typescript.preferences.useAliasesForRenames": false,
   "languageserver": {
+    /* "jedi": { */
+    /*   "command": "jedi-language-server", */
+    /*   "filetypes": [ */
+    /*     "python" */
+    /*   ] */
+    /* }, */
     /* "ccls": { */
     /*   "command": "ccls", */
-    /*   "filetypes": ["c", "cpp", "objc", "objcpp"], */
-    /*   "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"], */
+    /*   "filetypes": [ */
+    /*     "c", */
+    /*     "cpp", */
+    /*     "objc", */
+    /*     "objcpp" */
+    /*   ], */
+    /*   "rootPatterns": [ */
+    /*     ".ccls", */
+    /*     "compile_commands.json", */
+    /*     ".vim/", */
+    /*     ".git/", */
+    /*     ".hg/" */
+    /*   ], */
     /*   "initializationOptions": { */
     /*     "cache": { */
     /*       "directory": "/tmp/ccls" */
     /*     }, */
-    /*     "highlight": { "lsRanges": true } */
+    /*     "highlight": { */
+    /*       "lsRanges": true */
+    /*     } */
     /*   } */
     /* }, */
     /* "rust": { */
     /*   "command": "rust-analyzer", */
     /*   "trace.server": "verbose", */
-    /*   "filetypes": ["rust"], */
-    /*   "rootPatterns": ["Cargo.toml", ".git/"], */
+    /*   "filetypes": [ */
+    /*     "rust" */
+    /*   ], */
+    /*   "rootPatterns": [ */
+    /*     "Cargo.toml", */
+    /*     ".git/" */
+    /*   ], */
     /*   "progressOnInitialization": true */
-    /* }, */
+    /* } */
   }
 }
