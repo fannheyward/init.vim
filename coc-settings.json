@@ -39,7 +39,10 @@
     "default": true,
     "line-length": false
   },
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "blackd",
+  "python.formatting.blackdHTTPHeaders": {
+    "X-Fast-Or-Safe": "fast"
+  },
   "python.linting.enabled": false,
   "signature.target": "echo",
   "suggest.timeout": 5000,

@@ -333,6 +333,7 @@ let g:coc_filetype_map = {
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
+" set runtimepath^=~/src/coc-pylance
 set runtimepath^=~/src/coc-clangd
 
 nmap <silent> gd :call <SID>GoToDefinition()<CR>
@@ -343,7 +344,7 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> ga <Plug>(coc-codeaction)
-nmap <silent> gl <Plug>(coc-codelens-action)
+nmap <silent> gl <Plug>(coc-codeaction-line)
 nmap <silent> gs <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
@@ -355,6 +356,7 @@ nmap <silent> <expr> <C-d> <SID>select_current_word()
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
 
+nmap <leader>l  <Plug>(coc-codelens-action)
 nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>rf <Plug>(coc-refactor)
 xmap <leader>f  <Plug>(coc-format-selected)
