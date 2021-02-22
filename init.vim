@@ -95,7 +95,7 @@ augroup common
   autocmd FileType markdown setlocal suffixesadd=.md
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
-  autocmd FileType ruby,html,javascript,typescript,css,json,vue,vim setlocal shiftwidth=2 tabstop=2
+  autocmd FileType ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
@@ -295,6 +295,18 @@ let g:go_fmt_command = "gofumports"
 " }} go.vim
 
 " Netrw {{
+if has('macunix')
+  function! OpenURLUnderCursor()
+    let s:uri = expand('<cWORD>')
+    let s:uri = substitute(s:uri, '?', '\\?', '')
+    let s:uri = shellescape(s:uri, 1)
+    if s:uri != ''
+      silent exec "!open '".s:uri."'"
+      :redraw!
+    endif
+  endfunction
+  nnoremap gx :call OpenURLUnderCursor()<CR>
+endif
 let g:netrw_chgwin = 2
 let g:netrw_list_hide = ',\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_winsize=20
