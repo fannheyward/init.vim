@@ -355,8 +355,10 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
-nmap <silent> ga <Plug>(coc-codeaction)
+nmap <silent> gA <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codeaction-line)
+nmap <silent> ga <Plug>(coc-codeaction-cursor)
+nmap <silent> gk <Plug>(coc-fix-current)
 nmap <silent> gs <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
@@ -419,10 +421,6 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim
-
-" nvim-colorizer.lua {{
-lua require'colorizer'.setup()
-" }} nvim-colorizer.lua
 
 " nvim-treesitter {{
 lua <<EOF
