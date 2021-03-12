@@ -16,7 +16,9 @@ Plug 'zef/vim-cycle'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
+Plug 'andymass/vim-matchup'
 Plug 'pechorin/any-jump.vim'
+Plug 'glepnir/indent-guides.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -25,9 +27,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'sk1418/Join', { 'on': 'Join'}
-Plug 'chrisbra/NrrwRgn', { 'on': 'NR' }
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
+Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
@@ -154,6 +156,7 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<CR>
 
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 nnoremap <leader>cp :set clipboard=unnamed<CR>
 
 nnoremap <silent> gb :bn<CR>
@@ -298,6 +301,7 @@ let g:go_fmt_command = "gofumports"
 if has('macunix')
   function! OpenURLUnderCursor()
     let s:uri = expand('<cWORD>')
+    let s:uri = matchstr(s:uri, '[a-z]*:\/\/[^ >,;()]*')
     let s:uri = substitute(s:uri, '?', '\\?', '')
     let s:uri = shellescape(s:uri, 1)
     if s:uri != ''

@@ -2,7 +2,9 @@
   "codeLens.enable": true,
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnType": true,
+  "coc.preferences.willSaveHandlerTimeout": 1000,
   "coc.preferences.formatOnSaveFiletypes": [
+    "c",
     "go",
     "python",
     "markdown",
@@ -14,6 +16,7 @@
   "coc.source.around.firstMatch": false,
   "coc.source.file.ignoreHidden": false,
   "clangd.arguments": [
+    "--query-driver=/usr/bin/clang++",
     "--background-index"
   ],
   "diagnostic.format": "%message [%source]",
@@ -46,6 +49,7 @@
   "python.linting.enabled": false,
   "signature.target": "echo",
   "suggest.timeout": 5000,
+  "suggest.defaultSortMethod": "none",
   "suggest.asciiCharactersOnly": true,
   "snippets.ultisnips.enable": false,
   "snippets.ultisnips.usePythonx": false,
