@@ -106,7 +106,7 @@ augroup common
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocQuickfixChange :CocList --normal quickfix
 
-  autocmd BufWritePre *.go :call CocAction('runCommand', 'editor.action.organizeImport')
+  autocmd BufWritePre *.go silent! :call CocAction('runCommand', 'editor.action.organizeImport')
 
   " set up default omnifunc
   autocmd FileType *

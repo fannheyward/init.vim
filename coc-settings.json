@@ -24,6 +24,7 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "eslint.autoFixOnSave": true,
+  "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
   "git.addGBlameToVirtualText": true,
   "git.semanticCommit.scope": false,
