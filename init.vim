@@ -21,6 +21,7 @@ Plug 'pechorin/any-jump.vim'
 Plug 'glepnir/indent-guides.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -321,6 +322,7 @@ let g:netrw_liststyle=3
 let g:coc_global_extensions = [
       \'coc-dictionary',
       \'coc-docthis',
+      \'coc-ecdict',
       \'coc-emoji',
       \'coc-eslint',
       \'coc-git',
