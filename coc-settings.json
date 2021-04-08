@@ -29,6 +29,7 @@
   "git.addGBlameToVirtualText": true,
   "git.semanticCommit.scope": false,
   "go.goplsOptions": {
+    "semanticTokens": true,
     "linksInHover": false,
     "usePlaceholders": true,
     "staticcheck": true
@@ -48,6 +49,8 @@
     "X-Fast-Or-Safe": "fast"
   },
   "python.linting.enabled": false,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.linting.pylintEnabled": true,
   "signature.target": "echo",
   "suggest.timeout": 5000,
   "suggest.defaultSortMethod": "none",
@@ -96,6 +99,23 @@
     /*     } */
     /*   } */
     /* }, */
+    /* "go": { */
+    /*   "command": "gopls", */
+    /*   "trace.server": "verbose", */
+    /*   "rootPatterns": [ */
+    /*     "go.mod", */
+    /*     ".vim/", */
+    /*     ".git/", */
+    /*     ".hg/" */
+    /*   ], */
+    /*   "filetypes": [ */
+    /*     "go" */
+    /*   ], */
+    /*   "initializationOptions": { */
+    /*     "ui.semanticTokens": true, */
+    /*     "usePlaceholders": true */
+    /*   } */
+    /* } */
     /* "rust": { */
     /*   "command": "rust-analyzer", */
     /*   "trace.server": "verbose", */
