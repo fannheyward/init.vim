@@ -5,23 +5,26 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'honza/vim-snippets'
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'tpope/vim-commentary'
-Plug 'liuchengxu/eleline.vim'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'farmergreg/vim-lastplace'
 Plug 'zef/vim-cycle'
-Plug 'nelstrom/vim-visual-star-search'
-Plug 'sgur/vim-editorconfig'
 Plug 'romainl/vim-cool'
+Plug 'honza/vim-snippets'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'nvim-lua/popup.nvim'
+Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'pechorin/any-jump.vim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'liuchengxu/eleline.vim'
+Plug 'farmergreg/vim-lastplace'
 Plug 'glepnir/indent-guides.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'nelstrom/vim-visual-star-search'
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -126,7 +129,6 @@ command! -nargs=0 W     w
 command! -nargs=0 Wa    wa
 command! -nargs=0 Wqa   wqa
 command! -nargs=0 WQa   wqa
-command! -nargs=0 F     echomsg @%
 
 command! -nargs=0 C             CocConfig
 command! -nargs=0 R             CocRestart
@@ -428,8 +430,9 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim
 
-" nvim-treesitter {{
+" telescope.nvim/nvim-treesitter {{
 lua <<EOF
+local actions = require('telescope.actions')
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
   highlight = {
@@ -439,8 +442,20 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close,
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      },
+    },
+  }
+}
 EOF
-" }} nvim-treesitter
+" }}
 
 " any-jump.vim {{
 let g:any_jump_disable_default_keybindings = 1
