@@ -29,6 +29,7 @@
   "git.addGBlameToVirtualText": true,
   "git.semanticCommit.scope": false,
   "go.goplsOptions": {
+    "experimentalPostfixCompletions": true,
     "semanticTokens": true,
     "linksInHover": false,
     "usePlaceholders": true,
