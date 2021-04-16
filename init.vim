@@ -101,7 +101,7 @@ augroup common
   autocmd FileType markdown setlocal suffixesadd=.md
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
-  autocmd FileType ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
+  autocmd FileType lua,ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
@@ -432,7 +432,6 @@ call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 
 " telescope.nvim/nvim-treesitter {{
 lua <<EOF
-local actions = require('telescope.actions')
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
   highlight = {
@@ -443,6 +442,8 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 
+local actions = require('telescope.actions')
+require('telescope').load_extension('coc')
 require('telescope').setup{
   defaults = {
     mappings = {
