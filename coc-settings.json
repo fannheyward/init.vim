@@ -116,7 +116,7 @@
     /*     "ui.semanticTokens": true, */
     /*     "usePlaceholders": true */
     /*   } */
-    /* } */
+    /* }, */
     /* "rust": { */
     /*   "command": "rust-analyzer", */
     /*   "trace.server": "verbose", */

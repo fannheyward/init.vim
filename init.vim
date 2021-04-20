@@ -64,7 +64,7 @@ set ignorecase
 set smartcase
 set switchbuf=useopen,usetab,newtab
 set updatetime=100
-set inccommand=split
+set inccommand=nosplit
 set noshowmode
 set completeopt=menu
 set cmdheight=2
@@ -410,7 +410,6 @@ inoremap <silent><expr> <TAB>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<CR>
-nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
 nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
 nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
 nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
@@ -419,8 +418,6 @@ nnoremap <silent><nowait> <space>m  :<C-u>CocList -A -N mru<CR>
 nnoremap <silent><nowait> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
-nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
@@ -452,9 +449,13 @@ require('telescope').setup{
         ["<C-k>"] = actions.move_selection_previous,
       },
     },
+    generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
+    file_sorter =  require'telescope.sorters'.get_fzy_sorter,
   }
 }
 EOF
+nnoremap <silent><nowait> <space>f :Telescope find_files<CR>
+nnoremap <silent><nowait> <space>s :Telescope grep_string<CR>
 " }}
 
 " any-jump.vim {{
