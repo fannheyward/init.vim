@@ -64,7 +64,7 @@ set ignorecase
 set smartcase
 set switchbuf=useopen,usetab,newtab
 set updatetime=100
-set inccommand=nosplit
+set inccommand=split
 set noshowmode
 set completeopt=menu
 set cmdheight=2
@@ -135,6 +135,7 @@ command! -nargs=0 R             CocRestart
 command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
 command! -nargs=0 Prettier      CocCommand prettier.formatFile
+command! -nargs=0 CocOutput     CocCommand workspace.showOutput
 
 command! -nargs=0 JSONPretty    %!python -m json.tool
 command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME
@@ -414,7 +415,6 @@ nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
 nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
 nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
 nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
-nnoremap <silent><nowait> <space>m  :<C-u>CocList -A -N mru<CR>
 nnoremap <silent><nowait> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
@@ -456,6 +456,7 @@ require('telescope').setup{
 EOF
 nnoremap <silent><nowait> <space>f :Telescope find_files<CR>
 nnoremap <silent><nowait> <space>s :Telescope grep_string<CR>
+nnoremap <silent><nowait> <space>m :Telescope coc mru<CR>
 " }}
 
 " any-jump.vim {{
