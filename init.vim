@@ -290,7 +290,7 @@ set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
-let g:gutentags_ctags_exclude = ['*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
+let g:gutentags_ctags_exclude = ['*.md', '*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
 " }} vim-gutentags
 
 " vim-rooter {{
