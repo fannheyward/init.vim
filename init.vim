@@ -32,7 +32,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
-Plug 'simnalamburt/vim-mundo', { 'on': 'MundoToggle' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
@@ -440,7 +439,6 @@ require'nvim-treesitter.configs'.setup {
 }
 
 local actions = require('telescope.actions')
-require('telescope').load_extension('coc')
 require('telescope').setup{
   defaults = {
     mappings = {
@@ -453,6 +451,7 @@ require('telescope').setup{
     file_sorter =  require'telescope.sorters'.get_fzy_sorter,
   }
 }
+require('telescope').load_extension('coc')
 EOF
 nnoremap <silent><nowait> <space>f :Telescope find_files<CR>
 nnoremap <silent><nowait> <space>s :Telescope grep_string<CR>
