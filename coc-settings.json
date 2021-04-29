@@ -67,6 +67,7 @@
     ]
   },
   "typescript.format.semicolons": "insert",
+  "typescript.autoClosingTags": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.useAliasesForRenames": false,
   "languageserver": {
@@ -103,6 +104,13 @@
     /* "go": { */
     /*   "command": "gopls", */
     /*   "trace.server": "verbose", */
+    /*   "args": [ */
+    /*     "-remote", */
+    /*     "auto" */
+    /*   ], */
+    /*   "env": { */
+    /*     "TMPDIR": "/tmp" */
+    /*   }, */
     /*   "rootPatterns": [ */
     /*     "go.mod", */
     /*     ".vim/", */
