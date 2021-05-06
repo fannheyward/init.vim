@@ -45,7 +45,7 @@
     "default": true,
     "line-length": false
   },
-  "python.formatting.provider": "blackd",
+  "python.formatting.provider": "black",
   "python.formatting.blackdHTTPHeaders": {
     "X-Fast-Or-Safe": "fast"
   },

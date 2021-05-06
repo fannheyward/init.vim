@@ -67,6 +67,9 @@ set inccommand=split
 set noshowmode
 set completeopt=menu
 set cmdheight=2
+set jumpoptions=stack
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set formatexpr=CocActionAsync('formatSelected')
 set tagfunc=CocTagFunc
 set shortmess+=c
@@ -325,7 +328,6 @@ let g:coc_global_extensions = [
       \'coc-dictionary',
       \'coc-docthis',
       \'coc-ecdict',
-      \'coc-emoji',
       \'coc-eslint',
       \'coc-git',
       \'coc-go',
