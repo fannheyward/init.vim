@@ -12,7 +12,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
-Plug 'pechorin/any-jump.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'liuchengxu/eleline.vim'
 Plug 'farmergreg/vim-lastplace'
@@ -84,7 +83,7 @@ let g:loaded_node_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
-let g:python3_host_prog = '/usr/local/bin/python3'
+let g:loaded_python3_provider = 0
 " }} basic
 
 " autocmd {{
@@ -459,9 +458,5 @@ nnoremap <silent><nowait> <space>f :Telescope find_files<CR>
 nnoremap <silent><nowait> <space>s :Telescope grep_string<CR>
 nnoremap <silent><nowait> <space>m :Telescope coc mru<CR>
 " }}
-
-" any-jump.vim {{
-let g:any_jump_disable_default_keybindings = 1
-" }}"
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
