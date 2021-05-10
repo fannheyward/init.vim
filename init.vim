@@ -21,6 +21,7 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'fannheyward/telescope-coc.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'dracula/vim', { 'as': 'dracula' }
@@ -454,6 +455,7 @@ require('telescope').setup{
 }
 require('telescope').load_extension('coc')
 EOF
+nnoremap <silent><nowait> <space>g :Telescope live_grep<CR>
 nnoremap <silent><nowait> <space>f :Telescope find_files<CR>
 nnoremap <silent><nowait> <space>s :Telescope grep_string<CR>
 nnoremap <silent><nowait> <space>m :Telescope coc mru<CR>
