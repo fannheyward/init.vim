@@ -435,6 +435,9 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
+  matchup = {
+    enable = true,
+  },
   indent = {
     enable = true
   }
