@@ -26,6 +26,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -133,7 +134,6 @@ command! -nargs=0 Wqa   wqa
 command! -nargs=0 WQa   wqa
 
 command! -nargs=0 C             CocConfig
-command! -nargs=0 R             CocRestart
 command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
 command! -nargs=0 Prettier      CocCommand prettier.formatFile
@@ -434,6 +434,7 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
   highlight = {
     enable = true,
+    additional_vim_regex_highlighting = true,
   },
   matchup = {
     enable = true,
@@ -452,11 +453,16 @@ require('telescope').setup{
         ["<C-k>"] = actions.move_selection_previous,
       },
     },
-    generic_sorter =  require'telescope.sorters'.get_fzy_sorter,
-    file_sorter =  require'telescope.sorters'.get_fzy_sorter,
+  },
+  extensions = {
+    fzf = {
+      override_generic_sorter = true,
+      override_file_sorter = true,
+    }
   }
 }
 require('telescope').load_extension('coc')
+require('telescope').load_extension('fzf')
 EOF
 nnoremap <silent><nowait> <space>g :Telescope live_grep<CR>
 nnoremap <silent><nowait> <space>f :Telescope find_files<CR>
