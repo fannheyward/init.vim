@@ -12,6 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
+Plug 'kevinhwang91/nvim-bqf'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'liuchengxu/eleline.vim'
 Plug 'farmergreg/vim-lastplace'
@@ -73,6 +74,7 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set formatexpr=CocActionAsync('formatSelected')
 set tagfunc=CocTagFunc
+set signcolumn=yes:1
 set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set pumheight=20
@@ -434,7 +436,6 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = true,
   },
   matchup = {
     enable = true,
