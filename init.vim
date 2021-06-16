@@ -107,6 +107,7 @@ augroup common
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType lua,ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
+  autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
@@ -114,6 +115,7 @@ augroup common
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocQuickfixChange :CocList --normal quickfix
+  autocmd User CocLocationsChange ++nested call s:coc_qf_jump2loc(g:coc_jump_locations)
 
   autocmd BufWritePre *.go silent! :call CocAction('runCommand', 'editor.action.organizeImport')
 
@@ -265,6 +267,39 @@ function! s:open_junk_list()
   let junk_dir = tr(junk_dir, '\', '/')
   exec "CtrlP " . fnameescape(junk_dir)
 endfunction
+
+" nvim-bqf
+function! s:coc_qf_diagnostic() abort
+  if !get(g:, 'coc_service_initialized', 0)
+    return
+  endif
+  let diagnostic_list = CocAction('diagnosticList')
+  let items = []
+  let loc_ranges = []
+  for d in diagnostic_list
+    let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
+          \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
+    let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
+          \ d.severity[0]}
+    call add(loc_ranges, d.location.range)
+    call add(items, item)
+  endfor
+  call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
+        \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+  botright copen
+endfunction
+
+function! s:coc_qf_jump2loc(locs) abort
+  let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
+  call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
+        \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+  let winid = getloclist(0, {'winid': 0}).winid
+  if winid == 0
+    rightbelow lwindow
+  else
+    call win_gotoid(winid)
+  endif
+endfunction
 " }} functions
 
 " wildignore {{
@@ -326,6 +361,7 @@ let g:netrw_liststyle=3
 " }} Netrw
 
 " coc.nvim {{
+let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
       \'coc-dictionary',
       \'coc-docthis',
@@ -412,8 +448,8 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent><nowait> <space>a  :call <SID>coc_qf_diagnostic()<CR>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<CR>
 nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
 nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
 nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
