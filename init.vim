@@ -449,6 +449,7 @@ nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
 nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
 nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
 nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
+nnoremap <silent><nowait> <space>m  :<C-u>CocList -A -N mru<CR>
 nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
 nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent><nowait> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
