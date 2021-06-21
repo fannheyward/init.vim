@@ -20,14 +20,12 @@ Plug 'glepnir/indent-guides.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'fannheyward/telescope-coc.nvim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -450,6 +448,7 @@ inoremap <silent><expr> <TAB>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent><nowait> <space>a  :call <SID>coc_qf_diagnostic()<CR>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
+nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
 nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
 nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
 nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
@@ -457,6 +456,8 @@ nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent><nowait> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
+nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
@@ -466,7 +467,7 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim
 
-" telescope.nvim/nvim-treesitter {{
+" Lua {{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
@@ -480,31 +481,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
-
-local actions = require('telescope.actions')
-require('telescope').setup{
-  defaults = {
-    mappings = {
-      i = {
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-k>"] = actions.move_selection_previous,
-      },
-    },
-  },
-  extensions = {
-    fzf = {
-      override_generic_sorter = true,
-      override_file_sorter = true,
-    }
-  }
-}
-require('telescope').load_extension('coc')
-require('telescope').load_extension('fzf')
 EOF
-nnoremap <silent><nowait> <space>g :Telescope live_grep<CR>
-nnoremap <silent><nowait> <space>f :Telescope find_files<CR>
-nnoremap <silent><nowait> <space>s :Telescope grep_string<CR>
-nnoremap <silent><nowait> <space>m :Telescope coc mru<CR>
 " }}
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:

@@ -65,7 +65,7 @@
       "javascript"
     ]
   },
-  "typescript.format.semicolons": "insert",
+  "typescript.format.semicolons": "ignore",
   "typescript.autoClosingTags": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "typescript.preferences.useAliasesForRenames": false,
