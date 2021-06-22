@@ -10,6 +10,7 @@ Plug 'romainl/vim-cool'
 Plug 'honza/vim-snippets'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nvim-lua/popup.nvim'
+Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
 Plug 'kevinhwang91/nvim-bqf'
@@ -59,7 +60,7 @@ set matchtime=2
 set matchpairs+=<:>
 set ignorecase
 set smartcase
-set switchbuf=useopen,usetab,newtab
+set switchbuf=useopen,usetab
 set updatetime=100
 set inccommand=split
 set noshowmode
@@ -446,7 +447,6 @@ inoremap <silent><expr> <TAB>
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent><nowait> <space>a  :call <SID>coc_qf_diagnostic()<CR>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
-nnoremap <silent><nowait> <space>f  :<C-u>CocList files<CR>
 nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
 nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
 nnoremap <silent><nowait> <space>m  :<C-u>CocList -A -N mru<CR>
@@ -455,7 +455,6 @@ nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent><nowait> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>s  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
 
@@ -465,6 +464,12 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim
+
+" Clap {{
+nnoremap <silent><nowait> <space>f  :<C-u>Clap files<CR>
+nnoremap <silent><nowait> <space>g  :<C-u>Clap grep2<CR>
+nnoremap <silent><nowait> <space>s  :exe 'Clap grep2 ++query='.expand('<cword>')<CR>
+" }}
 
 " Lua {{
 lua <<EOF
