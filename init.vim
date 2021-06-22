@@ -8,7 +8,6 @@ call plug#begin()
 Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
 Plug 'honza/vim-snippets'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-commentary'
@@ -150,8 +149,6 @@ command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
 command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=0 Tsc           call CocAction('runCommand', 'tsserver.watchBuild')
 command! -nargs=0 Jest          call CocActionAsync('runCommand', 'jest.fileTest', ['%'])
-command! -nargs=0 JunkFile      call s:open_junk_file()
-command! -nargs=0 JunkList      call s:open_junk_list()
 command! -nargs=0 VSCode        execute ":!code -g %:p\:" . line('.') . ":" . col('.')
 " }} command
 
@@ -239,32 +236,6 @@ function! CopyFloatText() abort
   endif
 endfunction
 
-" Open junk file.
-function! s:open_junk_file()
-  let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
-  let junk_dir = expand(junk_dir)
-  if !isdirectory(junk_dir)
-    call mkdir(junk_dir, 'p')
-  endif
-
-  let filename = junk_dir.strftime('/%Y-%m-%d-%H%M%S.md')
-  let filename = tr(filename, '\', '/')
-  let filename = input('Junk Code: ', filename)
-  if filename != ''
-    execute 'edit ' . fnameescape(filename)
-  endif
-endfunction
-
-function! s:open_junk_list()
-  let junk_dir = get(g:, 'asc_junk', '~/.vim/junk')
-  let junk_dir = expand(junk_dir)
-  if !isdirectory(junk_dir)
-    call mkdir(junk_dir, 'p')
-  endif
-  let junk_dir = tr(junk_dir, '\', '/')
-  exec "CtrlP " . fnameescape(junk_dir)
-endfunction
-
 " nvim-bqf
 function! s:coc_qf_diagnostic() abort
   if !get(g:, 'coc_service_initialized', 0)
@@ -311,15 +282,6 @@ set wildignore+=*.ppt,*.pptx,*.doc,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
 set wildignore+=*/.git/*,*/.svn/*,*.DS_Store
 set wildignore+=*/node_modules/*,*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
 " }} wildignore
-
-" CtrlP {{
-nnoremap <silent> <C-l> :CtrlPLine<CR>
-
-if executable('fd')
-  let g:ctrlp_user_command = 'fd --type file'
-  let g:ctrlp_use_caching = 0
-endif
-" }} CtrlP
 
 " vim-gutentags {{
 set tags=./.tags;,.tags
