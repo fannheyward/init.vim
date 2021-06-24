@@ -15,7 +15,6 @@ Plug 'andymass/vim-matchup'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'liuchengxu/eleline.vim'
 Plug 'farmergreg/vim-lastplace'
-Plug 'glepnir/indent-guides.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -24,6 +23,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
