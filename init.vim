@@ -296,27 +296,14 @@ let g:rooter_patterns = ['.root', 'package.json', '.git/']
 " }} vim-rooter
 
 " go.vim {{
-let g:go_fmt_command = "gofumports"
+let g:go_fmt_command = "gofumpt"
 " }} go.vim
 
 " Netrw {{
-if has('macunix')
-  function! OpenURLUnderCursor()
-    let s:uri = expand('<cWORD>')
-    let s:uri = matchstr(s:uri, '[a-z]*:\/\/[^ >,;()]*')
-    let s:uri = substitute(s:uri, '?', '\\?', '')
-    let s:uri = shellescape(s:uri, 1)
-    if s:uri != ''
-      silent exec "!open '".s:uri."'"
-      :redraw!
-    endif
-  endfunction
-  nnoremap gx :call OpenURLUnderCursor()<CR>
-endif
-let g:netrw_chgwin = 2
-let g:netrw_list_hide = ',\(^\|\s\s\)\zs\.\S\+'
-let g:netrw_winsize=20
-let g:netrw_liststyle=3
+" disable netrw loading and replace broken link opening https://github.com/vim/vim/issues/4738
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+nnoremap <silent> gx :execute 'silent! !open ' . shellescape(expand('<cWORD>'), 1)<CR>
 " }} Netrw
 
 " coc.nvim {{
