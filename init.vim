@@ -23,7 +23,7 @@ Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'nelstrom/vim-visual-star-search'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
