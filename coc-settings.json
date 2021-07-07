@@ -55,6 +55,8 @@
   "signature.target": "echo",
   "suggest.timeout": 5000,
   "suggest.defaultSortMethod": "none",
+  "suggest.noselect": false,
+  "suggest.enablePreselect": true,
   "snippets.ultisnips.enable": false,
   "snippets.ultisnips.usePythonx": false,
   "snippets.extends": {

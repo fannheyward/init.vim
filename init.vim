@@ -8,7 +8,6 @@ call plug#begin()
 Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
 Plug 'honza/vim-snippets'
-Plug 'nvim-lua/popup.nvim'
 Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
