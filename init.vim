@@ -28,7 +28,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 Plug 'nacitar/a.vim', { 'on': 'A' }
 Plug 'sk1418/Join', { 'on': 'Join'}
-Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
