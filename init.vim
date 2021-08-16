@@ -392,6 +392,7 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+vnoremap <silent> K <cmd>call CocActionAsync('doHover')<CR>
 nnoremap <silent><nowait> <space>a  :call <SID>coc_qf_diagnostic()<CR>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
 nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
@@ -423,9 +424,6 @@ lua <<EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
   highlight = {
-    enable = true,
-  },
-  matchup = {
     enable = true,
   },
   indent = {
