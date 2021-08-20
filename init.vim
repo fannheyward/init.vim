@@ -200,7 +200,7 @@ function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
+    call CocActionAsync('definitionHover')
   else
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
@@ -414,6 +414,7 @@ call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim
 
 " Clap {{
+let g:clap_builtin_fuzzy_filter_threshold = 0
 nnoremap <silent><nowait> <space>f  :<C-u>Clap files<CR>
 nnoremap <silent><nowait> <space>g  :<C-u>Clap grep2<CR>
 nnoremap <silent><nowait> <space>s  :exe 'Clap grep2 ++query='.expand('<cword>')<CR>
