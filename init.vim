@@ -325,6 +325,7 @@ let g:coc_global_extensions = [
       \'coc-tag',
       \'coc-tsserver',
       \'coc-vimlsp',
+      \'coc-webview',
       \'coc-xml',
       \'coc-yaml',
       \'coc-yank'
@@ -410,7 +411,6 @@ imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 
-call coc#add_command('tree', 'Vexplore', 'open netrw explorer')
 " }} coc.nvim
 
 " Clap {{
