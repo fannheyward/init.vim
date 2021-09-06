@@ -20,6 +20,9 @@
     "--query-driver=/usr/bin/clang++",
     "--background-index"
   ],
+  "diagnostic.floatConfig": {
+    "border": true
+  },
   "diagnostic.format": "%message [%source]",
   "diagnostic.virtualText": true,
   "diagnostic.checkCurrentLine": true,
@@ -35,6 +38,9 @@
     "linksInHover": false,
     "usePlaceholders": true,
     "staticcheck": true
+  },
+  "hover.floatConfig": {
+    "border": true
   },
   "list.normalMappings": {
     "<C-c>": "do:exit"
@@ -54,6 +60,9 @@
   "python.analysis.diagnosticMode": "workspace",
   "python.linting.pylintEnabled": true,
   "signature.target": "echo",
+  "suggest.floatConfig": {
+    "border": true
+  },
   "suggest.timeout": 5000,
   "suggest.defaultSortMethod": "none",
   "suggest.noselect": false,
