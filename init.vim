@@ -322,6 +322,7 @@ let g:coc_global_extensions = [
       \'coc-pairs',
       \'coc-sh',
       \'coc-snippets',
+      \'coc-sumneko-lua'
       \'coc-tag',
       \'coc-tsserver',
       \'coc-vimlsp',

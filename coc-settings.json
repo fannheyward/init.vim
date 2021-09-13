@@ -64,9 +64,11 @@
     "border": true
   },
   "suggest.timeout": 5000,
+  "suggest.triggerCompletionWait": 30,
   "suggest.defaultSortMethod": "none",
   "suggest.noselect": false,
   "suggest.enablePreselect": true,
+  "sumneko-lua.enableNvimLuaDev": true,
   "snippets.ultisnips.enable": false,
   "snippets.ultisnips.usePythonx": false,
   "snippets.extends": {
@@ -80,73 +82,12 @@
   "typescript.format.semicolons": "ignore",
   "typescript.autoClosingTags": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+  //"typescript.inlayHints.parameterNames.enabled": "literals",
+  //"typescript.inlayHints.parameterTypes.enabled": true,
+  //"typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
   "typescript.preferences.useAliasesForRenames": false,
-  "languageserver": {
-    /* "jedi": { */
-    /*   "command": "jedi-language-server", */
-    /*   "filetypes": [ */
-    /*     "python" */
-    /*   ] */
-    /* }, */
-    /* "ccls": { */
-    /*   "command": "ccls", */
-    /*   "filetypes": [ */
-    /*     "c", */
-    /*     "cpp", */
-    /*     "objc", */
-    /*     "objcpp" */
-    /*   ], */
-    /*   "rootPatterns": [ */
-    /*     ".ccls", */
-    /*     "compile_commands.json", */
-    /*     ".vim/", */
-    /*     ".git/", */
-    /*     ".hg/" */
-    /*   ], */
-    /*   "initializationOptions": { */
-    /*     "cache": { */
-    /*       "directory": "/tmp/ccls" */
-    /*     }, */
-    /*     "highlight": { */
-    /*       "lsRanges": true */
-    /*     } */
-    /*   } */
-    /* }, */
-    /* "go": { */
-    /*   "command": "gopls", */
-    /*   "trace.server": "verbose", */
-    /*   "args": [ */
-    /*     "-remote", */
-    /*     "auto" */
-    /*   ], */
-    /*   "env": { */
-    /*     "TMPDIR": "/tmp" */
-    /*   }, */
-    /*   "rootPatterns": [ */
-    /*     "go.mod", */
-    /*     ".vim/", */
-    /*     ".git/", */
-    /*     ".hg/" */
-    /*   ], */
-    /*   "filetypes": [ */
-    /*     "go" */
-    /*   ], */
-    /*   "initializationOptions": { */
-    /*     "ui.semanticTokens": true, */
-    /*     "usePlaceholders": true */
-    /*   } */
-    /* }, */
-    /* "rust": { */
-    /*   "command": "rust-analyzer", */
-    /*   "trace.server": "verbose", */
-    /*   "filetypes": [ */
-    /*     "rust" */
-    /*   ], */
-    /*   "rootPatterns": [ */
-    /*     "Cargo.toml", */
-    /*     ".git/" */
-    /*   ], */
-    /*   "progressOnInitialization": true */
-    /* } */
-  }
+  "languageserver": {}
 }
