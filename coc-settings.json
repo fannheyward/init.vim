@@ -1,6 +1,7 @@
 {
   "codeLens.enable": true,
   "coc.preferences.extensionUpdateCheck": "daily",
+  "deno.importMap": "./import_map.json",
   "coc.preferences.formatOnType": true,
   "coc.preferences.willSaveHandlerTimeout": 1000,
   "coc.preferences.formatOnSaveFiletypes": [
@@ -61,6 +62,9 @@
   "python.linting.pylintEnabled": true,
   "signature.target": "echo",
   "suggest.floatConfig": {
+    "border": true
+  },
+  "signature.floatConfig": {
     "border": true
   },
   "suggest.timeout": 5000,
