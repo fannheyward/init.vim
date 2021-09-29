@@ -104,10 +104,11 @@ augroup common
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
+  autocmd QuickFixCmdPost cgetexpr cwindow
+  autocmd QuickFixCmdPost lgetexpr lwindow
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd User CocQuickfixChange :CocList --normal quickfix
   autocmd User CocLocationsChange ++nested call s:coc_qf_jump2loc(g:coc_jump_locations)
 
   autocmd BufWritePre *.go silent! :call CocAction('runCommand', 'editor.action.organizeImport')
@@ -136,10 +137,10 @@ command! -nargs=0 -range D      CocCommand
 command! -nargs=0 Prettier      CocCommand prettier.formatFile
 command! -nargs=0 CocOutput     CocCommand workspace.showOutput
 
+command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
 command! -nargs=0 JSONPretty    %!python -m json.tool
 command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME
 command! -nargs=0 Status        CocList -A --normal gstatus
-command! -nargs=+ Find          exe 'CocList -A --normal grep --smart-case '.<q-args>
 command! -nargs=0 Format        call CocAction('format')
 command! -nargs=0 Fold          call CocAction('fold')
 command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
@@ -147,6 +148,7 @@ command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.orga
 command! -nargs=0 Tsc           call CocAction('runCommand', 'tsserver.watchBuild')
 command! -nargs=0 Jest          call CocActionAsync('runCommand', 'jest.fileTest', ['%'])
 command! -nargs=0 VSCode        execute ":!code -g %:p\:" . line('.') . ":" . col('.')
+command! -nargs=+ CocGrep       execute 'CocList -A --normal grep --smart-case '.<q-args>
 " }} command
 
 " mappings {{
@@ -162,6 +164,8 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
+nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
+nnoremap * :vimgrep /<C-r><C-w>/ % <Bar> cwindow<CR>
 
 " insert mode
 inoremap <C-c> <ESC>
@@ -231,6 +235,14 @@ function! CopyFloatText() abort
     execute 'normal! ggvGy'
     call win_gotoid(id)
   endif
+endfunction
+
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading
+endif
+
+function! s:grep_to_qf(...) abort
+  return system(join([&grepprg] + [expandcmd(join(a:000, ' '))], ' '))
 endfunction
 
 " nvim-bqf
@@ -410,14 +422,12 @@ nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:fal
 imap <C-k> <Plug>(coc-snippets-expand)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
-
 " }} coc.nvim
 
 " Clap {{
 let g:clap_builtin_fuzzy_filter_threshold = 0
 nnoremap <silent><nowait> <space>f  :<C-u>Clap files<CR>
 nnoremap <silent><nowait> <space>g  :<C-u>Clap grep2<CR>
-nnoremap <silent><nowait> <space>s  :exe 'Clap grep2 ++query='.expand('<cword>')<CR>
 " }}
 
 " Lua {{
