@@ -165,7 +165,6 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
-nnoremap * :vimgrep /<C-r><C-w>/ % <Bar> cwindow<CR>
 
 " insert mode
 inoremap <C-c> <ESC>
