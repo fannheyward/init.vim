@@ -307,13 +307,6 @@ let g:rooter_patterns = ['.root', 'package.json', '.git/']
 let g:go_fmt_command = "gofumpt"
 " }} go.vim
 
-" Netrw {{
-" disable netrw loading and replace broken link opening https://github.com/vim/vim/issues/4738
-let g:loaded_netrw       = 1
-let g:loaded_netrwPlugin = 1
-nnoremap <silent> gx :execute 'silent! !open ' . shellescape(expand('<cWORD>'), 1)<CR>
-" }} Netrw
-
 " coc.nvim {{
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
