@@ -101,6 +101,7 @@ augroup common
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType lua,ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
   autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
+  autocmd FileType list lua require('bqf.magicwin.handler').attach()
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
