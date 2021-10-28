@@ -7,6 +7,7 @@ endif
 call plug#begin()
 Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
+Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-commentary'
@@ -31,9 +32,6 @@ Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
-" Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-
-Plug 'neoclide/jsonc.vim'
 call plug#end()
 " }} plug.vim
 
@@ -86,10 +84,11 @@ let g:loaded_python3_provider = 0
 " autocmd {{
 augroup common
   autocmd!
-  autocmd BufNewFile,BufReadPost *.md setfiletype markdown
-  autocmd BufNewFile,BufReadPost *.tsx setfiletype typescript.tsx
-  autocmd BufNewFile,BufReadPost *.jsx setfiletype javascript.jsx
-  autocmd BufNewFile,BufReadPost *.jl setfiletype julia
+  autocmd BufNewFile,BufRead *.jl setlocal filetype=julia
+  autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
+  autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+  autocmd BufNewFile,BufRead *.jsx setlocal filetype=javascript.jsx
+  autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
 
   autocmd FileType go setlocal expandtab
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
@@ -419,7 +418,7 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Clap {{
 let g:clap_builtin_fuzzy_filter_threshold = 0
-nnoremap <silent><nowait> <space>f  :<C-u>Clap files<CR>
+nnoremap <silent><nowait> <space>f  :<C-u>Clap files!<CR>
 nnoremap <silent><nowait> <space>g  :<C-u>Clap grep2<CR>
 " }}
 
