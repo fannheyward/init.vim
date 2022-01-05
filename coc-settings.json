@@ -74,6 +74,8 @@
   "suggest.noselect": false,
   "suggest.enablePreselect": true,
   "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.completion.callSnippet": "Both",
+  "Lua.runtime.version": "LuaJIT",
   "snippets.ultisnips.enable": false,
   "snippets.ultisnips.usePythonx": false,
   "snippets.extends": {
