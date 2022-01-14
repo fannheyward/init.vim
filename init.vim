@@ -5,8 +5,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
 Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
@@ -18,7 +16,7 @@ Plug 'andymass/vim-matchup'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'liuchengxu/eleline.vim'
 Plug 'farmergreg/vim-lastplace'
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'oncomouse/nvim-colorizer.lua'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'editorconfig/editorconfig-vim'
@@ -29,6 +27,10 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
@@ -459,6 +461,7 @@ require("telescope").setup {
 }
 require('telescope').load_extension('coc')
 require('telescope').load_extension('maple')
+require("telescope").load_extension('file_browser')
 EOF
 " }}
 
