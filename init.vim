@@ -5,6 +5,8 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
@@ -80,6 +82,9 @@ let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_python3_provider = 0
+
+let g:do_filetype_lua = 1
+let g:did_load_filetypes = 1
 " }} basic
 
 " autocmd {{
@@ -341,6 +346,8 @@ let g:coc_filetype_map = {
       \ }
 
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
+set runtimepath^=~/src/telescope-coc.nvim
+set runtimepath^=~/src/telescope-maple.nvim
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
 " set runtimepath^=~/src/coc-pylance
@@ -423,6 +430,11 @@ nnoremap <silent><nowait> <space>f  :<C-u>Clap files!<CR>
 nnoremap <silent><nowait> <space>g  :<C-u>Clap grep2<CR>
 " }}
 
+" telescope.nvim {{
+nnoremap <silent><nowait> <space>f  :<C-u>Telescope find_files<CR>
+nnoremap <silent><nowait> <space>g  :<C-u>Telescope maple<CR>
+" }}
+
 " Lua {{
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
@@ -434,6 +446,19 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+require("telescope").setup {
+  defaults = {
+    mappings = {
+      i = {
+        ["<esc>"] = require("telescope.actions").close,
+        ["<C-j>"] = require("telescope.actions").move_selection_next,
+        ["<C-k>"] = require("telescope.actions").move_selection_previous,
+      }
+    }
+  }
+}
+require('telescope').load_extension('coc')
+require('telescope').load_extension('maple')
 EOF
 " }}
 
