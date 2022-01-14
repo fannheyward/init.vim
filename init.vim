@@ -16,6 +16,7 @@ Plug 'andymass/vim-matchup'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'liuchengxu/eleline.vim'
 Plug 'farmergreg/vim-lastplace'
+Plug 'kevinhwang91/nvim-hlslens'
 Plug 'oncomouse/nvim-colorizer.lua'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -31,6 +32,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
@@ -426,6 +428,17 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 " }} coc.nvim
 
+" nvim-hlslens {{
+noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
+            \<Cmd>lua require('hlslens').start()<CR>
+noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
+            \<Cmd>lua require('hlslens').start()<CR>
+noremap * *<Cmd>lua require('hlslens').start()<CR>
+noremap # #<Cmd>lua require('hlslens').start()<CR>
+noremap g* g*<Cmd>lua require('hlslens').start()<CR>
+noremap g# g#<Cmd>lua require('hlslens').start()<CR>
+" }}
+
 " Clap {{
 let g:clap_builtin_fuzzy_filter_threshold = 0
 nnoremap <silent><nowait> <space>f  :<C-u>Clap files!<CR>
@@ -449,6 +462,14 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 require("telescope").setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+    }
+  },
   defaults = {
     mappings = {
       i = {
@@ -459,6 +480,7 @@ require("telescope").setup {
     }
   }
 }
+require('telescope').load_extension('fzf')
 require('telescope').load_extension('coc')
 require('telescope').load_extension('maple')
 require("telescope").load_extension('file_browser')
