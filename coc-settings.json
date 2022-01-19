@@ -72,6 +72,8 @@
   "suggest.triggerCompletionWait": 30,
   "suggest.defaultSortMethod": "none",
   "suggest.noselect": false,
+  "codeLens.position": "eol",
+  "suggest.selection": "recentlyUsedByPrefix",
   "suggest.enablePreselect": true,
   "sumneko-lua.enableNvimLuaDev": true,
   "Lua.completion.callSnippet": "Both",

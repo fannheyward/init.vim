@@ -9,7 +9,6 @@ Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
-Plug 'ggVGc/vim-fuzzysearch'
 Plug 'liuchengxu/vim-clap'
 Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
@@ -35,6 +34,7 @@ Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'sk1418/Join', { 'on': 'Join'}
+Plug 'ggVGc/vim-fuzzysearch', { 'on': 'FuzzySearch' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
