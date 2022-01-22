@@ -21,6 +21,7 @@ content
 context
 conversion
 current
+cursor
 daemon
 decode
 dependency
