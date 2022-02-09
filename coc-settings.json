@@ -60,6 +60,9 @@
   "python.linting.enabled": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.linting.pylintEnabled": true,
+  "semanticTokens.filetypes": [
+    "*"
+  ],
   "signature.target": "echo",
   "suggest.detailField": "abbr",
   "suggest.floatConfig": {
@@ -78,6 +81,15 @@
   "sumneko-lua.enableNvimLuaDev": true,
   "Lua.completion.callSnippet": "Both",
   "Lua.runtime.version": "LuaJIT",
+  "Lua.telemetry.enable": false,
+  "Lua.diagnostics.globals": [
+    "vim",
+    "jit"
+  ],
+  "Lua.IntelliSense.traceBeSetted": true,
+  "Lua.IntelliSense.traceFieldInject": true,
+  "Lua.IntelliSense.traceLocalSet": true,
+  "Lua.IntelliSense.traceReturn": true,
   "snippets.ultisnips.enable": false,
   "snippets.ultisnips.usePythonx": false,
   "snippets.extends": {
@@ -90,6 +102,7 @@
   },
   "typescript.format.semicolons": "ignore",
   "typescript.autoClosingTags": true,
+  "typescript.referencesCodeLens.showOnAllFunctions": true,
   "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   // "typescript.inlayHints.parameterNames.enabled": "literals",
   "typescript.inlayHints.parameterTypes.enabled": true,

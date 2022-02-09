@@ -58,6 +58,7 @@ set shiftwidth=4
 set nofoldenable
 set showmatch
 set matchtime=2
+set cursorline
 set matchpairs+=<:>
 set ignorecase
 set smartcase
@@ -199,6 +200,7 @@ cnoremap <C-h> <BS>
 cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
+nmap g<Enter> :Telescope<CR>
 tnoremap <Esc> <C-\><C-n>
 " }} mappings
 
