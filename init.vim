@@ -333,7 +333,7 @@ let g:coc_global_extensions = [
       \'coc-lists',
       \'coc-markdownlint',
       \'coc-marketplace',
-      \'coc-nextword',
+      \'coc-mocword',
       \'coc-pairs',
       \'coc-sh',
       \'coc-snippets',
