@@ -91,7 +91,6 @@
   "Lua.IntelliSense.traceLocalSet": true,
   "Lua.IntelliSense.traceReturn": true,
   "snippets.ultisnips.enable": false,
-  "snippets.ultisnips.usePythonx": false,
   "snippets.extends": {
     "javascriptreact": [
       "javascript"
