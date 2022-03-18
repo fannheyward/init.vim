@@ -458,6 +458,9 @@ lua <<EOF
 require('lualine').setup({
   options = {
     globalstatus = true
+  },
+  sections = {
+    lualine_c = { 'filename', 'g:coc_status' }
   }
 })
 

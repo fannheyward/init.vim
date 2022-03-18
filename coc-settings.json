@@ -49,6 +49,7 @@
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
+  "list.source.grep.useLiteral": false,
   "markdownlint.config": {
     "default": true,
     "line-length": false
