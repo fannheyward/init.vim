@@ -54,6 +54,7 @@ set hidden
 set number
 set expandtab
 set tabstop=4
+set laststatus=3
 set shiftwidth=4
 set nofoldenable
 set showmatch
