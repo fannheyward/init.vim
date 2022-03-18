@@ -22,7 +22,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'bronson/vim-visual-star-search'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
@@ -33,6 +32,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
+Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'ggVGc/vim-fuzzysearch', { 'on': 'FuzzySearch' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
