@@ -10,12 +10,12 @@ Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'liuchengxu/vim-clap'
-Plug 'tpope/vim-commentary'
 Plug 'andymass/vim-matchup'
+Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
-Plug 'liuchengxu/eleline.vim'
 Plug 'farmergreg/vim-lastplace'
 Plug 'kevinhwang91/nvim-hlslens'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'oncomouse/nvim-colorizer.lua'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -36,7 +36,6 @@ Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'ggVGc/vim-fuzzysearch', { 'on': 'FuzzySearch' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
-Plug 'bronson/vim-trailing-whitespace', { 'on': 'FixWhitespace' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 call plug#end()
@@ -148,6 +147,7 @@ command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
 command! -nargs=0 Prettier      CocCommand prettier.formatFile
 command! -nargs=0 CocOutput     CocCommand workspace.showOutput
+command! -nargs=0 FixWhitespace lua MiniTrailspace.trim()
 
 command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
 command! -nargs=0 JSONPretty    %!python -m json.tool
@@ -455,7 +455,13 @@ nnoremap <silent><nowait> <space>g  :<C-u>Telescope maple<CR>
 
 " Lua {{
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
+require('lualine').setup({
+  options = {
+    globalstatus = true
+  }
+})
+
+require('nvim-treesitter.configs').setup({
   ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
   highlight = {
     enable = true,
@@ -463,8 +469,9 @@ require'nvim-treesitter.configs'.setup {
   indent = {
     enable = true
   }
-}
-require("telescope").setup {
+})
+
+require("telescope").setup({
   extensions = {
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
@@ -482,11 +489,14 @@ require("telescope").setup {
       }
     }
   }
-}
+})
 require('telescope').load_extension('fzf')
 require('telescope').load_extension('coc')
 require('telescope').load_extension('maple')
 require("telescope").load_extension('file_browser')
+
+require('mini.comment').setup()
+require('mini.trailspace').setup()
 EOF
 " }}
 
