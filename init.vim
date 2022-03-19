@@ -13,7 +13,7 @@ Plug 'liuchengxu/vim-clap'
 Plug 'andymass/vim-matchup'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
-Plug 'farmergreg/vim-lastplace'
+Plug 'ethanholz/nvim-lastplace'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'oncomouse/nvim-colorizer.lua'
@@ -29,8 +29,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-file-browser.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sk1418/Join', { 'on': 'Join'}
@@ -442,12 +440,6 @@ noremap g* g*<Cmd>lua require('hlslens').start()<CR>
 noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 " }}
 
-" Clap {{
-let g:clap_builtin_fuzzy_filter_threshold = 0
-nnoremap <silent><nowait> <space>f  :<C-u>Clap files!<CR>
-nnoremap <silent><nowait> <space>g  :<C-u>Clap grep2<CR>
-" }}
-
 " telescope.nvim {{
 nnoremap <silent><nowait> <space>f  :<C-u>Telescope find_files<CR>
 nnoremap <silent><nowait> <space>g  :<C-u>Telescope maple<CR>
@@ -475,15 +467,8 @@ require('nvim-treesitter.configs').setup({
 })
 
 require("telescope").setup({
-  extensions = {
-    fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-    }
-  },
   defaults = {
+    generic_sorter = require('mini.fuzzy').get_telescope_sorter,
     mappings = {
       i = {
         ["<esc>"] = require("telescope.actions").close,
@@ -493,13 +478,22 @@ require("telescope").setup({
     }
   }
 })
-require('telescope').load_extension('fzf')
 require('telescope').load_extension('coc')
 require('telescope').load_extension('maple')
-require("telescope").load_extension('file_browser')
 
+require('mini.fuzzy').setup()
 require('mini.comment').setup()
+require('mini.surround').setup()
+require('mini.tabline').setup()
 require('mini.trailspace').setup()
+require('mini.indentscope').setup({
+  draw = {
+    animation = require('mini.indentscope').gen_animation('none')
+  }
+})
+vim.cmd[[hi link MiniIndentscopeSymbol Comment]]
+
+require('nvim-lastplace').setup()
 EOF
 " }}
 
