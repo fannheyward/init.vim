@@ -266,8 +266,7 @@ function! s:coc_qf_diagnostic() abort
   for d in diagnostic_list
     let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
           \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
-    let item = {'filename': d.file, 'lnum': d.lnum, 'col': d.col, 'text': text, 'type':
-          \ d.severity[0]}
+    let item = {'filename': d.file, 'lnum': d.lnum, 'end_lnum': d.end_lnum, 'col': d.col, 'end_col': d.end_col, 'text': text, 'type': d.severity[0]}
     call add(loc_ranges, d.location.range)
     call add(items, item)
   endfor
