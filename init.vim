@@ -219,7 +219,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-function! s:GoToDefinition()
+function! s:go_to_definition()
   if CocActionAsync('jumpDefinition')
     return v:true
   endif
@@ -356,7 +356,7 @@ set runtimepath^=~/src/coc-pyright
 " set runtimepath^=~/src/coc-pylance
 set runtimepath^=~/src/coc-clangd
 
-nmap <silent> gd :call <SID>GoToDefinition()<CR>
+nmap <silent> gd :call s:go_to_definition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
