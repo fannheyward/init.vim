@@ -277,8 +277,7 @@ endfunction
 
 function! s:coc_qf_jump2loc(locs) abort
   let loc_ranges = map(deepcopy(a:locs), 'v:val.range')
-  call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs,
-        \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+  call setloclist(0, [], ' ', {'title': 'CocLocationList', 'items': a:locs, 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
   let winid = getloclist(0, {'winid': 0}).winid
   if winid == 0
     rightbelow lwindow
