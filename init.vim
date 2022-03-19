@@ -118,7 +118,7 @@ augroup common
 
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd User CocLocationsChange ++nested call s:coc_qf_jump2loc(g:coc_jump_locations)
+  autocmd User CocLocationsChange call s:coc_qf_jump2loc(g:coc_jump_locations)
 
   autocmd BufWritePre *.go silent! :call CocAction('runCommand', 'editor.action.organizeImport')
 
