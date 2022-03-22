@@ -149,7 +149,7 @@ command! -nargs=0 CocOutput     CocCommand workspace.showOutput
 command! -nargs=0 FixWhitespace lua MiniTrailspace.trim()
 
 command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
-command! -nargs=0 JSONPretty    %!python -m json.tool
+command! -nargs=0 JSONPretty    %!python3 -m json.tool
 command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME
 command! -nargs=0 Status        CocList -A --normal gstatus
 command! -nargs=0 Format        call CocAction('format')
@@ -159,7 +159,6 @@ command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.orga
 command! -nargs=0 Tsc           call CocAction('runCommand', 'tsserver.watchBuild')
 command! -nargs=0 Jest          call CocActionAsync('runCommand', 'jest.fileTest', ['%'])
 command! -nargs=0 VSCode        execute ":!code -g %:p\:" . line('.') . ":" . col('.')
-command! -nargs=+ CocGrep       execute 'CocList -A --normal grep --smart-case '.<q-args>
 " }} command
 
 " mappings {{
@@ -265,14 +264,12 @@ function! s:coc_qf_diagnostic() abort
   let items = []
   let loc_ranges = []
   for d in diagnostic_list
-    let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source),
-          \ (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
+    let text = printf('[%s%s] %s', (empty(d.source) ? 'coc.nvim' : d.source), (d.code ? ' ' . d.code : ''), split(d.message, '\n')[0])
     let item = {'filename': d.file, 'lnum': d.lnum, 'end_lnum': d.end_lnum, 'col': d.col, 'end_col': d.end_col, 'text': text, 'type': d.severity[0]}
     call add(loc_ranges, d.location.range)
     call add(items, item)
   endfor
-  call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items,
-        \ 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
+  call setqflist([], ' ', {'title': 'CocDiagnosticList', 'items': items, 'context': {'bqf': {'lsp_ranges_hl': loc_ranges}}})
   botright copen
 endfunction
 
@@ -429,10 +426,8 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 " }} coc.nvim
 
 " nvim-hlslens {{
-noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
-            \<Cmd>lua require('hlslens').start()<CR>
-noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
-            \<Cmd>lua require('hlslens').start()<CR>
+noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR> <Cmd>lua require('hlslens').start()<CR>
+noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR> <Cmd>lua require('hlslens').start()<CR>
 noremap * *<Cmd>lua require('hlslens').start()<CR>
 noremap # #<Cmd>lua require('hlslens').start()<CR>
 noremap g* g*<Cmd>lua require('hlslens').start()<CR>

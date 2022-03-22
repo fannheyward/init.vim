@@ -33,6 +33,7 @@
   "eslint.packageManager": "yarn",
   "git.addGBlameToVirtualText": true,
   "git.semanticCommit.scope": false,
+  "go.goplsPath": "gopls",
   "go.goplsOptions": {
     "experimentalPostfixCompletions": true,
     "semanticTokens": true,
