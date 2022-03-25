@@ -9,7 +9,6 @@ Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
-Plug 'liuchengxu/vim-clap'
 Plug 'andymass/vim-matchup'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
@@ -150,7 +149,7 @@ command! -nargs=0 FixWhitespace lua MiniTrailspace.trim()
 
 command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
 command! -nargs=0 JSONPretty    %!python3 -m json.tool
-command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME
+command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME|FIX|FIXIT|BUG|HACK|XXX
 command! -nargs=0 Status        CocList -A --normal gstatus
 command! -nargs=0 Format        call CocAction('format')
 command! -nargs=0 Fold          call CocAction('fold')
