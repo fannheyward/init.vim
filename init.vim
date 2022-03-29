@@ -420,6 +420,7 @@ nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cw
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
+vmap <C-k> <Plug>(coc-snippets-select)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 " }} coc.nvim
