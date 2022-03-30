@@ -53,6 +53,7 @@ nmap ? /\<\><Left><Left>
 nnoremap <leader>cp :set clipboard=unnamed<CR>
 
 nnoremap <silent> gb :bn<CR>
+nnoremap <silent> gB :bp<CR>
 
 inoremap jj <Esc>
 inoremap jk <ESC>
@@ -91,6 +92,7 @@ command! -nargs=0 Wa    wa
 command! -nargs=0 Wqa   wqa
 command! -nargs=0 WQa   wqa
 command! -nargs=0 F     echomsg @%
+command! -nargs=0 JSONPretty    %!python3 -m json.tool
 
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
