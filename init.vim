@@ -12,7 +12,6 @@ Plug 'honza/vim-snippets'
 Plug 'andymass/vim-matchup'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
-Plug 'ethanholz/nvim-lastplace'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'oncomouse/nvim-colorizer.lua'
@@ -98,6 +97,8 @@ augroup common
   autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
   autocmd BufNewFile,BufRead *.jsx setlocal filetype=javascript.jsx
   autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
+  autocmd BufNewFile,BufRead go.work.sum setlocal filetype=gosum
+  autocmd BufNewFile,BufRead go.work setlocal filetype=gowork
 
   autocmd FileType go setlocal expandtab
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
@@ -113,6 +114,7 @@ augroup common
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
+  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   autocmd QuickFixCmdPost cgetexpr cwindow
   autocmd QuickFixCmdPost lgetexpr lwindow
 
@@ -483,7 +485,6 @@ require('mini.surround').setup()
 require('mini.tabline').setup()
 require('mini.trailspace').setup()
 
-require('nvim-lastplace').setup()
 EOF
 " }}
 

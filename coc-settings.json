@@ -15,7 +15,6 @@
     "json",
     "jsonc"
   ],
-  "coc.source.around.firstMatch": false,
   "coc.source.file.ignoreHidden": false,
   "clangd.arguments": [
     "--query-driver=/usr/bin/clang++",
@@ -32,7 +31,6 @@
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
   "git.addGBlameToVirtualText": true,
-  "git.semanticCommit.scope": false,
   "go.goplsPath": "gopls",
   "go.goplsOptions": {
     "experimentalPostfixCompletions": true,
@@ -101,6 +99,7 @@
       "javascript"
     ]
   },
+  "tsserver.implicitProjectConfig.checkJs": true,
   "typescript.format.semicolons": "ignore",
   "typescript.autoClosingTags": true,
   "typescript.referencesCodeLens.showOnAllFunctions": true,
