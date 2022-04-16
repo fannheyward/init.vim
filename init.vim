@@ -411,12 +411,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 vnoremap <silent> K <cmd>call CocActionAsync('doHover')<CR>
 nnoremap <silent><nowait> <space>a  :call <SID>coc_qf_diagnostic()<CR>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
-nnoremap <silent><nowait> <space>l  :<C-u>CocList lines<CR>
-nnoremap <silent><nowait> <space>q  :<C-u>CocList quickfix<CR>
 nnoremap <silent><nowait> <space>m  :<C-u>CocList -A -N mru<CR>
 nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
 nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
-nnoremap <silent><nowait> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
@@ -440,6 +437,7 @@ noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 " }}
 
 " telescope.nvim {{
+nnoremap <silent><nowait> <space>b  :<C-u>Telescope buffers<CR>
 nnoremap <silent><nowait> <space>f  :<C-u>Telescope find_files<CR>
 nnoremap <silent><nowait> <space>g  :<C-u>Telescope maple<CR>
 " }}
