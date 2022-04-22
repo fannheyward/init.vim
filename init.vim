@@ -337,6 +337,7 @@ let g:coc_global_extensions = [
       \'coc-sumneko-lua',
       \'coc-tag',
       \'coc-tsserver',
+      \'coc-typos',
       \'coc-vimlsp',
       \'coc-webview',
       \'coc-xml',
@@ -372,6 +373,9 @@ nmap <silent> gm <Plug>(coc-git-commit)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)
 
+nmap <silent> ]s <Plug>(coc-typos-next)
+nmap <silent> [s <Plug>(coc-typos-prev)
+nmap <silent> z= <Plug>(coc-typos-fix)
 nmap <silent> <expr> [c &diff ? '[c' : '<Plug>(coc-git-prevchunk)'
 nmap <silent> <expr> ]c &diff ? ']c' : '<Plug>(coc-git-nextchunk)'
 nmap <silent> <expr> <C-d> <SID>select_current_word()
