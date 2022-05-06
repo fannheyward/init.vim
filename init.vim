@@ -14,7 +14,7 @@ Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'oncomouse/nvim-colorizer.lua'
+Plug 'NvChad/nvim-colorizer.lua'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'editorconfig/editorconfig-vim'
@@ -28,6 +28,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'
+Plug 'm-demare/hlargs.nvim'
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sk1418/Join', { 'on': 'Join'}
@@ -492,6 +493,7 @@ require('mini.tabline').setup()
 require('mini.trailspace').setup()
 
 require('colorizer').setup()
+require('hlargs').setup()
 EOF
 " }}
 
