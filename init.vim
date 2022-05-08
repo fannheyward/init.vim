@@ -12,6 +12,7 @@ Plug 'honza/vim-snippets'
 Plug 'andymass/vim-matchup'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
+Plug 'vladdoster/remember.nvim'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'NvChad/nvim-colorizer.lua'
@@ -494,6 +495,7 @@ require('mini.trailspace').setup()
 
 require('colorizer').setup()
 require('hlargs').setup()
+require('remember')
 EOF
 " }}
 
