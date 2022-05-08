@@ -117,7 +117,6 @@ augroup common
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
-  autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   autocmd QuickFixCmdPost cgetexpr cwindow
   autocmd QuickFixCmdPost lgetexpr lwindow
 
