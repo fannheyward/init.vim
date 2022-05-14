@@ -1,7 +1,8 @@
 {
   "codeLens.enable": true,
+  "codeLens.position": "eol",
   "coc.preferences.extensionUpdateCheck": "daily",
-  "deno.importMap": "./import_map.json",
+  "coc.preferences.enableMessageDialog": true,
   "coc.preferences.formatOnType": true,
   "coc.preferences.willSaveHandlerTimeout": 1000,
   "coc.preferences.enableLinkedEditing": true,
@@ -22,6 +23,7 @@
     "--query-driver=/usr/bin/clang++",
     "--background-index"
   ],
+  "deno.importMap": "./import_map.json",
   "diagnostic.floatConfig": {
     "border": true
   },
@@ -80,7 +82,6 @@
   "suggest.triggerCompletionWait": 30,
   "suggest.defaultSortMethod": "none",
   "suggest.noselect": false,
-  "codeLens.position": "eol",
   "suggest.selection": "recentlyUsedByPrefix",
   "suggest.enablePreselect": true,
   "sumneko-lua.enableNvimLuaDev": true,
