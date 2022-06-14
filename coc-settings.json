@@ -72,18 +72,16 @@
   ],
   "signature.target": "echo",
   "suggest.detailField": "abbr",
+  "suggest.defaultSortMethod": "none",
+  "suggest.selection": "recentlyUsedByPrefix",
   "suggest.floatConfig": {
+    "rounded": true,
     "border": true
   },
   "signature.floatConfig": {
+    "rounded": true,
     "border": true
   },
-  "suggest.timeout": 5000,
-  "suggest.triggerCompletionWait": 30,
-  "suggest.defaultSortMethod": "none",
-  "suggest.noselect": false,
-  "suggest.selection": "recentlyUsedByPrefix",
-  "suggest.enablePreselect": true,
   "sumneko-lua.enableNvimLuaDev": true,
   "Lua.completion.callSnippet": "Both",
   "Lua.completion.postfix": ".",

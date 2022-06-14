@@ -321,7 +321,6 @@ let g:go_fmt_command = "gofumpt"
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
       \'coc-dictionary',
-      \'coc-docthis',
       \'coc-ecdict',
       \'coc-eslint',
       \'coc-git',
@@ -340,7 +339,6 @@ let g:coc_global_extensions = [
       \'coc-tsserver',
       \'coc-typos',
       \'coc-vimlsp',
-      \'coc-webview',
       \'coc-xml',
       \'coc-yaml',
       \'coc-yank'
@@ -423,6 +421,16 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
+" remap for complete to use tab and <cr>
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <silent><expr> <c-space> coc#refresh()
 
 imap <C-k> <Plug>(coc-snippets-expand)
 vmap <C-k> <Plug>(coc-snippets-select)
