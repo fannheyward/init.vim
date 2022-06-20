@@ -190,6 +190,7 @@ inoremap <C-f> <Right>
 inoremap <C-a> <Home>
 inoremap <C-n> <Down>
 inoremap <C-p> <Up>
+inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<End>"
 
 " command line mappings
 cnoremap <C-a> <Home>
@@ -405,7 +406,7 @@ inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
-      \ <SID>check_back_space() ? "\<Tab>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
