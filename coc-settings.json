@@ -25,6 +25,7 @@
   ],
   "deno.importMap": "./import_map.json",
   "diagnostic.floatConfig": {
+    "rounded": true,
     "border": true
   },
   "diagnostic.format": "%message [%source]",
@@ -44,6 +45,7 @@
     "staticcheck": true
   },
   "hover.floatConfig": {
+    "rounded": true,
     "border": true
   },
   "list.normalMappings": {
@@ -91,10 +93,6 @@
     "vim",
     "jit"
   ],
-  "Lua.IntelliSense.traceBeSetted": true,
-  "Lua.IntelliSense.traceFieldInject": true,
-  "Lua.IntelliSense.traceLocalSet": true,
-  "Lua.IntelliSense.traceReturn": true,
   "snippets.ultisnips.enable": false,
   "snippets.extends": {
     "javascriptreact": [

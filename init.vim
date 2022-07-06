@@ -89,7 +89,7 @@ let g:loaded_python3_provider = 0
 
 let g:loaded_matchit = 1
 let g:do_filetype_lua = 1
-let g:did_load_filetypes = 1
+let g:did_load_filetypes = 0
 " }} basic
 
 " autocmd {{
