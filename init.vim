@@ -188,8 +188,6 @@ inoremap <C-u> <C-G>u<C-U>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-a> <Home>
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
 inoremap <silent><expr> <C-e> coc#pum#visible() ? coc#pum#cancel() : "\<End>"
 
 " command line mappings
@@ -464,9 +462,6 @@ require('nvim-treesitter.configs').setup({
   rainbow = {
     enable = true,
   },
-  indent = {
-    enable = true
-  }
 })
 
 require("telescope").setup({
