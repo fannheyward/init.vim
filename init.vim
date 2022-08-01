@@ -76,7 +76,7 @@ set signcolumn=yes:1
 set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set pumheight=20
-set list listchars=tab:\|\ ,trail:·,eol:¬
+set list listchars=tab:\|\ ,trail:·,eol:¬,leadmultispace:---+
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
