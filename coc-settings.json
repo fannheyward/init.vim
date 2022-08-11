@@ -41,6 +41,15 @@
     "experimentalPostfixCompletions": true,
     "semanticTokens": true,
     "linksInHover": false,
+    "hints": {
+      "assignVariableTypes": true,
+      "compositeLiteralFields": true,
+      "compositeLiteralTypes": true,
+      "constantValues": true,
+      "functionTypeParameters": true,
+      "parameterNames": false,
+      "rangeVariableTypes": true
+    },
     "usePlaceholders": true,
     "staticcheck": true
   },
