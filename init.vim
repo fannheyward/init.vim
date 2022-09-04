@@ -26,9 +26,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'p00f/nvim-ts-rainbow'
-Plug 'm-demare/hlargs.nvim'
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sk1418/Join', { 'on': 'Join'}
@@ -69,7 +66,6 @@ set completeopt=menu
 set cmdheight=2
 set jumpoptions=stack
 set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 set formatexpr=CocActionAsync('formatSelected')
 set tagfunc=CocTagFunc
 set signcolumn=yes:1
@@ -452,16 +448,6 @@ require('lualine').setup({
   }
 })
 
-require('nvim-treesitter.configs').setup({
-  ensure_installed = {"typescript"}, -- one of "all", "maintained", or a list of languages
-  highlight = {
-    enable = true,
-  },
-  rainbow = {
-    enable = true,
-  },
-})
-
 require("telescope").setup({
   defaults = {
     generic_sorter = require('mini.fuzzy').get_telescope_sorter,
@@ -484,7 +470,6 @@ require('mini.tabline').setup()
 require('mini.trailspace').setup()
 
 require('colorizer').setup()
-require('hlargs').setup()
 require('remember')
 EOF
 " }}
