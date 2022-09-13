@@ -21,6 +21,7 @@
   "clangd.path": "~/bin/clangd",
   "clangd.arguments": [
     "--query-driver=/usr/bin/clang++",
+    "--header-insertion-decorators=false",
     "--background-index"
   ],
   "deno.importMap": "./import_map.json",
@@ -78,9 +79,6 @@
   "python.linting.enabled": false,
   "python.analysis.diagnosticMode": "workspace",
   "python.linting.pylintEnabled": true,
-  "semanticTokens.filetypes": [
-    "*"
-  ],
   "signature.target": "echo",
   "suggest.detailField": "abbr",
   "suggest.defaultSortMethod": "none",
@@ -102,6 +100,7 @@
     "vim",
     "jit"
   ],
+  "snippet.choicesMenuPicker": true,
   "snippets.ultisnips.enable": false,
   "snippets.extends": {
     "javascriptreact": [
