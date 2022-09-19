@@ -19,7 +19,6 @@ Plug 'NvChad/nvim-colorizer.lua'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'bronson/vim-visual-star-search'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
