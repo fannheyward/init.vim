@@ -78,7 +78,6 @@
   },
   "python.linting.enabled": false,
   "python.analysis.diagnosticMode": "workspace",
-  "python.linting.pylintEnabled": true,
   "semanticTokens.enable": true,
   "signature.target": "echo",
   "suggest.detailField": "abbr",
