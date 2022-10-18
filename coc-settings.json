@@ -24,7 +24,6 @@
     "--header-insertion-decorators=false",
     "--background-index"
   ],
-  "deno.importMap": "./import_map.json",
   "diagnostic.floatConfig": {
     "rounded": true,
     "border": true
