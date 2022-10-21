@@ -438,6 +438,7 @@ nnoremap <silent><nowait> <space>g  :<C-u>Telescope maple<CR>
 
 " Lua {{
 lua <<EOF
+require('hlslens').setup()
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({
   options = {
