@@ -99,7 +99,6 @@
     "vim",
     "jit"
   ],
-  "snippet.choicesMenuPicker": true,
   "snippets.ultisnips.enable": false,
   "snippets.extends": {
     "javascriptreact": [
