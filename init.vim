@@ -15,7 +15,6 @@ Plug 'kevinhwang91/nvim-bqf'
 Plug 'vladdoster/remember.nvim'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'NvChad/nvim-colorizer.lua'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'editorconfig/editorconfig-vim'
@@ -317,6 +316,7 @@ let g:coc_global_extensions = [
       \'coc-git',
       \'coc-go',
       \'coc-html',
+      \'coc-highlight',
       \'coc-json',
       \'coc-lists',
       \'coc-markdownlint',
@@ -470,7 +470,6 @@ require('mini.surround').setup()
 require('mini.tabline').setup()
 require('mini.trailspace').setup()
 
-require('colorizer').setup()
 require('remember')
 EOF
 " }}

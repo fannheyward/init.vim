@@ -6,17 +6,7 @@
   "coc.preferences.formatOnType": true,
   "coc.preferences.willSaveHandlerTimeout": 1000,
   "coc.preferences.enableLinkedEditing": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "c",
-    "go",
-    "python",
-    "rust",
-    "markdown",
-    "javascript",
-    "typescript",
-    "json",
-    "jsonc"
-  ],
+  "coc.preferences.formatOnSave": true,
   "coc.source.file.ignoreHidden": false,
   "clangd.path": "~/bin/clangd",
   "clangd.arguments": [
