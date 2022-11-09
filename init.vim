@@ -55,6 +55,7 @@ set cursorline
 set matchpairs+=<:>
 set ignorecase
 set smartcase
+set diffopt+=linematch:50
 set switchbuf=useopen,usetab
 set updatetime=100
 set inccommand=split
