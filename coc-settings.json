@@ -67,6 +67,8 @@
   },
   "python.linting.enabled": false,
   "python.analysis.diagnosticMode": "workspace",
+  "pullDiagnostic.onChange": false,
+  "pullDiagnostic.onSave": true,
   "semanticTokens.enable": true,
   "signature.target": "echo",
   "suggest.detailField": "abbr",
@@ -99,6 +101,7 @@
     ]
   },
   "tsserver.implicitProjectConfig.checkJs": true,
+  "tsserver.experimental.enableProjectDiagnostics": true,
   "typescript.format.semicolons": "ignore",
   "typescript.autoClosingTags": true,
   "typescript.referencesCodeLens.showOnAllFunctions": true,
