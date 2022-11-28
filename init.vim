@@ -23,6 +23,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'kevinhwang91/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sk1418/Join', { 'on': 'Join'}
@@ -169,6 +170,7 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
+nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
 
 " insert mode
 inoremap <C-c> <ESC>
@@ -373,13 +375,18 @@ nmap <silent> <expr> <C-d> <SID>select_current_word()
 nmap <silent> <C-c> <Plug>(coc-cursors-position)
 xmap <silent> <C-d> <Plug>(coc-cursors-range)
 
-nmap <leader>l  <Plug>(coc-codelens-action)
+nmap <leader>l  <Plug>(coc-openlink)
+nmap <leader>c  <Plug>(coc-codelens-action)
 nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>rf <Plug>(coc-refactor)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+nmap <silent> <leader>re <Plug>(coc-codeaction-refactor)
+xmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
+nmap <silent> <leader>r  <Plug>(coc-codeaction-refactor-selected)
 
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
@@ -439,6 +446,11 @@ nnoremap <silent><nowait> <space>g  :<C-u>Telescope maple<CR>
 
 " Lua {{
 lua <<EOF
+require('nvim-treesitter.configs').setup({
+  highlight = {
+    enable = true,
+  },
+})
 require('hlslens').setup()
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({

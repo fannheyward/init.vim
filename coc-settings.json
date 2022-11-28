@@ -47,6 +47,8 @@
     "rounded": true,
     "border": true
   },
+  "links.tooltip": true,
+  "links.highlight": true,
   "list.normalMappings": {
     "<C-c>": "do:exit"
   },
@@ -67,6 +69,7 @@
   },
   "python.linting.enabled": false,
   "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.stubPath": "~/src/python-type-stubs",
   "pullDiagnostic.onChange": false,
   "pullDiagnostic.onSave": true,
   "semanticTokens.enable": true,
@@ -100,6 +103,7 @@
       "javascript"
     ]
   },
+  "tsserver.useLocalTsdk": true,
   "tsserver.implicitProjectConfig.checkJs": true,
   "tsserver.experimental.enableProjectDiagnostics": true,
   "typescript.format.semicolons": "ignore",
