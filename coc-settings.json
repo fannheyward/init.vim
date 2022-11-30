@@ -77,6 +77,7 @@
   "suggest.detailField": "abbr",
   "suggest.defaultSortMethod": "none",
   "suggest.selection": "recentlyUsedByPrefix",
+  "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.floatConfig": {
     "rounded": true,
     "border": true

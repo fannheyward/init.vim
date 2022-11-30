@@ -6,7 +6,6 @@ endif
 
 call plug#begin()
 Plug 'zef/vim-cycle'
-Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'andymass/vim-matchup'
@@ -451,7 +450,9 @@ require('nvim-treesitter.configs').setup({
     enable = true,
   },
 })
-require('hlslens').setup()
+require('hlslens').setup({
+  calm_down = true,
+})
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({
   options = {
