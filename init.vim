@@ -309,7 +309,6 @@ let g:go_fmt_command = "gofumpt"
 
 " coc.nvim {{
 let g:copilot_no_tab_map = v:true
-let g:copilot_node_command = '/opt/homebrew/opt/node@16/bin/node'
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
       \'coc-dictionary',

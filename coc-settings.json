@@ -67,7 +67,8 @@
   "python.formatting.blackdHTTPHeaders": {
     "X-Fast-Or-Safe": "fast"
   },
-  "python.linting.enabled": false,
+  "python.linting.enabled": true,
+  "python.linting.ruffEnabled": true,
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.stubPath": "~/src/python-type-stubs",
   "pullDiagnostic.onChange": false,
