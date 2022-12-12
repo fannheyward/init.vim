@@ -6,6 +6,7 @@ endif
 
 call plug#begin()
 Plug 'zef/vim-cycle'
+Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'andymass/vim-matchup'
@@ -139,7 +140,7 @@ command! -nargs=0 C             CocConfig
 command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
 command! -nargs=0 Prettier      CocCommand prettier.formatFile
-command! -nargs=0 CocOutput     CocCommand workspace.showOutput
+command! -nargs=0 CocDebug      CocCommand workspace.showOutput
 command! -nargs=0 FixWhitespace lua MiniTrailspace.trim()
 
 command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
@@ -449,9 +450,7 @@ require('nvim-treesitter.configs').setup({
     enable = true,
   },
 })
-require('hlslens').setup({
-  calm_down = true,
-})
+require('hlslens').setup()
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({
   options = {
@@ -463,6 +462,13 @@ require('lualine').setup({
 })
 
 require("telescope").setup({
+  pickers = {
+    live_grep = {
+      mappings = {
+        i = { ["<c-f>"] = require('telescope.actions').to_fuzzy_refine },
+      },
+    },
+  },
   defaults = {
     generic_sorter = require('mini.fuzzy').get_telescope_sorter,
     mappings = {
