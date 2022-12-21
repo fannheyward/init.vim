@@ -5,6 +5,8 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug '/opt/homebrew/opt/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
@@ -20,10 +22,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'kevinhwang91/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sk1418/Join', { 'on': 'Join'}
@@ -174,6 +172,7 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
+nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
 
 " insert mode
@@ -197,7 +196,6 @@ cnoremap <C-h> <BS>
 cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
-nmap g<Enter> :Telescope<CR>
 tnoremap <Esc> <C-\><C-n>
 " }} mappings
 
@@ -246,7 +244,7 @@ function! CopyFloatText() abort
 endfunction
 
 if executable("rg")
-  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 endif
 
 function! s:grep_to_qf(...) abort
@@ -346,8 +344,6 @@ let g:coc_filetype_map = {
       \ }
 
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
-set runtimepath^=~/src/telescope-coc.nvim
-set runtimepath^=~/src/telescope-maple.nvim
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
 " set runtimepath^=~/src/coc-pylance
@@ -423,7 +419,6 @@ nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
 nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>S  :exe 'CocList -A --normal grep '.expand('<cword>').''<CR>
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
@@ -441,21 +436,10 @@ noremap g* g*<Cmd>lua require('hlslens').start()<CR>
 noremap g# g#<Cmd>lua require('hlslens').start()<CR>
 " }}
 
-" telescope.nvim {{
-nnoremap <silent><nowait> <space>b  :<C-u>Telescope buffers<CR>
-nnoremap <silent><nowait> <space>f  :<C-u>Telescope find_files<CR>
-nnoremap <silent><nowait> <space>g  :<C-u>Telescope maple<CR>
-" }}
-
 " Lua {{
 lua <<EOF
-require('nvim-treesitter.configs').setup({
-  highlight = {
-    enable = true,
-  },
-})
-require('hlslens').setup()
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
+require('hlslens').setup()
 require('lualine').setup({
   options = {
     globalstatus = true
@@ -465,29 +449,6 @@ require('lualine').setup({
   }
 })
 
-require("telescope").setup({
-  pickers = {
-    live_grep = {
-      mappings = {
-        i = { ["<c-f>"] = require('telescope.actions').to_fuzzy_refine },
-      },
-    },
-  },
-  defaults = {
-    generic_sorter = require('mini.fuzzy').get_telescope_sorter,
-    mappings = {
-      i = {
-        ["<esc>"] = require("telescope.actions").close,
-        ["<C-j>"] = require("telescope.actions").move_selection_next,
-        ["<C-k>"] = require("telescope.actions").move_selection_previous,
-      }
-    }
-  }
-})
-require('telescope').load_extension('coc')
-require('telescope').load_extension('maple')
-
-require('mini.fuzzy').setup()
 require('mini.comment').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
