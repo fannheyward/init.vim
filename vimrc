@@ -151,6 +151,8 @@ nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent><nowait> <space>b  :<C-u>CocList -A -N --normal buffers<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <space>s  :exe 'CocList -I --normal --input='.expand('<cword>').' grep'<CR>
+nnoremap <silent><nowait> <space>S  :exe 'CocList -I --normal --input='.expand('<cword>').' words'<CR>
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)

@@ -171,6 +171,7 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
+nnoremap <silent><nowait> <space>f  :Files<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
 nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
