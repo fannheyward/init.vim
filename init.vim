@@ -76,6 +76,14 @@ setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+let loaded_matchit = 1
+let loaded_spellfile_plugin = 1
+let g:loaded_tar = 1
+let g:loaded_tarPlugin = 1
+let g:loaded_zip = 1
+let g:loaded_zipPlugin = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 let g:loaded_matchit = 1
 let g:loaded_node_provider = 0
 let g:loaded_ruby_provider = 0
@@ -116,8 +124,6 @@ augroup common
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocLocationsChange call s:coc_qf_jump2loc(g:coc_jump_locations)
 
-  autocmd BufWritePre *.go silent! :call CocAction('runCommand', 'editor.action.organizeImport')
-
   " set up default omnifunc
   autocmd FileType *
         \ if &omnifunc == "" |
@@ -151,8 +157,6 @@ command! -nargs=0 Format        call CocAction('format')
 command! -nargs=0 Fold          call CocAction('fold')
 command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
 command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.organizeImport')
-command! -nargs=0 Tsc           call CocAction('runCommand', 'tsserver.watchBuild')
-command! -nargs=0 Jest          call CocActionAsync('runCommand', 'jest.fileTest', ['%'])
 command! -nargs=0 VSCode        execute ":!code -g %:p\:" . line('.') . ":" . col('.')
 " }} command
 
@@ -359,8 +363,8 @@ nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gA <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codeaction-line)
 nmap <silent> ga <Plug>(coc-codeaction-cursor)
-nmap <silent> gk <Plug>(coc-fix-current)
-nmap <silent> gs <Plug>(coc-git-chunkinfo)
+nmap <silent> gs <Plug>(coc-fix-current)
+nmap <silent> gk <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)

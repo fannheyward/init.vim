@@ -77,7 +77,7 @@ command! -nargs=0 C             CocConfig
 command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
 command! -nargs=0 Prettier      CocCommand prettier.formatFile
-command! -nargs=0 CocOutput     CocCommand workspace.showOutput
+command! -nargs=0 CocDebug      CocCommand workspace.showOutput
 
 command! -nargs=0 JSONPretty    %!python -m json.tool
 command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME
@@ -98,8 +98,8 @@ nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gA <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codeaction-line)
 nmap <silent> ga <Plug>(coc-codeaction-cursor)
-nmap <silent> gk <Plug>(coc-fix-current)
-nmap <silent> gs <Plug>(coc-git-chunkinfo)
+nmap <silent> gs <Plug>(coc-fix-current)
+nmap <silent> gk <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)
@@ -216,8 +216,6 @@ augroup common
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocQuickfixChange :CocList --normal quickfix
-
-  autocmd BufWritePre *.go silent! :call CocAction('runCommand', 'editor.action.organizeImport')
 
   " set up default omnifunc
   autocmd FileType *

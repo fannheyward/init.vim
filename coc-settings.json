@@ -1,4 +1,5 @@
 {
+  "colors.enable": true,
   "codeLens.enable": true,
   "codeLens.position": "eol",
   "coc.preferences.extensionUpdateCheck": "daily",
