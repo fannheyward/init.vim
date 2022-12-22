@@ -70,6 +70,44 @@ setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+hi! link @punctuation.delimiter Delimiter
+hi! link @punctuation.bracket DraculaFg
+hi! link @punctuation.special Special
+hi! link @constant Constant
+hi! link @constant.builtin Constant
+hi! link @constant.macro Macro
+hi! link @string.regex String
+hi! link @string.escape Character
+hi! link @symbol DraculaPurple
+hi! link @annotation DraculaYellow
+hi! link @attribute DraculaGreenItalic
+hi! link @namespace Structure
+hi! link @function.builtin DraculaCyan
+hi! link @function.macro Function
+hi! link @parameter DraculaOrangeItalic
+hi! link @parameter.reference DraculaOrange
+hi! link @field DraculaOrange
+hi! link @property DraculaFg
+hi! link @constructor DraculaCyan
+hi! link @label DraculaPurpleItalic
+hi! link @keyword.function DraculaPink
+hi! link @keyword.operator Operator
+hi! link @exception DraculaPurple
+hi! link @variable DraculaFg
+hi! link @variable.builtin DraculaPurpleItalic
+hi! link @text DraculaFg
+hi! link @text.strong DraculaFgBold
+hi! link @text.emphasis DraculaFg
+hi! link @text.underline Underlined
+hi! link @text.title DraculaYellow
+hi! link @text.literal DraculaYellow
+hi! link @text.uri DraculaYellow
+hi! link @text.diff.add DiffAdd
+hi! link @text.diff.delete DiffDelete
+hi! link @tag DraculaCyan
+hi! link @tag.delimiter DraculaFg
+hi! link @tag.attribute DraculaGreenItalic
+
 let loaded_matchit = 1
 let loaded_spellfile_plugin = 1
 let g:loaded_tar = 1
