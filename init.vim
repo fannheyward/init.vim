@@ -21,7 +21,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lock
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'sk1418/Join', { 'on': 'Join'}
 Plug 'ggVGc/vim-fuzzysearch', { 'on': 'FuzzySearch' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
