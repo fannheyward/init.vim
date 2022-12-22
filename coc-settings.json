@@ -26,7 +26,6 @@
   "eslint.autoFixOnSave": true,
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
-  "git.addGBlameToVirtualText": true,
   "go.goplsPath": "gopls",
   "go.goplsOptions": {
     "experimentalPostfixCompletions": true,

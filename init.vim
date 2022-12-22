@@ -6,16 +6,13 @@ endif
 
 call plug#begin()
 Plug '/opt/homebrew/opt/fzf'
-Plug 'junegunn/fzf.vim'
 Plug 'zef/vim-cycle'
 Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
-Plug 'andymass/vim-matchup'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'vladdoster/remember.nvim'
-Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -171,7 +168,7 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
-nnoremap <silent><nowait> <space>f  :Files<CR>
+nnoremap <silent><nowait> <space>f  :FZF<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
 nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
@@ -428,19 +425,9 @@ nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
 " }} coc.nvim
 
-" nvim-hlslens {{
-noremap <silent> n <Cmd>execute('normal! ' . v:count1 . 'n')<CR>
-      \<Cmd>lua require('hlslens').start()<CR>
-noremap <silent> N <Cmd>execute('normal! ' . v:count1 . 'N')<CR>
-      \<Cmd>lua require('hlslens').start()<CR>
-noremap g* g*<Cmd>lua require('hlslens').start()<CR>
-noremap g# g#<Cmd>lua require('hlslens').start()<CR>
-" }}
-
 " Lua {{
 lua <<EOF
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
-require('hlslens').setup()
 require('lualine').setup({
   options = {
     globalstatus = true
