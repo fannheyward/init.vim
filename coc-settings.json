@@ -6,6 +6,7 @@
   "coc.preferences.enableMessageDialog": true,
   "coc.preferences.formatOnType": true,
   "coc.preferences.willSaveHandlerTimeout": 1000,
+  "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.enableLinkedEditing": true,
   "coc.preferences.formatOnSave": true,
   "coc.source.file.ignoreHidden": false,

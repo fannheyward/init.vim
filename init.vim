@@ -283,7 +283,7 @@ if executable("rg")
 endif
 
 function! s:grep_to_qf(...) abort
-  return system(join([&grepprg] + [expandcmd(join(a:000, ' '))], ' '))
+  return system(join([&grepprg] + [a:1] + [expandcmd(join(a:000[1:-1], ' '))], ' '))
 endfunction
 
 " nvim-bqf
