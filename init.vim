@@ -7,11 +7,11 @@ endif
 call plug#begin()
 Plug '/opt/homebrew/opt/fzf'
 Plug 'zef/vim-cycle'
-Plug 'romainl/vim-cool'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
+Plug 'kevinhwang91/nvim-hlslens'
 Plug 'vladdoster/remember.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ludovicchabant/vim-gutentags'
@@ -147,7 +147,6 @@ augroup common
   autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
   autocmd FileType list lua require('bqf.magicwin.handler').attach()
 
-  autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
   autocmd QuickFixCmdPost cgetexpr cwindow
   autocmd QuickFixCmdPost lgetexpr lwindow
@@ -480,6 +479,16 @@ require('mini.tabline').setup()
 require('mini.trailspace').setup()
 
 require('remember')
+
+require('hlslens').setup({ calm_down = true })
+local kopts = { noremap = true, silent = true }
+
+vim.api.nvim_set_keymap('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 EOF
 " }}
 
