@@ -16,7 +16,6 @@ Plug 'vladdoster/remember.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
