@@ -131,6 +131,7 @@ augroup common
   autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
   autocmd BufNewFile,BufRead *.jsx setlocal filetype=javascript.jsx
   autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
+  autocmd BufNewFile,BufRead deno.lock setlocal filetype=json
   autocmd BufNewFile,BufRead go.work.sum setlocal filetype=gosum
   autocmd BufNewFile,BufRead go.work setlocal filetype=gowork
 
