@@ -12,7 +12,6 @@ Plug 'honza/vim-snippets'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'kevinhwang91/nvim-hlslens'
-Plug 'vladdoster/remember.nvim'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'kyazdani42/nvim-web-devicons'
@@ -473,12 +472,11 @@ require('lualine').setup({
   }
 })
 
+require('mini.misc').setup_restore_cursor()
 require('mini.comment').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
 require('mini.trailspace').setup()
-
-require('remember')
 
 require('hlslens').setup({ calm_down = true })
 local kopts = { noremap = true, silent = true }
