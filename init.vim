@@ -1,4 +1,4 @@
-" plug.vim {{
+" plug.vim {{{{
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
         \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -24,9 +24,9 @@ Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 call plug#end()
-" }} plug.vim
+" }}}} plug.vim
 
-" basic {{
+" basic {{{{
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
@@ -120,9 +120,9 @@ let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_python_provider = 0
 let g:loaded_python3_provider = 0
-" }} basic
+" }}}} basic
 
-" autocmd {{
+" autocmd {{{{
 augroup common
   autocmd!
   autocmd BufNewFile,BufRead *.jl setlocal filetype=julia
@@ -160,9 +160,9 @@ augroup common
         \    setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
 augroup end
-" }} autocmd
+" }}}} autocmd
 
-" command {{
+" command {{{{
 command! -nargs=0 E     e
 command! -nargs=0 Q     q
 command! -nargs=0 Qa    qa
@@ -188,9 +188,9 @@ command! -nargs=0 Fold          call CocAction('fold')
 command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
 command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.organizeImport')
 command! -nargs=0 VSCode        execute ":!code -g %:p\:" . line('.') . ":" . col('.')
-" }} command
+" }}}} command
 
-" mappings {{
+" mappings {{{{
 map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<CR>
 map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<CR>
 setl dictionary+=$HOME/.config/nvim/dev.dict
@@ -230,9 +230,9 @@ cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
-" }} mappings
+" }}}} mappings
 
-" functions {{
+" functions {{{{
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -312,9 +312,9 @@ function! s:coc_qf_jump2loc(locs) abort
     call win_gotoid(winid)
   endif
 endfunction
-" }} functions
+" }}}} functions
 
-" wildignore {{
+" wildignore {{{{
 set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib
 set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
 set wildignore+=*.log,*.pyc,*.sqlite,*.sqlite3,*.min.js,*.min.css,*.tags
@@ -325,25 +325,21 @@ set wildignore+=*.mp4,*.avi,*.flv,*.mov,*.mkv,*.swf,*.swc
 set wildignore+=*.ppt,*.pptx,*.doc,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
 set wildignore+=*/.git/*,*/.svn/*,*.DS_Store
 set wildignore+=*/node_modules/*,*/nginx_runtime/*,*/build/*,*/logs/*,*/dist/*,*/tmp/*
-" }} wildignore
+" }}}} wildignore
 
-" vim-gutentags {{
+" vim-gutentags {{{{
 set tags=./.tags;,.tags
 let g:gutentags_project_root = ['.root', '.git', '.svn', '.hg', '.project']
 let g:gutentags_ctags_tagfile = '.tags'
 let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 let g:gutentags_ctags_exclude = ['*.md', '*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
-" }} vim-gutentags
+" }}}} vim-gutentags
 
-" vim-rooter {{
-let g:rooter_patterns = ['.root', 'package.json', '.git/']
-" }} vim-rooter
-
-" go.vim {{
+" go.vim {{{{
 let g:go_fmt_command = "gofumpt"
-" }} go.vim
+" }}}} go.vim
 
-" coc.nvim {{
+" coc.nvim {{{{
 let g:copilot_no_tab_map = v:true
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
@@ -458,9 +454,9 @@ imap <C-k> <Plug>(coc-snippets-expand)
 vmap <C-k> <Plug>(coc-snippets-select)
 nmap <silent> <C-s> <Plug>(coc-range-select)
 xmap <silent> <C-s> <Plug>(coc-range-select)
-" }} coc.nvim
+" }}}} coc.nvim
 
-" Lua {{
+" Lua {{{{
 lua <<EOF
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({
@@ -488,6 +484,6 @@ vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], 
 vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
 vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 EOF
-" }}
+" }}}} Lua
 
-" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
+" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{{{,}}}} foldmethod=marker foldlevel=0:
