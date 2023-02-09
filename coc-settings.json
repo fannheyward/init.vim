@@ -29,6 +29,9 @@
   "eslint.packageManager": "yarn",
   "go.goplsPath": "gopls",
   "go.goplsOptions": {
+    "codelenses": {
+      "test": true
+    },
     "experimentalPostfixCompletions": true,
     "semanticTokens": true,
     "linksInHover": false,
@@ -92,7 +95,6 @@
   "Lua.completion.callSnippet": "Both",
   "Lua.completion.postfix": ".",
   "Lua.runtime.version": "LuaJIT",
-  "Lua.telemetry.enable": false,
   "Lua.diagnostics.globals": [
     "vim",
     "jit"
