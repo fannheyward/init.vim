@@ -7,14 +7,16 @@ endif
 call plug#begin()
 Plug '/opt/homebrew/opt/fzf'
 Plug 'zef/vim-cycle'
+Plug 'tpope/vim-sleuth'
+Plug 'ibhagwan/fzf-lua'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'kyazdani42/nvim-web-devicons'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
