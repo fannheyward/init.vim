@@ -5,7 +5,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug '/opt/homebrew/opt/fzf'
 Plug 'zef/vim-cycle'
 Plug 'tpope/vim-sleuth'
 Plug 'ibhagwan/fzf-lua'
@@ -205,7 +204,7 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
-nnoremap <silent><nowait> <space>f  :FZF<CR>
+nnoremap <silent><nowait> <space>f  :FzfLua files<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
 nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
@@ -460,6 +459,7 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Lua {{{{
 lua <<EOF
+require('fzf-lua').setup({ fzf_opts = { ["--layout"] = "default" } })
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({
   options = {
