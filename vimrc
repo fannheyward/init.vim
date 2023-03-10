@@ -30,6 +30,7 @@ match ExtraWhitespace /\s\+$/
 
 set runtimepath^=~/.local/share/nvim/plugged/coc.nvim
 set runtimepath^=~/.local/share/nvim/plugged/dracula
+set runtimepath^=~/.local/share/nvim/plugged/vim-sleuth
 syntax on
 set termguicolors
 colorscheme dracula
