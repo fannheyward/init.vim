@@ -27,7 +27,7 @@
   "eslint.autoFixOnSave": true,
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
-  "go.goplsPath": "gopls",
+  "go.goplsPath": "/opt/homebrew/bin/gopls",
   "go.goplsOptions": {
     "codelenses": {
       "test": true
@@ -67,6 +67,7 @@
     "default": true,
     "line-length": false
   },
+  "notification.statusLineProgress": true,
   "python.formatting.provider": "black",
   "python.formatting.blackdHTTPHeaders": {
     "X-Fast-Or-Safe": "fast"
@@ -108,6 +109,11 @@
       "javascript"
     ]
   },
+  "workspace.ignoredFolders": [
+    "$HOME",
+    "$HOME/.cargo/**",
+    "$HOME/.rustup/**"
+  ],
   "tsserver.useLocalTsdk": true,
   "tsserver.implicitProjectConfig.checkJs": true,
   "tsserver.experimental.enableProjectDiagnostics": true,
