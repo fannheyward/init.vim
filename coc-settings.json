@@ -112,7 +112,9 @@
   "workspace.ignoredFolders": [
     "$HOME",
     "$HOME/.cargo/**",
-    "$HOME/.rustup/**"
+    "$HOME/.rustup/**",
+    "$HOMEBREW_PREFIX",
+    "$HOMEBREW_PREFIX/**"
   ],
   "tsserver.useLocalTsdk": true,
   "tsserver.implicitProjectConfig.checkJs": true,
