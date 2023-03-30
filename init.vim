@@ -135,6 +135,7 @@ command! -nargs=0 Wa    wa
 command! -nargs=0 Wqa   wqa
 command! -nargs=0 WQa   wqa
 
+command! -nargs=0 F             FzfLua
 command! -nargs=0 C             CocConfig
 command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
