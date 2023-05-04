@@ -68,6 +68,7 @@
     "line-length": false
   },
   "notification.statusLineProgress": true,
+  "pyright.organizeimports.provider": "ruff",
   "python.formatting.provider": "black",
   "python.formatting.blackdHTTPHeaders": {
     "X-Fast-Or-Safe": "fast"
@@ -113,6 +114,7 @@
     "$HOME",
     "$HOME/.cargo/**",
     "$HOME/.rustup/**",
+    "$HOME/pkg/mod/**",
     "$HOMEBREW_PREFIX",
     "$HOMEBREW_PREFIX/**"
   ],
