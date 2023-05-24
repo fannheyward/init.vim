@@ -41,7 +41,7 @@
       "compositeLiteralTypes": true,
       "constantValues": true,
       "functionTypeParameters": true,
-      "parameterNames": false,
+      "parameterNames": true,
       "rangeVariableTypes": true
     },
     "usePlaceholders": true,
@@ -54,9 +54,13 @@
   "links.tooltip": true,
   "links.highlight": true,
   "list.normalMappings": {
+    "<C-n>": "do:previewdown",
+    "<C-p>": "do:previewup",
     "<C-c>": "do:exit"
   },
   "list.insertMappings": {
+    "<C-n>": "do:previewdown",
+    "<C-p>": "do:previewup",
     "<C-c>": "do:exit"
   },
   "list.source.grep.useLiteral": false,
