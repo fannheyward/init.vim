@@ -151,7 +151,8 @@ command! -nargs=0 Format        call CocAction('format')
 command! -nargs=0 Fold          call CocAction('fold')
 command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
 command! -nargs=0 OR            call CocAction('runCommand', 'editor.action.organizeImport')
-command! -nargs=0 VSCode        execute ":!code -g %:p\:" . line('.') . ":" . col('.')
+command! -nargs=0 VSCode        silent! execute ":!code -g %:p\:" . line('.') . ":" . col('.')
+command! -nargs=0 BOnly         silent! execute "%bd\|e#\|bd#"
 " }}}} command
 
 " mappings {{{{
