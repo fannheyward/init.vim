@@ -12,9 +12,17 @@
   "coc.source.file.ignoreHidden": false,
   "clangd.path": "~/bin/clangd",
   "clangd.arguments": [
+    "--all-scopes-completion",
+    "--background-index",
+    "--clang-tidy",
+    "--clang-tidy-checks=performance-*, bugprone-*, misc-*, google-*, modernize-*, readability-*, portability-*",
+    "--completion-parse=auto",
+    "--completion-style=detailed",
+    "--function-arg-placeholders=true",
     "--query-driver=/usr/bin/clang++",
     "--header-insertion-decorators=false",
-    "--background-index"
+    "--header-insertion=iwyu",
+    "-j=8"
   ],
   "diagnostic.floatConfig": {
     "rounded": true,

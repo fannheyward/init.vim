@@ -58,7 +58,7 @@ set completeopt=menu
 set cmdheight=2
 set jumpoptions=stack
 set foldmethod=expr
-set formatexpr=CocActionAsync('formatSelected')
+set formatexpr=CocAction('formatSelected')
 set tagfunc=CocTagFunc
 set signcolumn=yes:1
 set shortmess+=c
@@ -427,7 +427,7 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 " Lua {{{{
 lua <<EOF
 vim.loader.enable()
-require('fzf-lua').setup({ fzf_opts = { ["--layout"] = "default", ["--delimiter / --nth -1,.."] ="" } })
+require('fzf-lua').setup({ winopts={ preview = { hidden = 'hidden' } }, fzf_opts = { ["--layout"] = "default", ["--delimiter / --nth -1,.."] ="" } })
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({
   options = {
