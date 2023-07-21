@@ -5,6 +5,7 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
+Plug 'junegunn/fzf'
 Plug 'zef/vim-cycle'
 Plug 'tpope/vim-sleuth'
 Plug 'ibhagwan/fzf-lua'
