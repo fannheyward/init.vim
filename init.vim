@@ -145,7 +145,7 @@ command! -nargs=0 FixWhitespace lua MiniTrailspace.trim()
 
 command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
 command! -nargs=0 JSONPretty    %!python3 -m json.tool
-command! -nargs=0 Todos         CocList -A --normal grep -e TODO|FIXME|FIX|FIXIT|BUG|HACK|XXX
+command! -nargs=0 Todos         CocList -A --normal grep -w TODO|FIXME|FIX|FIXIT|BUG|HACK|XXX
 command! -nargs=0 Status        CocList -A --normal gstatus
 command! -nargs=0 Format        call CocAction('format')
 command! -nargs=0 Fold          call CocAction('fold')
