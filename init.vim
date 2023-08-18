@@ -428,7 +428,11 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 " Lua {{{{
 lua <<EOF
 vim.loader.enable()
-require('fzf-lua').setup({ winopts={ preview = { hidden = 'hidden' } }, fzf_opts = { ["--layout"] = "default", ["--delimiter / --nth -1,.."] ="" } })
+require('fzf-lua').setup({
+  commands = { sort_lastused = true },
+  winopts = { preview = { hidden = 'hidden' } },
+  fzf_opts = { ["--layout"] = "default", ["--delimiter / --nth -1,.."] = "" },
+})
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({
   options = {
