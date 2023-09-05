@@ -17,7 +17,7 @@ Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'ludovicchabant/vim-gutentags'
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'dracula/vim', { 'as': 'dracula' }
