@@ -331,7 +331,6 @@ let g:coc_global_extensions = [
       \'coc-tag',
       \'coc-tsserver',
       \'coc-typos',
-      \'coc-vimlsp',
       \'coc-xml',
       \'coc-yaml',
       \'coc-yank'
