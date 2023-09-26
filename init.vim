@@ -65,6 +65,7 @@ set signcolumn=yes:1
 set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set pumheight=20
+set jumpoptions=stack
 set list listchars=tab:\|\ ,trail:·,eol:¬,leadmultispace:---+
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -170,7 +171,7 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent><nowait> <space>f  :FzfLua files<CR>
-nnoremap <silent><nowait> <space>g  :FzfLua<CR>
+nnoremap <silent><nowait> <space>g  :FzfLua live_grep_native<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
 nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
@@ -355,9 +356,10 @@ nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gA <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codeaction-line)
+nmap <silent> gs <Plug>(coc-codeaction-source)
 nmap <silent> ga <Plug>(coc-codeaction-cursor)
-nmap <silent> gs <Plug>(coc-fix-current)
-nmap <silent> gk <Plug>(coc-git-chunkinfo)
+nmap <silent> gk <Plug>(coc-fix-current)
+nmap <silent> go <Plug>(coc-git-chunkinfo)
 nmap <silent> gm <Plug>(coc-git-commit)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)
