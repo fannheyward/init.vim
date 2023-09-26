@@ -13,6 +13,7 @@ Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
+Plug 'azabiong/vim-highlighter'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
@@ -305,6 +306,22 @@ let g:gutentags_ctags_extra_args = ['--output-format=e-ctags']
 let g:gutentags_ctags_exclude = ['*.md', '*.json', '*.js', '*.ts', '*.jsx', '*.css', '*.less', '*.sass', '*.go', '*.dart', 'node_modules', 'dist', 'vendor']
 " }}}} vim-gutentags
 
+" vim-highlighter {{{{
+let HiFindTool = 'rg -H --color=never --no-heading --column --smart-case'
+nnoremap <CR>   <Cmd>Hi><CR>
+nnoremap g<CR>  <Cmd>Hi<<CR>
+nnoremap -      <Cmd>call <SID>HiOptional('next', '-')<CR>
+nnoremap _      <Cmd>call <SID>HiOptional('previous', '_')<CR>
+nnoremap f-     <Cmd>call <SID>HiOptional('close', 'f-')<CR>
+
+function s:HiOptional(cmd, key)
+  if HiFind()
+    exe "Hi" a:cmd
+  else
+    exe "normal!" a:key
+  endif
+endfunction
+" }}}}
 " go.vim {{{{
 let g:go_fmt_command = "gofumpt"
 " }}}} go.vim
