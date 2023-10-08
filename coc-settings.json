@@ -70,7 +70,7 @@
     "staticcheck": true,
     "usePlaceholders": true
   },
-  "go.goplsPath": "/opt/homebrew/bin/gopls",
+  "go.goplsPath": "gopls",
   "hover.floatConfig": {
     "border": true,
     "rounded": true
