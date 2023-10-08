@@ -330,6 +330,7 @@ let g:go_fmt_command = "gofumpt"
 let g:copilot_no_tab_map = v:true
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
+      \'coc-biome',
       \'coc-dictionary',
       \'coc-ecdict',
       \'coc-eslint',
