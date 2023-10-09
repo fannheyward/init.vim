@@ -322,6 +322,7 @@ function s:HiOptional(cmd, key)
   endif
 endfunction
 " }}}}
+
 " go.vim {{{{
 let g:go_fmt_command = "gofumpt"
 " }}}} go.vim
