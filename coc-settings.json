@@ -114,7 +114,7 @@
   "python.formatting.blackdHTTPHeaders": {
     "X-Fast-Or-Safe": "fast"
   },
-  "python.formatting.provider": "black",
+  "python.formatting.provider": "ruff",
   "python.linting.enabled": true,
   "python.linting.ruffEnabled": true,
   "rust-analyzer.server.path": "ra-multiplex",

@@ -308,8 +308,6 @@ let g:gutentags_ctags_exclude = ['*.md', '*.json', '*.js', '*.ts', '*.jsx', '*.c
 
 " vim-highlighter {{{{
 let HiFindTool = 'rg -H --color=never --no-heading --column --smart-case'
-nnoremap <CR>   <Cmd>Hi><CR>
-nnoremap g<CR>  <Cmd>Hi<<CR>
 nnoremap -      <Cmd>call <SID>HiOptional('next', '-')<CR>
 nnoremap _      <Cmd>call <SID>HiOptional('previous', '_')<CR>
 nnoremap f-     <Cmd>call <SID>HiOptional('close', 'f-')<CR>
@@ -467,6 +465,8 @@ require('mini.misc').setup_restore_cursor()
 require('mini.comment').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
+require('mini.bufremove').setup()
+require('mini.statusline').setup({ set_vim_settings = false })
 require('mini.trailspace').setup()
 
 require('hlslens').setup({ calm_down = true })
