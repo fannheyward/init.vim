@@ -21,7 +21,6 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 " Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
@@ -174,8 +173,8 @@ nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent><nowait> <space>f  :FzfLua files<CR>
 nnoremap <silent><nowait> <space>g  :FzfLua live_grep_native<CR>
-nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
-nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
+nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf('-w', expand('<cword>'))<CR>
+nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf('-w', expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
