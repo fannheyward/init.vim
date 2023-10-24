@@ -5,7 +5,6 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'junegunn/fzf'
 Plug 'zef/vim-cycle'
 Plug 'tpope/vim-sleuth'
 Plug 'ibhagwan/fzf-lua'
@@ -13,6 +12,7 @@ Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
+Plug 'sindrets/diffview.nvim'
 Plug 'azabiong/vim-highlighter'
 Plug 'kevinhwang91/nvim-hlslens'
 Plug 'nvim-lualine/lualine.nvim'
@@ -25,6 +25,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
+Plug '/opt/homebrew/opt/fzf'
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 call plug#end()
 " }}}} plug.vim
@@ -466,7 +467,6 @@ require('mini.comment').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
 require('mini.bufremove').setup()
-require('mini.statusline').setup({ set_vim_settings = false })
 require('mini.trailspace').setup()
 
 require('hlslens').setup({ calm_down = true })
