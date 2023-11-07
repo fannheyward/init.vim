@@ -108,12 +108,9 @@
   "notification.statusLineProgress": true,
   "pullDiagnostic.onChange": false,
   "pullDiagnostic.onSave": true,
-  "pyright.organizeimports.provider": "ruff",
+  "pyright.organizeimports.provider": "pyright",
   "python.analysis.diagnosticMode": "workspace",
   "python.analysis.stubPath": "~/src/python-type-stubs",
-  "python.formatting.blackdHTTPHeaders": {
-    "X-Fast-Or-Safe": "fast"
-  },
   "python.formatting.provider": "ruff",
   "python.linting.enabled": true,
   "python.linting.ruffEnabled": true,

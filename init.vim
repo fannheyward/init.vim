@@ -7,7 +7,6 @@ endif
 call plug#begin()
 Plug 'zef/vim-cycle'
 Plug 'tpope/vim-sleuth'
-Plug 'ibhagwan/fzf-lua'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
 Plug 'echasnovski/mini.nvim'
@@ -24,7 +23,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
 Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
-Plug '/opt/homebrew/opt/fzf'
 Plug 'fannheyward/go.vim', { 'for': 'go' }
 call plug#end()
 " }}}} plug.vim
@@ -138,7 +136,6 @@ command! -nargs=0 Wa    wa
 command! -nargs=0 Wqa   wqa
 command! -nargs=0 WQa   wqa
 
-command! -nargs=0 F             FzfLua
 command! -nargs=0 C             CocConfig
 command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
@@ -171,8 +168,8 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
-nnoremap <silent><nowait> <space>f  :FzfLua files<CR>
-nnoremap <silent><nowait> <space>g  :FzfLua live_grep_native<CR>
+nnoremap <silent><nowait> <space>f  :Pick files<CR>
+nnoremap <silent><nowait> <space>g  :Pick grep_live<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf('-w', expand('<cword>'))<CR>
 nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf('-w', expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
@@ -307,6 +304,7 @@ let g:gutentags_ctags_exclude = ['*.md', '*.json', '*.js', '*.ts', '*.jsx', '*.c
 " }}}} vim-gutentags
 
 " vim-highlighter {{{{
+let HiSetSL = '<Nop>'
 let HiFindTool = 'rg -H --color=never --no-heading --column --smart-case'
 nnoremap -      <Cmd>call <SID>HiOptional('next', '-')<CR>
 nnoremap _      <Cmd>call <SID>HiOptional('previous', '_')<CR>
@@ -446,11 +444,6 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 " Lua {{{{
 lua <<EOF
 vim.loader.enable()
-require('fzf-lua').setup({
-  commands = { sort_lastused = true },
-  winopts = { preview = { hidden = 'hidden' } },
-  fzf_opts = { ["--layout"] = "default", ["--delimiter / --nth -1,.."] = "" },
-})
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 require('lualine').setup({
   options = {
@@ -462,6 +455,8 @@ require('lualine').setup({
 })
 
 require('mini.misc').setup_restore_cursor()
+require('mini.pick').setup()
+require('mini.extra').setup()
 require('mini.comment').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
