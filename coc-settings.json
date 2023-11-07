@@ -75,6 +75,7 @@
     "border": true,
     "rounded": true
   },
+  "inlayHint.display": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "languageserver": {},
   "links.highlight": true,
