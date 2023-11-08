@@ -170,8 +170,8 @@ nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent><nowait> <space>f  :Pick files<CR>
 nnoremap <silent><nowait> <space>g  :Pick grep_live<CR>
-nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf('-w', expand('<cword>'))<CR>
-nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf('-w', expand('<cword>'), expand('%'))<CR>
+nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
+nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
@@ -245,7 +245,7 @@ function! CopyFloatText() abort
 endfunction
 
 if executable("rg")
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --word-regexp
 endif
 
 function! s:grep_to_qf(...) abort
