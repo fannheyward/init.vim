@@ -333,7 +333,6 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-git',
       \'coc-go',
-      \'coc-html',
       \'coc-highlight',
       \'coc-json',
       \'coc-lists',
