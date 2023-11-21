@@ -65,7 +65,7 @@ set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set pumheight=20
 set jumpoptions=stack
-set list listchars=tab:\|\ ,trail:·,eol:¬,leadmultispace:---+
+set list listchars=tab:\|\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
