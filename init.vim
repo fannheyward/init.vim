@@ -433,6 +433,7 @@ nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
+nnoremap <silent><nowait> <space>i  :call CocActionAsync('jumpImplementation', v:false)<CR>
 
 imap <C-k> <Plug>(coc-snippets-expand)
 vmap <C-k> <Plug>(coc-snippets-select)
