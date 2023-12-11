@@ -9,6 +9,7 @@ Plug 'zef/vim-cycle'
 Plug 'tpope/vim-sleuth'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
+Plug 'NoahTheDuke/vim-just'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'azabiong/vim-highlighter'
@@ -64,7 +65,7 @@ set shortmess+=c
 set diffopt+=internal,algorithm:patience
 set pumheight=20
 set jumpoptions=stack
-set list listchars=tab:\|\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<
+set list listchars=tab:\›\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
