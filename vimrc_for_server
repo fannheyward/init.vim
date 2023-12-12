@@ -9,7 +9,7 @@ set smarttab
 set nrformats-=octal
 set ttimeout
 set ttimeoutlen=100
-set updatetime=200
+set updatetime=100
 set history=1000
 
 set title
@@ -31,6 +31,7 @@ set matchpairs+=<:>
 set hlsearch
 set ignorecase smartcase
 set completeopt=menu
+set termguicolors
 set diffopt+=internal,algorithm:patience
 set list listchars=tab:\|\ ,trail:·,eol:¬
 setlocal noswapfile
@@ -55,10 +56,9 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 
-inoremap jj <Esc>
-inoremap jk <ESC>
-inoremap <C-g> <Esc>
-inoremap <C-c> <Esc>
+nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
+nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
+
 inoremap <C-c> <ESC>
 inoremap <C-w> <C-[>diwa
 inoremap <C-h> <BS>
@@ -67,8 +67,6 @@ inoremap <C-u> <C-G>u<C-U>
 inoremap <C-b> <Left>
 inoremap <C-f> <Right>
 inoremap <C-a> <Home>
-inoremap <C-n> <Down>
-inoremap <C-p> <Up>
 inoremap <expr><C-e> pumvisible() ? "\<C-e>" : "\<End>"
 
 " command line mappings
@@ -91,8 +89,8 @@ command! -nargs=0 W     w
 command! -nargs=0 Wa    wa
 command! -nargs=0 Wqa   wqa
 command! -nargs=0 WQa   wqa
-command! -nargs=0 F     echomsg @%
 command! -nargs=0 JSONPretty    %!python3 -m json.tool
+command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
 
 set wildignore+=*.pyc,*.sqlite,*.sqlite3,cscope.out
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
@@ -105,6 +103,7 @@ inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" : "\<c-n>"
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -120,10 +119,12 @@ augroup common
   autocmd FileType markdown setlocal suffixesadd=.md
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
-  autocmd FileType ruby,html,javascript,typescript,css,json,vue setlocal shiftwidth=2 tabstop=2
+  autocmd FileType lua,ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G
+  autocmd QuickFixCmdPost cgetexpr cwindow
+  autocmd QuickFixCmdPost lgetexpr lwindow
 
   " set up default omnifunc
   autocmd FileType *
@@ -131,3 +132,11 @@ augroup common
         \    setlocal omnifunc=syntaxcomplete#Complete |
         \ endif
 augroup end
+
+if executable("rg")
+  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --word-regexp
+endif
+
+function! s:grep_to_qf(...) abort
+  return system(join([&grepprg] + [a:1] + [expandcmd(join(a:000[1:-1], ' '))], ' '))
+endfunction
