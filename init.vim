@@ -9,7 +9,6 @@ Plug 'zef/vim-cycle'
 Plug 'tpope/vim-sleuth'
 Plug 'github/copilot.vim'
 Plug 'honza/vim-snippets'
-Plug 'NoahTheDuke/vim-just'
 Plug 'echasnovski/mini.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 Plug 'azabiong/vim-highlighter'
@@ -24,6 +23,7 @@ Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
+Plug 'NoahTheDuke/vim-just', { 'for': 'just' }
 call plug#end()
 " }}}} plug.vim
 

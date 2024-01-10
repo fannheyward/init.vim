@@ -116,7 +116,6 @@
   "python.formatting.provider": "ruff",
   "python.linting.enabled": true,
   "python.linting.ruffEnabled": true,
-  "rust-analyzer.server.path": "ra-multiplex",
   "semanticTokens.enable": true,
   "signature.floatConfig": {
     "border": true,
