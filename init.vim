@@ -359,6 +359,7 @@ let g:coc_filetype_map = {
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
 " set runtimepath^=~/src/coc-pylance
+" set runtimepath^=~/src/coc-delance
 set runtimepath^=~/src/coc-clangd
 
 nmap <silent> gd :call <SID>go_to_definition()<CR>
