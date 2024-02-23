@@ -23,7 +23,7 @@ set pumheight=20
 set nocompatible
 set backspace=indent,eol,start
 " set clipboard=unnamed
-set list listchars=tab:\|\ ,trail:·,eol:¬
+set list listchars=tab:\›\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
