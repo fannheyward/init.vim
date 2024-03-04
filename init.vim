@@ -168,6 +168,7 @@ nnoremap <leader>cp :set clipboard=unnamed<CR>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
+nnoremap <silent><nowait> <tab><tab> :Pick buffers<CR>
 nnoremap <silent><nowait> <space>f  :Pick files tool=rg<CR>
 nnoremap <silent><nowait> <space>g  :Pick grep_live tool=rg<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
