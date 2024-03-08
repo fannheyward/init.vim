@@ -21,6 +21,7 @@ set formatexpr=CocActionAsync('formatSelected')
 set shortmess+=c
 set pumheight=20
 set nocompatible
+set formatoptions=croqnlj
 set backspace=indent,eol,start
 " set clipboard=unnamed
 set list listchars=tab:\›\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<

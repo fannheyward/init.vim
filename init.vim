@@ -23,7 +23,6 @@ Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
 Plug 'fannheyward/go.vim', { 'for': 'go' }
-Plug 'NoahTheDuke/vim-just', { 'for': 'just' }
 call plug#end()
 " }}}} plug.vim
 
