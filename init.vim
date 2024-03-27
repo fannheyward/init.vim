@@ -345,7 +345,7 @@ let g:coc_global_extensions = [
       \'coc-snippets',
       \'coc-sumneko-lua',
       \'coc-tag',
-      \'coc-tsserver-dev',
+      \'coc-tsserver',
       \'coc-typos',
       \'coc-xml',
       \'coc-yaml',
