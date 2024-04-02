@@ -38,7 +38,6 @@
   "coc.preferences.useQuickfixForLocations": true,
   "coc.preferences.willSaveHandlerTimeout": 1000,
   "coc.source.file.ignoreHidden": false,
-  "codeLens.enable": true,
   "codeLens.position": "eol",
   "colors.enable": true,
   "diagnostic.checkCurrentLine": true,
