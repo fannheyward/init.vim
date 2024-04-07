@@ -461,7 +461,6 @@ require('lualine').setup({
 require('mini.misc').setup_restore_cursor()
 require('mini.pick').setup()
 require('mini.extra').setup()
-require('mini.comment').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
 require('mini.bufremove').setup()
