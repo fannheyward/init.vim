@@ -249,7 +249,6 @@ endfunction
 
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --word-regexp
-  set grepformat="%f:%l:%c:%m"
 endif
 
 function! s:grep_to_qf(...) abort
