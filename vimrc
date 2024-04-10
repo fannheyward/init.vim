@@ -18,6 +18,7 @@ set completeopt=menu
 set cmdheight=2
 set foldmethod=expr
 set formatexpr=CocActionAsync('formatSelected')
+set tagfunc=CocTagFunc
 set shortmess+=c
 set pumheight=20
 set nocompatible

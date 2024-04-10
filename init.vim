@@ -220,7 +220,7 @@ function! s:show_documentation()
 endfunction
 
 function! s:go_to_definition()
-  if CocAction('jumpDefinition')
+  if CocActionAsync('jumpDefinition')
     return v:true
   endif
 
@@ -249,6 +249,7 @@ endfunction
 
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --word-regexp
+  set grepformat="%f:%l:%c:%m"
 endif
 
 function! s:grep_to_qf(...) abort
