@@ -206,7 +206,13 @@ tnoremap <Esc> <C-\><C-n>
 " functions {{{{
 function! s:check_back_space() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+  return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+function! s:next_char_pair() abort
+  let col = col('.') - 1
+  echom getline('.')[col]
+  return getline('.')[col] =~# ')\|]\|}\|>\|''\|"\|`'
 endfunction
 
 function! s:show_documentation()
@@ -424,6 +430,7 @@ inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
       \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
       \ <SID>check_back_space() ? "\<TAB>" :
+      \ <SID>next_char_pair() ? "\<Right>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
