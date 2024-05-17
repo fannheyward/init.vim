@@ -30,7 +30,6 @@ call plug#end()
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
-set termguicolors
 colorscheme catppuccin-frappe
 
 set title
@@ -388,6 +387,8 @@ nmap <silent> gm <Plug>(coc-git-commit)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)
 
+nmap <silent> ]d <Plug>(coc-diagnostic-next)
+nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]s <Plug>(coc-typos-next)
 nmap <silent> [s <Plug>(coc-typos-prev)
 nmap <silent> z= <Plug>(coc-typos-fix)
