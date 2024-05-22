@@ -141,7 +141,7 @@ command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
 command! -nargs=0 Prettier      CocCommand prettier.formatFile
 command! -nargs=0 CocDebug      CocCommand workspace.showOutput
-command! -nargs=0 FixWhitespace lua MiniTrailspace.trim()
+command! -nargs=0 FixWhitespace lua require('mini.trailspace').trim()
 
 command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
 command! -nargs=0 JSONPretty    %!python3 -m json.tool
@@ -471,8 +471,6 @@ require('mini.pick').setup()
 require('mini.extra').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
-require('mini.bufremove').setup()
-require('mini.trailspace').setup()
 
 require('hlslens').setup({ calm_down = true })
 local kopts = { noremap = true, silent = true }
