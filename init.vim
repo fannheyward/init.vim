@@ -484,6 +484,13 @@ vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]]
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  callback = function(event)
+    local cs = vim.bo[event.buf].commentstring
+    vim.bo[event.buf].commentstring = cs:gsub("(%S)%%s", "%1 %%s"):gsub("%%s(%S)", "%%s %1")
+  end,
+})
 EOF
 " }}}} Lua
 

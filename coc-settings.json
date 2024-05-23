@@ -79,7 +79,6 @@
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
   "languageserver": {},
   "links.highlight": true,
-  "links.tooltip": true,
   "list.insertMappings": {
     "<C-c>": "do:exit",
     "<C-n>": "do:previewdown",

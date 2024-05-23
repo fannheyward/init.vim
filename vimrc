@@ -30,6 +30,8 @@ setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+packadd! comment
+
 set runtimepath^=~/.local/share/nvim/plugged/coc.nvim
 set runtimepath^=~/.local/share/nvim/plugged/catppuccin
 set runtimepath^=~/.local/share/nvim/plugged/vim-sleuth
