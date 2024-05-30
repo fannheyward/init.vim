@@ -374,7 +374,6 @@ nmap <silent> gd :call <SID>go_to_definition()<CR>
 nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references-used)
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gA <Plug>(coc-codeaction)
@@ -446,6 +445,9 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
 nnoremap <silent><nowait> <space>i  :call CocActionAsync('jumpImplementation', v:false)<CR>
+
+" override nvim default LSP key-mappings `:h gr-default`
+nnoremap <silent><nowait> gr <Plug>(coc-references-used)
 
 imap <C-k> <Plug>(coc-snippets-expand)
 vmap <C-k> <Plug>(coc-snippets-select)
