@@ -197,6 +197,7 @@ cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 cnoremap <C-h> <BS>
 cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
+cnoremap <expr> <space> getcmdtype() =~ '[/?]' ? '.\{-}' : "<space>"
 
 nmap t<Enter> :bo sp term://zsh\|resize 10<CR>i
 tnoremap <Esc> <C-\><C-n>
