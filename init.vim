@@ -5,24 +5,24 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'zef/vim-cycle'
-Plug 'tpope/vim-sleuth'
-Plug 'github/copilot.vim'
-Plug 'honza/vim-snippets'
-Plug 'echasnovski/mini.nvim'
-Plug 'kevinhwang91/nvim-bqf'
-Plug 'azabiong/vim-highlighter'
-Plug 'kevinhwang91/nvim-hlslens'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://github.com/zef/vim-cycle'
+Plug 'https://github.com/tpope/vim-sleuth'
+Plug 'https://github.com/github/copilot.vim'
+Plug 'https://github.com/honza/vim-snippets'
+Plug 'https://github.com/echasnovski/mini.nvim'
+Plug 'https://github.com/kevinhwang91/nvim-bqf'
+Plug 'https://github.com/azabiong/vim-highlighter'
+Plug 'https://github.com/kevinhwang91/nvim-hlslens'
+Plug 'https://github.com/nvim-lualine/lualine.nvim'
+Plug 'https://github.com/nvim-tree/nvim-web-devicons'
+Plug 'https://github.com/ludovicchabant/vim-gutentags'
+Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
+" Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-Plug 'AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
+Plug 'https://github.com/catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'https://github.com/AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
-Plug 'fannheyward/go.vim', { 'for': 'go' }
+Plug 'https://github.com/fannheyward/go.vim', { 'for': 'go' }
 call plug#end()
 " }}}} plug.vim
 
