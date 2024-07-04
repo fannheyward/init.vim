@@ -14,12 +14,12 @@ Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/azabiong/vim-highlighter'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
 Plug 'https://github.com/nvim-lualine/lualine.nvim'
-Plug 'https://github.com/nvim-tree/nvim-web-devicons'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 " Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'https://github.com/catppuccin/nvim', { 'as': 'catppuccin' }
+Plug 'https://github.com/tweekmonster/helpful.vim', { 'on': 'HelpfulVersion' }
 Plug 'https://github.com/AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 
 Plug 'https://github.com/fannheyward/go.vim', { 'for': 'go' }
@@ -165,6 +165,7 @@ map <silent> <leader>n :nohlsearch<CR>
 
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 nnoremap <leader>cp :set clipboard=unnamed<CR>
+nnoremap <leader>sr :%s/<<C-R><C-W>>//g<Left><Left>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
@@ -472,6 +473,7 @@ require('lualine').setup({
 require('mini.misc').setup_restore_cursor()
 require('mini.pick').setup()
 require('mini.extra').setup()
+require('mini.icons').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
 
