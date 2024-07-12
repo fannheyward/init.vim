@@ -151,13 +151,5 @@
   "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
   "typescript.inlayHints.variableTypes.enabled": true,
   "typescript.preferences.useAliasesForRenames": false,
-  "typescript.referencesCodeLens.showOnAllFunctions": true,
-  "workspace.ignoredFolders": [
-    "$HOME",
-    "$HOME/.cargo/**",
-    "$HOME/.rustup/**",
-    "$HOME/pkg/mod/**",
-    "$HOMEBREW_PREFIX",
-    "$HOMEBREW_PREFIX/**"
-  ]
+  "typescript.referencesCodeLens.showOnAllFunctions": true
 }
