@@ -107,6 +107,7 @@ augroup common
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType lua,ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
+  autocmd Filetype vue setlocal iskeyword+=-
   autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
   autocmd FileType list lua require('bqf.magicwin.handler').attach()
 
@@ -163,6 +164,8 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 map ? /\<\><Left><Left>
 map <silent> <leader>n :nohlsearch<CR>
 
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <leader>sr :%s/<<C-R><C-W>>//g<Left><Left>
@@ -486,9 +489,6 @@ vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], 
 vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
 vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.api.nvim_create_autocmd({ "FileType" }, {
   callback = function(event)
