@@ -46,7 +46,6 @@
     "rounded": true
   },
   "diagnostic.format": "%message [%source]",
-  "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "diagnostic.virtualText": true,
   "eslint.autoFixOnSave": true,
   "eslint.format.enable": true,
