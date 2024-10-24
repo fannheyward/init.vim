@@ -247,16 +247,6 @@ function! s:select_current_word()
   return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
 endfunc
 
-function! CopyFloatText() abort
-  let id = win_getid()
-  let winid = coc#float#get_float_win()
-  if winid
-    call win_gotoid(winid)
-    execute 'normal! ggvGy'
-    call win_gotoid(id)
-  endif
-endfunction
-
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --word-regexp
 endif
