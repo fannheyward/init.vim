@@ -52,9 +52,6 @@
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
   "go.goplsOptions": {
-    "codelenses": {
-      "test": true
-    },
     "experimentalPostfixCompletions": true,
     "hints": {
       "assignVariableTypes": true,
