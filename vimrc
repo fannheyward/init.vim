@@ -37,7 +37,7 @@ set runtimepath^=~/.local/share/nvim/plugged/catppuccin
 set runtimepath^=~/.local/share/nvim/plugged/vim-sleuth
 syntax on
 set termguicolors
-colorscheme catppuccin
+colorscheme catppuccin-macchiato
 
 set runtimepath^=~/src/coc-rust-analyzer
 set runtimepath^=~/src/coc-pyright
