@@ -463,10 +463,15 @@ require('lualine').setup({
   }
 })
 
-require('mini.misc').setup_restore_cursor()
-require('mini.pick').setup()
+require('mini.ai').setup()
+require('mini.bracketed').setup({
+  comment = { suffix = '' },
+  diagnostic = { suffix = '' },
+})
 require('mini.extra').setup()
 require('mini.icons').setup()
+require('mini.misc').setup_restore_cursor()
+require('mini.pick').setup()
 require('mini.surround').setup()
 require('mini.tabline').setup()
 
