@@ -241,13 +241,6 @@ function! s:go_to_definition()
   endif
 endfunction
 
-function! s:select_current_word()
-  if !get(g:, 'coc_cursors_activated', 0)
-    return "\<Plug>(coc-cursors-word)"
-  endif
-  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
-endfunc
-
 if executable("rg")
   set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case\ --word-regexp
 endif
@@ -389,13 +382,11 @@ nmap <silent> [s <Plug>(coc-typos-prev)
 nmap <silent> z= <Plug>(coc-typos-fix)
 nmap <silent> <expr> [c &diff ? '[c' : '<Plug>(coc-git-prevchunk)'
 nmap <silent> <expr> ]c &diff ? ']c' : '<Plug>(coc-git-nextchunk)'
-nmap <silent> <expr> <C-d> <SID>select_current_word()
-nmap <silent> <C-c> <Plug>(coc-cursors-position)
-xmap <silent> <C-d> <Plug>(coc-cursors-range)
+nmap <silent> <M-d> <Plug>(coc-cursors-word)
+xmap <silent> <M-d> <Plug>(coc-cursors-range)
 
 nmap <leader>l  <Plug>(coc-openlink)
 nmap <leader>c  <Plug>(coc-codelens-action)
-nmap <leader>x  <Plug>(coc-cursors-operator)
 nmap <leader>rf <Plug>(coc-refactor)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
