@@ -174,6 +174,7 @@ nnoremap <leader>sr :%s/<<C-R><C-W>>//g<Left><Left>
 
 nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
+nnoremap <silent><nowait> <C-c> ciw
 nnoremap <silent><nowait> <tab><tab> :Pick buffers<CR>
 nnoremap <silent><nowait> <space>b  :Pick buffers<CR>
 nnoremap <silent><nowait> <space>f  :Pick files tool=rg<CR>
