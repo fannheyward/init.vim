@@ -157,12 +157,13 @@ command! -nargs=0 BOnly         silent! execute "%bd\|e#\|bd#"
 " }}}} command
 
 " mappings {{{{
-map <silent> <leader>ee :e $HOME/.config/nvim/init.vim<CR>
-map <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<CR>
+nmap <nowait> yc yygccp
+nmap <silent> <leader>ee :e $HOME/.config/nvim/init.vim<CR>
+nmap <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<CR>
 setl dictionary+=$HOME/.config/nvim/dev.dict
 
-map ? /\<\><Left><Left>
-map <silent> <leader>n :nohlsearch<CR>
+nmap ? /\<\><Left><Left>
+nmap <silent> <leader>n :nohlsearch<CR>
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
@@ -430,7 +431,6 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-vnoremap <silent> K <cmd>call CocActionAsync('doHover')<CR>
 nnoremap <silent><nowait> <space>a  :call <SID>coc_qf_diagnostic()<CR>
 nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
 nnoremap <silent><nowait> <space>m  :<C-u>CocList -A -N mru<CR>
