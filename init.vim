@@ -142,6 +142,7 @@ command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
 command! -nargs=0 Prettier      CocCommand prettier.formatFile
 command! -nargs=0 CocDebug      CocCommand workspace.showOutput
+command! -nargs=0 Files         lua require('mini.files').open()
 command! -nargs=0 FixWhitespace lua require('mini.trailspace').trim()
 
 command! -nargs=+ Find          cgetexpr <SID>grep_to_qf(<f-args>)
