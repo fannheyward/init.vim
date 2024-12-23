@@ -12,6 +12,7 @@ Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/echasnovski/mini.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/azabiong/vim-highlighter'
+Plug 'https://github.com/chrisgrieser/nvim-origami'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
 Plug 'https://github.com/nvim-lualine/lualine.nvim'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
@@ -47,6 +48,7 @@ set cursorline
 set matchpairs+=<:>
 set ignorecase
 set smartcase
+set startofline
 set diffopt+=linematch:50
 set switchbuf=useopen,usetab
 set updatetime=100
@@ -455,6 +457,8 @@ require('lualine').setup({
     lualine_c = { 'filename', 'g:coc_status' }
   }
 })
+
+require("origami").setup()
 
 require('mini.ai').setup()
 require('mini.extra').setup()
