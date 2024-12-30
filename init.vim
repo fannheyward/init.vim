@@ -13,7 +13,6 @@ Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/azabiong/vim-highlighter'
 Plug 'https://github.com/chrisgrieser/nvim-origami'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
-Plug 'https://github.com/nvim-lualine/lualine.nvim'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 " Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
@@ -21,8 +20,6 @@ Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 Plug 'https://github.com/catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'https://github.com/tweekmonster/helpful.vim', { 'on': 'HelpfulVersion' }
 Plug 'https://github.com/AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
-
-Plug 'https://github.com/fannheyward/go.vim', { 'for': 'go' }
 call plug#end()
 " }}}} plug.vim
 
@@ -449,14 +446,6 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 lua <<EOF
 vim.loader.enable()
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
-require('lualine').setup({
-  options = {
-    globalstatus = true
-  },
-  sections = {
-    lualine_c = { 'filename', 'g:coc_status' }
-  }
-})
 
 require("origami").setup()
 
@@ -465,8 +454,9 @@ require('mini.extra').setup()
 require('mini.icons').setup()
 require('mini.misc').setup_restore_cursor()
 require('mini.pick').setup()
-require('mini.surround').setup()
 require('mini.tabline').setup()
+require('mini.surround').setup()
+require('mini.statusline').setup()
 
 require('hlslens').setup({ calm_down = true })
 local kopts = { noremap = true, silent = true }
