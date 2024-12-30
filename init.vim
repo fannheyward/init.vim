@@ -8,7 +8,6 @@ call plug#begin()
 Plug 'https://github.com/zef/vim-cycle'
 Plug 'https://github.com/tpope/vim-sleuth'
 Plug 'https://github.com/github/copilot.vim'
-Plug 'https://github.com/honza/vim-snippets'
 Plug 'https://github.com/echasnovski/mini.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/azabiong/vim-highlighter'
@@ -129,7 +128,7 @@ augroup common
 augroup end
 " }}}} autocmd
 
-" command {{{{
+" commands {{{{
 command! -nargs=0 E     e
 command! -nargs=0 Q     q
 command! -nargs=0 Qa    qa
@@ -157,7 +156,7 @@ command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
 command! -nargs=0 VSCode        silent! execute ":!code -g %:p\:" . line('.') . ":" . col('.')
 command! -nargs=0 Zed           silent! execute ":!zed --new %:" . line('.') . ":" . col('.')
 command! -nargs=0 BOnly         silent! execute "%bd\|e#\|bd#"
-" }}}} command
+" }}}} commands
 
 " mappings {{{{
 nmap <nowait> yc yygccp
@@ -328,6 +327,7 @@ let g:go_fmt_command = "gofumpt"
 let g:copilot_no_tab_map = v:true
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
+      \'https://github.com/rafamadriz/friendly-snippets',
       \'coc-biome',
       \'coc-dictionary',
       \'coc-ecdict',
