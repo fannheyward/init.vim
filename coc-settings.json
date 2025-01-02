@@ -126,6 +126,7 @@
     ]
   },
   "snippets.ultisnips.enable": false,
+  "snippets.snipmate.enable": false,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.defaultSortMethod": "none",
   "suggest.detailField": "abbr",

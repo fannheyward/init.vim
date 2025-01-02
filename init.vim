@@ -95,6 +95,7 @@ augroup common
   autocmd BufNewFile,BufRead deno.lock setlocal filetype=json
   autocmd BufNewFile,BufRead go.work.sum setlocal filetype=gosum
   autocmd BufNewFile,BufRead go.work setlocal filetype=gowork
+  autocmd BufNewFile,BufRead LICENSE setlocal filetype=license
 
   autocmd FileType go setlocal expandtab
   autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
