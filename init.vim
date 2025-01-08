@@ -306,17 +306,9 @@ let g:gutentags_ctags_exclude = ['*.md', '*.json', '*.js', '*.ts', '*.jsx', '*.c
 " vim-highlighter {{{{
 let HiSetSL = '<Nop>'
 let HiFindTool = 'rg -H --color=never --no-heading --column --smart-case'
-nnoremap -      <Cmd>call <SID>HiOptional('next', '-')<CR>
-nnoremap _      <Cmd>call <SID>HiOptional('previous', '_')<CR>
-nnoremap f-     <Cmd>call <SID>HiOptional('close', 'f-')<CR>
-
-function s:HiOptional(cmd, key)
-  if HiFind()
-    exe "Hi" a:cmd
-  else
-    exe "normal!" a:key
-  endif
-endfunction
+nnoremap -  <Cmd>Hi/next<CR>
+nnoremap _  <Cmd>Hi/previous<CR>
+nnoremap f- <Cmd>Hi/close<CR>
 " }}}}
 
 " go.vim {{{{
