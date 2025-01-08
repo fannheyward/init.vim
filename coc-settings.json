@@ -47,7 +47,7 @@
     "rounded": true
   },
   "diagnostic.format": "%message [%source]",
-  "diagnostic.virtualText": true,
+  "diagnostic.displayByVimDiagnostic": true,
   "eslint.autoFixOnSave": true,
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
@@ -62,7 +62,6 @@
       "parameterNames": true,
       "rangeVariableTypes": true
     },
-    "linksInHover": false,
     "semanticTokens": true,
     "staticcheck": true,
     "usePlaceholders": true

@@ -17,6 +17,7 @@ Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 " Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 
+Plug 'https://github.com/fannheyward/go.vim', { 'for': 'go' }
 Plug 'https://github.com/catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'https://github.com/tweekmonster/helpful.vim', { 'on': 'HelpfulVersion' }
 Plug 'https://github.com/AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
@@ -114,6 +115,7 @@ augroup common
   autocmd QuickFixCmdPost cgetexpr cwindow
   autocmd QuickFixCmdPost lgetexpr lwindow
 
+  autocmd CursorHold * silent lua vim.diagnostic.open_float({border='single', focusable=false})
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocLocationsChange call s:coc_qf_jump2loc(g:coc_jump_locations)
