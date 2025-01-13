@@ -88,14 +88,7 @@ cnoreabbr <expr> Wq getcmdline() == 'Wq' ? 'wq' : 'Wq'
 " autocmd {{{{
 augroup common
   autocmd!
-  autocmd BufNewFile,BufRead *.jl setlocal filetype=julia
-  autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-  autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
-  autocmd BufNewFile,BufRead *.jsx setlocal filetype=javascript.jsx
   autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
-  autocmd BufNewFile,BufRead deno.lock setlocal filetype=json
-  autocmd BufNewFile,BufRead go.work.sum setlocal filetype=gosum
-  autocmd BufNewFile,BufRead go.work setlocal filetype=gowork
   autocmd BufNewFile,BufRead LICENSE* setlocal filetype=license
 
   autocmd FileType go setlocal expandtab
