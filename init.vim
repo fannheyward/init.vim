@@ -364,8 +364,6 @@ nmap <silent> gm <Plug>(coc-git-commit)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)
 
-nmap <silent> ]d <Plug>(coc-diagnostic-next)
-nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> ]s <Plug>(coc-typos-next)
 nmap <silent> [s <Plug>(coc-typos-prev)
 nmap <silent> z= <Plug>(coc-typos-fix)
