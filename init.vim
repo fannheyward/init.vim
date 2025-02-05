@@ -46,7 +46,6 @@ set matchpairs+=<:>
 set ignorecase
 set smartcase
 set startofline
-set diffopt+=linematch:50
 set switchbuf=useopen,usetab
 set updatetime=100
 set inccommand=split
@@ -59,7 +58,7 @@ set formatexpr=CocAction('formatSelected')
 set tagfunc=CocTagFunc
 set signcolumn=yes:1
 set shortmess+=c
-set diffopt+=internal,algorithm:patience
+set diffopt+=internal,algorithm:histogram,indent-heuristic,linematch:60
 set pumheight=20
 set jumpoptions=stack
 set list listchars=tab:\›\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<
