@@ -30,38 +30,38 @@ set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,eu
 
 colorscheme catppuccin-frappe
 
-set title
-set hidden
-set number
-set mouse=i
-set expandtab
-set tabstop=4
-set laststatus=3
-set shiftwidth=4
-set nofoldenable
-set showmatch
-set matchtime=2
+set cmdheight=2
+set completeopt=menu
 set cursorline
-set matchpairs+=<:>
+set diffopt+=internal,algorithm:histogram,indent-heuristic,linematch:60
+set expandtab
+set foldmethod=expr
+set formatexpr=CocAction('formatSelected')
+set hidden
 set ignorecase
+set inccommand=split
+set jumpoptions=stack
+set laststatus=3
+set list listchars=tab:\›\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<
+set matchpairs+=<:>
+set matchtime=2
+set mouse=i
+set nofoldenable
+set noshowmode
+set number
+set pumheight=20
+set shiftwidth=4
+set shortmess+=c
+set showmatch
+set signcolumn=yes:1
 set smartcase
 set startofline
 set switchbuf=useopen,usetab
-set updatetime=100
-set inccommand=split
-set noshowmode
-set completeopt=menu
-set cmdheight=2
-set jumpoptions=stack
-set foldmethod=expr
-set formatexpr=CocAction('formatSelected')
+set tabstop=4
 set tagfunc=CocTagFunc
-set signcolumn=yes:1
-set shortmess+=c
-set diffopt+=internal,algorithm:histogram,indent-heuristic,linematch:60
-set pumheight=20
-set jumpoptions=stack
-set list listchars=tab:\›\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<
+set title
+set updatetime=100
+
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
