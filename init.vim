@@ -49,6 +49,7 @@ set mouse=i
 set nofoldenable
 set noshowmode
 set number
+set numberwidth=3
 set pumheight=20
 set shiftwidth=4
 set shortmess+=c
@@ -56,6 +57,7 @@ set showmatch
 set signcolumn=yes:1
 set smartcase
 set startofline
+set statuscolumn=%l%s
 set switchbuf=useopen,usetab
 set tabstop=4
 set tagfunc=CocTagFunc
