@@ -464,6 +464,8 @@ vim.keymap.set('n', 'gK', function()
   vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
+vim.keymap.set('n', 'dq', vim.diagnostic.setqflist)
+
 EOF
 " }}}} Lua
 
