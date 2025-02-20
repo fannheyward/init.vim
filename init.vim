@@ -13,6 +13,7 @@ Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/azabiong/vim-highlighter'
 Plug 'https://github.com/chrisgrieser/nvim-origami'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
+Plug 'https://github.com/tzachar/highlight-undo.nvim'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 " Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
@@ -354,7 +355,6 @@ nmap <silent> gD <Plug>(coc-declaration)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gn <Plug>(coc-rename)
-nmap <silent> ge <Plug>(coc-diagnostic-next)
 nmap <silent> gA <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codeaction-line)
 nmap <silent> gs <Plug>(coc-codeaction-source)
@@ -435,6 +435,8 @@ vim.loader.enable()
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 
 require("origami").setup()
+require('highlight-undo').setup()
+require('hlslens').setup({ calm_down = true })
 
 require('mini.ai').setup()
 require('mini.extra').setup()
@@ -445,15 +447,22 @@ require('mini.tabline').setup()
 require('mini.surround').setup()
 require('mini.statusline').setup()
 
-require('hlslens').setup({ calm_down = true })
-local kopts = { noremap = true, silent = true }
+vim.diagnostic.config({ severity_sort = true })
 
-vim.api.nvim_set_keymap('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
-vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
+
+vim.keymap.set('n', 'ge', function()
+  vim.diagnostic.jump({ count = vim.v.count1 })
+end, { desc = 'Jump to the next diagnostic' })
+
+vim.keymap.set('n', 'gK', function()
+  vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
+end, { desc = 'Toggle diagnostic virtual_lines' })
 
 EOF
 " }}}} Lua
