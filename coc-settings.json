@@ -32,7 +32,6 @@
   "clangd.path": "~/bin/clangd",
   "coc.preferences.enableLinkedEditing": true,
   "coc.preferences.enableMessageDialog": true,
-  "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSave": true,
   "coc.preferences.formatOnType": true,
   "coc.preferences.useQuickfixForLocations": true,
@@ -42,15 +41,16 @@
   "codeLens.position": "eol",
   "colors.enable": true,
   "diagnostic.checkCurrentLine": true,
+  "diagnostic.displayByVimDiagnostic": true,
   "diagnostic.floatConfig": {
     "border": true,
     "rounded": true
   },
   "diagnostic.format": "%message [%source]",
-  "diagnostic.displayByVimDiagnostic": true,
   "eslint.autoFixOnSave": true,
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
+  "extensions.updateCheck": "daily",
   "go.goplsOptions": {
     "experimentalPostfixCompletions": true,
     "hints": {
@@ -124,8 +124,8 @@
       "javascript"
     ]
   },
-  "snippets.ultisnips.enable": false,
   "snippets.snipmate.enable": false,
+  "snippets.ultisnips.enable": false,
   "suggest.acceptSuggestionOnCommitCharacter": true,
   "suggest.defaultSortMethod": "none",
   "suggest.detailField": "abbr",
