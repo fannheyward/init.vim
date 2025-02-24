@@ -37,7 +37,6 @@ set diffopt+=internal,algorithm:histogram,indent-heuristic,linematch:60
 set expandtab
 set foldmethod=expr
 set formatexpr=CocAction('formatSelected')
-set hidden
 set ignorecase
 set inccommand=split
 set jumpoptions=stack
@@ -68,7 +67,6 @@ setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-let loaded_matchit = 1
 let loaded_spellfile_plugin = 1
 let g:loaded_tar = 1
 let g:loaded_tarPlugin = 1
