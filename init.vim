@@ -111,7 +111,6 @@ augroup common
 
   autocmd CursorHold * silent lua vim.diagnostic.open_float({border='single', focusable=false})
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocLocationsChange call s:coc_qf_jump2loc(g:coc_jump_locations)
 
   " set up default omnifunc
