@@ -5,6 +5,12 @@ if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
 endif
 
 call plug#begin()
+" Plug '~/src/coc-pylance'
+" Plug '~/src/coc-delance'
+Plug '~/src/coc-rust-analyzer'
+Plug '~/src/coc-pyright'
+Plug '~/src/coc-clangd'
+
 Plug 'https://github.com/zef/vim-cycle'
 Plug 'https://github.com/tpope/vim-sleuth'
 Plug 'https://github.com/github/copilot.vim'
@@ -307,6 +313,7 @@ let g:go_fmt_command = "gofumpt"
 " }}}} go.vim
 
 " coc.nvim {{{{
+" let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
 let g:copilot_no_tab_map = v:true
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
@@ -338,13 +345,6 @@ let g:coc_global_extensions = [
 let g:coc_filetype_map = {
       \ 'asciidoc': 'markdown',
       \ }
-
-" let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
-set runtimepath^=~/src/coc-rust-analyzer
-set runtimepath^=~/src/coc-pyright
-" set runtimepath^=~/src/coc-pylance
-" set runtimepath^=~/src/coc-delance
-set runtimepath^=~/src/coc-clangd
 
 nmap <silent> gd :call <SID>go_to_definition()<CR>
 nmap <silent><nowait> gD <Plug>(coc-declaration)
