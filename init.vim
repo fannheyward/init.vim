@@ -347,9 +347,9 @@ set runtimepath^=~/src/coc-pyright
 set runtimepath^=~/src/coc-clangd
 
 nmap <silent> gd :call <SID>go_to_definition()<CR>
-nmap <silent> gD <Plug>(coc-declaration)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent><nowait> gD <Plug>(coc-declaration)
+nmap <silent><nowait> gy <Plug>(coc-type-definition)
+nmap <silent><nowait> gi <Plug>(coc-implementation)
 nmap <silent> gn <Plug>(coc-rename)
 nmap <silent> gA <Plug>(coc-codeaction)
 nmap <silent> gl <Plug>(coc-codeaction-line)
