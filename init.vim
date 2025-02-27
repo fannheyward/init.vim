@@ -17,6 +17,7 @@ Plug 'https://github.com/github/copilot.vim'
 Plug 'https://github.com/echasnovski/mini.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/azabiong/vim-highlighter'
+"Plug 'https://github.com/tweekmonster/helpful.vim'
 Plug 'https://github.com/chrisgrieser/nvim-origami'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
@@ -25,7 +26,6 @@ Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 
 Plug 'https://github.com/fannheyward/go.vim', { 'for': 'go' }
 Plug 'https://github.com/catppuccin/nvim', { 'as': 'catppuccin' }
-Plug 'https://github.com/tweekmonster/helpful.vim', { 'on': 'HelpfulVersion' }
 Plug 'https://github.com/AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 call plug#end()
 " }}}} plug.vim
