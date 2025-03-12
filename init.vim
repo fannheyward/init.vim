@@ -128,17 +128,11 @@ augroup end
 " commands {{{{
 command! -nargs=0 E     e
 command! -nargs=0 Q     q
-command! -nargs=0 Qa    qa
-command! -nargs=0 T     tabnew
 command! -nargs=0 W     w
-command! -nargs=0 Wa    wa
-command! -nargs=0 Wqa   wqa
-command! -nargs=0 WQa   wqa
 
 command! -nargs=0 C             CocConfig
 command! -nargs=0 L             CocListResume
 command! -nargs=0 -range D      CocCommand
-command! -nargs=0 Prettier      CocCommand prettier.formatFile
 command! -nargs=0 CocDebug      CocCommand workspace.showOutput
 command! -nargs=0 Files         lua require('mini.files').open()
 command! -nargs=0 FixWhitespace lua require('mini.trailspace').trim()
@@ -460,7 +454,6 @@ vim.keymap.set('n', 'gK', function()
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
 vim.keymap.set('n', 'dq', vim.diagnostic.setqflist)
-
 EOF
 " }}}} Lua
 
