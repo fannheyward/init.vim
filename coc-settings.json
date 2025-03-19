@@ -48,9 +48,11 @@
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
   "extensions.updateCheck": "daily",
+  "suggest.floatConfig": {
+    "border": true
+  },
   "floatFactory.floatConfig": {
-    "border": true,
-    "rounded": true
+    "border": true
   },
   "go.goplsOptions": {
     "experimentalPostfixCompletions": true,

@@ -68,7 +68,6 @@ set tabstop=4
 set tagfunc=CocTagFunc
 set title
 set updatetime=100
-set winborder=single
 
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -114,7 +113,7 @@ augroup common
   autocmd QuickFixCmdPost cgetexpr cwindow
   autocmd QuickFixCmdPost lgetexpr lwindow
 
-  autocmd CursorHold * silent lua vim.diagnostic.open_float()
+  autocmd CursorHold * silent lua vim.diagnostic.open_float({border='single', focusable=false})
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocLocationsChange call s:coc_qf_jump2loc(g:coc_jump_locations)
 
