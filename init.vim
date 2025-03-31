@@ -307,11 +307,15 @@ nnoremap f- <Cmd>Hi/close<CR>
 let g:go_fmt_command = "gofumpt"
 " }}}} go.vim
 
+" copilot.vim {{{{
+" https://github.com/orgs/community/discussions/151719#discussioncomment-12243152
+let g:copilot_integration_id = 'vscode-chat'
+let g:copilot_settings = #{selectedCompletionModel: 'gpt-4o-copilot'}
+" }}}}
+
 " coc.nvim {{{{
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
 let g:copilot_no_tab_map = v:true
-let g:copilot_integration_id = 'vscode-chat'
-let g:copilot_settings = #{selectedCompletionModel: 'gpt-4o-copilot'}
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
       \'https://github.com/rafamadriz/friendly-snippets',
