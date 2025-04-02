@@ -44,6 +44,9 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.displayByVimDiagnostic": true,
   "diagnostic.format": "%message [%source]",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "eslint.autoFixOnSave": true,
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",

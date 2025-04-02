@@ -51,7 +51,6 @@ set list listchars=tab:\›\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,exten
 set matchpairs+=<:>
 set matchtime=2
 set mouse=i
-set nofoldenable
 set noshowmode
 set number
 set numberwidth=3
