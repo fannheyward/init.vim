@@ -35,6 +35,7 @@ packadd! comment
 set runtimepath^=~/.local/share/nvim/plugged/coc.nvim
 set runtimepath^=~/.local/share/nvim/plugged/catppuccin
 set runtimepath^=~/.local/share/nvim/plugged/vim-sleuth
+set runtimepath^=~/.local/share/nvim/plugged/helpful.vim
 syntax on
 set termguicolors
 colorscheme catppuccin-macchiato

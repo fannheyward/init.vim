@@ -441,6 +441,7 @@ require('mini.pick').setup()
 require('mini.tabline').setup()
 require('mini.surround').setup()
 require('mini.statusline').setup()
+require('mini.indentscope').setup()
 
 vim.diagnostic.config({ severity_sort = true })
 
