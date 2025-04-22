@@ -157,6 +157,7 @@ setl dictionary+=$HOME/.config/nvim/dev.dict
 nmap ? /\<\><Left><Left>
 nmap <silent> <leader>n :nohlsearch<CR>
 
+vnoremap ? <Esc>/\%V
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
