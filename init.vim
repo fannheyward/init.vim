@@ -161,6 +161,7 @@ vnoremap ? <Esc>/\%V
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+nnoremap J mzJ`z:delmarks z<CR>
 nnoremap <leader>cp :set clipboard=unnamed<CR>
 nnoremap <leader>sr :%s/<<C-R><C-W>>//g<Left><Left>
 
