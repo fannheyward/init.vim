@@ -39,7 +39,7 @@ colorscheme catppuccin-frappe
 set cmdheight=2
 set completeopt=menu
 set cursorline
-set diffopt+=internal,algorithm:histogram,indent-heuristic,linematch:60
+set diffopt+=internal,inline:char,algorithm:histogram,indent-heuristic,linematch:60
 set expandtab
 set foldmethod=expr
 set formatexpr=CocAction('formatSelected')
