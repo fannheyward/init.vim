@@ -311,8 +311,9 @@ let g:go_fmt_command = "gofumpt"
 
 " copilot.vim {{{{
 " https://github.com/orgs/community/discussions/151719#discussioncomment-12243152
-let g:copilot_integration_id = 'vscode-chat'
-let g:copilot_settings = #{selectedCompletionModel: 'gpt-4o-copilot'}
+" https://github.com/github/copilot.vim/issues/77
+" let g:copilot_integration_id = 'vscode-chat'
+" let g:copilot_settings = #{selectedCompletionModel: 'gpt-4o-copilot'}
 " }}}}
 
 " coc.nvim {{{{
