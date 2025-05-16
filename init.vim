@@ -93,6 +93,7 @@ cnoreabbr <expr> Wq getcmdline() == 'Wq' ? 'wq' : 'Wq'
 " autocmd {{{{
 augroup common
   autocmd!
+  autocmd BufNewFile,BufRead *.min.js set filetype=none
   autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
   autocmd BufNewFile,BufRead LICENSE* setlocal filetype=license
 
@@ -106,6 +107,7 @@ augroup common
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType lua,ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
   autocmd Filetype vue setlocal iskeyword+=-
+  autocmd FileType vim setlocal commentstring=\"\ %s
   autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
   autocmd FileType list lua require('bqf.magicwin.handler').attach()
 
