@@ -13,7 +13,7 @@ Plug '~/src/coc-clangd'
 
 Plug 'https://github.com/zef/vim-cycle'
 Plug 'https://github.com/tpope/vim-sleuth'
-Plug 'https://github.com/github/copilot.vim'
+" Plug 'https://github.com/github/copilot.vim'
 Plug 'https://github.com/echasnovski/mini.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/azabiong/vim-highlighter'
@@ -409,7 +409,7 @@ inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
-      \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
+      \ coc#inline#visible() ? coc#inline#accept() :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ <SID>next_char_pair() ? "\<Right>" :
       \ coc#refresh()
