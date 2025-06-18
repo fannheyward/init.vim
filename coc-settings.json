@@ -16,7 +16,6 @@
   // "tsserver.trace.server": "verbose",
   // "xml.trace.server": "verbose",
   // "yaml.trace.server": "verbose",
-  "biome.bin": "/opt/homebrew/bin/biome",
   "clangd.arguments": [
     "--all-scopes-completion",
     "--background-index",
