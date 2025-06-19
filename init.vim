@@ -94,6 +94,7 @@ cnoreabbr <expr> Wq getcmdline() == 'Wq' ? 'wq' : 'Wq'
 augroup common
   autocmd!
   autocmd BufNewFile,BufRead *.min.js set filetype=none
+  autocmd BufNewFile,BufRead *.mdc setlocal filetype=markdown
   autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
   autocmd BufNewFile,BufRead LICENSE* setlocal filetype=license
 
@@ -106,7 +107,7 @@ augroup common
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType lua,ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
-  autocmd Filetype vue setlocal iskeyword+=-
+  autocmd FileType vue setlocal iskeyword+=-
   autocmd FileType vim setlocal commentstring=\"\ %s
   autocmd FileType qf if mapcheck('<esc>', 'n') ==# '' | nnoremap <buffer><silent> <esc> :cclose<bar>lclose<CR> | endif
   autocmd FileType list lua require('bqf.magicwin.handler').attach()
@@ -115,7 +116,6 @@ augroup common
   autocmd QuickFixCmdPost cgetexpr cwindow
   autocmd QuickFixCmdPost lgetexpr lwindow
 
-  autocmd CursorHold * silent lua vim.diagnostic.open_float({border='single', focusable=false})
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocLocationsChange call s:coc_qf_jump2loc(g:coc_jump_locations)
 
@@ -169,7 +169,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 nnoremap J mzJ`z:delmarks z<CR>
-nnoremap <leader>cp :set clipboard=unnamed<CR>
+nnoremap <leader>cp :set clipboard=unnamedplus<CR>
 nnoremap <leader>sr :%s/<<C-R><C-W>>//g<Left><Left>
 
 nnoremap <silent> gb :bn<CR>
@@ -315,13 +315,6 @@ nnoremap f- <Cmd>Hi/close<CR>
 let g:go_fmt_command = "gofumpt"
 " }}}} go.vim
 
-" copilot.vim {{{{
-" https://github.com/orgs/community/discussions/151719#discussioncomment-12243152
-" https://github.com/github/copilot.vim/issues/77
-" let g:copilot_integration_id = 'vscode-chat'
-" let g:copilot_settings = #{selectedCompletionModel: 'gpt-4o-copilot'}
-" }}}}
-
 " coc.nvim {{{{
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
 let g:copilot_no_tab_map = v:true
@@ -456,6 +449,13 @@ require('mini.statusline').setup()
 require('mini.indentscope').setup()
 
 vim.diagnostic.config({ severity_sort = true })
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  group = vim.api.nvim_create_augroup("LspDiagnostics", { clear = true }),
+  callback = function()
+    vim.diagnostic.open_float({ border = 'single', focusable = false })
+  end,
+})
 
 vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
 vim.keymap.set('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
