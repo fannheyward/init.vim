@@ -448,7 +448,7 @@ require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.indentscope').setup()
 
-vim.diagnostic.config({ severity_sort = true })
+vim.diagnostic.config({ severity_sort = true, virtual_text = true })
 
 vim.api.nvim_create_autocmd("CursorHold", {
   group = vim.api.nvim_create_augroup("LspDiagnostics", { clear = true }),
@@ -469,7 +469,8 @@ vim.keymap.set('n', 'ge', function()
 end, { desc = 'Jump to the next diagnostic' })
 
 vim.keymap.set('n', 'gK', function()
-  vim.diagnostic.config({ virtual_lines = not vim.diagnostic.config().virtual_lines })
+  local old = vim.diagnostic.config()
+  vim.diagnostic.config({ virtual_text = not old.virtual_text, virtual_lines = not old.virtual_lines })
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
 vim.keymap.set('n', 'dq', vim.diagnostic.setqflist)
