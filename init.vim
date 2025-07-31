@@ -434,7 +434,6 @@ xmap <silent> <C-s> <Plug>(coc-range-select)
 " Lua {{{{
 lua <<EOF
 vim.loader.enable()
-require('vim._extui').enable({})
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 
 require("origami").setup()
