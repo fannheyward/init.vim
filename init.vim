@@ -38,7 +38,7 @@ set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,eu
 colorscheme catppuccin-frappe
 
 set cmdheight=2
-set completeopt=menu
+set completeopt=menu,fuzzy
 set cursorline
 set diffopt+=internal,inline:char,algorithm:histogram,indent-heuristic,linematch:60
 set expandtab
