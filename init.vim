@@ -14,7 +14,7 @@ Plug '~/src/coc-clangd'
 Plug 'https://github.com/zef/vim-cycle'
 Plug 'https://github.com/tpope/vim-sleuth'
 " Plug 'https://github.com/github/copilot.vim'
-Plug 'https://github.com/echasnovski/mini.nvim'
+Plug 'https://github.com/nvim-mini/mini.nvim'
 Plug 'https://github.com/kevinhwang91/nvim-bqf'
 Plug 'https://github.com/azabiong/vim-highlighter'
 "Plug 'https://github.com/tweekmonster/helpful.vim'
@@ -450,6 +450,21 @@ require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.indentscope').setup()
 
+-- cmdline auto completion
+vim.opt.wildmode = 'noselect:lastused,full'
+vim.opt.wildoptions = "pum,fuzzy"
+vim.keymap.set('c', '<Up>', '<End><C-U><Up>', { silent = true })
+vim.keymap.set('c', '<Down>', '<End><C-U><Down>', { silent = true })
+
+vim.api.nvim_create_autocmd('CmdlineChanged', {
+  group = vim.api.nvim_create_augroup('cmdline-complete', { clear = true }),
+  pattern = ':',
+  callback = function()
+      vim.fn.wildtrigger()
+  end,
+})
+
+-- diagnostic
 vim.diagnostic.config({ severity_sort = true, virtual_text = true })
 
 vim.api.nvim_create_autocmd("CursorHold", {
@@ -458,13 +473,6 @@ vim.api.nvim_create_autocmd("CursorHold", {
     vim.diagnostic.open_float({ border = 'single', focusable = false })
   end,
 })
-
-vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
-vim.keymap.set('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
-vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]])
-vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]])
-vim.keymap.set('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
-vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
 
 vim.keymap.set('n', 'ge', function()
   vim.diagnostic.jump({ count = vim.v.count1 })
@@ -476,6 +484,14 @@ vim.keymap.set('n', 'gK', function()
 end, { desc = 'Toggle diagnostic virtual_lines' })
 
 vim.keymap.set('n', 'dq', vim.diagnostic.setqflist)
+
+-- nvim-hlslens
+vim.keymap.set('n', 'n', [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', 'N', [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]])
+vim.keymap.set('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]])
 EOF
 " }}}} Lua
 
