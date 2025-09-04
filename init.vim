@@ -450,20 +450,6 @@ require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.indentscope').setup()
 
--- cmdline auto completion
-vim.opt.wildmode = 'noselect:lastused,full'
-vim.opt.wildoptions = "pum,fuzzy"
-vim.keymap.set('c', '<Up>', '<End><C-U><Up>', { silent = true })
-vim.keymap.set('c', '<Down>', '<End><C-U><Down>', { silent = true })
-
-vim.api.nvim_create_autocmd('CmdlineChanged', {
-  group = vim.api.nvim_create_augroup('cmdline-complete', { clear = true }),
-  pattern = ':',
-  callback = function()
-      vim.fn.wildtrigger()
-  end,
-})
-
 -- diagnostic
 vim.diagnostic.config({ severity_sort = true, virtual_text = true })
 
