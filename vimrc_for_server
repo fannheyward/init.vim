@@ -2,9 +2,11 @@
 set nocompatible
 filetype plugin indent on
 
+set autocomplete
 set autoindent
 set backspace=indent,eol,start
 set complete-=i
+set complete+=o
 set smarttab
 set nrformats-=octal
 set ttimeout
