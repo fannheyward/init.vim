@@ -38,7 +38,7 @@ set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,eu
 colorscheme catppuccin-frappe
 
 set cmdheight=2
-set completeopt=menu,fuzzy
+set completeopt=menuone,nosort,fuzzy
 set cursorline
 set diffopt+=internal,inline:char,algorithm:histogram,indent-heuristic,linematch:60
 set expandtab
@@ -453,8 +453,8 @@ require('mini.indentscope').setup()
 -- cmdline auto completion
 vim.opt.wildmode = 'noselect:lastused,full'
 vim.opt.wildoptions = "pum,fuzzy"
-vim.keymap.set('c', '<Up>', '<End><C-U><Up>', { silent = true })
-vim.keymap.set('c', '<Down>', '<End><C-U><Down>', { silent = true })
+--vim.keymap.set('c', '<Up>', '<End><C-U><Up>', { silent = true })
+--vim.keymap.set('c', '<Down>', '<End><C-U><Down>', { silent = true })
 
 vim.api.nvim_create_autocmd('CmdlineChanged', {
   group = vim.api.nvim_create_augroup('cmdline-complete', { clear = true }),
