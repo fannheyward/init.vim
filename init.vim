@@ -171,6 +171,8 @@ vnoremap ? <Esc>/\%V
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+vnoremap <c-]> g<c-]>
+nnoremap <c-]> g<c-]> " if there are multiple matches, choose
 nnoremap J mzJ`z:delmarks z<CR>
 nnoremap <leader>cp :set clipboard=unnamedplus<CR>
 nnoremap <leader>sr :%s/<<C-R><C-W>>//g<Left><Left>
@@ -241,7 +243,7 @@ function! s:go_to_definition()
     return v:true
   endif
 
-  let ret = execute("silent! normal \<C-]>")
+  let ret = execute("silent! normal \g<C-]>")
   if ret =~ "Error" || ret =~ "错误"
     call searchdecl(expand('<cword>'))
   endif
