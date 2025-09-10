@@ -172,7 +172,7 @@ vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 vnoremap <c-]> g<c-]>
-nnoremap <c-]> g<c-]> " if there are multiple matches, choose
+nnoremap <c-]> g<c-]>
 nnoremap J mzJ`z:delmarks z<CR>
 nnoremap <leader>cp :set clipboard=unnamedplus<CR>
 nnoremap <leader>sr :%s/<<C-R><C-W>>//g<Left><Left>
@@ -243,7 +243,7 @@ function! s:go_to_definition()
     return v:true
   endif
 
-  let ret = execute("silent! normal \g<C-]>")
+  let ret = execute("silent! normal \<C-]>")
   if ret =~ "Error" || ret =~ "错误"
     call searchdecl(expand('<cword>'))
   endif
@@ -394,6 +394,8 @@ omap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
 
+inoremap <silent><nowait><expr> <C-l> coc#inline#visible() ? coc#inline#next() : "\<C-l>"
+inoremap <silent><nowait><expr> <C-h> coc#inline#visible() ? coc#inline#prev() : "\<C-h>"
 nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
 nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
@@ -406,8 +408,8 @@ inoremap <silent><expr> <backspace> coc#pum#visible() ? "\<bs>\<c-r>=coc#start()
 inoremap <silent><expr> <C-x><C-z> coc#pum#visible() ? coc#pum#stop() : "\<C-x>\<C-z>"
 inoremap <silent><expr> <c-space> coc#refresh()
 inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1):
       \ coc#inline#visible() ? coc#inline#accept() :
+      \ coc#pum#visible() ? coc#pum#next(1):
       \ <SID>check_back_space() ? "\<TAB>" :
       \ <SID>next_char_pair() ? "\<Right>" :
       \ coc#refresh()
@@ -451,6 +453,10 @@ require('mini.tabline').setup()
 require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.indentscope').setup()
+
+require("catppuccin").setup({
+  auto_integrations = true,
+})
 
 -- cmdline auto completion
 vim.opt.wildmode = 'noselect:lastused,full'
