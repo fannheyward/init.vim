@@ -7,42 +7,42 @@ set autoindent
 set backspace=indent,eol,start
 set complete-=i
 set complete+=o
-set smarttab
+set completeopt=menu
+set cmdheight=2
+set expandtab
+set diffopt+=internal,algorithm:patience
+set fileencoding=utf-8
+set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
+set foldmethod=indent
+set hidden
+set history=1000
+set hlsearch
+set incsearch
+set ignorecase smartcase
+set laststatus=2
+set list listchars=tab:\|\ ,trail:·,eol:¬
+set matchpairs+=<:>
+set matchtime=2
+set nofoldenable
 set nrformats-=octal
+set number
+set pumheight=20
+set pumborder=rounded
+set shiftwidth=4
+set showcmd
+set showmatch
+set smarttab
+set tabstop=4
+set termguicolors
+set title
 set ttimeout
 set ttimeoutlen=100
 set updatetime=100
-set history=1000
-
-set title
-set hidden
-set incsearch
-set laststatus=2
-set ruler
-set number
-set showcmd
 set wildmenu
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set nofoldenable
-set foldmethod=indent
-set showmatch
-set matchtime=2
-set matchpairs+=<:>
-set hlsearch
-set ignorecase smartcase
-set completeopt=menu
-set termguicolors
-set diffopt+=internal,algorithm:patience
-set list listchars=tab:\|\ ,trail:·,eol:¬
+
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
-
-set encoding=utf-8
-set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
-set fileencoding=utf-8
 
 let g:loaded_node_provider = 0
 let g:loaded_ruby_provider = 0
