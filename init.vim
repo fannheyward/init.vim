@@ -32,6 +32,7 @@ call plug#end()
 " }}}} plug.vim
 
 " basic {{{{
+" packadd nvim.difftool
 packadd nvim.undotree
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
@@ -474,12 +475,12 @@ vim.api.nvim_create_autocmd('CmdlineChanged', {
 })
 
 -- diagnostic
-vim.diagnostic.config({ severity_sort = true, virtual_text = true })
+vim.diagnostic.config({ severity_sort = true, virtual_text = { source = true } })
 
 vim.api.nvim_create_autocmd("CursorHold", {
   group = vim.api.nvim_create_augroup("LspDiagnostics", { clear = true }),
   callback = function()
-    vim.diagnostic.open_float({ border = 'single', focusable = false })
+    vim.diagnostic.open_float({ border = 'single', focusable = false, source = true })
   end,
 })
 
