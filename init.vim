@@ -153,7 +153,6 @@ command! -nargs=0 JSONPretty    %!python3 -m json.tool
 command! -nargs=0 Todos         CocList -A --normal grep -w TODO|FIXME|FIX|FIXIT|BUG|HACK|XXX
 command! -nargs=0 Format        call CocAction('format')
 command! -nargs=0 Fold          call CocAction('fold')
-command! -nargs=0 GitStatus     CocList -A --normal gstatus
 command! -nargs=0 GitChunkUndo  call CocAction('runCommand', 'git.chunkUndo')
 command! -nargs=0 VSCode        silent! execute ":!code -g %:p\:" . line('.') . ":" . col('.')
 command! -nargs=0 Zed           silent! execute ":!zed --new %:" . line('.') . ":" . col('.')
