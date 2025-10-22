@@ -31,7 +31,6 @@
   "clangd.path": "~/bin/clangd",
   "coc.preferences.autoApplySingleQuickfix": false,
   "coc.preferences.enableLinkedEditing": true,
-  "coc.preferences.messageDialogKind": "notification",
   "coc.preferences.formatOnSave": true,
   "coc.preferences.formatOnType": true,
   "coc.preferences.useQuickfixForLocations": true,
