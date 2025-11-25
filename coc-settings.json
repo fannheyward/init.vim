@@ -85,11 +85,16 @@
     "<C-n>": "do:previewdown",
     "<C-p>": "do:previewup"
   },
-  "list.source.grep.defaultArgs": ["--ignore-case"],
+  "list.source.grep.defaultArgs": [
+    "--ignore-case"
+  ],
   "list.source.grep.useLiteral": false,
   "Lua.completion.callSnippet": "Both",
   "Lua.completion.postfix": ".",
-  "Lua.diagnostics.globals": ["vim", "jit"],
+  "Lua.diagnostics.globals": [
+    "vim",
+    "jit"
+  ],
   "Lua.runtime.version": "LuaJIT",
   "Lua.workspace.checkThirdParty": false,
   "markdownlint.config": {
@@ -108,8 +113,12 @@
   "semanticTokens.enable": true,
   "signature.target": "echo",
   "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescript": ["javascript"]
+    "javascriptreact": [
+      "javascript"
+    ],
+    "typescript": [
+      "javascript"
+    ]
   },
   "snippets.snipmate.enable": false,
   "snippets.ultisnips.enable": false,
