@@ -115,9 +115,6 @@
   "snippets.extends": {
     "javascriptreact": [
       "javascript"
-    ],
-    "typescript": [
-      "javascript"
     ]
   },
   "snippets.snipmate.enable": false,
