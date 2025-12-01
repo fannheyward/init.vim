@@ -37,7 +37,7 @@ packadd nvim.undotree
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
-colorscheme catppuccin-frappe
+colorscheme catppuccin-latte
 
 set cmdheight=2
 set completeopt=menuone,nosort,fuzzy
