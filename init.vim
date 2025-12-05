@@ -312,9 +312,6 @@ let g:gutentags_ctags_exclude = ['*.md', '*.json', '*.js', '*.ts', '*.jsx', '*.c
 " vim-highlighter {{{{
 let HiSetSL = '<Nop>'
 let HiFindTool = 'rg -H --color=never --no-heading --column --smart-case'
-nnoremap -  <Cmd>Hi/next<CR>
-nnoremap _  <Cmd>Hi/previous<CR>
-nnoremap f- <Cmd>Hi/close<CR>
 " }}}}
 
 " go.vim {{{{
