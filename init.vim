@@ -70,6 +70,7 @@ set tabstop=4
 set tagfunc=CocTagFunc
 set title
 set updatetime=100
+set wildmode=noselect:lastused,full
 
 setlocal noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -447,6 +448,7 @@ require('mini.extra').setup()
 require('mini.icons').setup()
 require('mini.misc').setup_restore_cursor()
 require('mini.pick').setup()
+require('mini.cmdline').setup()
 require('mini.tabline').setup()
 require('mini.surround').setup()
 require('mini.statusline').setup()
@@ -454,20 +456,6 @@ require('mini.indentscope').setup()
 
 require("catppuccin").setup({
   auto_integrations = true,
-})
-
--- cmdline auto completion
-vim.opt.wildmode = 'noselect:lastused,full'
-vim.opt.wildoptions = "pum,fuzzy"
---vim.keymap.set('c', '<Up>', '<End><C-U><Up>', { silent = true })
---vim.keymap.set('c', '<Down>', '<End><C-U><Down>', { silent = true })
-
-vim.api.nvim_create_autocmd('CmdlineChanged', {
-  group = vim.api.nvim_create_augroup('cmdline-complete', { clear = true }),
-  pattern = ':',
-  callback = function()
-      vim.fn.wildtrigger()
-  end,
 })
 
 -- diagnostic
