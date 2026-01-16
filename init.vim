@@ -444,19 +444,17 @@ require("debugprint").setup()
 require('hlslens').setup({ calm_down = true })
 
 require('mini.ai').setup()
-require('mini.extra').setup()
-require('mini.icons').setup()
 require('mini.misc').setup_restore_cursor()
 require('mini.pick').setup()
+require('mini.extra').setup()
+require('mini.icons').setup()
 require('mini.cmdline').setup()
 require('mini.tabline').setup()
 require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.indentscope').setup()
 
-require("catppuccin").setup({
-  auto_integrations = true,
-})
+require("catppuccin").setup({ auto_integrations = true })
 
 -- diagnostic
 vim.diagnostic.config({ severity_sort = true, virtual_text = { source = true } })
