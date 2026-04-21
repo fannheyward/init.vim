@@ -37,8 +37,6 @@ packadd nvim.undotree
 set fileencoding=utf-8
 set fileencodings=utf-8,gbk,chinese,cp936,gb18030,utf-16le,utf-16,big5,euc-jp,euc-kr,latin-1
 
-colorscheme catppuccin-frappe
-
 set cmdheight=2
 set completeopt=menuone,nosort,fuzzy
 set cursorline
@@ -72,11 +70,11 @@ set title
 set updatetime=100
 set wildmode=noselect:lastused,full
 
-setlocal noswapfile
+set noswapfile
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
-let loaded_spellfile_plugin = 1
+let g:loaded_spellfile_plugin = 1
 let g:loaded_tar = 1
 let g:loaded_tarPlugin = 1
 let g:loaded_tohtml = 1
@@ -105,7 +103,7 @@ augroup common
   autocmd BufNewFile,BufRead LICENSE* setlocal filetype=license
 
   autocmd FileType go setlocal expandtab
-  autocmd FileType go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd FileType go command! -buffer -bang A call go#alternate#Switch(<bang>0, 'edit')
   autocmd FileType lua setlocal includeexpr=substitute(v:fname,'\\.','/','g')
   autocmd FileType lua setlocal include=require
   autocmd FileType lua setlocal define=function
@@ -164,7 +162,7 @@ command! -nargs=0 BOnly         silent! execute "%bd\|e#\|bd#"
 nmap <nowait> yc yygccp
 nmap <silent> <leader>ee :e $HOME/.config/nvim/init.vim<CR>
 nmap <silent> <leader>dd :e $HOME/.config/nvim/dev.dict<CR>
-setl dictionary+=$HOME/.config/nvim/dev.dict
+set dictionary+=$HOME/.config/nvim/dev.dict
 
 nmap ? /\<\><Left><Left>
 nmap <silent> <leader>n :nohlsearch<CR>
@@ -226,7 +224,6 @@ endfunction
 
 function! s:next_char_pair() abort
   let col = col('.') - 1
-  echom getline('.')[col]
   return getline('.')[col] =~# ')\|]\|}\|>\|''\|"\|`'
 endfunction
 
@@ -241,7 +238,7 @@ function! s:show_documentation()
 endfunction
 
 function! s:go_to_definition()
-  if CocActionAsync('jumpDefinition')
+  if CocAction('jumpDefinition')
     return v:true
   endif
 
@@ -321,7 +318,6 @@ let g:go_fmt_command = "gofumpt"
 
 " coc.nvim {{{{
 " let g:coc_node_args = ['--nolazy', '--inspect-brk=6045']
-let g:copilot_no_tab_map = v:true
 let g:coc_enable_locationlist = 0
 let g:coc_global_extensions = [
       \'https://github.com/rafamadriz/friendly-snippets',
@@ -454,7 +450,8 @@ require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.indentscope').setup()
 
-require("catppuccin").setup({ auto_integrations = true })
+require("catppuccin").setup({ auto_integrations = true, flavour = 'frappe' })
+vim.cmd.colorscheme('catppuccin-nvim')
 
 -- diagnostic
 vim.diagnostic.config({ severity_sort = true, virtual_text = { source = true } })
