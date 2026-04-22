@@ -24,6 +24,8 @@ set pumheight=20
 set nocompatible
 set formatoptions=croqnlj
 set backspace=indent,eol,start
+set wildmode=noselect:lastused,full
+set wildoptions=pum
 " set clipboard=unnamed
 set list listchars=tab:\›\ ,trail:·,eol:¬,leadmultispace:---+,nbsp:⍽,extends:>,precedes:<
 setlocal noswapfile
@@ -68,6 +70,9 @@ cnoremap <C-e> <End>
 cnoremap <C-d> <Del>
 cnoremap <C-h> <BS>
 cnoremap <C-t> <C-R>=expand("%:p:h") . "/" <CR>
+
+cnoremap <expr> <Up>   wildmenumode() ? "\<C-E>\<Up>"   : "\<Up>"
+cnoremap <expr> <Down> wildmenumode() ? "\<C-E>\<Down>" : "\<Down>"
 
 command! -nargs=0 E     e
 command! -nargs=0 Q     q
@@ -223,6 +228,8 @@ augroup common
   autocmd CursorHold * silent call CocActionAsync('highlight')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
   autocmd User CocQuickfixChange :CocList --normal quickfix
+
+  autocmd CmdlineChanged [:\/\?] call wildtrigger()
 
   " set up default omnifunc
   autocmd FileType *
