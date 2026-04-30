@@ -21,7 +21,6 @@ Plug 'https://github.com/azabiong/vim-highlighter'
 Plug 'https://github.com/chrisgrieser/nvim-origami'
 Plug 'https://github.com/kevinhwang91/nvim-hlslens'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
-Plug 'https://github.com/andrewferrier/debugprint.nvim'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 " Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 
@@ -436,7 +435,6 @@ vim.loader.enable()
 require('vim.lsp.log').set_level(vim.log.levels.OFF)
 
 require("origami").setup()
-require("debugprint").setup()
 require('hlslens').setup({ calm_down = true })
 
 require('mini.ai').setup()
