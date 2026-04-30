@@ -186,7 +186,7 @@ function! s:show_documentation()
 endfunction
 
 function! s:go_to_definition()
-  if CocActionAsync('jumpDefinition')
+  if CocAction('jumpDefinition')
     return v:true
   endif
 
