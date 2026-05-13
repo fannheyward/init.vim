@@ -24,7 +24,7 @@ Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 " Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 
-Plug 'https://github.com/fannheyward/go.vim', { 'for': 'go' }
+" Plug 'https://github.com/fannheyward/go.vim', { 'for': 'go' }
 Plug 'https://github.com/catppuccin/nvim', { 'as': 'catppuccin' }
 call plug#end()
 " }}}} plug.vim
