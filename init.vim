@@ -185,7 +185,7 @@ nnoremap <silent><nowait> <space>g  :Pick grep_live tool=rg<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
 nnoremap <silent><nowait> <space>S  :cgetexpr <SID>grep_to_qf(expand('<cword>'), expand('%'))<CR>
 nnoremap <silent><nowait> <space>r  :if &modifiable \| setl noma \| echo 'non-modifiable' \| else \| setl ma \| echo 'modifiable' \| endif<CR>
-" use `` or '' to jump, `:h m'`
+" use `` or '' to jump back, `:h m'`
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'gk'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'gj'
 
@@ -324,6 +324,7 @@ let g:coc_global_extensions = [
       \'coc-ecdict',
       \'coc-eslint',
       \'coc-git',
+      \'coc-github-copilot',
       \'coc-go',
       \'coc-highlight',
       \'coc-json',
