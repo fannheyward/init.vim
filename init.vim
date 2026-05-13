@@ -414,10 +414,6 @@ nnoremap <silent><nowait> <space>o  :<C-u>CocList -A outline -kind<CR>
 nnoremap <silent><nowait> <space>m  :<C-u>CocList -A -N mru<CR>
 nnoremap <silent><nowait> <space>w  :<C-u>CocList -I -N symbols<CR>
 nnoremap <silent><nowait> <space>y  :<C-u>CocList -A --normal yank<CR>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>d  :call CocActionAsync('jumpDefinition', v:false)<CR>
-nnoremap <silent><nowait> <space>i  :call CocActionAsync('jumpImplementation', v:false)<CR>
 
 " override nvim default LSP key-mappings `:h gr-default`
 nnoremap <silent><nowait> gr <Plug>(coc-references-used)
