@@ -26,7 +26,6 @@ Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'npm i'}
 
 Plug 'https://github.com/fannheyward/go.vim', { 'for': 'go' }
 Plug 'https://github.com/catppuccin/nvim', { 'as': 'catppuccin' }
-Plug 'https://github.com/AndrewRadev/inline_edit.vim', { 'on': 'InlineEdit' }
 call plug#end()
 " }}}} plug.vim
 
