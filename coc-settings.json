@@ -28,7 +28,6 @@
     "--header-insertion=iwyu",
     "-j=8"
   ],
-  "clangd.path": "~/bin/clangd",
   "coc.preferences.autoApplySingleQuickfix": false,
   "coc.preferences.enableLinkedEditing": true,
   "coc.preferences.formatOnSave": true,
