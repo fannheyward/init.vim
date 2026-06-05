@@ -179,7 +179,6 @@ nnoremap <silent> gb :bn<CR>
 nnoremap <silent> gB :bp<CR>
 nnoremap <silent><nowait> <C-c> ciw
 nnoremap <silent><nowait> <tab><tab> :Pick buffers<CR>
-nnoremap <silent><nowait> <space>b  :Pick buffers<CR>
 nnoremap <silent><nowait> <space>f  :Pick files tool=rg<CR>
 nnoremap <silent><nowait> <space>g  :Pick grep_live tool=rg<CR>
 nnoremap <silent><nowait> <space>s  :cgetexpr <SID>grep_to_qf(expand('<cword>'))<CR>
@@ -438,6 +437,7 @@ require('mini.misc').setup_restore_cursor()
 require('mini.pick').setup()
 require('mini.extra').setup()
 require('mini.icons').setup()
+require('mini.input').setup()
 require('mini.cmdline').setup()
 require('mini.tabline').setup()
 require('mini.surround').setup()
