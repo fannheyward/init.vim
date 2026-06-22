@@ -444,7 +444,7 @@ require('mini.surround').setup()
 require('mini.statusline').setup()
 require('mini.indentscope').setup()
 
-require("catppuccin").setup({ auto_integrations = true, flavour = 'frappe' })
+require("catppuccin").setup({ auto_integrations = true, flavour = 'latte' })
 vim.cmd.colorscheme('catppuccin-nvim')
 
 -- diagnostic
